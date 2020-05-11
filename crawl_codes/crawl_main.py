@@ -79,10 +79,61 @@ def get_benchmarks():
     pass
 
 
+def get_cpu_mark_mixed():
+    html = HTMLDownloader.get_page_content(
+        "https://www.notebookcheck.net/Mobile-Processors-Benchmark-List.2436.0.html" +
+        "?type=&sort=&archive=1&or=0&3dmark06cpu=1&cinebench_r15_single=1&cinebench_r15_multi=1&cinebench_r20_multi=1" +
+        "&cpu_fullname=1&mhz=1&turbo_mhz=1&cores=1&threads=1")['html']
+    soup = BeautifulSoup(html, parser="lxml")
+    rows = soup.find("table", id="sortierbare_tabelle").find_all('tr', class_=re.compile(r"even|odd"))
+    cpu_ranks = list()
+    for row in rows:
+        for i in row.find_all('sup'):
+            i.decompose()
+        item = {}
+        pivot = row.find("td", class_="specs").next_sibling
+        cpu_name = pivot.getText().strip()
+        item['cpu_name'] = cpu_name
+        pivot = pivot.next_sibling
+        main_clock_speed = pivot.getText().strip().split('‑')
+        if len(main_clock_speed) > 1:
+            item['Mhz'], item['Mhz_turbo'] = main_clock_speed[0].strip(), main_clock_speed[0].strip()
+        else:
+            item['Mhz'], item['Mhz_turbo'] = main_clock_speed[0], None
+        pivot = pivot.next_sibling
+        cores = pivot.getText().strip().split('/')
+        if len(cores) > 1:
+            item['cores'], item['threads'] = cores
+        else:
+            item['cores'], item['threads'] = main_clock_speed[0], None
+        score = row.find("span", class_='bl_med_val_244_705')
+        if score:
+            item['score_Cine15single'] = score.getText().strip()
+        else:
+            item['score_Cine15single'] = None
+        score = row.find("span", class_='bl_med_val_244_706')
+        if score:
+            item['score_Cine15Multi'] = score.getText().strip()
+        else:
+            item['score_Cine15Multi'] = None
+        score = row.find("span", class_='bl_med_val_671_2014')
+        if score:
+            item['score_Cine20'] = score.getText().strip()
+        else:
+            item['score_Cine20'] = None
+        cpu_ranks.append(item)
+    pprint.pprint(cpu_ranks)
+    with open("crawled_data/parts_set.txt", 'a')as file:
+        file.write("\n\n"+pprint.pformat(cpu_ranks))
+    return cpu_ranks
+
+
 if __name__ == '__main__':
     # 候选笔记本包含的所有cpu和gpu种类
-    pprint.pprint(read_laptops())
+    # pprint.pprint(read_laptops())
     # 3DMark上所有有评分的cpu和gpu
-    cpu_marks, gpu_marks = get_benchmarks()
-    pprint.pprint(cpu_marks)
-    pprint.pprint(gpu_marks)
+    # cpu_marks, gpu_marks = get_benchmarks()
+    # pprint.pprint(cpu_marks)
+    # pprint.pprint(gpu_marks)
+    # 外网笔记本cpu评分记录网站
+    get_cpu_mark_mixed()
