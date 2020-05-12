@@ -84,7 +84,7 @@ def get_cpu_mark_mixed():
         "https://www.notebookcheck.net/Mobile-Processors-Benchmark-List.2436.0.html" +
         "?type=&sort=&archive=1&or=0&3dmark06cpu=1&cinebench_r15_single=1&cinebench_r15_multi=1&cinebench_r20_multi=1" +
         "&cpu_fullname=1&mhz=1&turbo_mhz=1&cores=1&threads=1")['html']
-    soup = BeautifulSoup(html, features="html.parser")
+    soup = BeautifulSoup(html, features="lxml")
     rows = soup.find("table", id="sortierbare_tabelle").find_all('tr', class_=re.compile(r"even|odd"))
     cpu_ranks = list()
     for row in rows:
@@ -149,7 +149,7 @@ if __name__ == '__main__':
             laptops.remove(i)
             remove_count += 1
     print(str(remove_count) + " laptops removed due to CPU.\n")
-    file_string += "最终CPU集合：\n" + pprint.pformat(cpu_s.intersection(laptop_cpu))
+    file_string += "最终CPU集合：\n" + pprint.pformat(set(cpu_s.intersection(laptop_cpu)))
     # 根据显卡取交集
     gpu_s = set(gpu_marks.keys())
     remove_count = 0

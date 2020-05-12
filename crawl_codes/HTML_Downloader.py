@@ -84,7 +84,7 @@ class HTMLDownloader(object):
             else:
                 # 获取成功操作
                 # 组织页面的全部信息
-                result = response.content.decode("utf-8", errors="ignore")
+                result = response.content.decode(response.encoding, errors="ignore")
                 return result, response.url
         # 连接失败，抛异常
         raise UserWarning("connection failed {} times.".format(retry_time))
