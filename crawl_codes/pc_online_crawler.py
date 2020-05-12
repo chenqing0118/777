@@ -114,15 +114,15 @@ class TaiPingYangCrawler:
                         real_value = re.sub(r"\(.*\)", "", value)
                     if real_key == "type":
                         real_value = "其他"
-                        if value.find("办公"):
+                        if value.find("办公") >= 0:
                             real_value = "办公"
-                        if value.find("轻薄"):
+                        if value.find("轻薄") >= 0:
                             real_value = "轻薄"
-                        if value.find("影音"):
+                        if value.find("影音") >= 0:
                             real_value = "影音"
-                        if value.find("游戏"):
+                        if value.find("游戏") >= 0:
                             real_value = "游戏"
-                        if value.find("工作站"):
+                        if value.find("工作站") >= 0:
                             real_value = "工作站"
                     if real_key == "mem_type":
                         real_value = re.findall(r"DDR\d", value)[0]
@@ -136,5 +136,7 @@ class TaiPingYangCrawler:
 
 
 if __name__ == '__main__':
-    test = TaiPingYangCrawler().get_laptop_list(pages_limit=2)
+    test = TaiPingYangCrawler().get_laptop_list(pages_limit=10)
     pprint.pprint(test)
+    with open('crawled_data/test', "w", encoding="utf-8") as file:
+        file.write(pprint.pformat(test))
