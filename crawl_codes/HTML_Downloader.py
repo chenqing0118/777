@@ -121,8 +121,7 @@ class HTMLDownloader(object):
         while fail_count < retry_time:
             try:
                 # 获取内容
-                response = requests.request(method="POST", url=url, headers=internal_header, timeout=5, data=data)
-                response.request.method = 'POST'
+                response = requests.post(url=url, headers=internal_header, data=data)
             except Exception as e:
                 # 记录失败，重试连接
                 fail_count += 1
