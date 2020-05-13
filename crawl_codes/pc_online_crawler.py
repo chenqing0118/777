@@ -37,6 +37,7 @@ class TaiPingYangCrawler:
         for i in range(1, pages_limit):
             effective_urls.append(base_url + str(i * 25) + url_suffix)
         for url in effective_urls:
+            print(url)
             result.extend(self._parse_list(url, ignore_invalid))
         return result
         pass
@@ -58,10 +59,13 @@ class TaiPingYangCrawler:
             title = row.find('a', class_="item-title-name")
             item['name'] = title.getText().strip()
             item_url = "https:" + title['href']
-            item['pic_link'] = "https:" + \
-                               BeautifulSoup(
-                                   HTMLDownloader.get_page_content(item_url)['html'], features="html.parser").find(
-                                   'div', class_="big-pic").find('img')['src']
+            pic_div = BeautifulSoup(
+                HTMLDownloader.get_page_content(item_url)['html'], features="html.parser").find(
+                'div', class_="big-pic")
+            if pic_div:
+                item['pic_link'] = "https:" + pic_div.find('img')['src']
+            else:
+                item['pic_link'] = None
             item_spec_url = item_url.replace(".html", "_detail.html")
             specs = self._parse_item(item_spec_url)
             item.update(specs)
@@ -142,46 +146,117 @@ class TaiPingYangCrawler:
         return specs
         pass
 
+    @staticmethod
+    def unify_items(item_list: list) -> list:
+        for item in item_list:
+            # 解析存储
+            json = {"ssd": 0, "hdd": 0}
+            if item['storage']:
+                disks = item['storage'].split(',')
+                for disk in disks:
+                    volume = int(re.findall(r"\d+", disk)[0]) if disk.find("TB") < 0 else int(float(
+                        re.findall(r"\d+", disk)[0]) * 1024)
+                    if disk.find("SSD") >= 0:
+                        json["ssd"] += volume
+                    elif disk.find("HDD") >= 0:
+                        json["hdd"] += volume
+                if json['ssd'] == 0:
+                    json["ssd"] = None
+                if json['hdd'] == 0:
+                    json["hdd"] = None
+                item['storage'] = json
+            # 价格格式化
+            item['price'] = re.sub("￥", "", item['price'])
+            # 内存类型格式化
+            if item.get("mem_type") and item['mem_type'] == "LDDPR4":
+                item['mem_type'] = "DDR4"
+            # USB格式化，只存数量（usb2，usb3,type-c)
+            usb = [0, 0, 0]
+            if item.get("usb_settings"):
+                settings = re.sub(r"\(.*\)", '', item['usb_settings']).split(",")
+                for sett in settings:
+                    pattern = [r"USB\s?2.\d", r"USB\s?3.\d", "[Tt]ype-?[cC]"]
+                    for j in range(3):
+                        if len(re.findall(pattern[j], sett)) > 0:
+                            sett = re.sub(pattern[j], "", sett)
+                            num = re.findall("\d+", sett)
+                            num = 1 if len(num) == 0 else int(num[0])
+                            usb[j] += num
+                            break
+                item['usb_settings'] = usb
+            # 其他接口，直接写接口名字
+            if item.get("other_ports"):
+                ports_unified = set()
+                ports = item['other_ports']
+                if ports.find("HDMI") >= 0:
+                    ports_unified.add("HDMI")
+                if ports.find("DisplayPort") >= 0 or ports.find("DP") >= 0:
+                    ports_unified.add("DisplayPort")
+                if ports.find("耳机") >= 0:
+                    ports_unified.add("headphone")
+                if ports.find("Thunderbolt") >= 0:
+                    ports_unified.add("Thunderbolt")
+                if ports.find("RJ45") >= 0:
+                    ports_unified.add("RJ45")
+                item['other_ports'] = ports_unified if len(ports_unified) > 0 else None
+            # 发售时间格式化
+            # 发售时间一共3种格式：年；年-月；年-季。
+            # 故统一转化为以下格式：yyyy_0;yyyy_mm;yyyy_[ABCD]对应春夏秋冬
+            if item.get("sale_date"):
+                if item["sale_date"].find("季") >= 0:
+                    year_str = item["sale_date"].replace("春季", "A").replace(
+                        "夏季", "B").replace("秋季", "C").replace("冬季", "D")
+                    year_str = year_str.replace("年", "_")
+                elif item["sale_date"].find("月") >= 0:
+                    year_str = "_".join(re.findall(r"\d+", item["sale_date"]))
+                else:
+                    year_str = re.findall(r"\d+", item["sale_date"])[0] + "_0"
+                item['sale_date'] = year_str
+                # 电池字段过于杂乱，没有参考意义，丢弃
+                # item.pop("battery", "404")
+                # 屏幕属性一样很杂，但是有些用，暂时不动
+                pass
+                # 核显和集成几乎没有跑分数据，不好处理，所以单独列出
+                if item['gpu_type'] and item['gpu_type'].find("独立") < 0:
+                    item['gpu_mem'] = None
+                # 续航时间，也不太靠谱
+                if item.get('work_time'):
+                    numbers = re.findall(r"\d+", item['work_time'])
+                    if len(numbers) > 0:
+                        item['work_time'] = numbers[-1]
+                    else:
+                        item['work_time'] = None  # 没有参考价值
+                # 重量统一为Kg，只留数字
+                if item.get('weight'):
+                    numbers = re.findall(r"\d.\d+|\D\d[^.\d]", item['weight'])[-1]
+                # 厚度检查后缀是否为mm，否则无效
+                if item.get('thickness'):
+                    if not item['thickness'].endswith("mm"):
+                        item['thickness'] = None
+        return item_list
+
 
 if __name__ == '__main__':
-    test = TaiPingYangCrawler().get_laptop_list(pages_limit=1)
+    test = TaiPingYangCrawler().get_laptop_list(pages_limit=10)
     print(len(test))
+    pprint.pprint(test)
+    print("\n\n")
+    test = TaiPingYangCrawler.unify_items(test)
+    pprint.pprint(test)
+    # 所有字段出现过的值汇总：
+    status = dict.fromkeys(test[0].keys())
+    for key, value in status.items():
+        status[key] = set()
     for item in test:
-        # 解析存储
-        json = {"ssd": 0, "hdd": 0}
-        if item['storage']:
-            disks = item['storage'].split(',')
-            for disk in disks:
-                volume = int(re.findall(r"\d+", disk)[0]) if disk.find("TB") < 0 else float(
-                    re.findall(r"\d+", disk)[0]) * 1024
-                if disk.find("SSD") >= 0:
-                    json["ssd"] += volume
-                elif disk.find("HDD") >= 0:
-                    json["hdd"] += volume
-            if json['ssd'] == 0:
-                json["ssd"] = None
-            if json['hdd'] == 0:
-                json["hdd"] = None
-            item['storage'] = json
-        # 价格格式化
-        item['price'] = re.sub("￥", "", item['price'])
-        # 内存类型格式化
-        if item.get("mem_type") and item['mem_type'] == "LDDPR4":
-            item['mem_type'] = "DDR4"
-        # USB格式化
-        usb = [0, 0, 0]
-        if item.get("usb_settings"):
-            settings = item['usb_settings'].split(",")
-            for sett in settings:
-                pattern = [r"USB\s?2.\d", r"USB\s?3.\d", "[Tt]ype-?[cC]"]
-                for j in range(3):
-                    if len(re.findall(pattern[j], sett)) > 0:
-                        sett = re.sub(pattern[j], "", sett)
-                        num = re.findall("\d+", sett)
-                        num = 1 if len(num) == 0 else int(num[0])
-                        usb[j] += num
-                        break
-            item['usb_settings'] = usb
-pprint.pprint(test)
-with open('crawled_data/test', "w", encoding="utf-8") as file:
-    file.write(pprint.pformat(test))
+        for key, value in item.items():
+            status[key].add(str(value))
+    print("\n\n")
+    status.pop("pic_link")
+    status.pop('name')
+    status.pop('model')
+    status.pop('price')
+    pprint.pprint(status)
+    with open('crawled_data/test', "w", encoding="utf-8") as file:
+        file.write(pprint.pformat(test))
+        file.write('\n----------------------------------------\n字段值情况：\n')
+        file.write(pprint.pformat(status))
