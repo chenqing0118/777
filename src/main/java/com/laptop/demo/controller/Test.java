@@ -16,7 +16,6 @@ public class Test {
     @RequestMapping("/about-us")
     public String about(Model model){
 
-        model.addAttribute("msg","好想粗去玩~");
         return "about-us";
     }
 
@@ -38,7 +37,7 @@ public class Test {
         return "contact-us";
     }
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public String index(Model model){
 
         return "index";
