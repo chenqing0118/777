@@ -7,14 +7,14 @@
     <meta name="description" content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.png}">
-    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-4.2.1.css">
+    <link rel="stylesheet" th:href="@{assets/css/bootstrap-4.2.1.min.css}">
     <link rel="stylesheet" th:href="@{assets/css/owl.carousel.min.css}">
     <link rel="stylesheet" th:href="@{assets/css/owl.theme.min.css}">
     <link rel="stylesheet" th:href="@{assets/css/animate.min.css}">
     <link rel="stylesheet" th:href="@{assets/css/fontawesome-all.min.css}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{assets/css/meanmenu.css}">
-    <link rel="stylesheet" th:href="@{style.css}">
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
     <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
 
 
@@ -47,8 +47,8 @@
                     <div class="main-menu">
                         <!-- Logo Area -->
                         <div class="logo-area">
-                            <a href="index.html" class="main-logo"><img src="assets/img/main-logo.png" alt="main-logo.png"></a>
-                            <a href="index.html" class="logo-sticky d-none"><img src="assets/img/sticky-logo.png" alt="sticky-logo.png"></a>
+                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}" alt="main-logo.png"></a>
+                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}" alt="sticky-logo.png"></a>
                         </div>
 
                         <!-- Main Menu Area -->
@@ -57,28 +57,28 @@
                                 <!-- dropdown menu-area-->
                                 <li><a href="#">home <i class="fas fa-angle-down"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="index-2.html">Home Two</a></li>
+                                        <li><a th:href="@{/}">Home</a></li>
+                                        <li><a th:href="@{/index-2}">Home Two</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="about-us.html">about</a></li>
-                                <li><a href="project-list.html">Project</a></li>
+                                <li><a th:href="@{/about-us}">about</a></li>
+                                <li><a th:href="@{/project-list}">Project</a></li>
                                 <!-- dropdown menu-area-->
                                 <li><a href="#">Pages <i class="fas fa-angle-down"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="project-list.html">Project List</a></li>
-                                        <li><a href="project-details.html">Project Details</a></li>
-                                        <li><a href="service-list.html">Service List</a></li>
-                                        <li><a href="service-details.html">Service Details</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                        <li><a href="404.html">404 page</a></li>
+                                        <li><a th:href="@{/project-list}">Project List</a></li>
+                                        <li><a th:href="@{/project-details}">Project Details</a></li>
+                                        <li><a th:href="@{/service-list}">Service List</a></li>
+                                        <li><a th:href="@{/service-details}">Service Details</a></li>
+                                        <li><a th:href="@{/blog}">Blog</a></li>
+                                        <li><a th:href="@{/blog-details}">Blog Details</a></li>
+                                        <li><a th:href="@{/404}">404 page</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="service-list.html">services</a></li>
+                                <li><a th:href="@{/service-list}">services</a></li>
                                 <li><a href="index.html#Expertise">Expertise</a></li>
-                                <li><a href="blog.html">blog</a></li>
-                                <li><a href="contact-us.html">contact</a></li>
+                                <li><a th:href="@{/blog}">blog</a></li>
+                                <li><a th:href="@{/contact-us}">contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -226,17 +226,17 @@
                 <div class="box">
                     <div class="icon-box">
                         <!-- single-service-icon-->
-                        <img src="assets/img/services/service-icon/shopify_color.png" alt="service-icon">
+                        <img th:src="@{assets/img/services/service-icon/shopify_color.png}" alt="service-icon">
                         <!-- single-service-content-->
                        <div class="content py-3 service-content">
-                            <a href="service-details.html"><h1>Shopify development</h1></a>
+                            <a th:href="@{/service-details}"><h1>Shopify development</h1></a>
                             <p class="py-2">
 
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi fuga, ipsa ipsum laudantium.
 
                             </p>
 
-                            <a href="service-details.html" class="link">Details</a>
+                            <a th:href="@{/service-details}" class="link">Details</a>
                         </div>
                     </div>
                 </div>
@@ -246,16 +246,16 @@
                 <div class="box">
                     <div class="icon-box">
                         <!-- single-service-icon-->
-                        <img src="assets/img/services/service-icon/Drupal_color.png" alt="service-icon">
+                        <img th:src="@{assets/img/services/service-icon/Drupal_color.png}" alt="service-icon">
                         <!-- single-service-content-->
                         <div class="content py-3 service-content">
-                            <a href="service-details.html"><h1>Drupal development</h1></a>
+                            <a th:href="@{/service-details}"><h1>Drupal development</h1></a>
                             <p class="py-2">
 
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi fuga, ipsa ipsum laudantium.
 
                             </p>
-                            <a href="service-details.html" class="link">Details</a>
+                            <a th:href="@{/service-details}" class="link">Details</a>
                         </div>
                     </div>
                 </div>
@@ -265,16 +265,16 @@
                 <div class="box">
                     <div class="icon-box">
                         <!-- single-service-icon-->
-                        <img src="assets/img/services/service-icon/Joomla_color.png" alt="service-icon">
+                        <img th:src="@{assets/img/services/service-icon/Joomla_color.png}" alt="service-icon">
                         <!-- single-service-content-->
                        <div class="content py-3 service-content">
-                            <a href="service-details.html"><h1>Joomla development</h1></a>
+                            <a th:href="@{/service-details}"><h1>Joomla development</h1></a>
                             <p class="py-2">
 
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi fuga, ipsa ipsum laudantium.
 
                             </p>
-                            <a href="service-details.html" class="link">Details</a>
+                            <a th:href="@{/service-details}" class="link">Details</a>
                         </div>
                     </div>
                 </div>
@@ -284,16 +284,16 @@
                 <div class="box">
                     <div class="icon-box">
                         <!-- single-service-icon-->
-                        <img src="assets/img/services/service-icon/Laravel_color.png" alt="service-icon">
+                        <img th:src="@{assets/img/services/service-icon/Laravel_color.png}" alt="service-icon">
                         <!-- single-service-content-->
                          <div class="content py-3 service-content">
-                            <a href="service-details.html"><h1>Laravel development</h1></a>
+                            <a th:href="@{/service-details}"><h1>Laravel development</h1></a>
                             <p class="py-2">
 
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi fuga, ipsa ipsum laudantium.
 
                             </p>
-                            <a href="service-details.html" class="link">Details</a>
+                            <a th:href="@{/service-details}" class="link">Details</a>
                         </div>
                     </div>
                 </div>
@@ -303,16 +303,16 @@
                 <div class="box">
                     <div class="icon-box">
                         <!-- single-service-icon-->
-                        <img src="assets/img/services/service-icon/Magento_color.png" alt="service-icon">
+                        <img th:src="@{assets/img/services/service-icon/Magento_color.png}" alt="service-icon">
                         <!-- single-service-content-->
                          <div class="content py-3 service-content">
-                            <a href="service-details.html"><h1>Magento development</h1></a>
+                            <a th:href="@{/service-details}"><h1>Magento development</h1></a>
                             <p class="py-2">
 
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi fuga, ipsa ipsum laudantium.
 
                             </p>
-                            <a href="service-details.html" class="link">Details</a>
+                            <a th:href="@{/service-details}" class="link">Details</a>
                         </div>
                     </div>
                 </div>
@@ -322,16 +322,16 @@
                 <div class="box">
                     <div class="icon-box">
                         <!-- single-service-icon-->
-                        <img src="assets/img/services/service-icon/shopify_color.png" alt="service-icon">
+                        <img th:src="@{assets/img/services/service-icon/shopify_color.png}" alt="service-icon">
                         <!-- single-service-content-->
                         <div class="content py-3 service-content">
-                            <a href="service-details.html"><h1>Shopify development</h1></a>
+                            <a th:href="@{/service-details}"><h1>Shopify development</h1></a>
                             <p class="py-2">
 
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi fuga, ipsa ipsum laudantium.
 
                             </p>
-                            <a href="service-details.html" class="link">Details</a>
+                            <a th:href="@{/service-details}" class="link">Details</a>
                         </div>
                     </div>
                 </div>
@@ -341,16 +341,16 @@
                 <div class="box">
                     <div class="icon-box">
                         <!-- single-service-icon-->
-                        <img src="assets/img/services/service-icon/webdesign_color.png" alt="service-icon">
+                        <img th:src="@{assets/img/services/service-icon/webdesign_color.png}" alt="service-icon">
                         <!-- single-service-content-->
                          <div class="content py-3 service-content">
-                            <a href="service-details.html"><h1>Webdesign</h1></a>
+                            <a th:href="@{/service-details}"><h1>Webdesign</h1></a>
                             <p class="py-2">
 
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi fuga, ipsa ipsum laudantium.
 
                             </p>
-                            <a href="service-details.html" class="link">Details</a>
+                            <a th:href="@{/service-details}" class="link">Details</a>
                         </div>
                     </div>
                 </div>
@@ -360,16 +360,16 @@
                 <div class="box">
                     <div class="icon-box">
                         <!-- single-service-icon-->
-                        <img src="assets/img/services/service-icon/woo_color.png" alt="service-icon">
+                        <img th:src="@{assets/img/services/service-icon/woo_color.png}" alt="service-icon">
                         <!-- single-service-content-->
                        <div class="content py-3 service-content">
-                            <a href="service-details.html"><h1>Woo development</h1></a>
+                            <a th:href="@{/service-details}"><h1>Woo development</h1></a>
                             <p class="py-2">
 
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi fuga, ipsa ipsum laudantium.
 
                             </p>
-                            <a href="service-details.html" class="link">Details</a>
+                            <a th:href="@{/service-details}" class="link">Details</a>
                         </div>
                     </div>
                 </div>
@@ -380,16 +380,16 @@
                 <div class="box">
                     <div class="icon-box">
                         <!-- single-service-icon-->
-                        <img src="assets/img/services/service-icon/Yii_color.png" alt="service-icon">
+                        <img th:src="@{assets/img/services/service-icon/Yii_color.png}" alt="service-icon">
                         <!-- single-service-content-->
                          <div class="content py-3 service-content">
-                            <a href="service-details.html"><h1>Yii development</h1></a>
+                            <a th:href="@{/service-details}"><h1>Yii development</h1></a>
                             <p class="py-2">
 
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi fuga, ipsa ipsum laudantium.
 
                             </p>
-                            <a href="service-details.html" class="link">Details</a>
+                            <a th:href="@{/service-details}" class="link">Details</a>
                         </div>
                     </div>
                 </div>
@@ -399,16 +399,16 @@
                 <div class="box">
                     <div class="icon-box">
                         <!-- single-service-icon-->
-                        <img src="assets/img/services/service-icon/wordpress_color.png" alt="service-icon">
+                        <img th:src="@{assets/img/services/service-icon/wordpress_color.png}" alt="service-icon">
                         <!-- single-service-content-->
                         <div class="content py-3 service-content">
-                            <a href="service-details.html"><h1>Wordpress dev</h1></a>
+                            <a th:href="@{/service-details}"><h1>Wordpress dev</h1></a>
                             <p class="py-2">
 
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi fuga, ipsa ipsum laudantium.
 
                             </p>
-                            <a href="service-details.html" class="link">Details</a>
+                            <a th:href="@{/service-details}" class="link">Details</a>
                         </div>
                     </div>
                 </div>
@@ -493,7 +493,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 margin-bottom-r">
                     <!-- Footer Logo -->
                     <div class="company-logo text-center">
-                        <a href="index.html"><img src="assets/img/main-logo.png" alt="main-logo.png"></a>
+                        <a th:href="@{/}"><img th:src="@{assets/img/main-logo.png}" alt="main-logo.png"></a>
                     </div>
                 </div>
 
@@ -622,7 +622,7 @@
 
 <!-- JS here -->
 
-<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script th:src="@{assets/js/jquery-1.10.2.min.js}"></script>
 <script th:src="@{assets/js/popper.min.js}"></script>
 <script th:src="@{assets/js/bootstrap.min.js}"></script>
 <script th:src="@{assets/js/owl.carousel.min.js}"></script>

@@ -7,14 +7,14 @@
     <meta name="description" content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.png}">
-    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-4.2.1.css">
+    <link rel="stylesheet" th:href="@{assets/css/bootstrap-4.2.1.min.css}">
     <link rel="stylesheet" th:href="@{assets/css/owl.carousel.min.css}">
     <link rel="stylesheet" th:href="@{assets/css/owl.theme.min.css}">
     <link rel="stylesheet" th:href="@{assets/css/animate.min.css}">
     <link rel="stylesheet" th:href="@{assets/css/fontawesome-all.min.css}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{assets/css/meanmenu.css}">
-    <link rel="stylesheet" th:href="@{style.css}">
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
     <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
 
 
@@ -47,8 +47,8 @@
                     <div class="main-menu">
                         <!-- Logo Area -->
                         <div class="logo-area">
-                            <a href="index.html" class="main-logo"><img src="assets/img/main-logo.png" alt="main-logo.png"></a>
-                            <a href="index.html" class="logo-sticky d-none"><img src="assets/img/sticky-logo.png" alt="sticky-logo.png"></a>
+                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}" alt="main-logo.png"></a>
+                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}" alt="sticky-logo.png"></a>
                         </div>
 
                         <!-- Main Menu Area -->
@@ -57,28 +57,28 @@
                                 <!-- dropdown menu-area-->
                                 <li><a href="#">home <i class="fas fa-angle-down"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="index-2.html">Home Two</a></li>
+                                        <li><a th:href="@{/}">Home</a></li>
+                                        <li><a th:href="@{/index-2}">Home Two</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="about-us.html">about</a></li>
-                                <li><a href="project-list.html">Project</a></li>
+                                <li><a th:href="@{/about-us}">about</a></li>
+                                <li><a th:href="@{/project-list}">Project</a></li>
                                 <!-- dropdown menu-area-->
                                 <li><a href="#">Pages <i class="fas fa-angle-down"></i></a>
                                     <ul class="dropdown">
-                                        <li><a href="project-list.html">Project List</a></li>
-                                        <li><a href="project-details.html">Project Details</a></li>
-                                        <li><a href="service-list.html">Service List</a></li>
-                                        <li><a href="service-details.html">Service Details</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                        <li><a href="404.html">404 page</a></li>
+                                        <li><a th:href="@{/project-list}">Project List</a></li>
+                                        <li><a th:href="@{/project-details}">Project Details</a></li>
+                                        <li><a th:href="@{/service-list}">Service List</a></li>
+                                        <li><a th:href="@{/service-details}">Service Details</a></li>
+                                        <li><a th:href="@{/blog}">Blog</a></li>
+                                        <li><a th:href="@{/blog-details}">Blog Details</a></li>
+                                        <li><a th:href="@{/404}">404 page</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="service-list.html">services</a></li>
+                                <li><a th:href="@{/service-list}">services</a></li>
                                 <li><a href="#Expertise">Expertise</a></li>
-                                <li><a href="blog.html">blog</a></li>
-                                <li><a href="contact-us.html">contact</a></li>
+                                <li><a th:href="@{/blog}">blog</a></li>
+                                <li><a th:href="@{/contact-us}">contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
             <div class="single-slider">
                 <!-- Slider Image -->
                 <div class="slider-img">
-                    <img src="assets/img/header.jpg" alt="header.jpg">
+                    <img th:src="@{assets/img/header.jpg}" alt="header.jpg">
                 </div>
                 <div class="slider-text text-center">
                     <!--<span class="welcome">Welcome To Demosite</span>-->
@@ -207,7 +207,7 @@
             <div class="single-slider">
                 <!-- Slider Image -->
                 <div class="slider-img">
-                    <img src="assets/img/header-2.jpg" alt="header2.jpg">
+                    <img th:src="@{assets/img/header-2.jpg}" alt="header2.jpg">
                 </div>
                 <div class="slider-text text-center">
 
@@ -229,11 +229,11 @@
 
             <!-- Service Icon area-->
             <div class="col-md-4 col-sm-4">
-                <a href="service-list.html">
+                <a th:href="@{/service-list}">
                     <div class="service-box">
                         <!-- Service Icon -->
                         <div class="service-icon">
-                            <img src="assets/img/icon/webdev.png" alt="icon">
+                            <img th:src="@{assets/img/icon/webdev.png}" alt="icon">
                         </div>
                         <div class="service-text"><h2>Web Development<i class="fas fa-arrow-right"></i></h2></div>
                     </div>
@@ -241,11 +241,11 @@
             </div>
             <!-- Service Icon area-->
             <div class="col-md-4 col-sm-4">
-                <a href="service-list.html">
+                <a th:href="@{/service-list}">
                     <div class="service-box">
                         <!-- Service Icon -->
                         <div class="service-icon">
-                            <img src="assets/img/icon/application.png" alt="icon">
+                            <img th:src="@{assets/img/icon/application.png}" alt="icon">
                         </div>
                         <div class="service-text"><h2>App Design<i class="fas fa-arrow-right"></i></h2></div>
                     </div>
@@ -254,11 +254,11 @@
             </div>
             <!-- Service Icon area-->
             <div class="col-md-4 col-sm-4">
-                <a href="service-list.html">
+                <a th:href="@{/service-list}">
                     <div class="service-box">
                         <!-- Service Icon -->
                         <div class="service-icon">
-                            <img src="assets/img/icon/seo.png" alt="icon">
+                            <img th:src="@{assets/img/icon/seo.png}" alt="icon">
                         </div>
                         <div class="service-text"><h2>Marketing<i class="fas fa-arrow-right"></i></h2></div>
                     </div>
@@ -276,7 +276,7 @@
             <div class="row d-flex align-items-center">
                 <!-- about Image -->
                 <div class="col-md-7 about-img sm-mb-4">
-                    <img src="assets/img/about-us/about-us.png" alt="about-img"/>
+                    <img th:src="@{assets/img/about-us/about-us.png}" alt="about-img"/>
                 </div>
                 <!-- about content-->
                 <div class="col-md-5">
@@ -533,13 +533,13 @@
 
                     <div class="project-list">
                         <!-- single-projects-image-->
-                        <img src="assets/img/project/project-1.jpg" alt="project">
+                        <img th:src="@{assets/img/project/project-1.jpg}" alt="project">
                         <!-- single-projects-content-->
                         <div class="overlay-content">
                             <h1>Design</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
                                 possimus sapiente! Provident, voluptas?</p>
-                            <a href="project-details.html"><i class="fa fa-arrow-right"></i></a>
+                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -549,13 +549,13 @@
 
                     <div class="project-list">
                         <!-- single-projects-image-->
-                        <img src="assets/img/project/project-2.jpg" alt="project">
+                        <img th:src="@{assets/img/project/project-2.jpg}" alt="project">
                         <!-- single-projects-content-->
                         <div class="overlay-content">
                             <h1>Design</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
                                 possimus sapiente! Provident, voluptas?</p>
-                            <a href="project-details.html"><i class="fa fa-arrow-right"></i></a>
+                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -565,13 +565,13 @@
 
                     <div class="project-list">
                         <!-- single-projects-image-->
-                        <img src="assets/img/project/project-3.jpg" alt="project">
+                        <img th:src="@{assets/img/project/project-3.jpg}" alt="project">
                         <!-- single-projects-content-->
                         <div class="overlay-content">
                             <h1>Design</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
                                 possimus sapiente! Provident, voluptas?</p>
-                            <a href="project-details.html"><i class="fa fa-arrow-right"></i></a>
+                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -581,13 +581,13 @@
 
                     <div class="project-list">
                         <!-- single-projects-image-->
-                        <img src="assets/img/project/project-4.jpg" alt="project">
+                        <img th:src="@{assets/img/project/project-4.jpg}" alt="project">
                         <!-- single-projects-content-->
                         <div class="overlay-content">
                             <h1>Design</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
                                 possimus sapiente! Provident, voluptas?</p>
-                            <a href="project-details.html"><i class="fa fa-arrow-right"></i></a>
+                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -597,13 +597,13 @@
 
                     <div class="project-list">
                         <!-- single-projects-image-->
-                        <img src="assets/img/project/project-5.jpg" alt="project">
+                        <img th:src="@{assets/img/project/project-5.jpg}" alt="project">
                         <!-- single-projects-content-->
                         <div class="overlay-content">
                             <h1>Design</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
                                 possimus sapiente! Provident, voluptas?</p>
-                            <a href="project-details.html"><i class="fa fa-arrow-right"></i></a>
+                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -613,13 +613,13 @@
 
                     <div class="project-list">
                         <!-- single-projects-image-->
-                        <img src="assets/img/project/project-6.jpg" alt="project">
+                        <img th:src="@{assets/img/project/project-6.jpg}" alt="project">
                         <!-- single-projects-content-->
                         <div class="overlay-content">
                             <h1>Design</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
                                 possimus sapiente! Provident, voluptas?</p>
-                            <a href="project-details.html"><i class="fa fa-arrow-right"></i></a>
+                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
 
@@ -653,7 +653,7 @@
                     <div class="testimonial">
                         <!-- testimonial image -->
                         <div class="pic">
-                            <img src="assets/img/testimonial-01.jpg" alt="testimonial">
+                            <img th:src="@{assets/img/testimonial-01.jpg}" alt="testimonial">
                         </div>
                         <!-- testimonial content -->
                         <div class="testimonial-review">
@@ -672,7 +672,7 @@
                     <div class="testimonial">
                         <!-- testimonial image -->
                         <div class="pic">
-                            <img src="assets/img/testimonial-01.jpg" alt="testimonial">
+                            <img th:src="@{assets/img/testimonial-01.jpg}" alt="testimonial">
                         </div>
                         <!-- testimonial content -->
                         <div class="testimonial-review">
@@ -691,7 +691,7 @@
                     <div class="testimonial">
                         <!-- testimonial image -->
                         <div class="pic">
-                            <img src="assets/img/testimonial-01.jpg" alt="testimonial">
+                            <img th:src="@{assets/img/testimonial-01.jpg}" alt="testimonial">
                         </div>
                         <!-- testimonial content -->
                         <div class="testimonial-review">
@@ -736,7 +736,7 @@
             <div class="col-md-4 col-sm-6 mb-3">
                 <div class="pricingTable inactive">
                     <div class="pricingTable-header">
-                        <img src="assets/img/icon/rocket.png" alt="rocket.png">
+                        <img th:src="@{assets/img/icon/rocket.png}" alt="rocket.png">
                         <h3 class="title">Standard</h3>
                     </div>
                     <!-- Price section -->
@@ -760,7 +760,7 @@
             <div class="col-md-4 col-sm-6 mb-3 active">
                 <div class="pricingTable">
                     <div class="pricingTable-header">
-                        <img src="assets/img/icon/handshake.png" alt="handshake.png">
+                        <img th:src="@{assets/img/icon/handshake.png}" alt="handshake.png">
                         <h3 class="title">Business</h3>
                     </div>
                     <!-- Price section -->
@@ -783,7 +783,7 @@
             <div class="col-md-4 col-sm-6 mb-3">
                 <div class="pricingTable inactive">
                     <div class="pricingTable-header">
-                        <img src="assets/img/icon/premium.png" alt="premium.png">
+                        <img th:src="@{assets/img/icon/premium.png}" alt="premium.png">
                         <h3 class="title">Premium</h3>
                     </div>
                     <!-- Price section -->
@@ -827,7 +827,7 @@
         <div class="col-12 col-lg-3 col-sm-6 sm-mb-4">
             <div class="our-team">
                 <!-- Team Image -->
-                <img src="assets/img/team/team1.png" alt="team-member">
+                <img th:src="@{assets/img/team/team1.png}" alt="team-member">
                 <!-- Team Content -->
                 <div class="team-content">
                     <h3 class="title">Williamson</h3>
@@ -847,7 +847,7 @@
         <div class="col-12 col-lg-3 col-sm-6 sm-mb-4">
             <div class="our-team">
                 <!-- Team Image -->
-                <img src="assets/img/team/team2.png" alt="team-member">
+                <img th:src="@{assets/img/team/team2.png}" alt="team-member">
                  <!-- Team Content -->
                 <div class="team-content">
                     <h3 class="title">kristina</h3>
@@ -867,7 +867,7 @@
         <div class="col-12 col-lg-3 col-sm-6 sm-mb-4">
             <div class="our-team">
                 <!-- Team Image -->
-                <img src="assets/img/team/team3.png" alt="team-member">
+                <img th:src="@{assets/img/team/team3.png}" alt="team-member">
                  <!-- Team Content -->
                 <div class="team-content">
                     <h3 class="title">Olivia</h3>
@@ -886,7 +886,7 @@
          <div class="col-12 col-lg-3 col-sm-6 sm-mb-4">
             <div class="our-team">
                 <!-- Team Image -->
-                <img src="assets/img/team/team4.png" alt="team-member">
+                <img th:src="@{assets/img/team/team4.png}" alt="team-member">
                  <!-- Team Content -->
                 <div class="team-content">
                     <h3 class="title">Emma</h3>
@@ -928,13 +928,13 @@
                     <div class="blog-container">
                         <span class="blog-cat">Development</span>
                         <!-- blog image -->
-                        <img src="assets/img/blog/blog-1.jpg" alt="blog" width="403">
+                        <img th:src="@{assets/img/blog/blog-1.jpg}" alt="blog" width="403">
 
                         <div class="content pt-3">
-                            <a href="blog-details.html"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
+                            <a th:href="@{/blog-details}"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dolore ipsam
                                 iure nesciunt nostrum, quaerat sequi tenetur vel.</p>
-                            <a href="blog-details.html" class="blog-details">Read More</a>
+                            <a th:href="@{/blog-details}" class="blog-details">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -943,13 +943,13 @@
                     <div class="blog-container">
                         <span class="blog-cat">Development</span>
                         <!-- blog image -->
-                        <img src="assets/img/blog/blog-2.jpg" alt="blog" width="403">
+                        <img th:src="@{assets/img/blog/blog-2.jpg}" alt="blog" width="403">
 
                         <div class="content pt-3">
-                            <a href="blog-details.html"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
+                            <a th:href="@{/blog-details}"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dolore ipsam
                                 iure nesciunt nostrum, quaerat sequi tenetur vel.</p>
-                            <a href="blog-details.html" class="blog-details">Read More</a>
+                            <a th:href="@{/blog-details}" class="blog-details">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -958,13 +958,13 @@
                     <div class="blog-container">
                         <span class="blog-cat">Development</span>
                         <!-- blog image -->
-                        <img src="assets/img/blog/blog-3.jpg" alt="blog" width="403">
+                        <img th:src="@{assets/img/blog/blog-3.jpg}" alt="blog" width="403">
 
                         <div class="content pt-3">
-                            <a href="blog-details.html"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
+                            <a th:href="@{/blog-details}"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dolore ipsam
                                 iure nesciunt nostrum, quaerat sequi tenetur vel.</p>
-                            <a href="blog-details.html" class="blog-details">Read More</a>
+                            <a th:href="@{/blog-details}" class="blog-details">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -973,13 +973,13 @@
                     <div class="blog-container">
                         <span class="blog-cat">Development</span>
                         <!-- blog image -->
-                        <img src="assets/img/blog/blog-1.jpg" alt="blog" width="403">
+                        <img th:src="@{assets/img/blog/blog-1.jpg}" alt="blog" width="403">
 
                         <div class="content pt-3">
-                            <a href="blog-details.html"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
+                            <a th:href="@{/blog-details}"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dolore ipsam
                                 iure nesciunt nostrum, quaerat sequi tenetur vel.</p>
-                            <a href="blog-details.html" class="blog-details">Read More</a>
+                            <a th:href="@{/blog-details}" class="blog-details">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -988,13 +988,13 @@
                     <div class="blog-container">
                         <span class="blog-cat">Development</span>
                         <!-- blog image -->
-                        <img src="assets/img/blog/blog-3.jpg" alt="blog" width="403">
+                        <img th:src="@{assets/img/blog/blog-3.jpg}" alt="blog" width="403">
 
                         <div class="content pt-3">
-                            <a href="blog-details.html"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
+                            <a th:href="@{/blog-details}"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dolore ipsam
                                 iure nesciunt nostrum, quaerat sequi tenetur vel.</p>
-                            <a href="blog-details.html" class="blog-details">Read More</a>
+                            <a th:href="@{/blog-details}" class="blog-details">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -1069,7 +1069,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 margin-bottom-r">
                     <!-- Footer Logo -->
                     <div class="company-logo text-center">
-                        <a href="index.html"><img src="assets/img/main-logo.png" alt="main-logo.png"></a>
+                        <a th:href="@{/}"><img th:src="@{assets/img/main-logo.png}" alt="main-logo.png"></a>
                     </div>
                 </div>
 
@@ -1198,15 +1198,15 @@
 
 <!-- JS here -->
 
-<script src="https://www.jq22.com/jquery/jquery-1.10.2.js}"></script>
-<script th:src="@{assets/js/popper.min.js}}"></script>
-<script th:src="@{assets/js/bootstrap.min.js}}"></script>
-<script th:src="@{assets/js/owl.carousel.min.js}}"></script>
-<script th:src="@{assets/js/jquery.meanmenu.min.js}}"></script>
-<script th:src="@{assets/js/jquery.scrollUp.min.js}}"></script>
-<script th:src="@{assets/js/waypoints.min.js}}"></script>
-<script th:src="@{assets/js/jquery.counterup.min.js}}"></script>
-<script th:src="@{assets/js/main.js}}"></script>
+<script th:src="@{assets/js/jquery-1.10.2.min.js}"></script>
+<script th:src="@{assets/js/popper.min.js}"></script>
+<script th:src="@{assets/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/js/owl.carousel.min.js}"></script>
+<script th:src="@{assets/js/jquery.meanmenu.min.js}"></script>
+<script th:src="@{assets/js/jquery.scrollUp.min.js}"></script>
+<script th:src="@{assets/js/waypoints.min.js}"></script>
+<script th:src="@{assets/js/jquery.counterup.min.js}"></script>
+<script th:src="@{assets/js/main.js}"></script>
 
 </body>
 </html>
