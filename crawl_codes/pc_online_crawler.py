@@ -212,33 +212,33 @@ class TaiPingYangCrawler:
                 else:
                     year_str = re.findall(r"\d+", item["sale_date"])[0] + "_0"
                 item['sale_date'] = year_str
-                # 电池字段过于杂乱，没有参考意义，丢弃
-                # item.pop("battery", "404")
-                # 屏幕属性一样很杂，但是有些用，暂时不动
-                pass
-                # 核显和集成几乎没有跑分数据，不好处理，所以单独列出
-                if item['gpu_type'] and item['gpu_type'].find("独立") < 0:
-                    item['gpu_mem'] = None
-                # 续航时间，也不太靠谱
-                if item.get('work_time'):
-                    numbers = re.findall(r"\d+", item['work_time'])
-                    if len(numbers) > 0:
-                        item['work_time'] = numbers[-1]
-                    else:
-                        item['work_time'] = None  # 没有参考价值
-                # 重量统一为Kg，只留数字
-                if item.get('weight'):
-                    numbers = re.findall(r"\d\.\d+|\d+", item['weight'])[-1]
-                    item['weight'] = numbers
-                # 厚度检查后缀是否为mm，否则无效
-                if item.get('thickness'):
-                    if not item['thickness'].endswith("mm"):
-                        item['thickness'] = None
+            # 电池字段过于杂乱，没有参考意义，丢弃
+            # item.pop("battery", "404")
+            # 屏幕属性一样很杂，但是有些用，暂时不动
+            pass
+            # 核显和集成几乎没有跑分数据，不好处理，所以单独列出
+            if item['gpu_type'] and item['gpu_type'].find("独立") < 0:
+                item['gpu_mem'] = None
+            # 续航时间，也不太靠谱
+            if item.get('work_time'):
+                numbers = re.findall(r"\d+", item['work_time'])
+                if len(numbers) > 0:
+                    item['work_time'] = numbers[-1]
+                else:
+                    item['work_time'] = None  # 没有参考价值
+            # 重量统一为Kg，只留数字
+            if item.get('weight'):
+                numbers = re.findall(r"\d\.\d+|\d+", item['weight'])[-1]
+                item['weight'] = numbers
+            # 厚度检查后缀是否为mm，否则无效
+            if item.get('thickness'):
+                if not item['thickness'].endswith("mm"):
+                    item['thickness'] = None
         return item_list
 
 
 if __name__ == '__main__':
-    test = TaiPingYangCrawler().get_laptop_list(pages_limit=2)
+    test = TaiPingYangCrawler().get_laptop_list(pages_limit=10)
     print(len(test))
     pprint.pprint(test)
     print("\n\n")
