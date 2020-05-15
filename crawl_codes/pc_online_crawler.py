@@ -11,7 +11,7 @@ from crawl_codes.HTML_Downloader import HTMLDownloader
 class TaiPingYangCrawler:
     BRANDS = [
         "lenovo",
-        # "asus",
+        "asus",
         # "dell",
         # "hp",
         # "acer",
