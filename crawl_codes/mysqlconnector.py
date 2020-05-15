@@ -8,7 +8,7 @@ CHARSET = 'utf8mb4'
 class MysqlConnector:
 
     def __init__(self, url: str = None, username: str = None, password: str = None, dbname: str = None,
-                 port=None) -> None:
+                 port=3306) -> None:
         self._url = None
         self._username = None
         self._password = None
@@ -70,18 +70,21 @@ class MysqlConnector:
         value_statement = "("
         for key, value in values.items():
             sqlstmt += key + ','
-            arglist.append(values)
+            arglist.append(value)
             value_statement += "%s" + ","
         sqlstmt = sqlstmt[:-1] + ") VALUES" + value_statement[:-1] + ")"
         cursor = self._dbconn.cursor()
+        if self._debug:
+            print(sqlstmt)
         try:
             # 执行sql语句
             cursor.execute(sqlstmt, arglist)
             # 提交到数据库执行
             self._dbconn.commit()
             return True
-        except:
+        except Exception as e:
             # 如果发生错误则回滚
+            print(e)
             self._dbconn.rollback()
             return False
 

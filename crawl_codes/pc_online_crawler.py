@@ -11,24 +11,24 @@ from crawl_codes.HTML_Downloader import HTMLDownloader
 class TaiPingYangCrawler:
     BRANDS = [
         "lenovo",
-        "asus",
-        "dell",
-        "hp",
-        "acer",
-        "apple",
-        "huawei",
-        'Thinkpad',
-        "honor",
-        "rog",
-        "hasee",
-        "razer",
-        "msi",
-        "samsung",
-        "microsoft",
-        "thunderobot",
-        "terrans_force",
-        "machenike",
-        "mechrevo"
+        # "asus",
+        # "dell",
+        # "hp",
+        # "acer",
+        # "apple",
+        # "huawei",
+        # 'Thinkpad',
+        # "honor",
+        # "rog",
+        # "hasee",
+        # "razer",
+        # "msi",
+        # "samsung",
+        # "microsoft",
+        # "thunderobot",
+        # "terrans_force",
+        # "machenike",
+        # "mechrevo"
     ]
 
     def __init__(self):
@@ -39,7 +39,9 @@ class TaiPingYangCrawler:
         result = []
         # 每一页url集合
         effective_urls = []
+
         base_url = "https://product.pconline.com.cn/notebook/"
+        # 匹配url格式
         if brand is None:
             url_suffix = "s10.shtml"
             effective_urls.append(base_url + url_suffix)
@@ -47,20 +49,26 @@ class TaiPingYangCrawler:
             base_url += brand + "/"
             url_suffix = "s1.shtml"
             effective_urls.append(base_url)
-        html = HTMLDownloader.get_page_content(base_url)['html']
+        # 找总页数
+        html = HTMLDownloader.get_page_content(effective_urls[0])['html']
         soup = BeautifulSoup(html, features="lxml")
         max_page = int(soup.find('div', id="Jpager").find('em').i.getText())
+        # 装载所有列表链接
         for i in range(1, min(max_page, pages_limit)):
             effective_urls.append(base_url + str(i * 25) + url_suffix)
         for url in effective_urls:
-            print(url)
+            print("fetching from:" + url)
             result.extend(self._parse_list(url, ignore_invalid))
         return result
         pass
 
     def _parse_list(self, url: str, ignore: bool) -> list:
         result = []
-        html = HTMLDownloader.get_page_content(url)['html']
+        try:
+            html = HTMLDownloader.get_page_content(url)['html']
+        except UserWarning:
+            print("Error fetching list " + url)
+            return []
         soup = BeautifulSoup(html, features="lxml")
         table = soup.find('ul', id='JlistItems')
         rows = table.find_all('li', class_="item")
@@ -75,31 +83,43 @@ class TaiPingYangCrawler:
             title = row.find('a', class_="item-title-name")
             item['name'] = title.getText().strip()
             item_url = "https:" + title['href']
-            try:
-                pic_page = HTMLDownloader.get_page_content(item_url)['html']
-                pic_div = BeautifulSoup(
-                    pic_page, features="html.parser").find(
-                    'div', class_="big-pic")
-                if pic_div:
-                    item['pic_link'] = "https:" + pic_div.find('img')['src']
-                else:
-                    item['pic_link'] = None
-            except Exception as e:
-                item['pic_link'] = None
+            item_pic_url = "https://product.pconline.com.cn/pdlib/" + re.findall(r"\d+", item_url)[-1] + "_picture.html"
+            item['pictures'] = self._get_item_pic(item_pic_url)
             item_spec_url = item_url.replace(".html", "_detail.html")
             specs = self._parse_item(item_spec_url)
-            item.update(specs)
+            if specs:
+                item.update(specs)
             result.append(item)
         print('|')
         return result
 
-    def _parse_item(self, url):
+    @staticmethod
+    def _get_item_pic(url):
+        try:
+            pic_page = HTMLDownloader.get_page_content(url)['html']
+        except UserWarning:
+            return []
+        try:
+            result = []
+            pic_div = BeautifulSoup(
+                pic_page, features="lxml").find(
+                'div', id="area-pics")
+            if pic_div:
+                for img in pic_div.find_all("img"):
+                    result.append(img['src'])
+            else:
+                return []
+        except Exception as e:
+            return []
+
+    @staticmethod
+    def _parse_item(url):
         specs = {}
         try:
             html = HTMLDownloader.get_page_content(url)['html']
         except UserWarning as e:
             print("Exception: failed to fetch:" + url)
-            return
+            return None
         soup = BeautifulSoup(html, features="html.parser")
         frame = soup.find('div', class_="area area-detailparams")
         for i in frame.find_all('div', class_='tips'):
@@ -168,7 +188,6 @@ class TaiPingYangCrawler:
                 specs[real_key] = real_value
         print('.', end='')
         return specs
-        pass
 
     @staticmethod
     def unify_items(item_list: list) -> list:
@@ -199,7 +218,7 @@ class TaiPingYangCrawler:
                 laptop['type'] = origin['type']
                 # 价格，必有
                 laptop['price'] = re.sub("￥", "", origin['price'])
-                laptop['pic_link'] = origin['pic_link']
+                laptop['pictures'] = origin['pictures']
                 laptop['shell_material'] = origin['shell_material']
                 laptop['model'] = origin['model']
                 laptop['net_wired'] = origin['net_wired']
@@ -244,7 +263,7 @@ class TaiPingYangCrawler:
                             json["ssd"] += volume
                         elif disk.find("HDD") >= 0:
                             json["hdd"] += volume
-                laptop['storage'] = json
+                laptop['storage'] = str(json)
                 # 屏幕
                 if origin['screen_size']:
                     laptop['screenSize'] = float(re.findall(r"\d+\.\d+|\d+", origin['screen_size'])[0])
@@ -258,7 +277,7 @@ class TaiPingYangCrawler:
                 if origin['screen_type']:
                     # 刷新率解析
                     fresh_rate = re.findall(r"(\d{2,3})[Hh][Zz]", origin['screen_type'])
-                    laptop['refresh'] = fresh_rate[0] if fresh_rate else None
+                    laptop['refreshRate'] = fresh_rate[0] if fresh_rate else None
                     # 色域,强匹配
                     color = re.findall(r"(\d{2,})%(?!.{0,3}屏占)", origin['screen_type'])
                     if color and int(color[0]) > 80:
@@ -268,15 +287,15 @@ class TaiPingYangCrawler:
                     else:
                         laptop['gamut'] = None
                 else:
-                    laptop['refresh'], laptop['gamut'] = None, None
+                    laptop['refreshRate'], laptop['gamut'] = None, None
                 # 续航时间，也不太靠谱
-                laptop['work_time'] = 0
+                laptop['duration'] = 0
                 if origin.get('work_time'):
                     numbers = re.findall(r"(\d+)\s*小时", origin['work_time'])
                     if len(numbers) > 0:
-                        laptop['work_time'] = numbers[-1]
+                        laptop['duration'] = numbers[-1]
                     else:
-                        laptop['work_time'] = 0  # 没有参考价值
+                        laptop['duration'] = 0  # 没有参考价值
                 # 接口
                 # USB格式化
                 ports = dict()
@@ -305,7 +324,7 @@ class TaiPingYangCrawler:
                     ports['thunderbolt'] = other_port.find("Thunderbolt") >= 0
                     ports['internet'] = other_port.find("RJ45") >= 0
                     ports['cd_driver'] = origin['has_cd_driver']
-                laptop['interface'] = ports
+                laptop['interface'] = str(ports)
                 # 重量统一为Kg，只留数字
                 laptop['weight'] = None
                 if origin.get('weight'):
@@ -329,26 +348,4 @@ class TaiPingYangCrawler:
 
 
 if __name__ == '__main__':
-    test = TaiPingYangCrawler().get_laptop_list(pages_limit=15)
-    print(len(test))
-    pprint.pprint(test)
-    print("\n\n")
-    test = TaiPingYangCrawler.unify_items(test)
-    pprint.pprint(test)
-    # 所有字段出现过的值汇总：
-    status = dict.fromkeys(test[0].keys())
-    for key, value in status.items():
-        status[key] = set()
-    for item in test:
-        for key, value in item.items():
-            status[key].add(str(value))
-    print("\n\n")
-    status.pop("pic_link")
-    status.pop('name')
-    status.pop('model')
-    status.pop('price')
-    pprint.pprint(status)
-    with open('crawled_data/test', "w", encoding="utf-8") as file:
-        file.write(pprint.pformat(test))
-        file.write('\n----------------------------------------\n字段值情况：\n')
-        file.write(pprint.pformat(status))
+    pass

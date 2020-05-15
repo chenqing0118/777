@@ -4,7 +4,7 @@ import re
 from crawl_codes.HTML_Downloader import HTMLDownloader
 
 from bs4 import BeautifulSoup
-
+from crawl_codes.mysqlconnector import MysqlConnector
 from crawl_codes.pc_online_crawler import TaiPingYangCrawler
 
 
@@ -186,6 +186,48 @@ if __name__ == '__main__':
         for item in laptops:
             item['brand'] = brand
         result.extend(laptops)
+
+    cpus = set()
+    gpus = set()
+    for i in result:
+        cpus.add(i['cpu'])
+        gpus.add(i['gpu'])
+    pprint.pprint(cpus)
+    print('\n\n')
+    pprint.pprint(gpus)
     with open('crawled_data/test', "w", encoding="utf-8") as file:
         file.write('\n----------------------------------------\n字段值情况：\n')
         file.write(pprint.pformat(result))
+
+    # 尝试写入mysql，临时表
+    connector = MysqlConnector()
+    try:
+        connector.connect_to_db('cdb-ctmslwcn.gz.tencentcdb.com', 'se', 'sufese777', "laptop", port=10020)
+    except Exception as e:
+        raise e
+    columns = ['name',
+               'brand',
+               'type',
+               'price',
+               'releaseTime',
+               'cpu', 'gpu',
+               'memorySize',
+               'memoryGen',
+               'memoryRate',
+               'storage',
+               'screenSize',
+               'resolution',
+               'refreshRate', 'gamut',
+               'duration',
+               'interface',
+               'thickness',
+               'weight',
+               # 'pictures'
+               ]
+    values = list()
+    for laptop in result:
+        item = list()
+        for column in columns:
+            item.append(laptop[column])
+        values.append(item)
+    connector.insert_many("laptop_input_test", columns, values)
