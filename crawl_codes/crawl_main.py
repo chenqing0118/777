@@ -8,6 +8,128 @@ from bs4 import BeautifulSoup
 from crawl_codes.pc_online_crawler import TaiPingYangCrawler
 
 
+class Benchmark(object):
+
+    def __init__(self):
+        self.cpu_bench = None
+        self.gpu_bench = None
+
+    def _get_3d_mark(self):
+        if self.gpu_bench is not None:
+            return self.gpu_bench
+        else:
+            # html = HTMLDownloader.get_page_content("https://benchmarks-zh.onelink-translations.com/compare/best-cpus")[
+            #     'html']
+            # soup = BeautifulSoup(html, features="html.parser")
+            # rows = soup.find("table", class_="navigationtable").tbody.find_all('tr')
+            # cpu_ranks = dict()
+            # for row in rows:
+            #     cpu_name = row.find('a').getText().strip()
+            #     cpu_name = re.sub(' Processor', '', cpu_name)
+            #     score = row.find('span', class_="bar-score").getText().strip()
+            #     cpu_ranks[cpu_name] = score
+            html = HTMLDownloader.get_page_content("https://benchmarks-zh.onelink-translations.com/compare/best-gpus")[
+                'html']
+            soup = BeautifulSoup(html, features="html.parser")
+            rows = soup.find("table", class_="navigationtable").tbody.find_all('tr')
+            gpu_ranks = dict()
+            for row in rows:
+                gpu_name = row.find('a').getText().strip()
+                score = row.find('span', class_="bar-score").getText().strip()
+                gpu_ranks[gpu_name] = score
+            self.gpu_bench = gpu_ranks
+            return gpu_ranks
+
+    def _get_cinebench(self):
+        if self.cpu_bench is not None:
+            return self.cpu_bench
+        else:
+            """
+                从以下网址获取cpu跑分情况
+                :return:
+                """
+            html = HTMLDownloader.get_page_content(
+                "https://www.notebookcheck.net/Mobile-Processors-Benchmark-List.2436.0.html" +
+                "?type=&sort=&archive=1&or=0&3dmark06cpu=1&cinebench_r15_single=1&cinebench_r15_multi=1&cinebench_r20_multi=1" +
+                "&cpu_fullname=1&mhz=1&turbo_mhz=1&cores=1&threads=1")['html']
+            soup = BeautifulSoup(html, features="lxml")
+            rows = soup.find("table", id="sortierbare_tabelle").find_all('tr', class_=re.compile(r"even|odd"))
+            cpu_ranks = list()
+            for row in rows:
+                for i in row.find_all('sup'):
+                    i.decompose()
+                item = {}
+                pivot = row.find("td", class_="specs").next_sibling
+                # cpu基本信息获取
+                cpu_name = pivot.getText().strip()
+                item['cpu_name'] = re.sub("-", " ", " ".join(cpu_name.split()))
+                pivot = pivot.next_sibling
+                main_clock_speed = pivot.getText().strip().split('‑')
+                if len(main_clock_speed) > 1:
+                    item['Mhz'], item['Mhz_turbo'] = main_clock_speed[0].strip(), main_clock_speed[0].strip()
+                else:
+                    item['Mhz'], item['Mhz_turbo'] = main_clock_speed[0].strip(), None
+                pivot = pivot.next_sibling
+                cores = pivot.getText().strip().split('/')
+                if len(cores) > 1:
+                    item['cores'], item['threads'] = cores[0].strip(), cores[0].strip()
+                else:
+                    item['cores'], item['threads'] = cores[0].strip(), cores[0].strip()
+                score = row.find("span", class_='bl_med_val_244_705')
+                # 跑分分数获取
+                if score:
+                    item['score_Cine15single'] = score.getText().strip()
+                else:
+                    continue
+                score = row.find("span", class_='bl_med_val_244_706')
+                if score:
+                    item['score_Cine15Multi'] = score.getText().strip()
+                else:
+                    continue
+                score = row.find("span", class_='bl_med_val_671_2014')
+                if score:
+                    item['score_Cine20'] = score.getText().strip()
+                else:
+                    item['score_Cine20'] = None
+                cpu_ranks.append(item)
+            self.cpu_bench = cpu_ranks
+        return cpu_ranks
+
+    def get_cpu_s(self):
+        if self.cpu_bench is None:
+            self._get_cinebench()
+        cpu_s = set()
+        for item in self.cpu_bench:
+            cpu_s.add(item['cpu_name'])
+        return cpu_s
+
+    def get_gpu_s(self):
+        if self.gpu_bench is None:
+            self._get_3d_mark()
+        gpu_s = set(self.gpu_bench.keys())
+        return gpu_s
+
+    def filter_laptops(self, laptop_list: list):
+        cpu_s = self.get_cpu_s()
+        gpu_s = self.get_gpu_s()
+        c_remove_count = 0
+        g_remove_count = 0
+        for laptop in laptop_list:
+            if laptop["cpu"] not in cpu_s:
+                laptops.remove(laptop)
+                c_remove_count += 1
+                continue
+            if not (laptop['gpu']) == "#intergrated":
+                if laptop["gpu"] not in gpu_s:
+                    laptops.remove(laptop)
+                    g_remove_count += 1
+                    continue
+        print(str(c_remove_count) + " laptops removed due to CPU.")
+        print(str(g_remove_count) + " laptops removed due to GPU.")
+        print(str(len(laptop_list)) + " laptops remaining.")
+        return laptop_list
+
+
 def read_laptops():
     output = []
     for i in range(1, 5):
@@ -55,141 +177,15 @@ def read_laptops():
     return output, cpu_s, gpu_s
 
 
-def get_benchmarks():
-    html = HTMLDownloader.get_page_content("https://benchmarks-zh.onelink-translations.com/compare/best-cpus")['html']
-    soup = BeautifulSoup(html, features="html.parser")
-    rows = soup.find("table", class_="navigationtable").tbody.find_all('tr')
-    cpu_ranks = dict()
-    for row in rows:
-        cpu_name = row.find('a').getText().strip()
-        cpu_name = re.sub(' Processor', '', cpu_name)
-        score = row.find('span', class_="bar-score").getText().strip()
-        cpu_ranks[cpu_name] = score
-    html = HTMLDownloader.get_page_content("https://benchmarks-zh.onelink-translations.com/compare/best-gpus")['html']
-    soup = BeautifulSoup(html, features="html.parser")
-    rows = soup.find("table", class_="navigationtable").tbody.find_all('tr')
-    gpu_ranks = dict()
-    for row in rows:
-        gpu_name = row.find('a').getText().strip()
-        score = row.find('span', class_="bar-score").getText().strip()
-        gpu_ranks[gpu_name] = score
-    return cpu_ranks, gpu_ranks
-    pass
-
-
-def get_cpu_mark_mixed():
-    """
-    从以下网址获取cpu跑分情况
-    :return:
-    """
-    html = HTMLDownloader.get_page_content(
-        "https://www.notebookcheck.net/Mobile-Processors-Benchmark-List.2436.0.html" +
-        "?type=&sort=&archive=1&or=0&3dmark06cpu=1&cinebench_r15_single=1&cinebench_r15_multi=1&cinebench_r20_multi=1" +
-        "&cpu_fullname=1&mhz=1&turbo_mhz=1&cores=1&threads=1")['html']
-    soup = BeautifulSoup(html, features="lxml")
-    rows = soup.find("table", id="sortierbare_tabelle").find_all('tr', class_=re.compile(r"even|odd"))
-    cpu_ranks = list()
-    for row in rows:
-        for i in row.find_all('sup'):
-            i.decompose()
-        item = {}
-        pivot = row.find("td", class_="specs").next_sibling
-        # cpu基本信息获取
-        cpu_name = pivot.getText().strip()
-        item['cpu_name'] = re.sub("-", " ", " ".join(cpu_name.split()))
-        pivot = pivot.next_sibling
-        main_clock_speed = pivot.getText().strip().split('‑')
-        if len(main_clock_speed) > 1:
-            item['Mhz'], item['Mhz_turbo'] = main_clock_speed[0].strip(), main_clock_speed[0].strip()
-        else:
-            item['Mhz'], item['Mhz_turbo'] = main_clock_speed[0].strip(), None
-        pivot = pivot.next_sibling
-        cores = pivot.getText().strip().split('/')
-        if len(cores) > 1:
-            item['cores'], item['threads'] = cores[0].strip(), cores[0].strip()
-        else:
-            item['cores'], item['threads'] = cores[0].strip(), cores[0].strip()
-        score = row.find("span", class_='bl_med_val_244_705')
-        # 跑分分数获取
-        if score:
-            item['score_Cine15single'] = score.getText().strip()
-        else:
-            continue
-        score = row.find("span", class_='bl_med_val_244_706')
-        if score:
-            item['score_Cine15Multi'] = score.getText().strip()
-        else:
-            continue
-        score = row.find("span", class_='bl_med_val_671_2014')
-        if score:
-            item['score_Cine20'] = score.getText().strip()
-        else:
-            item['score_Cine20'] = None
-        cpu_ranks.append(item)
-    return cpu_ranks
-
-
 if __name__ == '__main__':
-    # 最终输出字符串
-    file_string = ""
-    # 3DMark上所有有评分的cpu和gpu
-    dummy, gpu_marks = get_benchmarks()
-    # pprint.pprint(cpu_marks)
-    # pprint.pprint(gpu_marks)
-    # 外网笔记本cpu评分记录网站
-    cpu_ranks = get_cpu_mark_mixed()
-
-    gpu_s = set(gpu_marks.keys())
-    cpu_s = set()
-    remove_count = 0
-    for i in cpu_ranks:
-        cpu_s.add(i['cpu_name'])
-
-    laptops = TaiPingYangCrawler.unify_items(TaiPingYangCrawler().get_laptop_list())
-    # 候选笔记本包含的所有cpu和gpu种类
-    laptop_cpu = set()
-    laptop_gpu = set()
-    for laptop in laptops:
-        if laptop["cpu"] not in cpu_s:
-            laptops.remove(laptop)
-            remove_count += 1
-        else:
-            laptop_cpu.add(laptop["cpu"])
-    print(str(remove_count) + " laptops removed due to CPU.\n")
-    file_string += "最终CPU集合：\n" + pprint.pformat(set(cpu_s.intersection(laptop_cpu)))
-    # 根据显卡取交集
-    remove_count = 0
-    for i in laptops:
-        if (i['gpu']) == "#intergrated":
-            continue
-        if i["gpu"] not in gpu_s:
-            laptops.remove(i)
-            remove_count += 1
-        else:
-            laptop_gpu.add(i["gpu"])
-    print(str(remove_count) + " laptops removed due to GPU.\n")
-    file_string += "\n最终GPU集合：\n" + pprint.pformat(gpu_s.intersection(laptop_gpu))
-    laptop_names = set()
-    # 整理笔记本型号
-    for i in laptops:
-        laptop_names.add(i['name'])
-    file_string += "\n最终笔记本清单：\n" + pprint.pformat(laptop_names)
-    file_string += "\n共：" + str(len(laptop_names)) + " 个型号.\n"
-    with open('crawled_data/final_parts', "w", encoding="utf-8") as file:
-        file.write(file_string)
-
-    status = dict.fromkeys(laptops[0].keys())
-    for key, value in status.items():
-        status[key] = set()
-    for item in laptops:
-        for key, value in item.items():
-            status[key].add(str(value))
-    print("\n\n")
-    status.pop("pic_link")
-    status.pop('name')
-    status.pop('model')
-    status.pop('price')
-    pprint.pprint(status)
+    result = []
+    mark = Benchmark()
+    for brand in TaiPingYangCrawler.BRANDS:
+        laptops = TaiPingYangCrawler.unify_items(TaiPingYangCrawler().get_laptop_list(brand=brand, pages_limit=1))
+        laptops = mark.filter_laptops(laptops)
+        for item in laptops:
+            item['brand'] = brand
+        result.extend(laptops)
     with open('crawled_data/test', "w", encoding="utf-8") as file:
         file.write('\n----------------------------------------\n字段值情况：\n')
-        file.write(pprint.pformat(status))
+        file.write(pprint.pformat(result))
