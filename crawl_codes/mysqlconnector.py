@@ -131,7 +131,8 @@ class MysqlConnector:
             cursor.executemany(sqlstmt, values_list)
             # 提交到数据库执行
             self._dbconn.commit()
-        except:
+        except Exception as e:
+            print(e)
             # 如果发生错误则回滚
             self._dbconn.rollback()
             return False

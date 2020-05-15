@@ -62,28 +62,36 @@ class Benchmark(object):
                 pivot = row.find("td", class_="specs").next_sibling
                 # cpu基本信息获取
                 cpu_name = pivot.getText().strip()
-                item['cpu_name'] = re.sub("-", " ", " ".join(cpu_name.split()))
+                item['name'] = re.sub("-", " ", " ".join(cpu_name.split()))
                 pivot = pivot.next_sibling
                 main_clock_speed = pivot.getText().strip().split('‑')
-                if len(main_clock_speed) > 1:
-                    item['Mhz'], item['Mhz_turbo'] = main_clock_speed[0].strip(), main_clock_speed[0].strip()
+                if main_clock_speed[0]:
+                    if len(main_clock_speed) > 1:
+                        item['clock'], item['maxClock'] = \
+                            int(main_clock_speed[0].strip()), int(main_clock_speed[1].strip())
+                    else:
+                        item['clock'], item['maxClock'] = \
+                            int(main_clock_speed[0].strip()), int(main_clock_speed[0].strip())
                 else:
-                    item['Mhz'], item['Mhz_turbo'] = main_clock_speed[0].strip(), None
+                    item['clock'], item['maxClock'] = None, None
                 pivot = pivot.next_sibling
                 cores = pivot.getText().strip().split('/')
-                if len(cores) > 1:
-                    item['cores'], item['threads'] = cores[0].strip(), cores[0].strip()
+                if cores[0]:
+                    if len(cores) > 1:
+                        item['cores'], item['threads'] = int(cores[0].strip()), int(cores[1].strip())
+                    else:
+                        item['cores'], item['threads'] = int(cores[0].strip()), int(cores[0].strip())
                 else:
-                    item['cores'], item['threads'] = cores[0].strip(), cores[0].strip()
+                    item['cores'], item['threads'] = None, None
                 score = row.find("span", class_='bl_med_val_244_705')
                 # 跑分分数获取
                 if score:
-                    item['score_Cine15single'] = score.getText().strip()
+                    item['singleCore'] = score.getText().strip()
                 else:
                     continue
                 score = row.find("span", class_='bl_med_val_244_706')
                 if score:
-                    item['score_Cine15Multi'] = score.getText().strip()
+                    item['multiCore'] = score.getText().strip()
                 else:
                     continue
                 score = row.find("span", class_='bl_med_val_671_2014')
@@ -100,7 +108,7 @@ class Benchmark(object):
             self._get_cinebench()
         cpu_s = set()
         for item in self.cpu_bench:
-            cpu_s.add(item['cpu_name'])
+            cpu_s.add(item['name'])
         return cpu_s
 
     def get_gpu_s(self):
@@ -198,6 +206,7 @@ if __name__ == '__main__':
     with open('crawled_data/test', "w", encoding="utf-8") as file:
         file.write('\n----------------------------------------\n字段值情况：\n')
         file.write(pprint.pformat(result))
+    print(result)
 
     # 尝试写入mysql，临时表
     connector = MysqlConnector()
@@ -205,6 +214,7 @@ if __name__ == '__main__':
         connector.connect_to_db('cdb-ctmslwcn.gz.tencentcdb.com', 'se', 'sufese777', "laptop", port=10020)
     except Exception as e:
         raise e
+    connector.toggle_debug(True)
     columns = ['name',
                'brand',
                'type',
@@ -231,3 +241,16 @@ if __name__ == '__main__':
             item.append(laptop[column])
         values.append(item)
     connector.insert_many("laptop_input_test", columns, values)
+
+    cpu_keys = ['name', 'cores', 'threads', 'clock', 'maxClock', 'singleCore', 'multiCore']
+    cpu_stats = mark.cpu_bench
+    values = list()
+    for cpu in cpu_stats:
+        item = list()
+        if cpu['name'] not in cpus:
+            cpu_stats.remove(cpu)
+        else:
+            for column in cpu_keys:
+                item.append(cpu[column])
+            values.append(item)
+    connector.insert_many("cpu", cpu_keys, values)
