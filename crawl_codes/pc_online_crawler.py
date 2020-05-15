@@ -61,13 +61,18 @@ class TaiPingYangCrawler:
             title = row.find('a', class_="item-title-name")
             item['name'] = title.getText().strip()
             item_url = "https:" + title['href']
-            pic_div = BeautifulSoup(
-                HTMLDownloader.get_page_content(item_url)['html'], features="html.parser").find(
-                'div', class_="big-pic")
-            if pic_div:
-                item['pic_link'] = "https:" + pic_div.find('img')['src']
-            else:
+            try:
+                pic_page = HTMLDownloader.get_page_content(item_url)['html']
+                pic_div = BeautifulSoup(
+                    pic_page, features="html.parser").find(
+                    'div', class_="big-pic")
+                if pic_div:
+                    item['pic_link'] = "https:" + pic_div.find('img')['src']
+                else:
+                    item['pic_link'] = None
+            except Exception as e:
                 item['pic_link'] = None
+                print(e.with_traceback())
             item_spec_url = item_url.replace(".html", "_detail.html")
             specs = self._parse_item(item_spec_url)
             item.update(specs)
@@ -155,6 +160,8 @@ class TaiPingYangCrawler:
             # CPU
             if origin.get('cpu_name'):
                 laptop['CPU'] = re.sub(r"\(.*\)", "", origin['cpu_name'])
+                laptop['CPU'] = re.sub("锐龙", "Ryzen ", laptop["CPU"])
+                laptop['CPU'] = re.sub("-", " ", laptop["CPU"])
             else:
                 continue
             # GPU
@@ -222,8 +229,10 @@ class TaiPingYangCrawler:
                         json["hdd"] += volume
             laptop['storage'] = json
             # 屏幕
-            laptop['screenSize'] = float(re.findall(r"\d+\.\d+|\d+", origin['screen_size'])[0])
-
+            if origin['screen_size']:
+                laptop['screenSize'] = float(re.findall(r"\d+\.\d+|\d+", origin['screen_size'])[0])
+            else:
+                laptop['screenSize'] = None
             if origin['screen_resolution']:
                 laptop['resolution'] = origin['screen_resolution']
             else:
@@ -299,7 +308,7 @@ class TaiPingYangCrawler:
 
 
 if __name__ == '__main__':
-    test = TaiPingYangCrawler().get_laptop_list(pages_limit=1)
+    test = TaiPingYangCrawler().get_laptop_list(pages_limit=15)
     print(len(test))
     pprint.pprint(test)
     print("\n\n")
