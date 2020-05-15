@@ -5,6 +5,8 @@ from crawl_codes.HTML_Downloader import HTMLDownloader
 
 from bs4 import BeautifulSoup
 
+from crawl_codes.pc_online_crawler import TaiPingYangCrawler
+
 
 def read_laptops():
     output = []
@@ -94,7 +96,7 @@ def get_cpu_mark_mixed():
         pivot = row.find("td", class_="specs").next_sibling
         # cpu基本信息获取
         cpu_name = pivot.getText().strip()
-        item['cpu_name'] = " ".join(cpu_name.split()[1:])
+        item['cpu_name'] = re.sub("-", " ", " ".join(cpu_name.split()))
         pivot = pivot.next_sibling
         main_clock_speed = pivot.getText().strip().split('‑')
         if len(main_clock_speed) > 1:
@@ -130,33 +132,41 @@ def get_cpu_mark_mixed():
 if __name__ == '__main__':
     # 最终输出字符串
     file_string = ""
-    # 候选笔记本,和包含的所有cpu和gpu种类
-    laptops, laptop_cpu, laptop_gpu = read_laptops()
     # 3DMark上所有有评分的cpu和gpu
     dummy, gpu_marks = get_benchmarks()
     # pprint.pprint(cpu_marks)
     # pprint.pprint(gpu_marks)
     # 外网笔记本cpu评分记录网站
     cpu_ranks = get_cpu_mark_mixed()
-    # 根据CPU取交集
+
+    gpu_s = set(gpu_marks.keys())
     cpu_s = set()
     remove_count = 0
     for i in cpu_ranks:
         cpu_s.add(i['cpu_name'])
 
-    for i in laptops:
-        if i["CPU"] not in cpu_s:
-            laptops.remove(i)
+    laptops = TaiPingYangCrawler.unify_items(TaiPingYangCrawler().get_laptop_list())
+    # 候选笔记本包含的所有cpu和gpu种类
+    laptop_cpu = set()
+    laptop_gpu = set()
+    for laptop in laptops:
+        if laptop["cpu"] not in cpu_s:
+            laptops.remove(laptop)
             remove_count += 1
+        else:
+            laptop_cpu.add(laptop["cpu"])
     print(str(remove_count) + " laptops removed due to CPU.\n")
     file_string += "最终CPU集合：\n" + pprint.pformat(set(cpu_s.intersection(laptop_cpu)))
     # 根据显卡取交集
-    gpu_s = set(gpu_marks.keys())
     remove_count = 0
     for i in laptops:
-        if i["GPU"] not in gpu_s:
+        if (i['gpu']) == "#intergrated":
+            continue
+        if i["gpu"] not in gpu_s:
             laptops.remove(i)
             remove_count += 1
+        else:
+            laptop_gpu.add(i["gpu"])
     print(str(remove_count) + " laptops removed due to GPU.\n")
     file_string += "\n最终GPU集合：\n" + pprint.pformat(gpu_s.intersection(laptop_gpu))
     laptop_names = set()
@@ -165,6 +175,21 @@ if __name__ == '__main__':
         laptop_names.add(i['name'])
     file_string += "\n最终笔记本清单：\n" + pprint.pformat(laptop_names)
     file_string += "\n共：" + str(len(laptop_names)) + " 个型号.\n"
-
     with open('crawled_data/final_parts', "w", encoding="utf-8") as file:
         file.write(file_string)
+
+    status = dict.fromkeys(laptops[0].keys())
+    for key, value in status.items():
+        status[key] = set()
+    for item in laptops:
+        for key, value in item.items():
+            status[key].add(str(value))
+    print("\n\n")
+    status.pop("pic_link")
+    status.pop('name')
+    status.pop('model')
+    status.pop('price')
+    pprint.pprint(status)
+    with open('crawled_data/test', "w", encoding="utf-8") as file:
+        file.write('\n----------------------------------------\n字段值情况：\n')
+        file.write(pprint.pformat(status))

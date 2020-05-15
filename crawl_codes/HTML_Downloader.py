@@ -79,7 +79,7 @@ class HTMLDownloader(object):
                 # 记录失败，重试连接
                 fail_count += 1
                 # debug output
-                print("%s connection fail %s" % url, fail_count)
+                print("%s connection fail %s" % (url, str(fail_count)))
                 continue
             else:
                 # 获取成功操作

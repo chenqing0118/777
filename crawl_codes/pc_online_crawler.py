@@ -72,7 +72,6 @@ class TaiPingYangCrawler:
                     item['pic_link'] = None
             except Exception as e:
                 item['pic_link'] = None
-                print(e.with_traceback())
             item_spec_url = item_url.replace(".html", "_detail.html")
             specs = self._parse_item(item_spec_url)
             item.update(specs)
@@ -159,14 +158,13 @@ class TaiPingYangCrawler:
             laptop = dict()
             # CPU
             if origin.get('cpu_name'):
-                laptop['CPU'] = re.sub(r"\(.*\)", "", origin['cpu_name'])
-                laptop['CPU'] = re.sub("锐龙", "Ryzen ", laptop["CPU"])
-                laptop['CPU'] = re.sub("-", " ", laptop["CPU"])
+                laptop['cpu'] = re.sub(r"\(.*\)", "", origin['cpu_name'])
+                laptop['cpu'] = " ".join(re.sub("-", " ", re.sub("锐龙", " Ryzen ", laptop["cpu"])).split())
             else:
                 continue
             # GPU
             if origin.get('gpu_name') or origin.get("gpu_type"):
-                if origin.get("gpu_type") and origin['gpu_type'].find("独立") <= 0:
+                if origin.get("gpu_type") and origin['gpu_type'].find("独立") < 0:
                     # 集显核显
                     laptop['gpu'] = "#intergrated"
                 else:
@@ -245,9 +243,9 @@ class TaiPingYangCrawler:
                 # 色域,强匹配
                 color = re.findall(r"(\d{2,})%(?!.{0,3}屏占)", origin['screen_type'])
                 if color and int(color[0]) > 80:
-                    laptop['gamut'] = color[0] + "&sRGB"
+                    laptop['gamut'] = color[0] + "%sRGB"
                 elif color and int(color[0]) < 80:
-                    laptop['gamut'] = color[0] + "&NTSC"
+                    laptop['gamut'] = color[0] + "%NTSC"
                 else:
                     laptop['gamut'] = None
             else:
