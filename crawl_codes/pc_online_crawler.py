@@ -11,24 +11,24 @@ from crawl_codes.HTML_Downloader import HTMLDownloader
 class TaiPingYangCrawler:
     BRANDS = [
         "lenovo",
-        "asus",
-        "dell",
-        "hp",
-        "acer",
-        "apple",
-        "huawei",
-        'Thinkpad',
-        "honor",
-        "rog",
-        "hasee",
-        "razer",
-        "msi",
-        "samsung",
-        "microsoft",
-        "thunderobot",
-        "terrans_force",
-        "machenike",
-        "mechrevo"
+        # "asus",
+        # "dell",
+        # "hp",
+        # "acer",
+        # "apple",
+        # "huawei",
+        # 'Thinkpad',
+        # "honor",
+        # "rog",
+        # "hasee",
+        # "razer",
+        # "msi",
+        # "samsung",
+        # "microsoft",
+        # "thunderobot",
+        # "terrans_force",
+        # "machenike",
+        # "mechrevo"
     ]
 
     def __init__(self):
