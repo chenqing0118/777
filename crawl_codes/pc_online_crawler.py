@@ -12,23 +12,23 @@ class TaiPingYangCrawler:
     BRANDS = [
         "lenovo",
         "asus",
-        # "dell",
-        # "hp",
-        # "acer",
-        # "apple",
-        # "huawei",
-        # 'Thinkpad',
-        # "honor",
-        # "rog",
-        # "hasee",
-        # "razer",
-        # "msi",
-        # "samsung",
-        # "microsoft",
-        # "thunderobot",
-        # "terrans_force",
-        # "machenike",
-        # "mechrevo"
+        "dell",
+        "hp",
+        "acer",
+        "apple",
+        "huawei",
+        'Thinkpad',
+        "honor",
+        "rog",
+        "hasee",
+        "razer",
+        "msi",
+        "samsung",
+        "microsoft",
+        "thunderobot",
+        "terrans_force",
+        "machenike",
+        "mechrevo"
     ]
 
     def __init__(self):
@@ -80,6 +80,9 @@ class TaiPingYangCrawler:
             if ignore and price.find(r"￥") < 0:
                 continue
             item['price'] = price
+            buy_links = row.find_all('a', class_="buyLink")
+            item["priceUrl"] = ("https:" + buy_links[-1]['href']) if buy_links else None
+
             title = row.find('a', class_="item-title-name")
             item['name'] = title.getText().strip()
             item_url = "https:" + title['href']
@@ -224,7 +227,7 @@ class TaiPingYangCrawler:
                 laptop['net_wired'] = origin['net_wired']
                 laptop['net_wireless'] = origin['net_wireless']
                 laptop['model'] = origin['model']
-
+                laptop['priceUrl'] = origin['priceUrl']
                 # 发售时间
                 # 发售时间格式化
                 laptop['releaseTime'] = 0

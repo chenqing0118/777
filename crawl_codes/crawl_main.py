@@ -14,7 +14,69 @@ class Benchmark(object):
         self.cpu_bench = None
         self.gpu_bench = None
 
-    def _get_3d_mark(self):
+    def _get_gpu_mem(self):
+        result = dict()
+        html = HTMLDownloader.get_page_content("http://www.mydrivers.com/zhuanti/tianti/gpu/index_amd.html")[
+            'html']
+        soup = BeautifulSoup(html, features="html.parser")
+        rows = soup.find('div', class_="main").table.find_all('tr', class_=None)
+        for row in rows:
+            if len(row.find_all('td')) < 4:
+                continue
+            name = "AMD Radeon " + re.sub('Radeon ', " ", row.find('td').getText().strip())
+            mem = re.findall(r"\d+[MG]B", "#".join(row.stripped_strings))
+            if mem:
+                if mem[-1].endswith("MB"):
+                    mem = float(mem[-1][:-2]) / 1024
+                else:
+                    mem = float(mem[-1][:-2])
+                result[name] = mem
+        html = HTMLDownloader.get_page_content("http://www.mydrivers.com/zhuanti/tianti/gpu/index_nvidia.html")[
+            'html']
+        soup = BeautifulSoup(html, features="html.parser")
+        rows = soup.find('div', class_="main").table.find_all('tr', class_=None)
+        for row in rows:
+            name = "NVIDIA Geforce " + row.find('td').getText().strip()
+            mem = re.findall(r"\d+[MG]B", "#".join(row.stripped_strings))
+            if mem:
+                if mem[-1].endswith("MB"):
+                    mem = float(mem[-1][:-2]) / 1024
+                else:
+                    mem = float(mem[-1][:-2])
+                result[name] = mem
+        html = HTMLDownloader.get_page_content("http://www.mydrivers.com/zhuanti/tianti/gpum/index_nvidia_m.html")[
+            'html']
+        soup = BeautifulSoup(html, features="html.parser")
+        rows = soup.find('div', class_="main").table.find_all('tr', class_=None)
+        for row in rows:
+            name = "NVIDIA Geforce " + row.find('td').getText().strip()
+            mem = re.findall(r"\d+[MG]B", "#".join(row.stripped_strings))
+            if mem:
+                if mem[-1].endswith("MB"):
+                    mem = float(mem[-1][:-2]) / 1024
+                else:
+                    mem = float(mem[-1][:-2])
+                result[name] = mem
+        html = HTMLDownloader.get_page_content("http://www.mydrivers.com/zhuanti/tianti/gpum/index_amd_m.html")[
+            'html']
+        soup = BeautifulSoup(html, features="html.parser")
+        rows = soup.find('div', class_="main").table.find_all('tr', class_=None)
+        for row in rows:
+            name = re.sub('Radeon ', " ", row.find('td').getText().strip())
+            if len(name) < 7:
+                name = "AMD Radeon HD " + name
+            else:
+                name = 'AMD Radeon ' + name
+            mem = re.findall(r"\d+[MG]B", "#".join(row.stripped_strings))
+            if mem:
+                if mem[-1].endswith("MB"):
+                    mem = float(mem[-1][:-2]) / 1024
+                else:
+                    mem = float(mem[-1][:-2])
+                result[name] = mem
+        return result
+
+    def _get_stats(self):
         if self.gpu_bench is not None:
             return self.gpu_bench
         else:
@@ -32,13 +94,27 @@ class Benchmark(object):
                 'html']
             soup = BeautifulSoup(html, features="html.parser")
             rows = soup.find("table", class_="navigationtable").tbody.find_all('tr')
-            gpu_ranks = dict()
+            mems = self._get_gpu_mem()
+            gpu_stats = []
             for row in rows:
+                gpu_item = dict()
                 gpu_name = row.find('a').getText().strip()
-                score = row.find('span', class_="bar-score").getText().strip()
-                gpu_ranks[gpu_name] = score
-            self.gpu_bench = gpu_ranks
-            return gpu_ranks
+                gpu_item['name'] = gpu_name
+                score1 = row.find('span', class_="bar-score").getText().strip()
+                try:
+                    score1 = int(score1)
+                except Exception as e:
+                    gpu_item['score'] = 0
+                else:
+                    gpu_item['score'] = score1
+                if mems.get(gpu_name):
+                    gpu_item['memory'] = mems[gpu_name]
+                else:
+                    gpu_item['memory'] = 0
+
+                gpu_stats.append(gpu_item)
+            self.gpu_bench = gpu_stats
+            return gpu_stats
 
     def _get_cinebench(self):
         if self.cpu_bench is not None:
@@ -113,29 +189,32 @@ class Benchmark(object):
 
     def get_gpu_s(self):
         if self.gpu_bench is None:
-            self._get_3d_mark()
-        gpu_s = set(self.gpu_bench.keys())
+            self._get_stats()
+        gpu_s = set()
+        for item in self.gpu_bench:
+            gpu_s.add(item['name'])
         return gpu_s
 
     def filter_laptops(self, laptop_list: list):
+        result_list = []
         cpu_s = self.get_cpu_s()
         gpu_s = self.get_gpu_s()
         c_remove_count = 0
         g_remove_count = 0
         for laptop in laptop_list:
             if laptop["cpu"] not in cpu_s:
-                laptops.remove(laptop)
                 c_remove_count += 1
                 continue
-            if not (laptop['gpu']) == "#intergrated":
-                if laptop["gpu"] not in gpu_s:
-                    laptops.remove(laptop)
-                    g_remove_count += 1
-                    continue
+            if laptop['gpu'] == "#intergrated" or laptop["gpu"] in gpu_s:
+                pass
+            else:
+                g_remove_count += 1
+                continue
+            result_list.append(laptop)
         print(str(c_remove_count) + " laptops removed due to CPU.")
         print(str(g_remove_count) + " laptops removed due to GPU.")
         print(str(len(laptop_list)) + " laptops remaining.")
-        return laptop_list
+        return result_list
 
 
 def read_laptops():
@@ -186,44 +265,12 @@ def read_laptops():
 
 
 if __name__ == '__main__':
-    result = []
-    mark = Benchmark()
-    for brand in TaiPingYangCrawler.BRANDS:
-        laptops = TaiPingYangCrawler.unify_items(TaiPingYangCrawler().get_laptop_list(brand=brand, pages_limit=1))
-        laptops = mark.filter_laptops(laptops)
-        for item in laptops:
-            item['brand'] = brand
-        result.extend(laptops)
-
-    cpus = set()
-    gpus = set()
-    for i in result:
-        cpus.add(i['cpu'])
-        gpus.add(i['gpu'])
-    pprint.pprint(cpus)
-    print('\n\n')
-    pprint.pprint(gpus)
-    with open('crawled_data/test', "w", encoding="utf-8") as file:
-        file.write('\n----------------------------------------\n字段值情况：\n')
-        file.write(pprint.pformat(result))
-    print(result)
-
-    # 尝试写入mysql，临时表
+    # 数据库接口初始化
     connector = MysqlConnector()
-    try:
-        connector.connect_to_db('cdb-ctmslwcn.gz.tencentcdb.com', 'se', 'sufese777', "laptop", port=10020)
-    except Exception as e:
-        raise e
-    connector.toggle_debug(True)
-    columns = ['name',
-               'brand',
-               'type',
-               'price',
-               'releaseTime',
+    columns = ['name', 'brand', 'type',
+               'price', 'priceUrl',
                'cpu', 'gpu',
-               'memorySize',
-               'memoryGen',
-               'memoryRate',
+               'memorySize', 'memoryGen', 'memoryRate',
                'storage',
                'screenSize',
                'resolution',
@@ -232,15 +279,41 @@ if __name__ == '__main__':
                'interface',
                'thickness',
                'weight',
-               # 'pictures'
-               ]
-    values = list()
-    for laptop in result:
-        item = list()
-        for column in columns:
-            item.append(laptop[column])
-        values.append(item)
-    connector.insert_many("laptop_input_test", columns, values)
+               'pictures',
+               'releaseTime']
+    try:
+        connector.connect_to_db('cdb-ctmslwcn.gz.tencentcdb.com', 'se', 'sufese777', "laptop", port=10020)
+    except Exception as e:
+        raise e
+    connector.toggle_debug(True)
+    # cpu，gpu型号统计：
+    cpus = set()
+    gpus = set()
+
+    result = []
+    mark = Benchmark()
+    for brand in TaiPingYangCrawler.BRANDS:
+        laptops = TaiPingYangCrawler.unify_items(TaiPingYangCrawler().get_laptop_list(brand=brand, pages_limit=8))
+        laptops = mark.filter_laptops(laptops)
+        for item in laptops:
+            item['brand'] = brand
+        print("writing brand: " + brand)
+
+        # 尝试写入mysql，临时表
+        values = list()
+        for laptop in laptops:
+            #   cpu，gpu型号统计
+            cpus.add(laptop['cpu'])
+            gpus.add(laptop['gpu'])
+            # 组织提交数据包
+            item = list()
+            for column in columns:
+                item.append(laptop[column])
+            values.append(item)
+        connector.insert_many("laptop_input_test", columns, values)
+
+        print("gpu type count:" + str(len(gpus)))
+        print("cpu type count:" + str(len(cpus)))
 
     cpu_keys = ['name', 'cores', 'threads', 'clock', 'maxClock', 'singleCore', 'multiCore']
     cpu_stats = mark.cpu_bench
@@ -248,9 +321,27 @@ if __name__ == '__main__':
     for cpu in cpu_stats:
         item = list()
         if cpu['name'] not in cpus:
-            cpu_stats.remove(cpu)
+            continue
         else:
             for column in cpu_keys:
                 item.append(cpu[column])
             values.append(item)
-    connector.insert_many("cpu", cpu_keys, values)
+    connector.insert_unique("cpu", cpu_keys, values)
+
+    gpu_keys = ['name', 'memory', 'score']
+    gpu_stats = mark.gpu_bench
+    values.clear()
+    for gpu in gpu_stats:
+        item = list()
+        if gpu['name'] not in gpus:
+            continue
+        else:
+            for column in gpu_keys:
+                item.append(gpu[column])
+            values.append(item)
+    connector.insert_unique("gpu", gpu_keys, values)
+
+    pprint.pprint(gpus)
+    pprint.pprint(values)
+    print(len(gpus))
+    print(len(values))
