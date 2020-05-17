@@ -74,4 +74,9 @@ public class Test {
 
         return "test";
     }
+    @RequestMapping("/common_science")
+    public String common_science(Model model){
+
+        return "common_science";
+    }
 }
