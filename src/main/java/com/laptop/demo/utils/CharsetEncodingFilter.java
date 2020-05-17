@@ -17,7 +17,6 @@ public class CharsetEncodingFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
         response.setHeader("Content-type", "text/html;charset=UTF-8");        //让浏览器用utf8来解析返回的数据
         response.setCharacterEncoding("UTF-8");        //告知servlet用UTF-8转码，而不是用默认的ISO-8859-1
-
         chain.doFilter(req, resp);
     }
 
