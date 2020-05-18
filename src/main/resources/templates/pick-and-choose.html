@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="ZXX" xmlns:th="http://www.thymeleaf.org" >
+<html lang="ZXX"  xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>DMX - Digital Marketing Agency Html5 Template</title>
+    <title>一本满足-选机推荐</title>
     <meta name="description" content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.png}">
@@ -47,38 +47,21 @@
                     <div class="main-menu">
                         <!-- Logo Area -->
                         <div class="logo-area">
-                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}" alt="main-logo.png"></a>
-                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}" alt="sticky-logo.png"></a>
+                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}"
+                                                                     alt="main-logo.png"></a>
+                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}"
+                                                                              alt="sticky-logo.png"></a>
                         </div>
 
                         <!-- Main Menu Area -->
                         <div class="menu-area" id="mobile-menu">
                             <ul>
                                 <!-- dropdown menu-area-->
-                                <li><a href="#">home <i class="fas fa-angle-down"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a th:href="@{/}">Home</a></li>
-                                        <li><a th:href="@{/index-2}">Home Two</a></li>
-                                    </ul>
-                                </li>
-                                <li><a th:href="@{/about-us}">about</a></li>
-                                <li><a th:href="@{/project-list}">Project</a></li>
-                                <!-- dropdown menu-area-->
-                                <li><a href="#">Pages <i class="fas fa-angle-down"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a th:href="@{/project-list}">Project List</a></li>
-                                        <li><a th:href="@{/project-details}">Project Details</a></li>
-                                        <li><a th:href="@{/service-list}">Service List</a></li>
-                                        <li><a th:href="@{/service-details}">Service Details</a></li>
-                                        <li><a th:href="@{/blog}">Blog</a></li>
-                                        <li><a th:href="@{/blog-details}">Blog Details</a></li>
-                                        <li><a th:href="@{/404}">404 page</a></li>
-                                    </ul>
-                                </li>
-                                <li><a th:href="@{/service-list}">services</a></li>
-                                <li><a href="index.html#Expertise">Expertise</a></li>
-                                <li><a th:href="@{/blog}">blog</a></li>
-                                <li><a th:href="@{/contact-us}">contact</a></li>
+                                <li><a th:href="@{/}">主页</a></li>
+                                <li><a th:href="@{/common_science}">配置科普</a></li>
+                                <li><a th:href="@{/pick-and-choose}">选机推荐</a></li>
+                                <li><a th:href="@{/service-list}">使用建议</a></li>
+                                <li><a th:href="@{/contact-us}">联系我们</a></li>
                             </ul>
                         </div>
                     </div>
@@ -187,7 +170,7 @@
 
 <!-- header banner Section -->
 <section>
-    <div class="project-header-image-area d-flex align-items-center">
+    <div class="about-us-header-image-area d-flex align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-9 m-auto">
@@ -196,7 +179,7 @@
                     <div class="item">
 
                         <div class="others-page-title text-center">
-                            <h1>Project List</h1>
+                            <h1>About us</h1>
 
                             <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aliquam
                                 aliquid aspernatur assumenda beatae delectus,provident quia quod quos reprehenderit
@@ -214,118 +197,203 @@
     </div>
 </section>
 
-<!-- Project List Section -->
-<section class="project-area">
+<!-- About Us Section -->
+<section class="about-us  padding-no-bottom">
+    <div class="about-spin">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <!-- About Image -->
+                <div class="col-md-7 sm-mb-4 about-img" data-aos="fade-up">
 
+                    <img th:src="@{assets/img/about-us/about-us.png}" alt="about-img"/>
+
+                </div>
+                <!-- about content-->
+                <div class="col-md-5">
+
+                    <div class="sm-pt-25">
+                        <div class="section-title-3">
+                            <h4>About Us</h4>
+                            <h1>Know The Things</h1>
+                        </div>
+                    </div>
+                    <div class="cls">
+                    <!-- single progress bar-->
+                    <h3 class="progress-title">MARKETING STRATEGY</h3>
+                    <div class="progress orange">
+                        <div class="progress-bar first">
+                            <div class="progress-value">80%</div>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida.</p>
+
+                    <!-- single progress bar-->
+                    <h3 class="progress-title">DESIGN STRATEGY</h3>
+                    <div class="progress orange">
+                        <div class="progress-bar second">
+                            <div class="progress-value">70%</div>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida.</p>
+
+                    <!-- get a quote button-->
+                    <div class="site-btn">
+                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">GET A FREE
+                            QUOTE</a>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Our Vision -->
+<section class="our-vision-area  padding-no-bottom">
     <div class="container">
-        <!-- Project List Heading -->
 
-         <div class="row">
-            <!-- single-projects-->
-            <div class="col-lg-4 col-md-6 col-sm-6 margin-boottom20">
-
-                    <div class="project-list">
-                        <!-- Project image -->
-                        <img th:src="@{assets/img/project/project-1.jpg}" alt="project">
-                        <!-- Project content -->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
-                        </div>
+        <div class="row d-flex align-items-center">
+            <!-- our vision content-->
+            <div class="col-md-6 order-2 order-lg-1">
+                <div class=" sm-pt-25">
+                    <div class="section-title-3">
+                        <h4>Experience</h4>
+                        <h1>Know The Things</h1>
+                    </div>
+                    <div class="cls">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida
+                        massa at, viverra interdum orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor
+                        sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra
+                        interdum orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra interdum
+                        orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra interdum orci. leo
+                        suscipit, et molestie massa ullamcorper.</p>
                     </div>
 
+                </div>
             </div>
-            <!-- single-projects-->
-            <div class="col-lg-4 col-md-6 col-sm-6 margin-boottom20">
+            <!-- Image Section -->
+            <div class="col-md-6 about-img order-1 order-lg-2">
 
-                    <div class="project-list">
-                        <!-- Project image -->
-                        <img th:src="@{assets/img/project/project-2.jpg}" alt="project">
-                        <!-- Project content -->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+                <img th:src="@{assets/img/about-us/about-details-2.jpg}" alt="our-vision-img">
+
 
             </div>
 
-            <!-- single-projects-->
-            <div class="col-lg-4 col-md-6 col-sm-6 margin-boottom20">
+        </div>
 
-                    <div class="project-list">
-                        <!-- Project image -->
-                        <img th:src="@{assets/img/project/project-3.jpg}" alt="project">
-                        <!-- Project content -->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
+    </div>
+
+</section>
+
+<!-- Our Mission -->
+<section class="our-mission-area padding-no-bottom">
+    <div class="container">
+
+        <div class="row d-flex align-items-center">
+            <!-- Image Section -->
+            <div class="col-md-6 about-img">
+                <img th:src="@{assets/img/about-us/about-details.jpg}" alt="our-vision-img">
+
+            </div>
+            <!-- our mission content-->
+            <div class="col-md-6">
+                <div class=" sm-pt-25">
+                    <div class="section-title-3">
+                        <h4>Experience</h4>
+                        <h1>Know The Things</h1>
+                    </div>
+                    <div class="cls">
+                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus,
+                        ultricies gravida massa at, viverra interdum orci. leo suscipit, et molestie massa
+                        ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus,
+                        ultricies gravida massa at, viverra interdum orci. leo suscipit, et molestie massa
+                        ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus,
+                        ultricies gravida massa at, viverra interdum orci. leo suscipit, et molestie massa
+                        ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus,
+                        ultricies gravida massa at, viverra interdum orci. leo suscipit, et molestie massa
+                        ullamcorper.</p>
+                    </div>
+
+                    <ul>
+                        <li><i class="fa fa-circle"></i>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </li>
+                        <li><i class="fa fa-circle"></i>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </li>
+                        <li><i class="fa fa-circle"></i>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Experience Section -->
+<section class="experience-area">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <!-- experience heading area-->
+            <div class="col-md-7">
+                <div class="text-content">
+                    <div class="section-title-3">
+                        <h4>Experience</h4>
+                        <h1>Know The Things</h1>
+                    </div>
+                    <div class="cls">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida
+                        massa at, viverra interdum orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor
+                        sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra
+                        interdum orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra interdum
+                        orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra interdum orci. leo
+                        suscipit, et molestie massa ullamcorper.</p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Counter Section -->
+            <div class="col-md-5 sm-pt-25">
+                <div class="row">
+                    <!-- single-coutdown-->
+                    <div class="col-sm-6 col-md-6 col-xs-3 mb-30 box-4">
+                        <div class="counter-up">
+                            <h1><span class="counter">600</span>+</h1>
+                            <h3>Cups Of Coffee</h3>
+                        </div>
+                    </div>
+                    <!-- single-coutdown-->
+                    <div class="col-sm-6 col-md-6 col-xs-3 mb-30">
+                        <div class="counter-up">
+                            <h1><span class="counter">450</span>+</h1>
+                            <h3>Cups Of Coffee</h3>
+                        </div>
+                    </div>
+                    <!-- single-coutdown-->
+                    <div class="col-sm-6 col-md-6 col-xs-3 mb-30">
+                        <div class="counter-up">
+                            <h1><span class="counter">600</span>+</h1>
+                            <h3>Total Web Page</h3>
+                        </div>
+                    </div>
+                    <!-- single-coutdown-->
+                    <div class="col-sm-6 col-md-6 col-xs-3 mb-30">
+                        <div class="counter-up">
+                            <h1><span class="counter">300</span>+</h1>
+                            <h3>Customer</h3>
                         </div>
                     </div>
 
+                </div>
             </div>
-
-            <!-- single-projects-->
-            <div class="col-lg-4 col-md-6 col-sm-6 margin-boottom20">
-
-                    <div class="project-list">
-                        <!-- Project image -->
-                        <img th:src="@{assets/img/project/project-4.jpg}" alt="project">
-                        <!-- Project content -->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-            </div>
-            <!-- single-projects-->
-            <div class="col-lg-4 col-md-6 col-sm-6 margin-boottom20">
-
-                    <div class="project-list">
-                        <!-- Project image -->
-                        <img th:src="@{assets/img/project/project-5.jpg}" alt="project">
-                        <!-- Project content -->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-            </div>
-            <!-- single-projects-->
-            <div class="col-lg-4 col-md-6 col-sm-6 margin-boottom20">
-
-                    <div class="project-list">
-                        <!-- Project image -->
-                        <img th:src="@{assets/img/project/project-6.jpg}" alt="project">
-                        <!-- Project content -->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-            </div>
-
-           <!-- Pagination -->
-                <ul class="pagination text-center m-auto">
-                    <li><span aria-current="page" class="pagination current">1</span></li>
-                    <li><a class="pagination" href="#">2</a></li>
-                    <li><a class="next pagination" href="#"><i class="fa fa-angle-right"></i></a></li>
-                </ul>
 
 
         </div>
@@ -496,6 +564,7 @@
     </div>
 
 </footer>
+
 <!-- footer bottom -->
 <div class="footer-bottom">
     <div class="container">

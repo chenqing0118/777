@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>DMX - Digital Marketing Agency Html5 Template</title>
+    <title>一本满足-联系我们</title>
     <meta name="description" content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.png}">
@@ -47,38 +47,21 @@
                     <div class="main-menu">
                         <!-- Logo Area -->
                         <div class="logo-area">
-                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}" alt="main-logo.png"></a>
-                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}" alt="sticky-logo.png"></a>
+                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}"
+                                                                     alt="main-logo.png"></a>
+                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}"
+                                                                              alt="sticky-logo.png"></a>
                         </div>
 
                         <!-- Main Menu Area -->
                         <div class="menu-area" id="mobile-menu">
                             <ul>
                                 <!-- dropdown menu-area-->
-                                <li><a href="#">home <i class="fas fa-angle-down"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a th:href="@{/}">Home</a></li>
-                                        <li><a th:href="@{/index-2}">Home Two</a></li>
-                                    </ul>
-                                </li>
-                                <li><a th:href="@{/about-us}">about</a></li>
-                                <li><a th:href="@{/project-list}">Project</a></li>
-                                <!-- dropdown menu-area-->
-                                <li><a href="#">Pages <i class="fas fa-angle-down"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a th:href="@{/project-list}">Project List</a></li>
-                                        <li><a th:href="@{/project-details}">Project Details</a></li>
-                                        <li><a th:href="@{/service-list}">Service List</a></li>
-                                        <li><a th:href="@{/service-details}">Service Details</a></li>
-                                        <li><a th:href="@{/blog}">Blog</a></li>
-                                        <li><a th:href="@{/blog-details}">Blog Details</a></li>
-                                        <li><a th:href="@{/404}">404 page</a></li>
-                                    </ul>
-                                </li>
-                                <li><a th:href="@{/service-list}">services</a></li>
-                                <li><a href="index.html#Expertise">Expertise</a></li>
-                                <li><a th:href="@{/blog}">blog</a></li>
-                                <li><a th:href="@{/contact-us}">contact</a></li>
+                                <li><a th:href="@{/}">主页</a></li>
+                                <li><a th:href="@{/common_science}">配置科普</a></li>
+                                <li><a th:href="@{/pick-and-choose}">选机推荐</a></li>
+                                <li><a th:href="@{/service-list}">使用建议</a></li>
+                                <li><a th:href="@{/contact-us}">联系我们</a></li>
                             </ul>
                         </div>
                     </div>
@@ -196,11 +179,9 @@
                     <div class="item">
 
                         <div class="others-page-title text-center">
-                            <h1>Contact Us</h1>
+                            <h1>联系我们</h1>
 
-                            <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aliquam
-                                aliquid aspernatur assumenda beatae delectus,provident quia quod quos reprehenderit
-                                ullam voluptatum.</p>
+                            <p class="pt-3">如果您在使用本网站时有任何问题或者建议可以填写以下信息发邮件给我们。</p>
 
                         </div>
 
@@ -225,50 +206,34 @@
                         <form>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Name</label>
-                                    <input type="text" class="form-control" placeholder="Name">
+                                    <label for="inputEmail4">姓名</label>
+                                    <input type="text" class="form-control" placeholder="姓名">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Company Name</label>
-                                    <input type="text" class="form-control" placeholder="Company Name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputAddress">Email</label>
-                                <input type="email" class="form-control" placeholder="Email Address">
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Select a Service</label>
+                                    <label>问题/建议</label>
                                     <select class="form-control">
-                                        <option selected>Select Service</option>
+                                        <option selected>提问题</option>
 
-                                        <option value="">Design Service</option>
-                                        <option value="">Design Service</option>
-                                        <option value="">Design Service</option>
+                                        <option value="">提建议</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label>Website</label>
-                                    <input type="text" class="form-control" placeholder="Website">
-                                </div>
 
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAddress">电子邮箱</label>
+                                <input type="email" class="form-control" placeholder="电子邮箱">
+                            </div>
+                            <div class="form-row">
 
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Amount</label>
-                                    <input type="text" class="form-control" name="amount" placeholder="Amount">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Start date</label>
-                                    <input type="date" class="form-control" name="date">
-                                </div>
+                                    <label>详细内容</label>
+                                    <input type="text" class="form-control" name="amount" placeholder="详细描述">
 
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-3">
-                                    <label>Phn No.</label>
+                                    <label>电话号码</label>
                                     <select class="form-control">
 
                                         <option value="+88">BD</option>
@@ -281,12 +246,10 @@
 
                                     <input type="text" class="form-control" name="phone" placeholder="201-555-0123">
                                 </div>
-
-
                             </div>
                             <!-- submit button -->
                             <div class="submit-button">
-                                <button type="submit" class="contact-submit">Contact Us</button>
+                                <button type="submit" class="contact-submit">联系我们</button>
                             </div>
 
                         </form>
@@ -296,8 +259,10 @@
             <div class="col-md-6 col-sm-12 sm-pt-25">
                 <!-- Contact us content -->
                 <div class="content">
-                    <h1>Lorem ipsum dolor sit amet, consectetur.</h1>
-                    <p class="pt-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores debitis doloremque nisi nulla omnis quibusdam reiciendis reprehenderit similique tempora ut. Aliquam animi atque blanditiis corporis culpa deleniti dignissimos distinctio est, et excepturi fugit hic illo libero maiores molestiae nisi obcaecati odit porro possimus quae quo recusandae repudiandae suscipit tempore vel! Asperiores aspernatur commodi consequatur corporis culpa dignissimos dolorem doloribus eaque magnam mollitia, nulla quaerat quisquam quod, quos repellat reprehenderit sint suscipit tempora.</p>
+                    <h1>联系我们</h1>
+                    <p class="pt-5" style="text-indent: 2em;">我们的产品初衷就是帮助那些不太懂电脑但是又想买一个性价比高的笔记本电脑的用户，让他们
+                    少掉一些电脑城推销员的坑，少受一些广告的蒙蔽。我们致力于给您的生活带来更多的便利，所以我们是非常高兴
+                        收到您的批评或者建议或者点赞，并且会慎重考虑每一个人的意见，希望我们能共同成长。</p>
 
                 </div>
 
@@ -306,10 +271,10 @@
                     <div>
                         <div class="icon-area">
                             <i class="fas fa-map-marker-alt"></i>
-                            <h4>LOACTION</h4>
-                            <p class="pt-2 text">111 East<br>
-                                Wacker Drive<br>
-                                Chicago, Illinois, 60601
+                            <h4>地址</h4>
+                            <p class="pt-2 text">中国 <br>
+                                上海市 杨浦区<br>
+                                国定路777号
                             </p>
 
                         </div>
@@ -317,7 +282,7 @@
                     <div>
                         <div class="icon-area">
                             <i class="fas fa-phone-volume"></i>
-                            <h4>PHONE NUMBER</h4>
+                            <h4>联系电话</h4>
                             <p class="pt-2 text">+1-800-569-2754</p>
 
                         </div>
@@ -325,7 +290,7 @@
                     <div>
                         <div class="icon-area">
                             <i class="far fa-envelope"></i>
-                            <h4>EMAIL US</h4>
+                            <h4>电子邮箱</h4>
                             <p class="pt-2 text">
                                 Support Requests:<br>
                                 support@demosite.com
@@ -340,186 +305,6 @@
         </div>
     </div>
 </section>
-
-<!-- Google Map Section -->
-
-
-    <div class="contact-form-area">
-        <div class="mapouter">
-            <div class="gmap_canvas">
-                <iframe id="gmap_canvas"
-                        src="https://ditu.google.cn/maps?q=university%20of%20san%20francisco&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-                <a href="#">digital marketer</a></div>
-
-        </div>
-    </div>
-
-
-
-<!-- Newsletter Section -->
-<section class="newsletter-area">
-    <div class="container">
-        <!-- newsletter heading area-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                    <div class="head-text">
-                        <h3>Newsletter</h3>
-                        <h1>Get Latest News From Us</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 m-auto">
-                <div class="subcribe-form text-center">
-
-
-                    <!-- Begin Mailchimp Signup Form -->
-                    <div id="mc_embed_signup">
-                        <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                              class="validate" target="_blank" novalidate>
-                            <div id="mc_embed_signup_scroll">
-
-                                <div class="mc-field-group subcribe-form">
-                                    <input autocomplete="off" placeholder="Enter Your Email" value="" name="EMAIL"
-                                           class="required email" id="mce-EMAIL" type="email">
-                                    <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
-                                            class="button"><i class="fas fa-paper-plane"></i></button>
-                                </div>
-
-                                <div class="newsletter-input" aria-hidden="true">
-                                    <input type="text" name="b_a3d53fa043a54881bf71f9a96_dc0358f8ce" tabindex="-1"
-                                           value="">
-                                </div>
-                                <div class="clear"></div>
-
-
-                            </div>
-                        </form>
-                    </div>
-
-                    <!--End mc_embed_signup-->
-                </div>
-
-                <p class="text-center pt-4 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aliquid, cupiditate deserunt dolore error excepturi harum maxime molestiae nihil officia omnis pariatur rem, sed suscipit velit vero voluptate.
-                </p>
-
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- Footer Section -->
-<footer class="footer-area">
-
-    <!-- footer bottom -->
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 margin-bottom-r">
-                    <!-- Footer Logo -->
-                    <div class="company-logo text-center">
-                        <a th:href="@{/}"><img th:src="@{assets/img/main-logo.png}" alt="main-logo.png"></a>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="row second-footer">
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 sm-mb">
-
-                    <h4 class="mb-4">United States</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 sm-mb">
-
-                    <h4 class="mb-4">United Kingdom</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-
-                    <h4 class="mb-4">Germany</h4>
-                     <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-
-                    <h4 class="mb-4">London</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-
-
-            </div>
-
-        </div>
-    </div>
-
-</footer>
 
 <!-- footer bottom -->
 <div class="footer-bottom">

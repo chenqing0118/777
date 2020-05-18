@@ -169,38 +169,21 @@
                     <div class="main-menu">
                         <!-- Logo Area -->
                         <div class="logo-area">
-                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}" alt="main-logo.png"></a>
-                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}" alt="sticky-logo.png"></a>
+                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}"
+                                                                     alt="main-logo.png"></a>
+                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}"
+                                                                              alt="sticky-logo.png"></a>
                         </div>
 
                         <!-- Main Menu Area -->
                         <div class="menu-area" id="mobile-menu">
                             <ul>
                                 <!-- dropdown menu-area-->
-                                <li><a href="#">home <i class="fas fa-angle-down"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a th:href="@{/}">Home</a></li>
-                                        <li><a th:href="@{/index-2}">Home Two</a></li>
-                                    </ul>
-                                </li>
-                                <li><a th:href="@{/about-us}">about</a></li>
-                                <li><a th:href="@{/project-list}">Project</a></li>
-                                <!-- dropdown menu-area-->
-                                <li><a href="#">Pages <i class="fas fa-angle-down"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a th:href="@{/project-list}">Project List</a></li>
-                                        <li><a th:href="@{/project-details}">Project Details</a></li>
-                                        <li><a th:href="@{/service-list}">Service List</a></li>
-                                        <li><a th:href="@{/service-details}">Service Details</a></li>
-                                        <li><a th:href="@{/blog}">Blog</a></li>
-                                        <li><a th:href="@{/blog-details}">Blog Details</a></li>
-                                        <li><a th:href="@{/404}">404 page</a></li>
-                                    </ul>
-                                </li>
-                                <li><a th:href="@{/service-list}">services</a></li>
-                                <li><a href="index.html#Expertise">Expertise</a></li>
-                                <li><a th:href="@{/blog}">blog</a></li>
-                                <li><a th:href="@{/contact-us}">contact</a></li>
+                                <li><a th:href="@{/}">主页</a></li>
+                                <li><a th:href="@{/common_science}">配置科普</a></li>
+                                <li><a th:href="@{/pick-and-choose}">选机推荐</a></li>
+                                <li><a th:href="@{/service-list}">使用建议</a></li>
+                                <li><a th:href="@{/contact-us}">联系我们</a></li>
                             </ul>
                         </div>
                     </div>
@@ -212,7 +195,6 @@
     </div>
 
 </header>
-
 <!-- Get a Quote Modal -->
 <div class="modal animated bounceInUp" id="myModal" tabindex="-1" role="dialog">
     <div class="modal-dialog">

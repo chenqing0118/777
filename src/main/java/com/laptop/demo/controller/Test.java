@@ -13,22 +13,16 @@ public class Test {
         return "404";
     }
 
-    @RequestMapping("/about-us")
+    @RequestMapping("/pick-and-choose")
     public String about(Model model){
 
-        return "about-us";
+        return "pick-and-choose";
     }
 
-    @RequestMapping("/blog")
-    public String blog(Model model){
-
-        return "blog";
-    }
-
-    @RequestMapping("/blog-detail")
+    @RequestMapping("/blog-details")
     public String blog_post(Model model){
 
-        return "blog-detail";
+        return "blog-details";
     }
 
     @RequestMapping("/contact-us")
@@ -43,32 +37,6 @@ public class Test {
         return "index";
     }
 
-    @RequestMapping("/index-2")
-    public String index2(Model model){
-
-        return "index-2";
-    }
-
-    @RequestMapping("/project-details")
-    public String project_details(Model model){
-
-        return "project-details";
-    }
-    @RequestMapping("/project-list")
-    public String project_list(Model model){
-
-        return "project-list";
-    }
-    @RequestMapping("/service-details")
-    public String service_details(Model model){
-
-        return "service-details";
-    }
-    @RequestMapping("/service-list")
-    public String service_list(Model model){
-
-        return "service-list";
-    }
     @RequestMapping("/test")
     public String test(Model model){
 
@@ -78,5 +46,9 @@ public class Test {
     public String common_science(Model model){
 
         return "common_science";
+    }
+    @RequestMapping("/service-list")
+    public String service_list(){
+        return "service-list";
     }
 }

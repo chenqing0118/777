@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>一本满足</title>
+    <title>一本满足-主页</title>
     <meta name="description"
           content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,22 +59,10 @@
                             <ul>
                                 <!-- dropdown menu-area-->
                                 <li><a th:href="@{/}">主页</a></li>
-                                <li><a th:href="@{/about-us}">配置科普</a></li>
-                                <li><a th:href="@{/project-list}">选机推荐</a></li>
-                                <!-- dropdown menu-area-->
-                                <!--                                <li><a href="#">Pages <i class="fas fa-angle-down"></i></a>-->
-                                <!--                                    <ul class="dropdown">-->
-                                <!--                                        <li><a th:href="@{/project-list}">Project List</a></li>-->
-                                <!--                                        <li><a th:href="@{/project-details}">Project Details</a></li>-->
-                                <!--                                        <li><a th:href="@{/service-list}">Service List</a></li>-->
-                                <!--                                        <li><a th:href="@{/service-details}">Service Details</a></li>-->
-                                <!--                                        <li><a th:href="@{/blog}">Blog</a></li>-->
-                                <!--                                        <li><a th:href="@{/blog-details}">Blog Details</a></li>-->
-                                <!--                                        <li><a th:href="@{/404}">404 page</a></li>-->
-                                <!--                                    </ul>-->
-                                <!--                                </li>-->
+                                <li><a th:href="@{/common_science}">配置科普</a></li>
+                                <li><a th:href="@{/pick-and-choose}">选机推荐</a></li>
                                 <li><a th:href="@{/service-list}">使用建议</a></li>
-                                <li><a th:href="@{/contact-us}">contact</a></li>
+                                <li><a th:href="@{/contact-us}">联系我们</a></li>
                             </ul>
                         </div>
                     </div>
@@ -199,7 +187,8 @@
                     </div>
                     <!-- get a quote button-->
                     <div class="site-btn mb-5">
-                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">配置科普<i class="fas fa-arrow-right"></i></a>
+                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">配置科普<i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -209,13 +198,14 @@
     </div>
 </section>
 
-<!-- Experience Section -->
-<section class="experience-area">
+<!-- Our Vision -->
+<section class="our-vision-area  padding-no-bottom">
     <div class="container">
+
         <div class="row d-flex align-items-center">
-            <!-- experience heading area-->
-            <div class="col-md-6 col-lg-7">
-                <div class="text-content">
+            <!-- our vision content-->
+            <div class="col-md-6 order-2 order-lg-1">
+                <div class=" sm-pt-25">
                     <div class="section-title-3">
                         <h4>到底如何高效快速选择笔记本电脑？</h4>
                         <h1><strong>选机推荐</strong> ，给您最适合的笔记本电脑</h1>
@@ -231,91 +221,75 @@
                     </div>
                     <!-- get a quote button-->
                     <div class="site-btn mb-5">
-                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">选机推荐<i class="fas fa-arrow-right"></i></a>
+                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">选机推荐<i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
+            <!-- Image Section -->
+            <div class="col-md-6 about-img order-1 order-lg-2">
 
-            <div class="col-md-6 col-lg-5">
-                <div class="row">
-                    <!-- single-coutdown-->
-                    <div class="col-6 col-sm-6 col-md-6 col-xs-3 mb-30 box-4">
-                        <div class="counter-up">
-                            <h1><span class="counter">600</span>+</h1>
-                            <h3>Total App Dev</h3>
-                        </div>
-                    </div>
-                    <!-- single-coutdown-->
-                    <div class="col-6 col-sm-6 col-md-6 col-xs-3 mb-30">
-                        <div class="counter-up">
-                            <h1><span class="counter">450</span>+</h1>
-                            <h3>Total Seo</h3>
-                        </div>
-                    </div>
-                    <!-- single-coutdown-->
-                    <div class="col-6 col-sm-6 col-md-6 col-xs-3 mb-30">
-                        <div class="counter-up">
-                            <h1><span class="counter">600</span>+</h1>
-                            <h3>Total Web Page</h3>
-                        </div>
-                    </div>
-                    <!-- single-coutdown-->
-                    <div class="col-6 col-sm-6 col-md-6 col-xs-3 mb-30">
-                        <div class="counter-up">
-                            <h1><span class="counter">300</span>+</h1>
-                            <h3>Total Customer</h3>
-                        </div>
-                    </div>
+                <img th:src="@{assets/img/about-us/about-details-2.jpg}" alt="our-vision-img">
 
-                </div>
+
             </div>
 
         </div>
+
     </div>
+
 </section>
 
-<!-- About Us Section -->
-<section class="about-us padding-no-bottom">
-    <div class="about-spin">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <!-- about Image -->
-                <div class="col-md-7 about-img sm-mb-4">
-                    <img th:src="@{assets/img/about-us/about-us.png}" alt="about-img"/>
-                </div>
-                <!-- about content-->
-                <div class="col-md-5">
+<!-- Our Mission -->
+<section class="our-mission-area padding-no-bottom">
+    <div class="container">
 
-                    <div class="text-content">
-                        <div class="section-title-3">
-                            <h4>为什么我的电脑不耐用？</h4>
-                            <h1><strong>使用建议</strong>，给您的电脑最好的保养</h1>
-                        </div>
+        <div class="row d-flex align-items-center">
+            <!-- Image Section -->
+            <div class="col-md-6 about-img">
+                <img th:src="@{assets/img/about-us/about-details.jpg}" alt="our-vision-img">
+
+            </div>
+            <!-- our mission content-->
+            <div class="col-md-6">
+                <div class=" sm-pt-25">
+                    <div class="section-title-3">
+                        <h4>为什么我的电脑不耐用？</h4>
+                        <h1><strong>使用建议</strong>，给您的电脑最好的保养</h1>
                     </div>
-
                     <div class="cls">
                         <!-- single progress bar-->
-                        <p style="text-indent: 2em;">有的用户会有这样的问题：新买的电脑实际内存比产品介绍上的内存小、
-                            新电脑没有用多久就明显觉得响应速度越来越慢、电脑没用多久就变得特别烫等等。这些问题都是因为
-                            使用电脑过程中操作不当导致的。
+                        <p style="text-indent: 2em;">有的用户会有这样的问题：
+                        <ul>
+                            <li><i class="fa fa-circle"></i>&nbsp;新买的电脑实际内存比产品介绍上的内存小.
+                            </li>
+                            <li><i class="fa fa-circle"></i>&nbsp;新电脑没有用多久就明显觉得响应速度越来越慢.
+                            </li>
+                            <li><i class="fa fa-circle"></i>&nbsp;电脑没用多久就变得特别烫等等.
+                            </li>
+                        </ul>这些都是因为使用电脑过程中操作不当导致的。
                         </p>
+
                         <p style="text-indent: 2em;">而有一些用户使用自己的电脑很长时间以后，发觉电脑存放了太多东西已经
                             不够装了，而再买一台电脑可能不太划算，想要进行部分配件的升级。但是笔记本电脑的升级没有台式电脑
                             升级自由，有很多需要注意的地方。
                         </p>
-                        <p>为了解决用户的这些问题，让笔记本电脑得到更好的使用，我们给用户最好的使用建议，避免用户因为使用
+                        <p style="text-indent: 2em;">为了解决用户的这些问题，让笔记本电脑得到更好的使用，我们给用户最好的使用建议，避免用户因为使用
                             不当导致电脑寿命减少，指导用户正确地升级电脑。</p>
                     </div>
                     <!-- get a quote button-->
                     <div class="site-btn mb-5">
-                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">使用建议<i class="fas fa-arrow-right"></i></a>
+                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">使用建议<i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
-                </div>
 
+                </div>
             </div>
 
         </div>
+
     </div>
+
 </section>
 
 <!-- Team Section -->
