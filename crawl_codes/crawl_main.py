@@ -117,13 +117,13 @@ class Benchmark(object):
             return gpu_stats
 
     def _get_cinebench(self):
+        """
+                        从以下网址获取cpu跑分情况
+                        :return:
+                        """
         if self.cpu_bench is not None:
             return self.cpu_bench
         else:
-            """
-                从以下网址获取cpu跑分情况
-                :return:
-                """
             html = HTMLDownloader.get_page_content(
                 "https://www.notebookcheck.net/Mobile-Processors-Benchmark-List.2436.0.html" +
                 "?type=&sort=&archive=1&or=0&3dmark06cpu=1&cinebench_r15_single=1&cinebench_r15_multi=1&cinebench_r20_multi=1" +
@@ -138,7 +138,23 @@ class Benchmark(object):
                 pivot = row.find("td", class_="specs").next_sibling
                 # cpu基本信息获取
                 cpu_name = pivot.getText().strip()
-                item['name'] = re.sub("-", " ", " ".join(cpu_name.split()))
+                cpu_name = re.sub("-", " ", " ".join(cpu_name.split()))
+                # 预选cpu : AMD 只要 Ryzen 系列
+                # Intel留Xeon，Celeron，奔腾，酷睿 7XXX以上
+                if cpu_name.startswith("AMD"):
+                    if cpu_name.find("Ryzen") < 0:
+                        continue
+                elif cpu_name.startswith("Intel"):
+                    if cpu_name.find("Celeron") >= 0 or cpu_name.find('Pentium') >= 0 or cpu_name.find("Xeon") >= 0:
+                        pass
+                    elif cpu_name.find("Core i") >= 0:
+                        if int(cpu_name.split()[-1][0]) in (2, 3, 4, 5, 6):
+                            continue
+                    elif cpu_name.find("Core M >= 0"):
+                        pass
+                    else:
+                        continue
+                item['name'] = cpu_name
                 pivot = pivot.next_sibling
                 main_clock_speed = pivot.getText().strip().split('‑')
                 if main_clock_speed[0]:
@@ -293,12 +309,11 @@ if __name__ == '__main__':
     result = []
     mark = Benchmark()
     for brand in TaiPingYangCrawler.BRANDS:
-        laptops = TaiPingYangCrawler.unify_items(TaiPingYangCrawler().get_laptop_list(brand=brand, pages_limit=8))
+        laptops = TaiPingYangCrawler.unify_items(TaiPingYangCrawler().get_laptop_list(brand=brand, pages_limit=10))
         laptops = mark.filter_laptops(laptops)
         for item in laptops:
             item['brand'] = brand
         print("writing brand: " + brand)
-
         # 尝试写入mysql，临时表
         values = list()
         for laptop in laptops:
@@ -315,6 +330,10 @@ if __name__ == '__main__':
         print("gpu type count:" + str(len(gpus)))
         print("cpu type count:" + str(len(cpus)))
 
+    try:
+        connector.connect_to_db('cdb-ctmslwcn.gz.tencentcdb.com', 'se', 'sufese777', "laptop", port=10020)
+    except Exception as e:
+        raise e
     cpu_keys = ['name', 'cores', 'threads', 'clock', 'maxClock', 'singleCore', 'multiCore']
     cpu_stats = mark.cpu_bench
     values = list()
@@ -328,6 +347,10 @@ if __name__ == '__main__':
             values.append(item)
     connector.insert_unique("cpu", cpu_keys, values)
 
+    try:
+        connector.connect_to_db('cdb-ctmslwcn.gz.tencentcdb.com', 'se', 'sufese777', "laptop", port=10020)
+    except Exception as e:
+        raise e
     gpu_keys = ['name', 'memory', 'score']
     gpu_stats = mark.gpu_bench
     values.clear()

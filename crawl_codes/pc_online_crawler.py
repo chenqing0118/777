@@ -88,6 +88,8 @@ class TaiPingYangCrawler:
             item_url = "https:" + title['href']
             item_pic_url = "https://product.pconline.com.cn/pdlib/" + re.findall(r"\d+", item_url)[-1] + "_picture.html"
             item['pictures'] = self._get_item_pic(item_pic_url)
+            if item['pictures']:
+                item['pictures'] = str(item['pictures'])
             item_spec_url = item_url.replace(".html", "_detail.html")
             specs = self._parse_item(item_spec_url)
             if specs:
@@ -110,6 +112,7 @@ class TaiPingYangCrawler:
             if pic_div:
                 for img in pic_div.find_all("img"):
                     result.append(img['src'])
+                return result
             else:
                 return []
         except Exception as e:
@@ -168,7 +171,9 @@ class TaiPingYangCrawler:
             if real_key:
                 real_value = value
                 #  数据预处理
-                if real_key == "model" or key == "cpu_name":
+                if real_key == "type":
+                    real_value = value.split(',')[0]
+                if real_key == "model" or real_key == "cpu_name":
                     real_value = re.sub(r"\(.*\)", "", value)
                 # if real_key == "type":
                 #     real_value = "其他"
