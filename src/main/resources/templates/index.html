@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="ZXX" xmlns:th="http://www.thymeleaf.org" >
+<html lang="ZXX" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>DMX - Digital Marketing Agency Html5 Template</title>
-    <meta name="description" content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
+    <title>一本满足</title>
+    <meta name="description"
+          content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.png}">
     <link rel="stylesheet" th:href="@{assets/css/bootstrap-4.2.1.min.css}">
@@ -47,37 +48,32 @@
                     <div class="main-menu">
                         <!-- Logo Area -->
                         <div class="logo-area">
-                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}" alt="main-logo.png"></a>
-                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}" alt="sticky-logo.png"></a>
+                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}"
+                                                                     alt="main-logo.png"></a>
+                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}"
+                                                                              alt="sticky-logo.png"></a>
                         </div>
 
                         <!-- Main Menu Area -->
                         <div class="menu-area" id="mobile-menu">
                             <ul>
                                 <!-- dropdown menu-area-->
-                                <li><a href="#">home <i class="fas fa-angle-down"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a th:href="@{/}">Home</a></li>
-                                        <li><a th:href="@{/index-2}">Home Two</a></li>
-                                    </ul>
-                                </li>
-                                <li><a th:href="@{/about-us}">about</a></li>
-                                <li><a th:href="@{/project-list}">Project</a></li>
+                                <li><a th:href="@{/}">主页</a></li>
+                                <li><a th:href="@{/about-us}">配置科普</a></li>
+                                <li><a th:href="@{/project-list}">选机推荐</a></li>
                                 <!-- dropdown menu-area-->
-                                <li><a href="#">Pages <i class="fas fa-angle-down"></i></a>
-                                    <ul class="dropdown">
-                                        <li><a th:href="@{/project-list}">Project List</a></li>
-                                        <li><a th:href="@{/project-details}">Project Details</a></li>
-                                        <li><a th:href="@{/service-list}">Service List</a></li>
-                                        <li><a th:href="@{/service-details}">Service Details</a></li>
-                                        <li><a th:href="@{/blog}">Blog</a></li>
-                                        <li><a th:href="@{/blog-details}">Blog Details</a></li>
-                                        <li><a th:href="@{/404}">404 page</a></li>
-                                    </ul>
-                                </li>
-                                <li><a th:href="@{/service-list}">services</a></li>
-                                <li><a href="#Expertise">Expertise</a></li>
-                                <li><a th:href="@{/blog}">blog</a></li>
+                                <!--                                <li><a href="#">Pages <i class="fas fa-angle-down"></i></a>-->
+                                <!--                                    <ul class="dropdown">-->
+                                <!--                                        <li><a th:href="@{/project-list}">Project List</a></li>-->
+                                <!--                                        <li><a th:href="@{/project-details}">Project Details</a></li>-->
+                                <!--                                        <li><a th:href="@{/service-list}">Service List</a></li>-->
+                                <!--                                        <li><a th:href="@{/service-details}">Service Details</a></li>-->
+                                <!--                                        <li><a th:href="@{/blog}">Blog</a></li>-->
+                                <!--                                        <li><a th:href="@{/blog-details}">Blog Details</a></li>-->
+                                <!--                                        <li><a th:href="@{/404}">404 page</a></li>-->
+                                <!--                                    </ul>-->
+                                <!--                                </li>-->
+                                <li><a th:href="@{/service-list}">使用建议</a></li>
                                 <li><a th:href="@{/contact-us}">contact</a></li>
                             </ul>
                         </div>
@@ -91,100 +87,6 @@
 
 </header>
 
-<!-- Get a Quote Modal -->
-<div class="modal animated bounceInUp" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="header-form">
-
-                    <form action="#" method="post">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">Name</label>
-                                <input type="text" class="form-control" name="name" id="inputEmail4" placeholder="Name">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Company Name</label>
-                                <input type="text" class="form-control" name="cname" id="inputPassword4"
-                                       placeholder="Company Name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress">Email</label>
-                            <input type="email" class="form-control" name="mail" id="inputAddress"
-                                   placeholder="Email Address">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Select a Service</label>
-                                <select class="form-control" name="service_list">
-
-                                    <option selected>Select Service</option>
-
-                                    <option value="">Design Service</option>
-                                    <option value="">Design Service</option>
-                                    <option value="">Design Service</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Website</label>
-                                <input type="text" name="website" class="form-control" placeholder="Website">
-                            </div>
-
-
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Amount</label>
-                                <input type="text" class="form-control" name="amount" placeholder="Amount">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Start date</label>
-                                <input type="date" class="form-control" name="qdate">
-                            </div>
-
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label>Phn No.</label>
-                                <select class="form-control" name="region">
-
-
-                                    <option value="+88">BD</option>
-                                    <option value="+88">USA</option>
-                                    <option value="+88">UK</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group col-md-8">
-                                <label class="pt-3"></label>
-
-                                <input type="text" name="phn" class="form-control" placeholder="201-555-0123">
-                            </div>
-
-
-                        </div>
-                        <!-- Submit Button-->
-                        <div class="submit-button">
-                            <button type="submit" class="site-btn-submit" name="sub">GET A FREE QUOTE</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
 <!-- header banner Section -->
 <section>
     <!-- Hero Slider Area -->
@@ -196,11 +98,10 @@
                     <img th:src="@{assets/img/header.jpg}" alt="header.jpg">
                 </div>
                 <div class="slider-text text-center">
-                    <!--<span class="welcome">Welcome To Demosite</span>-->
-                    <h2>WE ARE <span>DIGITAL MARKETING</span> COMPANY</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cupiditate <br
-                            class="br"> doloremque hic illum laboriosam reiciendis soluta sunt ullam.</p>
-                    <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">GET A FREE QUATE</a>
+                    <span class="welcome">不知道如何选购 <strong>笔记本电脑</strong> ？</span>
+                    <h2>为您<span> 定制化地 </span>推荐适合您的<span> 笔记本电脑 </span></h2>
+                    <p>提出您的需求，我们给您推荐最适合您的几款笔记本电脑
+                        <br class="br"> 根据您的偏好，您可以自由选择您最喜欢的一款。</p>
                 </div>
             </div>
 
@@ -210,11 +111,9 @@
                     <img th:src="@{assets/img/header-2.jpg}" alt="header2.jpg">
                 </div>
                 <div class="slider-text text-center">
-
-                    <h2>WE ARE <span>DIGITAL MARKETING</span> COMPANY</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cupiditate <br
-                            class="br"> doloremque hic illum laboriosam reiciendis soluta sunt ullam.</p>
-                    <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">GET A FREE QUATE</a>
+                    <span class="welcome">不了解 <strong>笔记本电脑配置参数</strong> ？</span>
+                    <h2>给您笔记本电脑配置信息<span> 最通俗易懂的科普 </span></h2>
+                    <p>将笔记本配置参数翻译成您最能理解的自然语言形式，让您选购笔记本电脑时更加轻松，不再一头雾水。</p>
                 </div>
             </div>
         </div>
@@ -235,7 +134,7 @@
                         <div class="service-icon">
                             <img th:src="@{assets/img/icon/webdev.png}" alt="icon">
                         </div>
-                        <div class="service-text"><h2>Web Development<i class="fas fa-arrow-right"></i></h2></div>
+                        <div class="service-text"><h2>配置科普<i class="fas fa-arrow-right"></i></h2></div>
                     </div>
                 </a>
             </div>
@@ -247,7 +146,7 @@
                         <div class="service-icon">
                             <img th:src="@{assets/img/icon/application.png}" alt="icon">
                         </div>
-                        <div class="service-text"><h2>App Design<i class="fas fa-arrow-right"></i></h2></div>
+                        <div class="service-text"><h2>选机推荐<i class="fas fa-arrow-right"></i></h2></div>
                     </div>
                 </a>
 
@@ -260,7 +159,7 @@
                         <div class="service-icon">
                             <img th:src="@{assets/img/icon/seo.png}" alt="icon">
                         </div>
-                        <div class="service-text"><h2>Marketing<i class="fas fa-arrow-right"></i></h2></div>
+                        <div class="service-text"><h2>使用建议<i class="fas fa-arrow-right"></i></h2></div>
                     </div>
                 </a>
 
@@ -283,39 +182,24 @@
 
                     <div class="text-content">
                         <div class="section-title-3">
-                            <h4>About Us</h4>
-                            <h1>Know The Things</h1>
+                            <h4>i5-1035G1、GTX 1650Ti 到底是什么意思？</h4>
+                            <h1><strong>配置科普</strong>，填补您的知识盲区</h1>
                         </div>
                     </div>
 
                     <div class="cls">
                         <!-- single progress bar-->
-                        <h3 class="progress-title">DESIGN STRATEGY</h3>
-                        <div class="progress orange">
-                            <div class="progress-bar first">
-                                <div class="progress-value">85%</div>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida
-                            massa at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus,
-                            ultricies gravida.</p>
-
-                        <!-- single progress bar-->
-                        <h3 class="progress-title">MARKETING STRATEGY</h3>
-                        <div class="progress orange">
-                            <div class="progress-bar second">
-                                <div class="progress-value">70%</div>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida
-                            massa at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus,
-                            ultricies gravida.</p>
+                        <p style="text-indent: 2em;">选择笔记本电脑的时候总是纠结这些电脑配置参数 I5-10300H、i5-1035G1、
+                            GTX 1650Ti 是什么意思？好像除了重量和外观，其他的都看不懂，不得不多方查找资料询问这些参数对
+                            应的作用，但是查完资料，还是觉得似懂非懂。</p>
+                        <p style="text-indent: 2em;">为了让用户更清楚自己选择的电脑的配置对应的性能，不会在选电脑的时候
+                            盲目选择参数，直到电脑拿到手在使用过程中才发现它不太能满足自己的需求，我们将电脑最为重要的一
+                            些硬件以及它的选购建议进行最通俗易懂的解释。然后用户在选购电脑的时候，对比各种电脑更能理解
+                            电脑之间的区别。</p>
                     </div>
-
                     <!-- get a quote button-->
-                    <div class="site-btn">
-                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">GET A FREE
-                            QUATE</a>
+                    <div class="site-btn mb-5">
+                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">配置科普<i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -333,22 +217,21 @@
             <div class="col-md-6 col-lg-7">
                 <div class="text-content">
                     <div class="section-title-3">
-                        <h4>Experience</h4>
-                        <h1>Know The Things</h1>
+                        <h4>到底如何高效快速选择笔记本电脑？</h4>
+                        <h1><strong>选机推荐</strong> ，给您最适合的笔记本电脑</h1>
                     </div>
                     <div class="cls">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda cumque
-                            exercitationem id impedit labore sit, soluta voluptas! Quisquam, tenetur? Lorem ipsum dolor
-                            sit amet, consectetur adipisicing elit. Dicta dolorum iusto maiores mollitia nobis optio
-                            quidem quos soluta vero voluptatum! Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Donec justo metus, ultricies gravida massa at.Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Donec justo metus, ultricies gravida massa at.Donec justo metus, ultricies
-                            gravida massa at.Donec justo metus, ultricies gravida massa at.</p>
+                        <p style="text-indent: 2em;">在各大电商网站选择笔记本电脑的时候总是觉得眼花缭乱，要花很多时间去
+                            筛选自己最想要的电脑。并且各个商家的广告总是放大产品的优点，忽略产品的缺点，有可能有些缺点是
+                            用户完全无法接受的，而繁杂的售后评论很难让用户快速提炼出产品的优缺点。所以用户更需要客观全面
+                            的评价和对比，帮助用户选购电脑。</p>
+                        <p style="text-indent: 2em;">为了使我们推荐的电脑更精准地满足用户的需求，用户需要回答一些必要的
+                            问题，然后我们推荐给他3-5款最符合要求的电脑，并且客观全面的分析各种电脑的优缺点，用户再自行
+                            选择电脑。</p>
                     </div>
                     <!-- get a quote button-->
                     <div class="site-btn mb-5">
-                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">GET A FREE
-                            QUATE</a>
+                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">选机推荐<i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -391,418 +274,46 @@
     </div>
 </section>
 
-<!-- Expertise Section -->
-<section id="Expertise" class="expertise-area">
+<!-- About Us Section -->
+<section class="about-us padding-no-bottom">
+    <div class="about-spin">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <!-- about Image -->
+                <div class="col-md-7 about-img sm-mb-4">
+                    <img th:src="@{assets/img/about-us/about-us.png}" alt="about-img"/>
+                </div>
+                <!-- about content-->
+                <div class="col-md-5">
 
+                    <div class="text-content">
+                        <div class="section-title-3">
+                            <h4>为什么我的电脑不耐用？</h4>
+                            <h1><strong>使用建议</strong>，给您的电脑最好的保养</h1>
+                        </div>
+                    </div>
 
-    <div class="container">
-        <!-- expertise heading area-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                    <div class="head-text">
-                        <h3>Expertise</h3>
-                        <h1>Our Using Technologies</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aliquid, cupiditate deserunt dolore error et excepturi <br class="br">harum maxime molestiae nihil officia omnis pariatur rem, sed suscipit velit vero voluptate.
+                    <div class="cls">
+                        <!-- single progress bar-->
+                        <p style="text-indent: 2em;">有的用户会有这样的问题：新买的电脑实际内存比产品介绍上的内存小、
+                            新电脑没有用多久就明显觉得响应速度越来越慢、电脑没用多久就变得特别烫等等。这些问题都是因为
+                            使用电脑过程中操作不当导致的。
                         </p>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- single expertise box area-->
-            <div class="col-md-6 col-lg-4 col-sm-12">
-                <div class="serviceBox">
-                    <div class="service-icon">
-                        <i class="fab fa-android"></i>
-                    </div>
-                    <div class="service-Content">
-                        <h3 class="title">Android</h3>
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto cum dolore
-                            dolores fuga libero magni placeat possimus sequi Lorem ipsum dolor sit.
+                        <p style="text-indent: 2em;">而有一些用户使用自己的电脑很长时间以后，发觉电脑存放了太多东西已经
+                            不够装了，而再买一台电脑可能不太划算，想要进行部分配件的升级。但是笔记本电脑的升级没有台式电脑
+                            升级自由，有很多需要注意的地方。
                         </p>
+                        <p>为了解决用户的这些问题，让笔记本电脑得到更好的使用，我们给用户最好的使用建议，避免用户因为使用
+                            不当导致电脑寿命减少，指导用户正确地升级电脑。</p>
+                    </div>
+                    <!-- get a quote button-->
+                    <div class="site-btn mb-5">
+                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">使用建议<i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-            </div>
-            <!-- single expertise box area-->
-            <div class="col-md-6 col-lg-4 col-sm-12">
-                <div class="serviceBox">
-                    <div class="service-icon">
-                        <i class="fab fa-apple"></i>
-                    </div>
-                    <div class="service-Content">
-                        <h3 class="title">IOS</h3>
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto cum dolore
-                            dolores fuga libero magni placeat possimus sequi Lorem ipsum dolor sit.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- single expertise box area-->
-            <div class="col-md-6 col-lg-4 col-sm-12">
-                <div class="serviceBox">
-                    <div class="service-icon">
-                        <i class="fab fa-angular"></i>
-                    </div>
-                    <div class="service-Content">
-                        <h3 class="title">Angular</h3>
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto cum dolore
-                            dolores fuga libero magni placeat possimus sequi Lorem ipsum dolor sit.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- single expertise box area-->
-            <div class="col-md-6 col-lg-4 col-sm-12">
-                <div class="serviceBox">
-                    <div class="service-icon">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <div class="service-Content">
-                        <h3 class="title">Python</h3>
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto cum dolore
-                            dolores fuga libero magni placeat possimus sequi Lorem ipsum dolor sit.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- single expertise box area-->
-            <div class="col-md-6 col-lg-4 col-sm-12">
-                <div class="serviceBox">
-                    <div class="service-icon">
-                        <i class="fab fa-react"></i>
-                    </div>
-                    <div class="service-Content">
-                        <h3 class="title">React</h3>
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto cum dolore
-                            dolores fuga libero magni placeat possimus sequi Lorem ipsum dolor sit.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- single expertise box area-->
-            <div class="col-md-6 col-lg-4 col-sm-12">
-                <div class="serviceBox">
-                    <div class="service-icon">
-                        <i class="fab fa-vuejs"></i>
-                    </div>
-                    <div class="service-Content">
-                        <h3 class="title">Vue</h3>
-                        <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto cum dolore
-                            dolores fuga libero magni placeat possimus sequi Lorem ipsum dolor sit.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Project Section -->
-<section class="project-area">
-
-    <div class="container">
-        <!-- project heading area-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                    <div class="head-text">
-                        <h3>Our Projects</h3>
-                        <h1>See Our Latest Projects</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aliquid, cupiditate deserunt dolore error et excepturi <br class="br">harum maxime molestiae nihil officia omnis pariatur rem, sed suscipit velit vero voluptate.
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Project Box Area -->
-        <div class="row">
-            <!-- single-projects-->
-            <div class="col-sm-6 col-md-6 col-lg-4 margin-boottom20">
-
-                    <div class="project-list">
-                        <!-- single-projects-image-->
-                        <img th:src="@{assets/img/project/project-1.jpg}" alt="project">
-                        <!-- single-projects-content-->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-            </div>
-            <!-- single-projects-->
-            <div class="col-sm-6 col-md-6 col-lg-4 margin-boottom20">
-
-                    <div class="project-list">
-                        <!-- single-projects-image-->
-                        <img th:src="@{assets/img/project/project-2.jpg}" alt="project">
-                        <!-- single-projects-content-->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-            </div>
-            <!-- single-projects-->
-            <div class="col-sm-6 col-md-6 col-lg-4 margin-boottom20">
-
-                    <div class="project-list">
-                        <!-- single-projects-image-->
-                        <img th:src="@{assets/img/project/project-3.jpg}" alt="project">
-                        <!-- single-projects-content-->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-            </div>
-            <!-- single-projects-->
-            <div class="col-sm-6 col-md-6 col-lg-4 margin-boottom20">
-
-                    <div class="project-list">
-                        <!-- single-projects-image-->
-                        <img th:src="@{assets/img/project/project-4.jpg}" alt="project">
-                        <!-- single-projects-content-->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-            </div>
-            <!-- single-projects-->
-            <div class="col-sm-6 col-md-6 col-lg-4 margin-boottom20">
-
-                    <div class="project-list">
-                        <!-- single-projects-image-->
-                        <img th:src="@{assets/img/project/project-5.jpg}" alt="project">
-                        <!-- single-projects-content-->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-            </div>
-            <!-- single-projects-->
-            <div class="col-sm-6 col-md-6 col-lg-4 margin-boottom20">
-
-                    <div class="project-list">
-                        <!-- single-projects-image-->
-                        <img th:src="@{assets/img/project/project-6.jpg}" alt="project">
-                        <!-- single-projects-content-->
-                        <div class="overlay-content">
-                            <h1>Design</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore nisi
-                                possimus sapiente! Provident, voluptas?</p>
-                            <a th:href="@{/project-details}"><i class="fa fa-arrow-right"></i></a>
-                        </div>
-                    </div>
 
             </div>
 
-        </div>
-    </div>
-</section>
-
-<!-- Testimonial Section -->
-<section class="testimonial-area">
-
-    <div class="container">
-        <!-- Testimonial heading area-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                    <div class="head-text">
-                        <h3>Testimonial</h3>
-                        <h1>Our Team Member</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 m-auto">
-
-                <div class="owl-carousel testimonial-slider">
-                    <!-- single testimonial area -->
-                    <div class="testimonial">
-                        <!-- testimonial image -->
-                        <div class="pic">
-                            <img th:src="@{assets/img/testimonial-01.jpg}" alt="testimonial">
-                        </div>
-                        <!-- testimonial content -->
-                        <div class="testimonial-review">
-                            <p class="testimonial-description text-white">
-                                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusamus aperiam
-                                aspernatur commodi cumque dolore fuga harum labore libero maiores maxime omnis pariatur
-                                perspiciatis quam qui, recusandae sapiente sunt voluptatem."
-                            </p>
-                            <h4 class="testimonial-title">
-
-                                <small>Developer</small>
-                            </h4>
-                        </div>
-                    </div>
-                    <!-- single testimonial area -->
-                    <div class="testimonial">
-                        <!-- testimonial image -->
-                        <div class="pic">
-                            <img th:src="@{assets/img/testimonial-01.jpg}" alt="testimonial">
-                        </div>
-                        <!-- testimonial content -->
-                        <div class="testimonial-review">
-                            <p class="testimonial-description text-white">
-                                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusamus aperiam
-                                aspernatur commodi cumque dolore fuga harum labore libero maiores maxime omnis pariatur
-                                perspiciatis quam qui, recusandae sapiente sunt voluptatem."
-                            </p>
-                            <h4 class="testimonial-title">
-
-                                <small>Designer</small>
-                            </h4>
-                        </div>
-                    </div>
-                    <!-- single testimonial area -->
-                    <div class="testimonial">
-                        <!-- testimonial image -->
-                        <div class="pic">
-                            <img th:src="@{assets/img/testimonial-01.jpg}" alt="testimonial">
-                        </div>
-                        <!-- testimonial content -->
-                        <div class="testimonial-review">
-                            <p class="testimonial-description text-white">
-                                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusamus aperiam
-                                aspernatur commodi cumque dolore fuga harum labore libero maiores maxime omnis pariatur
-                                perspiciatis quam qui, recusandae sapiente sunt voluptatem."
-                            </p>
-                            <h4 class="testimonial-title">
-
-                                <small>Developer</small>
-                            </h4>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- Pricing Section -->
-<section class="pricing-plan padding-no-bottom">
-    <div class="container">
-        <!-- Pricing Plan Header -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                    <div class="head-text">
-                        <h3>Pricing Plan</h3>
-                        <h1>Our Pricing Plan</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aliquid, cupiditate deserunt dolore error et excepturi <br class="br">harum maxime molestiae nihil officia omnis pariatur rem, sed suscipit velit vero voluptate.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Pricing Plan Box -->
-        <div class="row">
-            <div class="col-md-4 col-sm-6 mb-3">
-                <div class="pricingTable inactive">
-                    <div class="pricingTable-header">
-                        <img th:src="@{assets/img/icon/rocket.png}" alt="rocket.png">
-                        <h3 class="title">Standard</h3>
-                    </div>
-                    <!-- Price section -->
-                    <div class="price-value">
-                    <span class="amount">
-                        <span class="currency">$</span>
-                        10
-
-                    </span>
-                    </div>
-                    <ul class="pricing-content">
-                        <li>50 GB Disk Space</li>
-                        <li>50 Email Accounts</li>
-                        <li>50 GB Monthly Bandwidth</li>
-                        <li>10 Subdomains</li>
-                    </ul>
-                    <a href="#" class="pricingTable-signup">Sign Up</a>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 mb-3 active">
-                <div class="pricingTable">
-                    <div class="pricingTable-header">
-                        <img th:src="@{assets/img/icon/handshake.png}" alt="handshake.png">
-                        <h3 class="title">Business</h3>
-                    </div>
-                    <!-- Price section -->
-                    <div class="price-value">
-                    <span class="amount">
-                        <span class="currency">$</span>
-                        20
-
-                    </span>
-                    </div>
-                    <ul class="pricing-content">
-                        <li>60 GB Disk Space</li>
-                        <li>60 Email Accounts</li>
-                        <li>60 GB Monthly Bandwidth</li>
-                        <li>15 Subdomains</li>
-                    </ul>
-                    <a href="#" class="pricingTable-signup">Sign Up</a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-3">
-                <div class="pricingTable inactive">
-                    <div class="pricingTable-header">
-                        <img th:src="@{assets/img/icon/premium.png}" alt="premium.png">
-                        <h3 class="title">Premium</h3>
-                    </div>
-                    <!-- Price section -->
-                    <div class="price-value">
-                    <span class="amount">
-                        <span class="currency">$</span>
-                        20
-
-                    </span>
-                    </div>
-                    <ul class="pricing-content">
-                        <li>60 GB Disk Space</li>
-                        <li>60 Email Accounts</li>
-                        <li>60 GB Monthly Bandwidth</li>
-                        <li>15 Subdomains</li>
-                    </ul>
-                    <a href="#" class="pricingTable-signup">Sign Up</a>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -810,363 +321,136 @@
 <!-- Team Section -->
 <section class="team-member">
     <div class="container">
-         <!-- Team Plan Header -->
+        <!-- Team Plan Header -->
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title">
                     <div class="head-text">
-                        <h3>Team Member</h3>
-                        <h1>Our Team Member</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aliquid, cupiditate deserunt dolore error et excepturi <br class="br">harum maxime molestiae nihil officia omnis pariatur rem, sed suscipit velit vero voluptate.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-<div class="row">
-        <div class="col-12 col-lg-3 col-sm-6 sm-mb-4">
-            <div class="our-team">
-                <!-- Team Image -->
-                <img th:src="@{assets/img/team/team1.png}" alt="team-member">
-                <!-- Team Content -->
-                <div class="team-content">
-                    <h3 class="title">Williamson</h3>
-                    <span class="post">web developer</span>
-                       <!-- Social Link -->
-                    <ul class="social-links">
-                        <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-google-plus"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-linkedin"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-pinterest-p"></i> </a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-lg-3 col-sm-6 sm-mb-4">
-            <div class="our-team">
-                <!-- Team Image -->
-                <img th:src="@{assets/img/team/team2.png}" alt="team-member">
-                 <!-- Team Content -->
-                <div class="team-content">
-                    <h3 class="title">kristina</h3>
-                    <span class="post">Web Designer</span>
-                    <!-- Social Link -->
-                    <ul class="social-links">
-                        <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-google-plus"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-linkedin"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-pinterest-p"></i> </a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-lg-3 col-sm-6 sm-mb-4">
-            <div class="our-team">
-                <!-- Team Image -->
-                <img th:src="@{assets/img/team/team3.png}" alt="team-member">
-                 <!-- Team Content -->
-                <div class="team-content">
-                    <h3 class="title">Olivia</h3>
-                    <span class="post">Web Designer</span>
-                       <!-- Social Link -->
-                    <ul class="social-links">
-                        <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-google-plus"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-linkedin"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-pinterest-p"></i> </a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-         <div class="col-12 col-lg-3 col-sm-6 sm-mb-4">
-            <div class="our-team">
-                <!-- Team Image -->
-                <img th:src="@{assets/img/team/team4.png}" alt="team-member">
-                 <!-- Team Content -->
-                <div class="team-content">
-                    <h3 class="title">Emma</h3>
-                    <span class="post">Web Designer</span>
-                       <!-- Social Link -->
-                    <ul class="social-links">
-                        <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-google-plus"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-linkedin"></i> </a></li>
-                        <li><a href="#"><i class="fab fa-pinterest-p"></i> </a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-
-<!-- Blog Section -->
-<section class="blog-area">
-    <div class="container">
-        <!-- blog heading area -->
-        <div class="row">
-            <div class="col-sm-12 col-md-8 m-auto">
-                <div class="section-title">
-                    <div class="head-text">
-                        <h3>Blog</h3>
-                        <h1>Our Latest Blog</h1>
+                        <h3>开发团队介绍</h3>
+                        <h1>开发团队成员</h1>
+                        <p></p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-
-            <div class="owl-carousel blog-slider">
-                <!-- single blog area -->
-                <div class="col-sm-12 text-left">
-                    <div class="blog-container">
-                        <span class="blog-cat">Development</span>
-                        <!-- blog image -->
-                        <img th:src="@{assets/img/blog/blog-1.jpg}" alt="blog" width="403">
-
-                        <div class="content pt-3">
-                            <a th:href="@{/blog-details}"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dolore ipsam
-                                iure nesciunt nostrum, quaerat sequi tenetur vel.</p>
-                            <a th:href="@{/blog-details}" class="blog-details">Read More</a>
-                        </div>
+            <div class="col-12 col-lg-2 col-sm-6 sm-mb-4">
+                <div class="our-team">
+                    <!-- Team Image -->
+                    <img th:src="@{assets/img/team/team1.png}" alt="team-member">
+                    <!-- Team Content -->
+                    <div class="team-content">
+                        <h3 class="title">Williamson</h3>
+                        <span class="post">web developer</span>
+                        <!-- Social Link -->
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i> </a></li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="col-sm-12 text-left">
-                    <div class="blog-container">
-                        <span class="blog-cat">Development</span>
-                        <!-- blog image -->
-                        <img th:src="@{assets/img/blog/blog-2.jpg}" alt="blog" width="403">
-
-                        <div class="content pt-3">
-                            <a th:href="@{/blog-details}"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dolore ipsam
-                                iure nesciunt nostrum, quaerat sequi tenetur vel.</p>
-                            <a th:href="@{/blog-details}" class="blog-details">Read More</a>
-                        </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 sm-mb-4">
+                <div class="our-team">
+                    <!-- Team Image -->
+                    <img th:src="@{assets/img/team/team1.png}" alt="team-member">
+                    <!-- Team Content -->
+                    <div class="team-content">
+                        <h3 class="title">Williamson</h3>
+                        <span class="post">web developer</span>
+                        <!-- Social Link -->
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i> </a></li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="col-sm-12 text-left">
-                    <div class="blog-container">
-                        <span class="blog-cat">Development</span>
-                        <!-- blog image -->
-                        <img th:src="@{assets/img/blog/blog-3.jpg}" alt="blog" width="403">
-
-                        <div class="content pt-3">
-                            <a th:href="@{/blog-details}"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dolore ipsam
-                                iure nesciunt nostrum, quaerat sequi tenetur vel.</p>
-                            <a th:href="@{/blog-details}" class="blog-details">Read More</a>
-                        </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 sm-mb-4">
+                <div class="our-team">
+                    <!-- Team Image -->
+                    <img th:src="@{assets/img/team/team1.png}" alt="team-member">
+                    <!-- Team Content -->
+                    <div class="team-content">
+                        <h3 class="title">Williamson</h3>
+                        <span class="post">web developer</span>
+                        <!-- Social Link -->
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i> </a></li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="col-sm-12 text-left">
-                    <div class="blog-container">
-                        <span class="blog-cat">Development</span>
-                        <!-- blog image -->
-                        <img th:src="@{assets/img/blog/blog-1.jpg}" alt="blog" width="403">
-
-                        <div class="content pt-3">
-                            <a th:href="@{/blog-details}"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dolore ipsam
-                                iure nesciunt nostrum, quaerat sequi tenetur vel.</p>
-                            <a th:href="@{/blog-details}" class="blog-details">Read More</a>
-                        </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 sm-mb-4">
+                <div class="our-team">
+                    <!-- Team Image -->
+                    <img th:src="@{assets/img/team/team2.png}" alt="team-member">
+                    <!-- Team Content -->
+                    <div class="team-content">
+                        <h3 class="title">kristina</h3>
+                        <span class="post">Web Designer</span>
+                        <!-- Social Link -->
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i> </a></li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="col-sm-12 text-left">
-                    <div class="blog-container">
-                        <span class="blog-cat">Development</span>
-                        <!-- blog image -->
-                        <img th:src="@{assets/img/blog/blog-3.jpg}" alt="blog" width="403">
-
-                        <div class="content pt-3">
-                            <a th:href="@{/blog-details}"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dolore ipsam
-                                iure nesciunt nostrum, quaerat sequi tenetur vel.</p>
-                            <a th:href="@{/blog-details}" class="blog-details">Read More</a>
-                        </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 sm-mb-4">
+                <div class="our-team">
+                    <!-- Team Image -->
+                    <img th:src="@{assets/img/team/team3.png}" alt="team-member">
+                    <!-- Team Content -->
+                    <div class="team-content">
+                        <h3 class="title">Olivia</h3>
+                        <span class="post">Web Designer</span>
+                        <!-- Social Link -->
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i> </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-sm-6 sm-mb-4">
+                <div class="our-team">
+                    <!-- Team Image -->
+                    <img th:src="@{assets/img/team/team4.png}" alt="team-member">
+                    <!-- Team Content -->
+                    <div class="team-content">
+                        <h3 class="title">Emma</h3>
+                        <span class="post">Web Designer</span>
+                        <!-- Social Link -->
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i> </a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i> </a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<!-- Newsletter Section -->
-<section class="newsletter-area">
-    <div class="container">
-        <!-- newsletter heading area-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                    <div class="head-text">
-                        <h3>Newsletter</h3>
-                        <h1>Get Latest News From Us</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 m-auto">
-                <div class="subcribe-form text-center">
-
-
-                    <!-- Begin Mailchimp Signup Form -->
-                    <div id="mc_embed_signup">
-                        <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                              class="validate" target="_blank" novalidate>
-                            <div id="mc_embed_signup_scroll">
-
-                                <div class="mc-field-group subcribe-form">
-                                    <input autocomplete="off" placeholder="Enter Your Email" value="" name="EMAIL"
-                                           class="required email" id="mce-EMAIL" type="email">
-                                    <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
-                                            class="button"><i class="fas fa-paper-plane"></i></button>
-                                </div>
-
-                                <div class="newsletter-input" aria-hidden="true">
-                                    <input type="text" name="b_a3d53fa043a54881bf71f9a96_dc0358f8ce" tabindex="-1"
-                                           value="">
-                                </div>
-                                <div class="clear"></div>
-
-
-                            </div>
-                        </form>
-                    </div>
-
-                    <!--End mc_embed_signup-->
-                </div>
-
-                <p class="text-center pt-4 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aliquid, cupiditate deserunt dolore error excepturi harum maxime molestiae nihil officia omnis pariatur rem, sed suscipit velit vero voluptate.
-                </p>
-
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- Footer Section -->
-<footer class="footer-area">
-
-    <!-- footer bottom -->
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 margin-bottom-r">
-                    <!-- Footer Logo -->
-                    <div class="company-logo text-center">
-                        <a th:href="@{/}"><img th:src="@{assets/img/main-logo.png}" alt="main-logo.png"></a>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="row second-footer">
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 sm-mb">
-
-                    <h4 class="mb-4">United States</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 sm-mb">
-
-                    <h4 class="mb-4">United Kingdom</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-
-                    <h4 class="mb-4">Germany</h4>
-                     <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-
-                    <h4 class="mb-4">London</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-
-
-            </div>
-
-        </div>
-    </div>
-
-</footer>
 
 <!-- footer bottom -->
 <div class="footer-bottom">
