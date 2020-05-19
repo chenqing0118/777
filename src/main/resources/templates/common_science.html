@@ -6,196 +6,103 @@
     <title>DMX - Digital Marketing Agency Html5 Template</title>
     <meta name="description" content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
 
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.png}">
+    <link rel="stylesheet" th:href="@{assets/css/bootstrap-4.2.1.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.theme.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/animate.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/fontawesome-all.min.css}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{assets/css/meanmenu.css}">
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
     <link rel="stylesheet" th:href="@{assets/css/science/splitting.css}">
     <link rel="stylesheet" th:href="@{assets/css/science/style.css}">
-<!--    <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.png}">-->
-<!--    <link rel="stylesheet" th:href="@{assets/css/bootstrap-4.2.1.min.css}">-->
-<!--    <link rel="stylesheet" th:href="@{assets/css/owl.carousel.min.css}">-->
-<!--    <link rel="stylesheet" th:href="@{assets/css/owl.theme.min.css}">-->
-<!--    <link rel="stylesheet" th:href="@{assets/css/animate.min.css}">-->
-<!--    <link rel="stylesheet" th:href="@{assets/css/fontawesome-all.min.css}">-->
-<!--    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet">-->
-<!--    <link rel="stylesheet" th:href="@{assets/css/meanmenu.css}">-->
-<!--    <link rel="stylesheet" th:href="@{assets/css/style.css}">-->
-<!--    <link rel="stylesheet" th:href="@{assets/css/responsive.css}">-->
 
 </head>
 <body>
 <!-- ===================================================
     Loading Transition
 ==================================================== -->
-<!--<div id="loader-wrapper">-->
-<!--    <div id="loader">-->
-<!--        <ul>-->
-<!--            <li></li>-->
-<!--            <li></li>-->
-<!--            <li></li>-->
-<!--            <li></li>-->
-<!--            <li></li>-->
-<!--            <li></li>-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--</div>-->
+<div id="loader-wrapper">
+    <div id="loader">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
 
 <!-- Header Section -->
-<!--<header id="home">-->
+<header id="home">
 
-<!--    <div class="main-navigation">-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-xl-12">-->
-<!--                    <div class="main-menu">-->
-<!--                        &lt;!&ndash; Logo Area &ndash;&gt;-->
-<!--                        <div class="logo-area">-->
-<!--                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}"-->
-<!--                                                                     alt="main-logo.png"></a>-->
-<!--                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}"-->
-<!--                                                                              alt="sticky-logo.png"></a>-->
-<!--                        </div>-->
+    <div class="main-navigation" style="background: black">
+        <div class="container" >
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="main-menu">
+                        <!-- Logo Area -->
+                        <div class="logo-area">
+                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}"
+                                                                     alt="main-logo.png"></a>
+                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}"
+                                                                              alt="sticky-logo.png"></a>
+                        </div>
 
-<!--                        &lt;!&ndash; Main Menu Area &ndash;&gt;-->
-<!--                        <div class="menu-area" id="mobile-menu">-->
-<!--                            <ul>-->
-<!--                                &lt;!&ndash; dropdown menu-area&ndash;&gt;-->
-<!--                                <li><a th:href="@{/}">主页</a></li>-->
-<!--                                <li><a th:href="@{/common_science}">配置科普</a></li>-->
-<!--                                <li><a th:href="@{/pick-and-choose}">选机推荐</a></li>-->
-<!--                                <li><a th:href="@{/service-list}">使用建议</a></li>-->
-<!--                                <li><a th:href="@{/contact-us}">联系我们</a></li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; mobile menu&ndash;&gt;-->
-<!--                    <div class="mobile-menu"></div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+                        <!-- Main Menu Area -->
+                        <div class="menu-area" id="mobile-menu">
+                            <ul>
+                                <!-- dropdown menu-area-->
+                                <li><a th:href="@{/}">主页</a></li>
+                                <li><a th:href="@{/common_science}">配置科普</a></li>
+                                <li><a th:href="@{/pick-and-choose}">选机推荐</a></li>
+                                <li><a th:href="@{/service-list}">使用建议</a></li>
+                                <li><a th:href="@{/contact-us}">联系我们</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- mobile menu-->
+                    <div class="mobile-menu"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!--</header>-->
-<!-- Get a Quote Modal -->
-<!--<div class="modal animated bounceInUp" id="myModal" tabindex="-1" role="dialog">-->
-<!--    <div class="modal-dialog">-->
-<!--        <div class="modal-content">-->
-<!--            <div class="modal-header">-->
-<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                    <span aria-hidden="true">&times;</span>-->
-<!--                </button>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; Modal body &ndash;&gt;-->
-<!--            <div class="modal-body">-->
-<!--                <div class="header-form">-->
-
-<!--                    <form action="#" method="post">-->
-<!--                        <div class="form-row">-->
-<!--                            <div class="form-group col-md-6">-->
-<!--                                <label for="inputEmail4">Name</label>-->
-<!--                                <input type="text" class="form-control" name="name" id="inputEmail4" placeholder="Name">-->
-<!--                            </div>-->
-<!--                            <div class="form-group col-md-6">-->
-<!--                                <label for="inputPassword4">Company Name</label>-->
-<!--                                <input type="text" class="form-control" name="cname" id="inputPassword4"-->
-<!--                                       placeholder="Company Name">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="form-group">-->
-<!--                            <label for="inputAddress">Email</label>-->
-<!--                            <input type="email" class="form-control" name="mail" id="inputAddress"-->
-<!--                                   placeholder="Email Address">-->
-<!--                        </div>-->
-<!--                        <div class="form-row">-->
-<!--                            <div class="form-group col-md-6">-->
-<!--                                <label>Select a Service</label>-->
-<!--                                <select class="form-control" name="service_list">-->
-
-<!--                                    <option selected>Select Service</option>-->
-
-<!--                                    <option value="">Design Service</option>-->
-<!--                                    <option value="">Design Service</option>-->
-<!--                                    <option value="">Design Service</option>-->
-
-<!--                                </select>-->
-<!--                            </div>-->
-<!--                            <div class="form-group col-md-6">-->
-<!--                                <label>Website</label>-->
-<!--                                <input type="text" name="website" class="form-control" placeholder="Website">-->
-<!--                            </div>-->
-
-
-<!--                        </div>-->
-<!--                        <div class="form-row">-->
-<!--                            <div class="form-group col-md-6">-->
-<!--                                <label>Amount</label>-->
-<!--                                <input type="text" class="form-control" name="amount" placeholder="Amount">-->
-<!--                            </div>-->
-<!--                            <div class="form-group col-md-6">-->
-<!--                                <label>Start date</label>-->
-<!--                                <input type="date" class="form-control" name="qdate">-->
-<!--                            </div>-->
-
-<!--                        </div>-->
-<!--                        <div class="form-row">-->
-<!--                            <div class="form-group col-md-4">-->
-<!--                                <label>Phn No.</label>-->
-<!--                                <select class="form-control" name="region">-->
-
-
-<!--                                    <option value="+88">BD</option>-->
-<!--                                    <option value="+88">USA</option>-->
-<!--                                    <option value="+88">UK</option>-->
-
-<!--                                </select>-->
-<!--                            </div>-->
-<!--                            <div class="form-group col-md-8">-->
-<!--                                <label class="pt-3"></label>-->
-
-<!--                                <input type="text" name="phn" class="form-control" placeholder="201-555-0123">-->
-<!--                            </div>-->
-
-
-<!--                        </div>-->
-<!--                        &lt;!&ndash; Submit Button&ndash;&gt;-->
-<!--                        <div class="submit-button">-->
-<!--                            <button type="submit" class="site-btn-submit" name="sub">GET A FREE QUOTE</button>-->
-<!--                        </div>-->
-
-<!--                    </form>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+</header>
 
 <!-- header banner Section -->
-<!--<section>-->
-<!--    <div class="service-header-image-area d-flex align-items-center">-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-9 m-auto">-->
+<section>
+    <div class="service-header-image-area d-flex align-items-center" style="background: black">
+        <div class="container" style="background: black">
+            <div class="row">
+                <div class="col-md-9 m-auto">
 
-<!--                    &lt;!&ndash; Item &ndash;&gt;-->
-<!--                    <div class="item">-->
+                    <!-- Item -->
+                    <div class="item">
 
-<!--                        <div class="others-page-title text-center">-->
-<!--                            <h1>笔记本小科普</h1>-->
+                        <div class="others-page-title text-center">
+                            <h1>笔记本小科普</h1>
 
-<!--                            <p class="pt-3">我们将从CPU、显卡、内存、屏幕等方面为您做一个入门级科普，帮助您更好的了解您的电脑</p>-->
+                            <p class="pt-3">我们将从CPU、显卡、内存、屏幕等方面为您做一个入门级科普，帮助您更好的了解您的电脑</p>
 
-<!--                        </div>-->
+                        </div>
 
-<!--                    </div>-->
-<!--                    &lt;!&ndash; // Item &ndash;&gt;-->
+                    </div>
+                    <!-- // Item -->
 
-<!--                </div>-->
+                </div>
 
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
+            </div>
+        </div>
+    </div>
+</section>
 
 <!--common_science-->
-<div id="app" data-current-planet="mercury">
+<div id="app" data-current-planet="mercury" class="body" >
     <nav class="planet-nav">
         <svg viewBox="0 20 400 400" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -204,98 +111,125 @@
                     fill="none"/>
             <text>
                 <textPath href="#navPath" startOffset="0" font-size="8">
+                    <tspan>组成概览</tspan>
                     <tspan>CPU</tspan>
                     <tspan>显卡</tspan>
                     <tspan>内存条</tspan>
+                    <tspan>屏幕</tspan>
+                    <tspan>接口</tspan>
+                    <tspan>硬盘</tspan>
                 </textPath>
             </text>
 
         </svg>
     </nav>
 
-    <div class="planet" data-planet="mercury" data-active>
+    <div class="planet" data-planet="mercury" data-active >
         <div class="planet-title">
-            <h1>CPU</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <h1 class="h1">笔记本内部组成概览</h1>
+            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
         </div>
 
-        <div class="planet-details">
-            <div class="detail" data-detail="tilt" data-postfix="°">
-                3.13
-            </div>
-            <div class="detail" data-detail="gravity" data-postfix="𝗑">
-                0.9
-            </div>
-            <div class="detail" data-detail="hours">
-                10
-            </div>
-        </div>
+<!--        <div class="planet-details">-->
+<!--            <div class="detail" data-detail="tilt" data-postfix="°">-->
+<!--                3.13-->
+<!--            </div>-->
+<!--            <div class="detail" data-detail="gravity" data-postfix="𝗑">-->
+<!--                0.9-->
+<!--            </div>-->
+<!--            <div class="detail" data-detail="hours">-->
+<!--                10-->
+<!--            </div>-->
+<!--        </div>-->
 
         <figure class="planet-figure">
-            <img th:src="@{assets/img/science/1_mercury.jpg}"/>
+            <img th:src="@{assets/img/science/全景.png}"/>
         </figure>
     </div>
 
     <div class="planet" data-planet="venus">
         <div class="planet-title">
-            <h1>显卡</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-        </div>
-
-        <div class="planet-details">
-            <div class="detail" data-detail="tilt" data-postfix="°">
-                4.13
-            </div>
-            <div class="detail" data-detail="gravity" data-postfix="𝗑">
-                0.2
-            </div>
-            <div class="detail" data-detail="hours">
-                20
-            </div>
+            <h1 class="h1">CPU</h1>
+            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
         </div>
 
         <figure class="planet-figure">
-            <img th:src="@{assets/img/science/2_venus.jpg}"/>
+            <img th:src="@{assets/img/science/cpu.png}"/>
         </figure>
     </div>
 
     <div class="planet" data-planet="earth">
         <div class="planet-title">
-            <h1>内存条</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <h1 class="h1">显卡</h1>
+            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
         </div>
 
-        <div class="planet-details">
-            <div class="detail" data-detail="tilt" data-postfix="°">
-                5.13
-            </div>
-            <div class="detail" data-detail="gravity" data-postfix="𝗑">
-                7.3
-            </div>
-            <div class="detail" data-detail="hours">
-                30
-            </div>
+
+        <figure class="planet-figure">
+            <img th:src="@{assets/img/science/显卡.png}"/>
+        </figure>
+    </div>
+
+    <div class="planet" data-planet="mars">
+        <div class="planet-title">
+            <h1 class="h1">内存条</h1>
+            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
         </div>
 
         <figure class="planet-figure">
-            <img th:src="@{assets/img/science/3_earth.jpg}"/>
+            <img th:src="@{assets/img/science/内存.png}"/>
         </figure>
     </div>
+
+    <div class="planet" data-planet="jupiter">
+        <div class="planet-title">
+            <h1 class="h1">屏幕</h1>
+            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+
+        <figure class="planet-figure">
+            <img th:src="@{assets/img/science/屏幕.png}"/>
+        </figure>
+    </div>
+
+    <div class="planet" data-planet="saturn">
+        <div class="planet-title">
+            <h1 class="h1">接口</h1>
+            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+
+        <figure class="planet-figure">
+            <img th:src="@{assets/img/science/接口.png}"/>
+        </figure>
+    </div>
+
+    <div class="planet" data-planet="uranus">
+        <div class="planet-title">
+            <h1 class="h1">硬盘</h1>
+            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+
+        <figure class="planet-figure">
+            <img th:src="@{assets/img/science/硬盘.png}"/>
+        </figure>
+    </div>
+
+
 </div>
 
 
 <!-- JS here -->
 <script th:src="@{assets/js/science/splitting.min.js}"></script>
 <script th:src="@{assets/js/science/script.js}"></script>
-<!--<script th:src="@{assets/js/jquery-1.10.2.min.js}"></script>-->
-<!--<script th:src="@{assets/js/popper.min.js}"></script>-->
-<!--<script th:src="@{assets/js/bootstrap.min.js}"></script>-->
-<!--<script th:src="@{assets/js/owl.carousel.min.js}"></script>-->
-<!--<script th:src="@{assets/js/jquery.meanmenu.min.js}"></script>-->
-<!--<script th:src="@{assets/js/jquery.scrollUp.min.js}"></script>-->
-<!--<script th:src="@{assets/js/waypoints.min.js}"></script>-->
-<!--<script th:src="@{assets/js/jquery.counterup.min.js}"></script>-->
-<!--<script th:src="@{assets/js/main.js}"></script>-->
+<script th:src="@{assets/js/jquery-1.10.2.min.js}"></script>
+<script th:src="@{assets/js/popper.min.js}"></script>
+<script th:src="@{assets/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/js/owl.carousel.min.js}"></script>
+<script th:src="@{assets/js/jquery.meanmenu.min.js}"></script>
+<script th:src="@{assets/js/jquery.scrollUp.min.js}"></script>
+<script th:src="@{assets/js/waypoints.min.js}"></script>
+<script th:src="@{assets/js/jquery.counterup.min.js}"></script>
+<script th:src="@{assets/js/main.js}"></script>
 
 </body>
 </html>
