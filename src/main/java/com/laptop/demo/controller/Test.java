@@ -47,8 +47,8 @@ public class Test {
 
         return "common_science";
     }
-    @RequestMapping("/service-list")
+    @RequestMapping("/usage_advice")
     public String service_list(){
-        return "service-list";
+        return "usage_advice";
     }
 }
