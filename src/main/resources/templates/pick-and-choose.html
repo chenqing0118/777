@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="ZXX"  xmlns:th="http://www.thymeleaf.org" >
+<html lang="ZXX" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>一本满足-选机推荐</title>
-    <meta name="description" content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
+    <meta name="description"
+          content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.png}">
     <link rel="stylesheet" th:href="@{assets/css/bootstrap-4.2.1.min.css}">
@@ -14,9 +15,18 @@
     <link rel="stylesheet" th:href="@{assets/css/fontawesome-all.min.css}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{assets/css/meanmenu.css}">
-    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{style.css}">
     <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
 
+    <!--问卷步骤-->
+    <link rel="stylesheet" th:href="@{step_to_step/css/style_1.css}">
+    <!--选择图片-->
+    <link rel="stylesheet" type="text/css" th:href="@{select_img/css/selectImg.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{select_img/css/iconfont.css}"/>
+    <!-- 产品比较表-->
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" th:href="@{compare_table/css/reset.css}"> <!-- CSS reset -->
+    <link rel="stylesheet" th:href="@{compare_table/css/style_2.css}"> <!-- Gem style -->
 
 </head>
 <body>
@@ -74,99 +84,6 @@
 
 </header>
 
-<!-- Get a Quote Modal -->
-<div class="modal animated bounceInUp" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="header-form">
-
-                    <form action="#" method="post">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">Name</label>
-                                <input type="text" class="form-control" name="name" id="inputEmail4" placeholder="Name">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Company Name</label>
-                                <input type="text" class="form-control" name="cname" id="inputPassword4"
-                                       placeholder="Company Name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress">Email</label>
-                            <input type="email" class="form-control" name="mail" id="inputAddress"
-                                   placeholder="Email Address">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Select a Service</label>
-                                <select class="form-control" name="service_list">
-
-                                    <option selected>Select Service</option>
-
-                                    <option value="">Design Service</option>
-                                    <option value="">Design Service</option>
-                                    <option value="">Design Service</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Website</label>
-                                <input type="text" name="website" class="form-control" placeholder="Website">
-                            </div>
-
-
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Amount</label>
-                                <input type="text" class="form-control" name="amount" placeholder="Amount">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Start date</label>
-                                <input type="date" class="form-control" name="qdate">
-                            </div>
-
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label>Phn No.</label>
-                                <select class="form-control" name="region">
-
-
-                                    <option value="+88">BD</option>
-                                    <option value="+88">USA</option>
-                                    <option value="+88">UK</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group col-md-8">
-                                <label class="pt-3"></label>
-
-                                <input type="text" name="phn" class="form-control" placeholder="201-555-0123">
-                            </div>
-
-
-                        </div>
-                        <!-- Submit Button-->
-                        <div class="submit-button">
-                            <button type="submit" class="site-btn-submit" name="sub">GET A FREE QUOTE</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 <!-- header banner Section -->
 <section>
@@ -179,11 +96,9 @@
                     <div class="item">
 
                         <div class="others-page-title text-center">
-                            <h1>About us</h1>
+                            <h1>选机推荐</h1>
 
-                            <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aliquam
-                                aliquid aspernatur assumenda beatae delectus,provident quia quod quos reprehenderit
-                                ullam voluptatum.</p>
+                            <p class="pt-3">选择您主要应用场景，然后进行一些个性化的筛选，我们会为您推荐最合适您的笔记本电脑。</p>
 
                         </div>
 
@@ -197,373 +112,326 @@
     </div>
 </section>
 
-<!-- About Us Section -->
-<section class="about-us  padding-no-bottom">
-    <div class="about-spin">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <!-- About Image -->
-                <div class="col-md-7 sm-mb-4 about-img" data-aos="fade-up">
-
-                    <img th:src="@{assets/img/about-us/about-us.png}" alt="about-img"/>
-
-                </div>
-                <!-- about content-->
-                <div class="col-md-5">
-
-                    <div class="sm-pt-25">
-                        <div class="section-title-3">
-                            <h4>About Us</h4>
-                            <h1>Know The Things</h1>
-                        </div>
-                    </div>
-                    <div class="cls">
-                    <!-- single progress bar-->
-                    <h3 class="progress-title">MARKETING STRATEGY</h3>
-                    <div class="progress orange">
-                        <div class="progress-bar first">
-                            <div class="progress-value">80%</div>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida.</p>
-
-                    <!-- single progress bar-->
-                    <h3 class="progress-title">DESIGN STRATEGY</h3>
-                    <div class="progress orange">
-                        <div class="progress-bar second">
-                            <div class="progress-value">70%</div>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida.</p>
-
-                    <!-- get a quote button-->
-                    <div class="site-btn">
-                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">GET A FREE
-                            QUOTE</a>
-                    </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- Our Vision -->
-<section class="our-vision-area  padding-no-bottom">
-    <div class="container">
-
-        <div class="row d-flex align-items-center">
-            <!-- our vision content-->
-            <div class="col-md-6 order-2 order-lg-1">
-                <div class=" sm-pt-25">
-                    <div class="section-title-3">
-                        <h4>Experience</h4>
-                        <h1>Know The Things</h1>
-                    </div>
-                    <div class="cls">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida
-                        massa at, viverra interdum orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra
-                        interdum orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra interdum
-                        orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra interdum orci. leo
-                        suscipit, et molestie massa ullamcorper.</p>
-                    </div>
-
-                </div>
-            </div>
-            <!-- Image Section -->
-            <div class="col-md-6 about-img order-1 order-lg-2">
-
-                <img th:src="@{assets/img/about-us/about-details-2.jpg}" alt="our-vision-img">
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
 <!-- Our Mission -->
-<section class="our-mission-area padding-no-bottom">
+<section class="our-mission-area padding-no-bottom" style="padding: 0 0 10px 0;">
     <div class="container">
-
-        <div class="row d-flex align-items-center">
-            <!-- Image Section -->
-            <div class="col-md-6 about-img">
-                <img th:src="@{assets/img/about-us/about-details.jpg}" alt="our-vision-img">
-
-            </div>
-            <!-- our mission content-->
-            <div class="col-md-6">
-                <div class=" sm-pt-25">
-                    <div class="section-title-3">
-                        <h4>Experience</h4>
-                        <h1>Know The Things</h1>
-                    </div>
-                    <div class="cls">
-                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus,
-                        ultricies gravida massa at, viverra interdum orci. leo suscipit, et molestie massa
-                        ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus,
-                        ultricies gravida massa at, viverra interdum orci. leo suscipit, et molestie massa
-                        ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus,
-                        ultricies gravida massa at, viverra interdum orci. leo suscipit, et molestie massa
-                        ullamcorper.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus,
-                        ultricies gravida massa at, viverra interdum orci. leo suscipit, et molestie massa
-                        ullamcorper.</p>
-                    </div>
-
-                    <ul>
-                        <li><i class="fa fa-circle"></i>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </li>
-                        <li><i class="fa fa-circle"></i>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </li>
-                        <li><i class="fa fa-circle"></i>&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- Experience Section -->
-<section class="experience-area">
-    <div class="container">
-        <div class="row d-flex align-items-center">
-            <!-- experience heading area-->
-            <div class="col-md-7">
-                <div class="text-content">
-                    <div class="section-title-3">
-                        <h4>Experience</h4>
-                        <h1>Know The Things</h1>
-                    </div>
-                    <div class="cls">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida
-                        massa at, viverra interdum orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra
-                        interdum orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra interdum
-                        orci. leo suscipit, et molestie massa ullamcorper.Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Donec justo metus, ultricies gravida massa at, viverra interdum orci. leo
-                        suscipit, et molestie massa ullamcorper.</p>
-                    </div>
-
-                </div>
-            </div>
-            <!-- Counter Section -->
-            <div class="col-md-5 sm-pt-25">
-                <div class="row">
-                    <!-- single-coutdown-->
-                    <div class="col-sm-6 col-md-6 col-xs-3 mb-30 box-4">
-                        <div class="counter-up">
-                            <h1><span class="counter">600</span>+</h1>
-                            <h3>Cups Of Coffee</h3>
-                        </div>
-                    </div>
-                    <!-- single-coutdown-->
-                    <div class="col-sm-6 col-md-6 col-xs-3 mb-30">
-                        <div class="counter-up">
-                            <h1><span class="counter">450</span>+</h1>
-                            <h3>Cups Of Coffee</h3>
-                        </div>
-                    </div>
-                    <!-- single-coutdown-->
-                    <div class="col-sm-6 col-md-6 col-xs-3 mb-30">
-                        <div class="counter-up">
-                            <h1><span class="counter">600</span>+</h1>
-                            <h3>Total Web Page</h3>
-                        </div>
-                    </div>
-                    <!-- single-coutdown-->
-                    <div class="col-sm-6 col-md-6 col-xs-3 mb-30">
-                        <div class="counter-up">
-                            <h1><span class="counter">300</span>+</h1>
-                            <h3>Customer</h3>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</section>
-
-<!-- Newsletter Section -->
-<section class="newsletter-area">
-    <div class="container">
-        <!-- newsletter heading area-->
         <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                    <div class="head-text">
-                        <h3>Newsletter</h3>
-                        <h1>Get Latest News From Us</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 m-auto">
-                <div class="subcribe-form text-center">
-
-
-                    <!-- Begin Mailchimp Signup Form -->
-                    <div id="mc_embed_signup">
-                        <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                              class="validate" target="_blank" novalidate>
-                            <div id="mc_embed_signup_scroll">
-
-                                <div class="mc-field-group subcribe-form">
-                                    <input autocomplete="off" placeholder="Enter Your Email" value="" name="EMAIL"
-                                           class="required email" id="mce-EMAIL" type="email">
-                                    <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
-                                            class="button"><i class="fas fa-paper-plane"></i></button>
+            <div style="width: 100%;">
+                <ul class="payment-wizard">
+                    <li class="active">
+                        <div class="wizard-heading">
+                            1. 您使用笔记本电脑的主要场景？
+                            <span class="icon-user"></span>
+                        </div>
+                        <div class="wizard-content">
+                            <!--                            <div class="form-row">-->
+                            <!--                                <label for="ordinary">-->
+                            <!--                                    日常办公，写写WORD-->
+                            <!--                                    <input type="checkbox" value="ordinary" checked="checked" id="ordinary"-->
+                            <!--                                           style="display: none;">-->
+                            <!--                                    <i class="iconfont icon-checked" style="display: block;"></i>-->
+                            <!--                                </label>-->
+                            <!--                                <label for="watch_video">-->
+                            <!--                                    看视频、追剧、看电影-->
+                            <!--                                    <input type="checkbox" value="w_video" id="watch_video" style="display: none;">-->
+                            <!--                                </label>-->
+                            <!--                                <label for="play_game">-->
+                            <!--                                    玩游戏-->
+                            <!--                                    <input type="checkbox" value="p_game" id="play_game" style="display: none;">-->
+                            <!--                                </label>-->
+                            <!--                                <label for="live">-->
+                            <!--                                    做直播-->
+                            <!--                                    <input type="checkbox" value="live" id="live" style="display: none;">-->
+                            <!--                                </label>-->
+                            <!--                                <label for="drawing">-->
+                            <!--                                    画画-->
+                            <!--                                    <input type="checkbox" value="drawing" id="drawing" style="display: none;">-->
+                            <!--                                </label>-->
+                            <!--                                <label for="create_video">-->
+                            <!--                                    进行音视频创作-->
+                            <!--                                    <input type="checkbox" value="c_video" id="create_video" style="display: none;">-->
+                            <!--                                </label>-->
+                            <!--                                <label for="3D">-->
+                            <!--                                    进行工业设计，3D建模-->
+                            <!--                                    <input type="checkbox" value="3D" id="3D" style="display: none;">-->
+                            <!--                                </label>-->
+                            <!--                                <label for="other">-->
+                            <!--                                    其他-->
+                            <!--                                    <input type="checkbox" value="other" id="other" style="display: none;">-->
+                            <!--                                </label>-->
+                            <!--                            </div>-->
+                            <div class="selectImgDiv" id="selectItemDiv" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                    </div>
+                                    <div class="img_title">
+                                        1.日常办公，写写WORD
+                                    </div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
                                 </div>
-
-                                <div class="newsletter-input" aria-hidden="true">
-                                    <input type="text" name="b_a3d53fa043a54881bf71f9a96_dc0358f8ce" tabindex="-1"
-                                           value="">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/2.png}"/>
+                                    </div>
+                                    <div class="img_title">
+                                        2.看视频、追剧、看电影
+                                    </div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
                                 </div>
-                                <div class="clear"></div>
-
-
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/3.png}"/>
+                                    </div>
+                                    <div class="img_title">
+                                        3.玩游戏
+                                    </div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title">
+                                        4.做直播
+                                    </div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/5.png}"/>
+                                    </div>
+                                    <div class="img_title">
+                                        5.画画
+                                    </div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/6.png}"/>
+                                    </div>
+                                    <div class="img_title">
+                                        6.进行音视频创作
+                                    </div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/7.png}"/>
+                                    </div>
+                                    <div class="img_title">
+                                        7.进行工业设计，3D建模
+                                    </div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/7.png}"/>
+                                    </div>
+                                    <div class="img_title">
+                                        8.其他
+                                    </div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
                             </div>
-                        </form>
-                    </div>
 
-                    <!--End mc_embed_signup-->
-                </div>
+                            <button class="btn-green done" type="submit">Continue</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wizard-heading">
+                            2. 其他特殊需求（机动地显示一些，比如重量，游戏种类，游戏画质之类的）
+                            <span class="icon-location"></span>
+                        </div>
+                        <div class="wizard-content">
+                            <p>User address details section.</p>
+                            <button class="btn-green done" type="submit">Continue</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wizard-heading">
+                            3. 您的专属推荐产品
+                            <span class="icon-mode"></span>
+                        </div>
+                        <div class="wizard-content">
+                            <p>Your payment methods detail section.</p>
+                            <section id="cd-table">
 
-                <p class="text-center pt-4 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aliquid, cupiditate deserunt dolore error excepturi harum maxime molestiae nihil officia omnis pariatur rem, sed suscipit velit vero voluptate.
-                </p>
+                                <header class="cd-table-column">
 
+                                    <h2>Features</h2>
+
+                                    <ul>
+
+                                        <li>Storage</li>
+
+                                        <li>People</li>
+
+                                        <li>Free trial</li>
+
+                                        <li>Support</li>
+
+                                        <li>Price</li>
+
+                                    </ul>
+
+                                </header>
+
+
+                                <div class="cd-table-container">
+
+                                    <div class="cd-table-wrapper">
+
+
+                                        <div class="cd-table-column">
+
+                                            <h2>Plan 1</h2>
+
+                                            <ul>
+
+                                                <li>1 GB</li>
+
+                                                <li>2</li>
+
+                                                <li>30 days</li>
+
+                                                <li class="cd-unchecked"><span>No</span></li>
+
+                                                <li>$9.99</li>
+
+                                                <li><a class="cd-select" href="#0">Select</a></li>
+
+                                            </ul>
+
+                                        </div> <!-- cd-table-column -->
+
+
+                                        <div class="cd-table-column">
+
+                                            <h2>Plan 2</h2>
+
+                                            <ul>
+
+                                                <li>2 GB</li>
+
+                                                <li>5</li>
+
+                                                <li>30 days</li>
+
+                                                <li class="cd-unchecked"><span>No</span></li>
+
+                                                <li>$19.99</li>
+
+                                                <li><a class="cd-select" href="#0">Select</a></li>
+
+                                            </ul>
+
+                                        </div> <!-- cd-table-column -->
+
+
+                                        <div class="cd-table-column">
+
+                                            <h2>Plan 3</h2>
+
+                                            <ul>
+
+                                                <li>5 GB</li>
+
+                                                <li>10</li>
+
+                                                <li>30 days</li>
+
+                                                <li class="cd-checked"><span>Yes</span></li>
+
+                                                <li>$29.99</li>
+
+                                                <li><a class="cd-select" href="#0">Select</a></li>
+
+                                            </ul>
+
+                                        </div> <!-- cd-table-column -->
+
+
+                                        <div class="cd-table-column">
+
+                                            <h2>Plan 4</h2>
+
+                                            <ul>
+
+                                                <li>10 GB</li>
+
+                                                <li>20</li>
+
+                                                <li>30 days</li>
+
+                                                <li class="cd-checked"><span>Yes</span></li>
+
+                                                <li>$39.99</li>
+
+                                                <li><a class="cd-select" href="#0">Select</a></li>
+
+                                            </ul>
+
+                                        </div> <!-- cd-table-column -->
+
+
+                                        <div class="cd-table-column">
+
+                                            <h2>Plan 5</h2>
+
+                                            <ul>
+
+                                                <li>20 GB</li>
+
+                                                <li>Unlimited</li>
+
+                                                <li>30 days</li>
+
+                                                <li class="cd-checked"><span>Yes</span></li>
+
+                                                <li>$49.99</li>
+
+                                                <li><a class="cd-select" href="#0">Select</a></li>
+
+                                            </ul>
+
+                                        </div> <!-- cd-table-column -->
+
+
+                                    </div> <!-- cd-table-wrapper -->
+
+                                </div> <!-- cd-table-container -->
+
+
+                                <em class="cd-scroll-right"></em>
+
+                            </section> <!-- cd-table -->
+
+                            <!--                            <button class="btn-green" type="submit">Done</button>-->
+                        </div>
+
+                    </li>
+                </ul>
             </div>
         </div>
-
     </div>
 </section>
-
-<!-- Footer Section -->
-<footer class="footer-area">
-
-    <!-- footer bottom -->
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 margin-bottom-r">
-                    <!-- Footer Logo -->
-                    <div class="company-logo text-center">
-                        <a th:href="@{/}"><img th:src="@{assets/img/main-logo.png}" alt="main-logo.png"></a>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="row second-footer">
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 sm-mb">
-
-                    <h4 class="mb-4">United States</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 sm-mb">
-
-                    <h4 class="mb-4">United Kingdom</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-
-                    <h4 class="mb-4">Germany</h4>
-                     <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-
-                    <h4 class="mb-4">London</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-
-
-            </div>
-
-        </div>
-    </div>
-
-</footer>
 
 <!-- footer bottom -->
 <div class="footer-bottom">
@@ -574,7 +442,8 @@
                 <div class="social-icon float-left">
                     <ul>
 
-                        <li><a href="#" target="_blank"><i class="fab fa-pinterest"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
+                        </li>
                         <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
                         <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
                         <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -604,6 +473,12 @@
 <script th:src="@{assets/js/waypoints.min.js}"></script>
 <script th:src="@{assets/js/jquery.counterup.min.js}"></script>
 <script th:src="@{assets/js/main.js}"></script>
+
+<script th:src="@{step_to_step/js/step_js.js}"></script>
+<script th:src="@{select_img/js/selectImg.js}"></script>
+
+<script th:src="@{compare_table/js/modernizr.js}"></script> <!-- Modernizr -->
+<script th:src="@{compare_table/js/main.js}"></script>
 
 </body>
 </html>
