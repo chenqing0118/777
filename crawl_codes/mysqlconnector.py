@@ -26,6 +26,8 @@ class MysqlConnector:
         self._username = username
         self._password = passwd
         self._dbname = dbname
+        if self._dbconn is not None:
+            self._dbconn.close()
         try:
             self._dbconn = pymysql.connect(url, username, passwd, dbname, port)
             if self._debug:
@@ -45,9 +47,12 @@ class MysqlConnector:
             self._dbconn.commit()
             results = cursor.fetchall()
             return results
-        except:
+        except Exception as e:
+
             # 如果发生错误则回滚
             self._dbconn.rollback()
+            if self._debug:
+                raise e
             return None
 
     def create_table(self, table_name: str, column_args: list, overwrite: bool = False):
@@ -84,8 +89,9 @@ class MysqlConnector:
             return True
         except Exception as e:
             # 如果发生错误则回滚
-            print(e)
             self._dbconn.rollback()
+            if self._debug:
+                raise e
             return False
 
     def insert_unique(self, table: str, columns: list, values_list: list, overwrite=False):
@@ -114,6 +120,8 @@ class MysqlConnector:
         except:
             # 如果发生错误则回滚
             self._dbconn.rollback()
+            if self._debug:
+                raise e
 
     def insert_many(self, table: str, columns: list, values_list: list):
         """
@@ -132,9 +140,10 @@ class MysqlConnector:
             # 提交到数据库执行
             self._dbconn.commit()
         except Exception as e:
-            print(e)
             # 如果发生错误则回滚
             self._dbconn.rollback()
+            if self._debug:
+                raise e
             return False
 
     def delete(self, table: str, selection: str):

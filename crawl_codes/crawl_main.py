@@ -36,7 +36,7 @@ class Benchmark(object):
         soup = BeautifulSoup(html, features="html.parser")
         rows = soup.find('div', class_="main").table.find_all('tr', class_=None)
         for row in rows:
-            name = "NVIDIA Geforce " + row.find('td').getText().strip()
+            name = "NVIDIA GeForce " + row.find('td').getText().strip()
             mem = re.findall(r"\d+[MG]B", "#".join(row.stripped_strings))
             if mem:
                 if mem[-1].endswith("MB"):
@@ -49,7 +49,7 @@ class Benchmark(object):
         soup = BeautifulSoup(html, features="html.parser")
         rows = soup.find('div', class_="main").table.find_all('tr', class_=None)
         for row in rows:
-            name = "NVIDIA Geforce " + row.find('td').getText().strip()
+            name = "NVIDIA GeForce " + row.find('td').getText().strip()
             mem = re.findall(r"\d+[MG]B", "#".join(row.stripped_strings))
             if mem:
                 if mem[-1].endswith("MB"):
@@ -76,7 +76,7 @@ class Benchmark(object):
                 result[name] = mem
         return result
 
-    def _get_stats(self):
+    def _get_gpu_stats(self):
         if self.gpu_bench is not None:
             return self.gpu_bench
         else:
@@ -125,9 +125,8 @@ class Benchmark(object):
             return self.cpu_bench
         else:
             html = HTMLDownloader.get_page_content(
-                "https://www.notebookcheck.net/Mobile-Processors-Benchmark-List.2436.0.html" +
-                "?type=&sort=&archive=1&or=0&3dmark06cpu=1&cinebench_r15_single=1&cinebench_r15_multi=1&cinebench_r20_multi=1" +
-                "&cpu_fullname=1&mhz=1&turbo_mhz=1&cores=1&threads=1")['html']
+                'https://www.notebookcheck.net/Mobile-Processors-Benchmark-List.2436.0.html?type=&sort=&deskornote=2&archive=1&or=0&cinebench_r15_single=1&cinebench_r15_multi=1&cinebench_r20_multi=1&cpu_fullname=1&mhz=1&turbo_mhz=1&cores=1&threads=1')[
+                'html']
             soup = BeautifulSoup(html, features="lxml")
             rows = soup.find("table", id="sortierbare_tabelle").find_all('tr', class_=re.compile(r"even|odd"))
             cpu_ranks = list()
@@ -148,7 +147,7 @@ class Benchmark(object):
                     if cpu_name.find("Celeron") >= 0 or cpu_name.find('Pentium') >= 0 or cpu_name.find("Xeon") >= 0:
                         pass
                     elif cpu_name.find("Core i") >= 0:
-                        if int(cpu_name.split()[-1][0]) in (2, 3, 4, 5, 6):
+                        if cpu_name.split()[-1][0] in ('2', '3', '4', '5', '6'):
                             continue
                     elif cpu_name.find("Core M >= 0"):
                         pass
@@ -205,7 +204,7 @@ class Benchmark(object):
 
     def get_gpu_s(self):
         if self.gpu_bench is None:
-            self._get_stats()
+            self._get_gpu_stats()
         gpu_s = set()
         for item in self.gpu_bench:
             gpu_s.add(item['name'])
