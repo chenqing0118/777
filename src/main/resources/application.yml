@@ -1,6 +1,10 @@
 spring:
   datasource:
-    name: se
+#    host：cdb-ctmslwcn.gz.tencentcdb.com
+#    port：10020
+#    username：se
+#    password：sufese777
+    username: se
     password: sufese777
     url: jdbc:mysql://cdb-ctmslwcn.gz.tencentcdb.com:10020/laptop?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
 #    type: com.alibaba.druid.pool.DruidDataSource

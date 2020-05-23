@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.laptop.demo.mapper.ScienceMapper">
+
+    <select id="getScience" resultType="Detail">
+        select channel_3,details
+        from laptop.science_view
+        <where>
+        channel_1=#{channel_1} and channel_2=#{channel_2}
+        </where>
+    </select>
+
+    <select id="getAdvice" resultType="Detail">
+        select channel_2,channel_3,details
+        from laptop.science_view
+        <where>
+            channel_1=#{channel_1}
+        </where>
+    </select>
+</mapper>
