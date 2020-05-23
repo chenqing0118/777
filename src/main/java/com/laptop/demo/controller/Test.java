@@ -51,4 +51,8 @@ public class Test {
     public String service_list(){
         return "usage_advice";
     }
+    @RequestMapping("/recommend")
+    public String recommend(){
+        return "recommend";
+    }
 }
