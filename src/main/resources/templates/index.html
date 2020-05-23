@@ -102,6 +102,19 @@
                     <p>将笔记本配置参数翻译成您最能理解的自然语言形式，让您选购笔记本电脑时更加轻松，不再一头雾水。</p>
                 </div>
             </div>
+
+            <div class="single-slider">
+                <!-- Slider Image -->
+                <div class="slider-img">
+                    <img th:src="@{assets/img/header-2.jpg}" alt="header2.jpg">
+                </div>
+                <div class="slider-text text-center">
+                    <span class="welcome">有哪些<strong> 不当操作 </strong>会影响您的笔记本电脑?</span>
+                    <h2>提供笔记本电脑使用过程中的<span> 不当操作 </span>，避免损害您的电脑</h2>
+                    <p>您在使用笔记本电脑过程中可能会存在一些不当操作，使得电脑的性能飞快地降低，有可能还会影响电脑的寿命
+                    ，所以我们为您提供一些最常见的不当操作，以供参考。</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -114,7 +127,7 @@
 
             <!-- Service Icon area-->
             <div class="col-md-4 col-sm-4">
-                <a th:href="@{/service-list}">
+                <a th:href="@{/common_science}">
                     <div class="service-box">
                         <!-- Service Icon -->
                         <div class="service-icon">
@@ -126,7 +139,7 @@
             </div>
             <!-- Service Icon area-->
             <div class="col-md-4 col-sm-4">
-                <a th:href="@{/service-list}">
+                <a th:href="@{/pick-and-choose}">
                     <div class="service-box">
                         <!-- Service Icon -->
                         <div class="service-icon">
@@ -139,7 +152,7 @@
             </div>
             <!-- Service Icon area-->
             <div class="col-md-4 col-sm-4">
-                <a th:href="@{/service-list}">
+                <a th:href="@{/recommend}">
                     <div class="service-box">
                         <!-- Service Icon -->
                         <div class="service-icon">
@@ -185,8 +198,7 @@
                     </div>
                     <!-- get a quote button-->
                     <div class="site-btn mb-5">
-                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">配置科普<i
-                                class="fas fa-arrow-right"></i></a>
+                        <a th:href="@{/common_science}" class="skill-btn">配置科普<i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -219,8 +231,7 @@
                     </div>
                     <!-- get a quote button-->
                     <div class="site-btn mb-5">
-                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">选机推荐<i
-                                class="fas fa-arrow-right"></i></a>
+                        <a th:href="@{/pick-and-choose}" class="skill-btn">选机推荐<i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -277,8 +288,7 @@
                     </div>
                     <!-- get a quote button-->
                     <div class="site-btn mb-5">
-                        <a href="#about" class="skill-btn" data-toggle="modal" data-target="#myModal">使用建议<i
-                                class="fas fa-arrow-right"></i></a>
+                        <a th:href="@{/recommend}" class="skill-btn">使用建议<i class="fas fa-arrow-right"></i></a>
                     </div>
 
                 </div>

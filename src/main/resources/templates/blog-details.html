@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="ZXX" xmlns:th="http://www.thymeleaf.org" >
+<html lang="ZXX" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>DMX - Digital Marketing Agency Html5 Template</title>
-    <meta name="description" content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
+    <meta name="description"
+          content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.png}">
     <link rel="stylesheet" th:href="@{assets/css/bootstrap-4.2.1.min.css}">
@@ -59,7 +60,7 @@
                                 <li><a th:href="@{/}">主页</a></li>
                                 <li><a th:href="@{/common_science}">配置科普</a></li>
                                 <li><a th:href="@{/pick-and-choose}">选机推荐</a></li>
-                                <li><a th:href="@{/recommendt}">使用建议</a></li>
+                                <li><a th:href="@{/recommend}">使用建议</a></li>
                                 <li><a th:href="@{/contact-us}">联系我们</a></li>
                             </ul>
                         </div>
@@ -72,99 +73,6 @@
     </div>
 
 </header>
-
-<!-- Get a Quote Modal -->
-<div class="modal animated bounceInUp" id="myModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="modal-body">
-                <div class="header-form">
-
-                    <form action="#" method="post">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">Name</label>
-                                <input type="text" class="form-control" name="name" id="inputEmail4" placeholder="Name">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Company Name</label>
-                                <input type="text" class="form-control" name="cname" id="inputPassword4"
-                                       placeholder="Company Name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress">Email</label>
-                            <input type="email" class="form-control" name="mail" id="inputAddress"
-                                   placeholder="Email Address">
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Select a Service</label>
-                                <select class="form-control" name="service_list">
-
-                                    <option selected>Select Service</option>
-                                    <option value="">Design Service</option>
-                                    <option value="">Design Service</option>
-                                    <option value="">Design Service</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Website</label>
-                                <input type="text" name="website" class="form-control" placeholder="Website">
-                            </div>
-
-
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>Amount</label>
-                                <input type="text" class="form-control" name="amount" placeholder="Amount">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Start date</label>
-                                <input type="date" class="form-control" name="qdate">
-                            </div>
-
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label>Phn No.</label>
-                                <select class="form-control" name="region">
-
-
-                                    <option value="+88">BD</option>
-                                    <option value="+88">USA</option>
-                                    <option value="+88">UK</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group col-md-8">
-                                <label class="pt-3"></label>
-
-                                <input type="text" name="phn" class="form-control" placeholder="201-555-0123">
-                            </div>
-
-
-                        </div>
-                        <!-- Submit Button-->
-                        <div class="submit-button">
-                            <button type="submit" class="site-btn-submit" name="sub">GET A FREE QUOTE</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 <!-- header banner Section -->
 <section>
@@ -211,46 +119,30 @@
                             <img th:src="@{assets/img/blog/blog-details.jpg}" alt="blog">
                         </div>
                         <!-- single-blog-test -->
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur eius
-                            eligendi fuga, nulla odio saepe sunt tempora unde. Aut deserunt harum impedit labore
-                            laudantium pariatur praesentium provident ratione sapiente unde. Aliquam blanditiis corporis
-                            culpa cumque dolorum enim est, ex, facere incidunt inventore pariatur voluptatibus. A ad
-                            aliquid amet asperiores aut cupiditate deserunt dignissimos dolor dolorem ea eveniet
-                            explicabo fugit harum id iure iusto laboriosam modi molestias, mollitia nam, nemo nihil nisi
-                            placeat porro praesentium provident quia quod sapiente sint sunt temporibus tenetur velit
-                            veritatis? Aspernatur dolorem impedit iste itaque nulla numquam omnis saepe, sit soluta
-                            temporibus unde ut voluptate.<br><br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque earum eos explicabo
-                            necessitatibus officia omnis pariatur quasi unde veritatis! A amet, architecto beatae
-                            blanditiis et illo iure iusto nam officiis, optio quibusdam voluptatibus. Accusantium autem
-                            consectetur debitis delectus dicta dolor hic id laborum minima nisi, non provident, ratione
-                            saepe tempore ullam. Aspernatur cum dolore dolorem ea, esse fuga illum, iusto minima
-                            officiis omnis quisquam, repudiandae vero. Accusantium assumenda cum ducimus eius, eos
-                            expedita facere fuga harum incidunt neque odit officia quae quo sed sequi ullam vitae
-                            voluptatem! Aliquid enim in maiores maxime neque nihil quae quod reiciendis, sequi
-                            temporibus vel.</p><br><br>
-                        <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi eaque fuga
-                            hic id laudantium natus, nobis odit reprehenderit saepe, similique, soluta totam ut! Aliquid
-                            distinctio ducimus eum harum nisi placeat quis quisquam recusandae rem sed. Blanditiis
-                            cupiditate explicabo iure molestiae natus, omnis placeat repellendus tenetur! Aut doloribus
-                            incidunt ipsam iusto maiores temporibus vero. Accusamus asperiores at atque aut consequuntur
-                            corporis, dicta earum eligendi enim hic laborum molestiae nemo nobis nulla numquam pariatur,
-                            provident quae quia quidem reiciendis rem rerum sapiente sequi sint temporibus totam vel
-                            veritatis! Consequuntur, molestiae, veritatis! At autem error fugit impedit ipsa minus
-                            perspiciatis quibusdam, velit?
-                        </blockquote>
-                        <br><br>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque earum eos explicabo
-                        necessitatibus officia omnis pariatur quasi unde veritatis! A amet, architecto beatae blanditiis
-                        et illo iure iusto nam officiis, optio quibusdam voluptatibus. Accusantium autem consectetur
-                        debitis delectus dicta dolor hic id laborum minima nisi, non provident, ratione saepe tempore
-                        ullam. Aspernatur cum dolore dolorem ea, esse fuga illum, iusto minima officiis omnis quisquam,
-                        repudiandae vero. Accusantium assumenda cum ducimus eius, eos expedita facere fuga harum
-                        incidunt neque odit officia quae quo sed sequi ullam vitae voluptatem! Aliquid enim in maiores
-                        maxime neque nihil quae quod reiciendis, sequi temporibus vel.</p><br><br>
+                        <p id="detail"></p><br><br>
+                    </div>
+                    <!-- single-blog-comment -->
+                    <div class="comments-area">
+                        <h6 class="title">选购建议</h6>
+                        <ul class="comments-list">
+                            <li class="single-comment">
+                                <div class="comment-box">
+                                    <div class="comment-info">
+                                        <blockquote id="advice">
+                                            <ul>
+                                                <li th:each="advice : ${science['选购建议']}" >
+                                                    <i class="fa fa-circle"></i>
+                                                    <span th:text="${advice}"></span>
+                                                </li>
+                                            </ul>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </li><!-- /.single-comment -->
+                        </ul>
                     </div>
                     <div class="about-author fix">
-                        <h6 class="title">about the author</h6>
+                        <h6 class="title">作者</h6>
                         <!-- author-image -->
                         <div class="author-img">
                             <img th:src="@{assets/img/testimonial-01.jpg}" alt="Author Image" width="100">
@@ -261,74 +153,6 @@
                                 nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                     </div>
-                    <!-- single-blog-comment -->
-                    <div class="comments-area">
-                        <h6 class="title">12 comments</h6>
-                        <ul class="comments-list">
-                            <li class="single-comment">
-                                <div class="comment-box">
-                                    <div class="comment-author">
-                                        <img src="assets/img/testimonial-01.jpg" alt="Comment Author" width="60">
-                                    </div>
-                                    <div class="comment-info">
-                                        <p class="author-name"><a href="#">Laurel Lance</a></p>
-                                        <span class="comment-date">July 11, 2015</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                            eiusmod temp incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                            minim veniam nostrud exercitation ullamco laboris nisi ut commodo
-                                            consequat.</p>
-                                        <a href="#" class="reply-link" title="Reply">reply</a>
-                                    </div>
-                                </div>
-                            </li><!-- /.single-comment -->
-                            <li class="single-comment">
-                                <div class="comment-box">
-                                    <div class="comment-author">
-                                        <img src="assets/img/testimonial-01.jpg" alt="Comment Author" width="60">
-                                    </div>
-                                    <div class="comment-info">
-                                        <p class="author-name"><a href="#">Alex Reim</a></p>
-                                        <span class="comment-date">July 11, 2015</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                            eiusmod temp incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                            minim veniam nostrud exercitation ullamco laboris nisi ut commodo
-                                            consequat.</p>
-                                        <a href="#" class="reply-link" title="Reply">reply</a>
-                                    </div>
-                                </div>
-                                <ul class="reply">
-                                    <li class="single-comment">
-                                        <div class="comment-box">
-                                            <div class="comment-author">
-                                                <img src="assets/img/testimonial-01.jpg" alt="Comment Author"
-                                                     width="60">
-                                            </div>
-                                            <div class="comment-info">
-                                                <p class="author-name"><a href="#">Wally West</a></p>
-                                                <span class="comment-date">July 11, 2015</span>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                    eiusmod temp incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                    minim veniam nostrud exercitation ullamco laboris nisi ut commodo
-                                                    consequat.</p>
-                                                <a href="#" class="reply-link" title="Reply">reply</a>
-                                            </div>
-                                        </div>
-                                    </li><!-- /.single-comment -->
-                                </ul><!-- /.reply -->
-                            </li><!-- /.single-comment -->
-                        </ul>
-                    </div>
-                    <!-- /.single-comment form-->
-                    <div class="comment-form-area">
-                        <p>leave a comment</p>
-                        <form action="#" method="post">
-                            <input type="text" placeholder="Name">
-                            <input type="text" placeholder="Email">
-                            <textarea placeholder="Message"></textarea><br>
-                            <button type="submit" class="submit-btn">submit</button>
-                        </form>
-                    </div>
-
 
                 </div><!-- /.single-blog-details -->
             </div>
@@ -347,7 +171,6 @@
                                 hic laborum natus nisi odit placeat reiciendis.</p>
                         </div><!-- /.sidebar-content -->
                     </div><!-- /.single-sidebar-widget -->
-
 
 
                     <div class="single-sidebar-widget">
@@ -369,18 +192,6 @@
                         <h6 class="widget-title">Popular Posts</h6>
                         <div class="sidebar-content">
                             <!--<div class="right-box-content mt-10 mb-10">-->
-                                <a href="" class="popular-post d-flex align-items-center">
-                                    <div class="popular-post-img mr-20">
-                                        <img src="assets/img/blog/blog-1.jpg" alt="blog-1.jpg">
-                                        <div class="full-cover bg-green-op-8 transition-4">
-                                            <i class="fas fa-external-link-alt transform-center"></i>
-                                        </div>
-                                    </div>
-                                    <div class="popular-post-text">
-                                        <p class="pb-1-">Lorem ipsum dolor sit amet, consecte..</p>
-                                        <span>June 25, 2019</span>
-                                    </div>
-                                </a>
                             <a href="" class="popular-post d-flex align-items-center">
                                 <div class="popular-post-img mr-20">
                                     <img src="assets/img/blog/blog-1.jpg" alt="blog-1.jpg">
@@ -405,9 +216,21 @@
                                     <span>June 25, 2019</span>
                                 </div>
                             </a>
-                            </div>
+                            <a href="" class="popular-post d-flex align-items-center">
+                                <div class="popular-post-img mr-20">
+                                    <img src="assets/img/blog/blog-1.jpg" alt="blog-1.jpg">
+                                    <div class="full-cover bg-green-op-8 transition-4">
+                                        <i class="fas fa-external-link-alt transform-center"></i>
+                                    </div>
+                                </div>
+                                <div class="popular-post-text">
+                                    <p class="pb-1-">Lorem ipsum dolor sit amet, consecte..</p>
+                                    <span>June 25, 2019</span>
+                                </div>
+                            </a>
+                        </div>
                         <!--</div>-->
-                    <!-- /.sidebar-content -->
+                        <!-- /.sidebar-content -->
                     </div>
                     <!-- /.single-sidebar-widget -->
                     <div class="single-sidebar-widget">
@@ -434,7 +257,8 @@
                         <div class="sidebar-content">
                             <div class="tags-list">
                                 <ul>
-                                    <li><a href=""><i class="fas fa-tag"></i>Marketing</a></li><li><a href=""><i class="fas fa-tag"></i>ppc</a></li>
+                                    <li><a href=""><i class="fas fa-tag"></i>Marketing</a></li>
+                                    <li><a href=""><i class="fas fa-tag"></i>ppc</a></li>
                                     <li><a href=""><i class="fas fa-tag"></i>Design</a></li>
                                     <li><a href=""><i class="fas fa-tag"></i>Development</a></li>
                                     <li><a href=""><i class="fas fa-tag"></i>App Devlopment</a></li>
@@ -451,172 +275,6 @@
     </div>
 </div>
 <!-- single-blog-area end -->
-
-
-<!-- Newsletter Section -->
-<section class="newsletter-area">
-    <div class="container">
-        <!-- newsletter heading area-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                    <div class="head-text">
-                        <h3>Newsletter</h3>
-                        <h1>Get Latest News From Us</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 m-auto">
-                <div class="subcribe-form text-center">
-
-
-                    <!-- Begin Mailchimp Signup Form -->
-                    <div id="mc_embed_signup">
-                        <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                              class="validate" target="_blank" novalidate>
-                            <div id="mc_embed_signup_scroll">
-
-                                <div class="mc-field-group subcribe-form">
-                                    <input autocomplete="off" placeholder="Enter Your Email" value="" name="EMAIL"
-                                           class="required email" id="mce-EMAIL" type="email">
-                                    <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
-                                            class="button"><i class="fas fa-paper-plane"></i></button>
-                                </div>
-
-                                <div class="newsletter-input" aria-hidden="true">
-                                    <input type="text" name="b_a3d53fa043a54881bf71f9a96_dc0358f8ce" tabindex="-1"
-                                           value="">
-                                </div>
-                                <div class="clear"></div>
-
-
-                            </div>
-                        </form>
-                    </div>
-
-                    <!--End mc_embed_signup-->
-                </div>
-
-                <p class="text-center pt-4 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias aliquid, cupiditate deserunt dolore error excepturi harum maxime molestiae nihil officia omnis pariatur rem, sed suscipit velit vero voluptate.
-                </p>
-
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- Footer Section -->
-<footer class="footer-area">
-
-    <!-- footer bottom -->
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 margin-bottom-r">
-                    <!-- Footer Logo -->
-                    <div class="company-logo text-center">
-                        <a th:href="@{/}"><img src="assets/img/main-logo.png}" alt="main-logo.png"></a>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="row second-footer">
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 sm-mb">
-
-                    <h4 class="mb-4">United States</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 sm-mb">
-
-                    <h4 class="mb-4">United Kingdom</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-
-                    <h4 class="mb-4">Germany</h4>
-                     <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- Footer content area -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-
-                    <h4 class="mb-4">London</h4>
-                    <ul>
-                        <li>
-                            <a href="#">111 East</a>
-                        </li>
-                        <li>
-                            <a href="#">Wacker Drive</a>
-                        </li>
-                        <li>
-                            <a href="#">Chicago, Illinois, 60601</a>
-                        </li>
-                        <li>
-                            <a href="#">us@digitalmarketingagency.com</a>
-                        </li>
-                    </ul>
-
-                </div>
-
-
-            </div>
-
-        </div>
-    </div>
-
-</footer>
 
 <!-- footer bottom -->
 <div class="footer-bottom">
@@ -657,6 +315,16 @@
 <script th:src="@{assets/js/waypoints.min.js}"></script>
 <script th:src="@{assets/js/jquery.counterup.min.js}"></script>
 <script th:src="@{assets/js/main.js}"></script>
+
+<script th:src="@{marked/marked.min.js}"></script>
+<script th:inline="javascript">
+    $(function () {
+        var content = [[${science["介绍"][0]}]];
+        var html = marked(content); //初始化转换器
+        $("#detail").html(html)//添加到 div 中 显示出来
+    })
+
+</script>
 
 </body>
 </html>
