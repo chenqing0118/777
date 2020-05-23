@@ -87,8 +87,7 @@
                         <div class="others-page-title text-center">
                             <h1>笔记本小科普</h1>
 
-                            <p class="pt-3">我们将从CPU、显卡、内存、屏幕等方面为您做一个入门级科普，帮助您更好的了解您的电脑</p>
-
+                            <p class="pt-3">将从CPU、显卡、内存、硬盘等方面为您做一个入门级科普，点击对应图片即可查看科普内容。</p>
                         </div>
 
                     </div>
@@ -102,7 +101,7 @@
 </section>
 
 <!--common_science-->
-<div id="app" data-current-planet="mercury" class="body" >
+<div id="app" data-current-planet="mercury" class="body" style="--active:3;">
     <nav class="planet-nav">
         <svg viewBox="0 20 400 400" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -111,54 +110,43 @@
                     fill="none"/>
             <text>
                 <textPath href="#navPath" startOffset="0" font-size="8">
-                    <tspan>组成概览</tspan>
-                    <tspan>CPU</tspan>
-                    <tspan>显卡</tspan>
-                    <tspan>内存条</tspan>
-                    <tspan>屏幕</tspan>
                     <tspan>接口</tspan>
+                    <tspan>内存</tspan>
+                    <tspan>显卡</tspan>
+                    <tspan>概览</tspan>
+                    <tspan>CPU</tspan>
                     <tspan>硬盘</tspan>
+                    <tspan>屏幕</tspan>
+                    <tspan>品牌</tspan>
                 </textPath>
             </text>
 
         </svg>
     </nav>
 
-    <div class="planet" data-planet="mercury" data-active >
+    <div class="planet" data-planet="interface">
         <div class="planet-title">
-            <h1 class="h1">笔记本内部组成概览</h1>
-            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-        </div>
-
-<!--        <div class="planet-details">-->
-<!--            <div class="detail" data-detail="tilt" data-postfix="°">-->
-<!--                3.13-->
-<!--            </div>-->
-<!--            <div class="detail" data-detail="gravity" data-postfix="𝗑">-->
-<!--                0.9-->
-<!--            </div>-->
-<!--            <div class="detail" data-detail="hours">-->
-<!--                10-->
-<!--            </div>-->
-<!--        </div>-->
-
-        <figure class="planet-figure">
-            <img th:src="@{assets/img/science/全景.png}"/>
-        </figure>
-    </div>
-
-    <div class="planet" data-planet="venus">
-        <div class="planet-title">
-            <h1 class="h1">CPU</h1>
+            <h1 class="h1">接口</h1>
             <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
         </div>
 
         <figure class="planet-figure">
-            <img th:src="@{assets/img/science/cpu.png}"/>
+            <a href="#" target="_blank"><img th:src="@{assets/img/science/interface.png}" style="z-index: 100"/></a>
         </figure>
     </div>
 
-    <div class="planet" data-planet="earth">
+    <div class="planet" data-planet="memory">
+        <div class="planet-title">
+            <h1 class="h1">内存条</h1>
+            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+
+        <figure class="planet-figure">
+            <a href="#" target="_blank"><img th:src="@{assets/img/science/memory.png}" style="z-index: 100"/></a>
+        </figure>
+    </div>
+
+    <div class="planet" data-planet="gpu">
         <div class="planet-title">
             <h1 class="h1">显卡</h1>
             <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
@@ -166,57 +154,93 @@
 
 
         <figure class="planet-figure">
-            <img th:src="@{assets/img/science/显卡.png}"/>
+            <a th:href="@{/}" target="_blank"><img th:src="@{assets/img/science/gpu.png}" style="z-index: 100"/></a>
         </figure>
     </div>
 
-    <div class="planet" data-planet="mars">
+    <div class="planet" data-planet="mercury" data-active >
         <div class="planet-title">
-            <h1 class="h1">内存条</h1>
+            <h1 class="h1">内部概览</h1>
             <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
         </div>
 
         <figure class="planet-figure">
-            <img th:src="@{assets/img/science/内存.png}"/>
+            <img th:src="@{assets/img/science/overview.png}"/>
         </figure>
     </div>
 
-    <div class="planet" data-planet="jupiter">
+    <div class="planet" data-planet="cpu">
         <div class="planet-title">
-            <h1 class="h1">屏幕</h1>
+            <h1 class="h1">CPU</h1>
             <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
         </div>
 
         <figure class="planet-figure">
-            <img th:src="@{assets/img/science/屏幕.png}"/>
+            <a th:href="@{/}" target="_blank"><img th:src="@{assets/img/science/cpu.png}" alt="cpu" style="z-index: 100"/></a>
         </figure>
     </div>
 
-    <div class="planet" data-planet="saturn">
-        <div class="planet-title">
-            <h1 class="h1">接口</h1>
-            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-        </div>
-
-        <figure class="planet-figure">
-            <img th:src="@{assets/img/science/接口.png}"/>
-        </figure>
-    </div>
-
-    <div class="planet" data-planet="uranus">
+    <div class="planet" data-planet="storage">
         <div class="planet-title">
             <h1 class="h1">硬盘</h1>
             <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
         </div>
 
         <figure class="planet-figure">
-            <img th:src="@{assets/img/science/硬盘.png}"/>
+            <a href="#" target="_blank"><img th:src="@{assets/img/science/storage.png}" style="z-index: 100"/></a>
         </figure>
     </div>
 
+    <div class="planet" data-planet="screen">
+        <div class="planet-title">
+            <h1 class="h1">屏幕</h1>
+            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+
+        <figure class="planet-figure">
+            <a href="#" target="_blank"><img th:src="@{assets/img/science/screen.png}" style="z-index: 100"/></a>
+        </figure>
+    </div>
+
+    <div class="planet" data-planet="brand">
+        <div class="planet-title">
+            <h1 class="h1">品牌</h1>
+            <p class="p">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+
+        <figure class="planet-figure">
+            <a href="#" target="_blank"><img th:src="@{assets/img/science/brand.png}" style="z-index: 100"/></a>
+        </figure>
+    </div>
 
 </div>
+<!-- footer bottom -->
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-md-4">
+                <!-- Copyright -->
+                <div class="social-icon float-left">
+                    <ul>
 
+                        <li><a href="#" target="_blank"><i class="fab fa-pinterest"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-8 col-md-8">
+                <!-- Copyright -->
+                <div class="copyright float-right float-mob-left">
+                    <p>© 2019 All Right Reserved By <a href="https://www.jq22.com/">jq22</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- JS here -->
 <script th:src="@{assets/js/science/splitting.min.js}"></script>
