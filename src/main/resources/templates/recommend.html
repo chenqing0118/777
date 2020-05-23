@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="ZXX" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>DMX - Digital Marketing Agency Html5 Template</title>
+    <meta name="description"
+          content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" th:href="@{recommend/css/style.css}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.png}">
+    <link rel="stylesheet" th:href="@{assets/css/bootstrap-4.2.1.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.theme.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/animate.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/fontawesome-all.min.css}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{assets/css/meanmenu.css}">
+    <link rel="stylesheet" th:href="@{style.css}">
+    <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
+
+
+</head>
+<body>
+
+<!-- ===================================================
+    Loading Transition
+==================================================== -->
+<div id="loader-wrapper">
+    <div id="loader">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Header Section -->
+<header id="home">
+
+    <div class="main-navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="main-menu">
+                        <!-- Logo Area -->
+                        <div class="logo-area">
+                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}"
+                                                                     alt="main-logo.png"></a>
+                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}"
+                                                                              alt="sticky-logo.png"></a>
+                        </div>
+
+                        <!-- Main Menu Area -->
+                        <div class="menu-area" id="mobile-menu">
+                            <ul>
+                                <!-- dropdown menu-area-->
+                                <li><a th:href="@{/}">主页</a></li>
+                                <li><a th:href="@{/common_science}">配置科普</a></li>
+                                <li><a th:href="@{/pick-and-choose}">选机推荐</a></li>
+                                <li><a th:href="@{/recommend}">使用建议</a></li>
+                                <li><a th:href="@{/contact-us}">联系我们</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- mobile menu-->
+                    <div class="mobile-menu"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<!-- header banner Section -->
+<section>
+    <div class="service-header-image-area d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 m-auto">
+
+                    <!-- Item -->
+                    <div class="item">
+
+                        <div class="others-page-title text-center">
+                            <h1>使用建议</h1>
+
+                            <p class="pt-3">为了尽可能延长笔记本的使用寿命，我们为您提供了一些爱心小贴士，帮助您更好的使用笔记本</p>
+
+                        </div>
+
+                    </div>
+                    <!-- // Item -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--滑轮tab-->
+<div id="new_box">
+
+    <div class="title_cn">
+        资讯中心
+    </div>
+
+    <div class="new_con">
+        <div class="newtel">
+            <ul class="new_telst">
+                <li class="">最新头条</li>
+                <li class="newon">硬件发烧友</li>
+                <li class="">科学探索</li>
+                <p style="left: 166px;">
+
+                </p>
+            </ul>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="new-wrap">
+            <!--案例1-->
+            <div class="new_lst show" style="display: none;">
+                <ul class="new_lst_cn">
+                    <li class="new_cnlf">
+                        <p class="newlf_img">
+                            <img th:src="@{recommend/img/new_img1.jpg}" width="370" height="147">
+                        </p>
+                        <p class="newlf_tel">
+                            <a href="#"> 石墨烯无线充电器全网首发</a>
+                        </p>
+                        <p class="newlf_tx">
+                            石墨烯散热技术已经被华为等厂商大规模应用在智能手机内部的散热系统中。厦门立琪电子有限公司就推出了一款石墨烯外壳无线充电器，利用石墨烯复合材料的高导热性，可以有效解决无线充电器的散热问题，提高充电速度。
+                        </p>
+                    </li>
+                    <li class="new_cnrf">
+                        <div class="newrf_lst">
+                            <dl>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>13</span>2018-6
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> Intel十代酷睿移动标压版首曝 </a>
+                                        <span> Intel十代酷睿在轻薄本上有10nm Ice Lake、14nm Comet</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>15</span>2018-5
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> AMD超低功耗移动版Dali APU曝光 </a>
+                                        <span>AMD的锐龙CPU、APU处理器产品线日益完整、稳步迭代，而根据最新曝料</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>23</span>2018-4
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> Intel十代酷睿移动标压版首曝 </a>
+                                        <span> Intel十代酷睿在轻薄本上有10nm Ice Lake、14nm Comet</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>3</span>2018-4
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> Intel十代酷睿移动标压版首曝 </a>
+                                        <span> Intel十代酷睿在轻薄本上有10nm Ice Lake、14nm Comet</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>3</span>2018-4
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> Intel十代酷睿移动标压版首曝 </a>
+                                        <span> Intel十代酷睿在轻薄本上有10nm Ice Lake、14nm Comet</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>1</span>2018-3
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> Intel十代酷睿移动标压版首曝 </a>
+                                        <span> Intel十代酷睿在轻薄本上有10nm Ice Lake、14nm Comet</span>
+                                    </p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <div class="clear">
+                    </div>
+                </ul>
+            </div>
+            <!--案例2-->
+            <div class="new_lst" style="display: block;">
+                <ul class="new_lst_cn">
+                    <li class="new_cnlf">
+                        <p class="newlf_img">
+                            <img th:src="@{recommend/img/new_img2.jpg}" width="370" height="147">
+                        </p>
+                        <p class="newlf_tel">
+                            <a href="#"> 64核AMD EPYC二代处理器创纪录</a>
+                        </p>
+                        <p class="newlf_tx">
+                            根据AMD的数据，服务器CPU已经是他们第二大收入来源，市场份额也从之前的不到1%增长到了3.2%，，预计2020年底将达到双位数份额，而这就要依靠他们的EPYC二代处理器了。
+                        </p>
+                    </li>
+                    <li class="new_cnrf">
+                        <div class="newrf_lst">
+                            <dl>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>26</span>2018-7
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> ARM加入CXL开放互连联盟</a>
+                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>25</span>2018-7
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> ARM加入CXL开放互连联盟</a>
+                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>24</span>2018-7
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> ARM加入CXL开放互连联盟</a>
+                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>23</span>2018-7
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> ARM加入CXL开放互连联盟</a>
+                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>19</span>2018-7
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> ARM加入CXL开放互连联盟</a>
+                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>18</span>2018-7
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> ARM加入CXL开放互连联盟</a>
+                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                    </p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <div class="clear">
+                    </div>
+                </ul>
+            </div>
+            <!--案例3-->
+            <div class="new_lst" style="display: none;">
+                <ul class="new_lst_cn">
+                    <li class="new_cnlf">
+                        <p class="newlf_img">
+                            <img th:src="@{recommend/img/new_img3.jpg}" width="370" height="147">
+                        </p>
+                        <p class="newlf_tel">
+                            <a href="#"> 内存延迟有多重要？游戏性能测试说明真相 </a>
+                        </p>
+                        <p class="newlf_tx">
+                            对于DIY玩家来说，探究技术细节是他们的一大乐趣之一，最让玩家纠结的一个参数大概要属内存延迟这事了，一方面这关系到内存的选择，频率越高的内存当然延迟会更低，只不过价格也会越高。
+                        </p>
+                    </li>
+                    <li class="new_cnrf">
+                        <div class="newrf_lst">
+                            <dl>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>6</span>2018-7
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> Intel 10nm处理器出货</a>
+                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>6</span>2018-7
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> Intel 10nm处理器出货</a>
+                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>3</span>2018-7
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> Intel 10nm处理器出货</a>
+                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>28</span>2018-6
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> Intel 10nm处理器出货</a>
+                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>27</span>2018-6
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> Intel 10nm处理器出货</a>
+                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                    </p>
+                                </dd>
+                                <dd>
+                                    <p class="new_rq">
+                                        <span>26</span>2018-6
+                                    </p>
+                                    <p class="newrf_tx">
+                                        <a href="#"> Intel 10nm处理器出货</a>
+                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
+                                    </p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Service List Section -->
+<!--<section class="service-list">-->
+
+<!--    <div class="container">-->
+<!--        &lt;!&ndash; Service list heading &ndash;&gt;-->
+
+<!--        <div class="row">-->
+<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
+<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
+<!--                <div class="box">-->
+<!--                    <div class="icon-box">-->
+<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
+<!--                        <img th:src="@{assets/img/services/service-icon/shopify_color.png}" alt="service-icon">-->
+<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
+<!--                        <div class="content py-3 service-content">-->
+<!--                            <a th:href="@{/service-details}"><h1>Shopify development</h1></a>-->
+<!--                            <p class="py-2">-->
+
+<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
+<!--                                fuga, ipsa ipsum laudantium.-->
+
+<!--                            </p>-->
+
+<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
+<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
+<!--                <div class="box">-->
+<!--                    <div class="icon-box">-->
+<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
+<!--                        <img th:src="@{assets/img/services/service-icon/Drupal_color.png}" alt="service-icon">-->
+<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
+<!--                        <div class="content py-3 service-content">-->
+<!--                            <a th:href="@{/service-details}"><h1>Drupal development</h1></a>-->
+<!--                            <p class="py-2">-->
+
+<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
+<!--                                fuga, ipsa ipsum laudantium.-->
+
+<!--                            </p>-->
+<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
+<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
+<!--                <div class="box">-->
+<!--                    <div class="icon-box">-->
+<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
+<!--                        <img th:src="@{assets/img/services/service-icon/Joomla_color.png}" alt="service-icon">-->
+<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
+<!--                        <div class="content py-3 service-content">-->
+<!--                            <a th:href="@{/service-details}"><h1>Joomla development</h1></a>-->
+<!--                            <p class="py-2">-->
+
+<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
+<!--                                fuga, ipsa ipsum laudantium.-->
+
+<!--                            </p>-->
+<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
+<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
+<!--                <div class="box">-->
+<!--                    <div class="icon-box">-->
+<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
+<!--                        <img th:src="@{assets/img/services/service-icon/Laravel_color.png}" alt="service-icon">-->
+<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
+<!--                        <div class="content py-3 service-content">-->
+<!--                            <a th:href="@{/service-details}"><h1>Laravel development</h1></a>-->
+<!--                            <p class="py-2">-->
+
+<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
+<!--                                fuga, ipsa ipsum laudantium.-->
+
+<!--                            </p>-->
+<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
+<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
+<!--                <div class="box">-->
+<!--                    <div class="icon-box">-->
+<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
+<!--                        <img th:src="@{assets/img/services/service-icon/Magento_color.png}" alt="service-icon">-->
+<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
+<!--                        <div class="content py-3 service-content">-->
+<!--                            <a th:href="@{/service-details}"><h1>Magento development</h1></a>-->
+<!--                            <p class="py-2">-->
+
+<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
+<!--                                fuga, ipsa ipsum laudantium.-->
+
+<!--                            </p>-->
+<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
+<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
+<!--                <div class="box">-->
+<!--                    <div class="icon-box">-->
+<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
+<!--                        <img th:src="@{assets/img/services/service-icon/shopify_color.png}" alt="service-icon">-->
+<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
+<!--                        <div class="content py-3 service-content">-->
+<!--                            <a th:href="@{/service-details}"><h1>Shopify development</h1></a>-->
+<!--                            <p class="py-2">-->
+
+<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
+<!--                                fuga, ipsa ipsum laudantium.-->
+
+<!--                            </p>-->
+<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
+<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
+<!--                <div class="box">-->
+<!--                    <div class="icon-box">-->
+<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
+<!--                        <img th:src="@{assets/img/services/service-icon/webdesign_color.png}" alt="service-icon">-->
+<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
+<!--                        <div class="content py-3 service-content">-->
+<!--                            <a th:href="@{/service-details}"><h1>Webdesign</h1></a>-->
+<!--                            <p class="py-2">-->
+
+<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
+<!--                                fuga, ipsa ipsum laudantium.-->
+
+<!--                            </p>-->
+<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
+<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
+<!--                <div class="box">-->
+<!--                    <div class="icon-box">-->
+<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
+<!--                        <img th:src="@{assets/img/services/service-icon/woo_color.png}" alt="service-icon">-->
+<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
+<!--                        <div class="content py-3 service-content">-->
+<!--                            <a th:href="@{/service-details}"><h1>Woo development</h1></a>-->
+<!--                            <p class="py-2">-->
+
+<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
+<!--                                fuga, ipsa ipsum laudantium.-->
+
+<!--                            </p>-->
+<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
+<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
+<!--                <div class="box">-->
+<!--                    <div class="icon-box">-->
+<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
+<!--                        <img th:src="@{assets/img/services/service-icon/Yii_color.png}" alt="service-icon">-->
+<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
+<!--                        <div class="content py-3 service-content">-->
+<!--                            <a th:href="@{/service-details}"><h1>Yii development</h1></a>-->
+<!--                            <p class="py-2">-->
+
+<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
+<!--                                fuga, ipsa ipsum laudantium.-->
+
+<!--                            </p>-->
+<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
+<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
+<!--                <div class="box">-->
+<!--                    <div class="icon-box">-->
+<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
+<!--                        <img th:src="@{assets/img/services/service-icon/wordpress_color.png}" alt="service-icon">-->
+<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
+<!--                        <div class="content py-3 service-content">-->
+<!--                            <a th:href="@{/service-details}"><h1>Wordpress dev</h1></a>-->
+<!--                            <p class="py-2">-->
+
+<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
+<!--                                fuga, ipsa ipsum laudantium.-->
+
+<!--                            </p>-->
+<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            &lt;!&ndash; Pagination &ndash;&gt;-->
+<!--            <ul class="pagination text-center m-auto">-->
+<!--                <li><span aria-current="page" class="pagination current">1</span></li>-->
+<!--                <li><a class="pagination" href="#">2</a></li>-->
+<!--                <li><a class="next pagination" href="#"><i class="fa fa-angle-right"></i></a></li>-->
+<!--            </ul>-->
+
+
+<!--        </div>-->
+
+<!--    </div>-->
+
+<!--</section>-->
+
+
+<!-- JS here -->
+
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script th:src="@{assets/js/jquery-1.10.2.min.js}"></script>
+<script th:src="@{assets/js/popper.min.js}"></script>
+<script th:src="@{assets/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/js/owl.carousel.min.js}"></script>
+<script th:src="@{assets/js/jquery.meanmenu.min.js}"></script>
+<script th:src="@{assets/js/jquery.scrollUp.min.js}"></script>
+<script th:src="@{assets/js/waypoints.min.js}"></script>
+<script th:src="@{assets/js/jquery.counterup.min.js}"></script>
+<script th:src="@{assets/js/main.js}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //设计案例切换
+        $('.new_telst li').mouseover(function(){
+            var liindex = $('.new_telst li').index(this);
+            $(this).addClass('newon').siblings().removeClass('newon');
+            $('.new-wrap div.new_lst').eq(liindex).fadeIn(150).siblings('div.new_lst').hide();
+            var liWidth = $('.new_telst li').width();
+            $('.newtel .new_telst p').stop(false,true).animate({'left' : liindex * liWidth + 'px'},300);
+        });
+
+    });
+</script>
+
+
+</body>
+</html>
+
