@@ -8,12 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class Test {
+
+public class PageController {
     @Autowired
     private ScienceService scienceService;
 
     @RequestMapping("/404")
-    public String html404(Model model) {
+    public String html404() {
 
         return "404";
     }
@@ -54,7 +55,7 @@ public class Test {
     @RequestMapping("/test")
     public String test(Model model) {
 
-        return "test";
+        return "pageController";
     }
 
     @RequestMapping("/common_science")
@@ -63,8 +64,12 @@ public class Test {
         return "common_science";
     }
 
-    @RequestMapping("/recommend")
+    @RequestMapping("/advices")
     public String recommend(){
-        return "recommend";
+        return "advices";
+    }
+    @RequestMapping("/brand")
+    public String brand(){
+        return "brand";
     }
 }

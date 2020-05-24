@@ -2,6 +2,7 @@ package com.laptop.demo.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.laptop.demo.mapper.ScienceMapper;
+import com.laptop.demo.pojo.Brand;
 import com.laptop.demo.pojo.Detail;
 import com.laptop.demo.service.ScienceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,9 @@ public class ScienceServiceImpl implements ScienceService {
             return scienceJson;
         }
         return null;
+    }
+    @Override
+    public Brand getBrandDetail(String name){
+        return scienceMapper.getBrandDetail(name);
     }
 }

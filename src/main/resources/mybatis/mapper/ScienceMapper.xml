@@ -20,4 +20,10 @@
             channel_1=#{channel_1}
         </where>
     </select>
+    <select id="getBrandDetail" resultType="Brand">
+        select name,intro from brand
+        <where>
+            name=#{name}
+        </where>
+    </select>
 </mapper>

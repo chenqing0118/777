@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>品牌介绍</title>
+    <meta name="description"
+          content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" th:href="@{recommend/css/style.css}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.png}">
+    <link rel="stylesheet" th:href="@{assets/css/bootstrap-4.2.1.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.theme.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/animate.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/fontawesome-all.min.css}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{assets/css/meanmenu.css}">
+    <link rel="stylesheet" th:href="@{style.css}">
+    <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
+
+    <!--问卷步骤-->
+    <link rel="stylesheet" th:href="@{step_to_step/css/style_1.css}">
+    <!--选择图片-->
+    <link rel="stylesheet" type="text/css" th:href="@{select_img/css/selectImg.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{select_img/css/iconfont.css}"/>
+</head>
+<body>
+<!-- ===================================================
+    Loading Transition
+==================================================== -->
+<div id="loader-wrapper">
+    <div id="loader">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+<!-- Header Section -->
+<header id="home">
+
+    <div class="main-navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="main-menu">
+                        <!-- Logo Area -->
+                        <div class="logo-area">
+                            <a th:href="@{/}" class="main-logo"><img th:src="@{assets/img/main-logo.png}"
+                                                                     alt="main-logo.png"></a>
+                            <a th:href="@{/}" class="logo-sticky d-none"><img th:src="@{assets/img/sticky-logo.png}"
+                                                                              alt="sticky-logo.png"></a>
+                        </div>
+
+                        <!-- Main Menu Area -->
+                        <div class="menu-area" id="mobile-menu">
+                            <ul>
+                                <!-- dropdown menu-area-->
+                                <li><a th:href="@{/}">主页</a></li>
+                                <li><a th:href="@{/common_science}">配置科普</a></li>
+                                <li><a th:href="@{/pick-and-choose}">选机推荐</a></li>
+                                <li><a th:href="@{/recommend}">使用建议</a></li>
+                                <li><a th:href="@{/contact-us}">联系我们</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- mobile menu-->
+                    <div class="mobile-menu"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+<!-- header banner Section -->
+<section>
+    <div class="service-header-image-area d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 m-auto">
+
+                    <!-- Item -->
+                    <div class="item">
+
+                        <div class="others-page-title text-center">
+                            <h1>品&nbsp;牌&nbsp;介&nbsp;绍</h1>
+
+                            <p class="pt-3">帮您了解各品牌定位，选择心仪的品牌。</p>
+
+                        </div>
+
+                    </div>
+                    <!-- // Item -->
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="our-mission-area padding-no-bottom" style="padding: 0 0 10px 0;">
+    <div class="container">
+        <div class="row">
+            <div style="width: 100%;">
+                <ul class="payment-wizard">
+                    <li class="active">
+                        <div class="wizard-heading" style="font-size: 30px;">
+                            四&nbsp;大&nbsp;元&nbsp;老
+                            <span class="icon-user"></span>
+                        </div>
+                        <div class="wizard-content" style="display: block">
+                            <div class="selectImgDiv" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/lenovo.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">联想</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/dell.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">戴尔</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/hp.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">惠普</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/apple.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">苹果</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="active">
+                        <div class="wizard-heading" style="font-size: 30px;">
+                            小&nbsp;金&nbsp;刚
+                            <span class="icon-user"></span>
+                        </div>
+                        <div class="wizard-content" style="display: block">
+                            <div class="selectImgDiv" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/asus.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">华硕</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/acer.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">宏碁</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="active">
+                        <div class="wizard-heading" style="font-size: 30px;">
+                            中&nbsp;庸&nbsp;之&nbsp;道
+                            <span class="icon-user"></span>
+                        </div>
+                        <div class="wizard-content" style="display: block">
+                            <div class="selectImgDiv" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/hasee.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">神舟</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/mechrev.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">机械革命</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="active">
+                        <div class="wizard-heading" style="font-size: 30px;">
+                            极&nbsp;致&nbsp;商&nbsp;务
+                            <span class="icon-user"></span>
+                        </div>
+                        <div class="wizard-content" style="display: block">
+                            <div class="selectImgDiv" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/ThinkPad.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">ThinkPad</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/microsoft.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">微软</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="active">
+                        <div class="wizard-heading" style="font-size: 30px;">
+                            跨&nbsp;界&nbsp;搞&nbsp;机
+                            <span class="icon-user"></span>
+                        </div>
+                        <div class="wizard-content" style="display: block">
+                            <div class="selectImgDiv" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/mi.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">小米</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/redmi.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">RedmiBook</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/huawei.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">华为</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/honor.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">荣耀</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="active">
+                        <div class="wizard-heading" style="font-size: 30px;">
+                            低&nbsp;调&nbsp;轻&nbsp;奢
+                            <span class="icon-user"></span>
+                        </div>
+                        <div class="wizard-content" style="display: block">
+                            <div class="selectImgDiv" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/msi.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">微星</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/gigabyte.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">技嘉</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/samsung.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">三星</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="active">
+                        <div class="wizard-heading" style="font-size: 30px;">
+                            游&nbsp;戏&nbsp;新&nbsp;生&nbsp;力
+                            <span class="icon-user"></span>
+                        </div>
+                        <div class="wizard-content" style="display: block">
+                            <div class="selectImgDiv" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/thunderobot.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">雷神</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/machenike.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">机械师</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/terransforce.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">未来人类</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="active">
+                        <div class="wizard-heading" style="font-size: 30px;">
+                            金&nbsp;钱&nbsp;之&nbsp;力
+                            <span class="icon-user"></span>
+                        </div>
+                        <div class="wizard-content" style="display: block">
+                            <div class="selectImgDiv" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/ROG.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">玩家国度</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/alienware.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">外星人</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/razer.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">雷蛇</div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{assets/img/brand/LG.jpg}" class="brandImg"/>
+                                    </div>
+                                    <div class="img_title">LG</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- footer bottom -->
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-md-4">
+                <!-- Copyright -->
+                <div class="social-icon float-left">
+                    <ul>
+
+                        <li><a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
+                        </li>
+                        <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-8 col-md-8">
+                <!-- Copyright -->
+                <div class="copyright float-right float-mob-left">
+                    <p>© 2019 All Right Reserved By <a href="https://www.jq22.com/">jq22</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="brandIntro">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-title" style="text-align: center" id="brand"></h3>
+                <br/>
+                <div class="row" id="intro" style="padding-left: 25px;padding-right: 25px">
+                    您收藏的书籍已经达到20本了，先去看看他们吧。
+                </div>
+                <br/>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<script th:src="@{assets/js/jquery.min.js}"></script>
+<script th:src="@{assets/js/popper.min.js}"></script>
+<script th:src="@{assets/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/js/owl.carousel.min.js}"></script>
+<script th:src="@{assets/js/jquery.meanmenu.min.js}"></script>
+<script th:src="@{assets/js/jquery.scrollUp.min.js}"></script>
+<script th:src="@{assets/js/waypoints.min.js}"></script>
+<script th:src="@{assets/js/jquery.counterup.min.js}"></script>
+<script th:src="@{assets/js/main.js}"></script>
+<script th:src="@{marked/marked.min.js}"></script>
+<script>
+    $(".brandImg").click(
+        function () {
+            $.ajax({
+                url: "function/brand_detail",
+                type: "get",
+                data: {"brand": $(this).parent().next().text()},
+                success: function (data) {
+                    data=JSON.parse(data);
+                    $('#brand').text(data.brand);
+                    var html = marked(data.intro); //初始化转换器
+                    $('#intro').html(html);
+                    $('#brandIntro').modal('show'); //显示模态框
+                }
+            })
+        }
+    );
+</script>
+</body>
+</html>
