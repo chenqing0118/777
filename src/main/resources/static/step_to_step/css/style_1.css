@@ -60,7 +60,8 @@ h1 {
     color: #4c4c4c;
     text-transform: uppercase;
     transition: 0.3s;
-    border: medium solid #192132;
+    border: medium solid #0d141c;
+    border-radius: 10px;
 }
 
 .wizard-content {
@@ -153,7 +154,7 @@ li:first-child .wizard-content {
 
 .active .wizard-heading {
     /*background-color: #447294;*/
-    background-color: #192132;
+    background-color: #0d141c;
     color: #fff;
     margin-bottom: 0;
 }
@@ -176,7 +177,7 @@ li:first-child .wizard-content {
 
 .completed .wizard-heading {
     /*color: #447294;*/
-    color: #192132;
+    color: #0d141c;
     position: relative;
     padding: 10px 15px 10px 36px;
     cursor: pointer;
@@ -194,7 +195,7 @@ li:first-child .wizard-content {
     top: 8px;
     width: 32px;
     padding: 4px 0;
-    background-color: #192132;
+    background-color: #0d141c;
     /*background-color: #447294;*/
     z-index: 99;
 }
@@ -222,29 +223,6 @@ li:first-child .wizard-content {
 
 .completed .icon-mode {
     background-position: -61px -17px;
-}
-
-.wizard-content label {
-    background: url(../../select_img/images/office.jpg) no-repeat;
-    width: 232px;
-    height: 32px;
-    display: block;
-    padding-left: 35px;
-    padding-top: 5px;
-}
-
-.wizard-content input[type=checkbox]:checked + label {
-    background: url(../../select_img/images/office.jpg) no-repeat;
-}
-
-.icon-checked:before {
-    content: "\e617";
-}
-
-.wizard-content i {
-    font-size: 50px;
-    display: none;
-    color: #6f3;
 }
 
 /*= wizard end =*/
