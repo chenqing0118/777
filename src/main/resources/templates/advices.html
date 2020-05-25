@@ -18,8 +18,24 @@
     <link rel="stylesheet" th:href="@{assets/css/meanmenu.css}">
     <link rel="stylesheet" th:href="@{style.css}">
     <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
-
-
+<!--轮播-->
+    <link rel="stylesheet" th:href="@{lb/lb.css}">
+    <script th:src="@{lb/lb.js}"></script>
+    <script>
+        window.onload = function () {
+            // 轮播选项
+            const options = {
+                id: 'lb-1',              // 轮播盒ID
+                speed: 1000,              // 轮播速度(ms)
+                delay: 10000,             // 轮播延迟(ms)
+                direction: 'left',       // 图片滑动方向
+                // moniterKeyEvent: true,   // 是否监听键盘事件
+                moniterTouchEvent: true  // 是否监听屏幕滑动事件
+            };
+            const lb = new Lb(options);
+            lb.start();
+        }
+    </script>
 </head>
 <body>
 
@@ -62,7 +78,7 @@
                                 <li><a th:href="@{/}">主页</a></li>
                                 <li><a th:href="@{/common_science}">配置科普</a></li>
                                 <li><a th:href="@{/pick}">选机推荐</a></li>
-                                <li><a th:href="@{/recommend}">使用建议</a></li>
+                                <li><a th:href="@{/advices}">使用建议</a></li>
                                 <li><a th:href="@{/contact-us}">联系我们</a></li>
                             </ul>
                         </div>
@@ -87,10 +103,8 @@
                     <div class="item">
 
                         <div class="others-page-title text-center">
-                            <h1>使&nbsp;用&nbsp;建&nbsp;议</h1>
-
+                            <h1>使&emsp;用&emsp;建&emsp;议</h1>
                             <p class="pt-3">为了尽可能延长笔记本的使用寿命，我们为您提供了一些爱心小贴士，帮助您更好的使用笔记本</p>
-
                         </div>
 
                     </div>
@@ -107,351 +121,65 @@
 <div id="new_box">
 
     <div class="new_con">
-        <div class="newtel">
+        <div class="newtel" style="height: 50px">
             <ul class="new_telst">
-                <li class="">新机使用</li>
-                <li class="newon">日常使用</li>
+                <li class="newon">新机开光</li>
+                <li class="">日常使用</li>
                 <li class="">配件替换/加装</li>
-                <p style="left: 166px;">
-
-                </p>
             </ul>
-            <div class="clear">
-            </div>
         </div>
-        <div class="new-wrap">
+        <div class="new-wrap" style="margin-bottom: 40px">
             <!--案例1-->
-            <div class="new_lst show" style="display: none;">
-
-                    <!-- single-blog-area start -->
-                    <div id="single-blog" class="single-blog-area">
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-8 col-md-12 col-sm-12">
-                                    <!-- single-blog-content -->
-                                    <div class="single-blog-details">
-                                        <h1 class="post-title">Lorem ipsum dolor sit amet, consectetur adipisicing.</h1>
-                                        <p class="post-date">Posted on July 29, 2019</p>
-                                        <div class="post-long-desc">
-                                            <!-- single-blog-image -->
-                                            <div class="blog-img pb-3">
-                                                <img th:src="@{assets/img/blog/blog-details.jpg}" alt="blog">
-                                            </div>
-                                            <!-- single-blog-test -->
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur eius
-                                                eligendi fuga, nulla odio saepe sunt tempora unde. Aut deserunt harum impedit labore
-                                                laudantium pariatur praesentium provident ratione sapiente unde. Aliquam blanditiis corporis
-                                                culpa cumque dolorum enim est, ex, facere incidunt inventore pariatur voluptatibus. A ad
-                                                aliquid amet asperiores aut cupiditate deserunt dignissimos dolor dolorem ea eveniet
-                                                explicabo fugit harum id iure iusto laboriosam modi molestias, mollitia nam, nemo nihil nisi
-                                                placeat porro praesentium provident quia quod sapiente sint sunt temporibus tenetur velit
-                                                veritatis? Aspernatur dolorem impedit iste itaque nulla numquam omnis saepe, sit soluta
-                                                temporibus unde ut voluptate.<br><br>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque earum eos explicabo
-                                                necessitatibus officia omnis pariatur quasi unde veritatis! A amet, architecto beatae
-                                                blanditiis et illo iure iusto nam officiis, optio quibusdam voluptatibus. Accusantium autem
-                                                consectetur debitis delectus dicta dolor hic id laborum minima nisi, non provident, ratione
-                                                saepe tempore ullam. Aspernatur cum dolore dolorem ea, esse fuga illum, iusto minima
-                                                officiis omnis quisquam, repudiandae vero. Accusantium assumenda cum ducimus eius, eos
-                                                expedita facere fuga harum incidunt neque odit officia quae quo sed sequi ullam vitae
-                                                voluptatem! Aliquid enim in maiores maxime neque nihil quae quod reiciendis, sequi
-                                                temporibus vel.</p><br><br>
-                                            <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi eaque fuga
-                                                hic id laudantium natus, nobis odit reprehenderit saepe, similique, soluta totam ut! Aliquid
-                                                distinctio ducimus eum harum nisi placeat quis quisquam recusandae rem sed. Blanditiis
-                                                cupiditate explicabo iure molestiae natus, omnis placeat repellendus tenetur! Aut doloribus
-                                                incidunt ipsam iusto maiores temporibus vero. Accusamus asperiores at atque aut consequuntur
-                                                corporis, dicta earum eligendi enim hic laborum molestiae nemo nobis nulla numquam pariatur,
-                                                provident quae quia quidem reiciendis rem rerum sapiente sequi sint temporibus totam vel
-                                                veritatis! Consequuntur, molestiae, veritatis! At autem error fugit impedit ipsa minus
-                                                perspiciatis quibusdam, velit?
-                                            </blockquote>
-                                            <br><br>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque earum eos explicabo
-                                                necessitatibus officia omnis pariatur quasi unde veritatis! A amet, architecto beatae blanditiis
-                                                et illo iure iusto nam officiis, optio quibusdam voluptatibus. Accusantium autem consectetur
-                                                debitis delectus dicta dolor hic id laborum minima nisi, non provident, ratione saepe tempore
-                                                ullam. Aspernatur cum dolore dolorem ea, esse fuga illum, iusto minima officiis omnis quisquam,
-                                                repudiandae vero. Accusantium assumenda cum ducimus eius, eos expedita facere fuga harum
-                                                incidunt neque odit officia quae quo sed sequi ullam vitae voluptatem! Aliquid enim in maiores
-                                                maxime neque nihil quae quod reiciendis, sequi temporibus vel.</p><br><br>
-                                        </div>
-                                        <div class="about-author fix">
-                                            <h6 class="title">about the author</h6>
-                                            <!-- author-image -->
-                                            <div class="author-img">
-                                                <img th:src="@{assets/img/testimonial-01.jpg}" alt="Author Image" width="100">
-                                            </div>
-                                            <div class="author-info">
-                                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                            </div>
-                                        </div>
-                                        <!-- single-blog-comment -->
-                                        <div class="comments-area">
-                                            <h6 class="title">12 comments</h6>
-                                            <ul class="comments-list">
-                                                <li class="single-comment">
-                                                    <div class="comment-box">
-                                                        <div class="comment-author">
-                                                            <img src="assets/img/testimonial-01.jpg" alt="Comment Author" width="60">
-                                                        </div>
-                                                        <div class="comment-info">
-                                                            <p class="author-name"><a href="#">Laurel Lance</a></p>
-                                                            <span class="comment-date">July 11, 2015</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                eiusmod temp incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                                minim veniam nostrud exercitation ullamco laboris nisi ut commodo
-                                                                consequat.</p>
-                                                            <a href="#" class="reply-link" title="Reply">reply</a>
-                                                        </div>
-                                                    </div>
-                                                </li><!-- /.single-comment -->
-                                                <li class="single-comment">
-                                                    <div class="comment-box">
-                                                        <div class="comment-author">
-                                                            <img src="assets/img/testimonial-01.jpg" alt="Comment Author" width="60">
-                                                        </div>
-                                                        <div class="comment-info">
-                                                            <p class="author-name"><a href="#">Alex Reim</a></p>
-                                                            <span class="comment-date">July 11, 2015</span>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                eiusmod temp incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                                minim veniam nostrud exercitation ullamco laboris nisi ut commodo
-                                                                consequat.</p>
-                                                            <a href="#" class="reply-link" title="Reply">reply</a>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="reply">
-                                                        <li class="single-comment">
-                                                            <div class="comment-box">
-                                                                <div class="comment-author">
-                                                                    <img src="assets/img/testimonial-01.jpg" alt="Comment Author"
-                                                                         width="60">
-                                                                </div>
-                                                                <div class="comment-info">
-                                                                    <p class="author-name"><a href="#">Wally West</a></p>
-                                                                    <span class="comment-date">July 11, 2015</span>
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                                                                        eiusmod temp incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                                        minim veniam nostrud exercitation ullamco laboris nisi ut commodo
-                                                                        consequat.</p>
-                                                                    <a href="#" class="reply-link" title="Reply">reply</a>
-                                                                </div>
-                                                            </div>
-                                                        </li><!-- /.single-comment -->
-                                                    </ul><!-- /.reply -->
-                                                </li><!-- /.single-comment -->
-                                            </ul>
-                                        </div>
-                                        <!-- /.single-comment form-->
-                                        <div class="comment-form-area">
-                                            <p>leave a comment</p>
-                                            <form action="#" method="post">
-                                                <input type="text" placeholder="Name">
-                                                <input type="text" placeholder="Email">
-                                                <textarea placeholder="Message"></textarea><br>
-                                                <button type="submit" class="submit-btn">submit</button>
-                                            </form>
-                                        </div>
-
-
-                                    </div><!-- /.single-blog-details -->
-                                </div>
-                                <!-- sidebar-area start -->
-                                <div class="col-lg-4 col-md-12 col-sm-12">
-                                    <div class="sidebar-area">
-
-                                        <div class="single-sidebar-widget">
-                                            <h6 class="widget-title">about me</h6>
-                                            <div class="sidebar-content">
-                                                <div class="my-photo">
-                                                    <img src="assets/img/testimonial-01.jpg" alt="author" width="96">
-
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto cumque dolores eius
-                                                    hic laborum natus nisi odit placeat reiciendis.</p>
-                                            </div><!-- /.sidebar-content -->
-                                        </div><!-- /.single-sidebar-widget -->
-
-
-
-                                        <div class="single-sidebar-widget">
-                                            <h6 class="widget-title">categories</h6>
-                                            <div class="sidebar-content">
-                                                <div class="categories-list">
-                                                    <ul>
-                                                        <li><a href=""><span
-                                                                class="category">Design</span><span class="number">5</span></a></li>
-                                                        <li><a href=""><span
-                                                                class="category">Design</span><span class="number">5</span></a></li>
-                                                        <li><a href=""><span
-                                                                class="category">Design</span><span class="number">5</span></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div><!-- /.sidebar-content -->
-                                        </div>
-                                        <div class="single-sidebar-widget">
-                                            <h6 class="widget-title">Popular Posts</h6>
-                                            <div class="sidebar-content">
-                                                <!--<div class="right-box-content mt-10 mb-10">-->
-                                                <a href="" class="popular-post d-flex align-items-center">
-                                                    <div class="popular-post-img mr-20">
-                                                        <img src="assets/img/blog/blog-1.jpg" alt="blog-1.jpg">
-                                                        <div class="full-cover bg-green-op-8 transition-4">
-                                                            <i class="fas fa-external-link-alt transform-center"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="popular-post-text">
-                                                        <p class="pb-1-">Lorem ipsum dolor sit amet, consecte..</p>
-                                                        <span>June 25, 2019</span>
-                                                    </div>
-                                                </a>
-                                                <a href="" class="popular-post d-flex align-items-center">
-                                                    <div class="popular-post-img mr-20">
-                                                        <img src="assets/img/blog/blog-1.jpg" alt="blog-1.jpg">
-                                                        <div class="full-cover bg-green-op-8 transition-4">
-                                                            <i class="fas fa-external-link-alt transform-center"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="popular-post-text">
-                                                        <p class="pb-1-">Lorem ipsum dolor sit amet, consecte..</p>
-                                                        <span>June 25, 2019</span>
-                                                    </div>
-                                                </a>
-                                                <a href="" class="popular-post d-flex align-items-center">
-                                                    <div class="popular-post-img mr-20">
-                                                        <img src="assets/img/blog/blog-1.jpg" alt="blog-1.jpg">
-                                                        <div class="full-cover bg-green-op-8 transition-4">
-                                                            <i class="fas fa-external-link-alt transform-center"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="popular-post-text">
-                                                        <p class="pb-1-">Lorem ipsum dolor sit amet, consecte..</p>
-                                                        <span>June 25, 2019</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <!--</div>-->
-                                            <!-- /.sidebar-content -->
-                                        </div>
-                                        <!-- /.single-sidebar-widget -->
-                                        <div class="single-sidebar-widget">
-                                            <h6 class="widget-title">archive</h6>
-                                            <div class="sidebar-content">
-                                                <div class="archive-list">
-                                                    <ul>
-                                                        <li><a href="#"><span class="month">march</span><span class="number">(98)</span></a>
-                                                        </li>
-                                                        <li><a href="#"><span class="month">january</span><span
-                                                                class="number">(80)</span></a></li>
-                                                        <li><a href="#"><span class="month">february</span><span class="number">(60)</span></a>
-                                                        </li>
-                                                        <li><a href="#"><span class="month">december</span><span class="number">(40)</span></a>
-                                                        </li>
-                                                        <li><a href="#"><span class="month">october</span><span
-                                                                class="number">(10)</span></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div><!-- /.sidebar-content -->
-                                        </div><!-- /.single-sidebar-widget -->
-                                        <div class="single-sidebar-widget">
-                                            <h6 class="widget-title">tags cloud</h6>
-                                            <div class="sidebar-content">
-                                                <div class="tags-list">
-                                                    <ul>
-                                                        <li><a href=""><i class="fas fa-tag"></i>Marketing</a></li><li><a href=""><i class="fas fa-tag"></i>ppc</a></li>
-                                                        <li><a href=""><i class="fas fa-tag"></i>Design</a></li>
-                                                        <li><a href=""><i class="fas fa-tag"></i>Development</a></li>
-                                                        <li><a href=""><i class="fas fa-tag"></i>App Devlopment</a></li>
-                                                    </ul>
-
-
-                                                </div>
-                                            </div><!-- /.sidebar-content -->
-                                        </div><!-- /.single-sidebar-widget -->
-                                    </div><!-- /.sidebar-area -->
-                                </div>
-                                <!-- sidebar-area end -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single-blog-area end -->
-
-
-
-            </div>
-            <!--案例2-->
-            <div class="new_lst" style="display: block;">
+            <div class="new_lst show" style="display: block;height: 42em">
                 <ul class="new_lst_cn">
                     <li class="new_cnlf">
-                        <p class="newlf_img">
-                            <img th:src="@{recommend/img/new_img2.jpg}" width="370" height="147">
+                        <p class="newlf_img" style="margin-top: 16px">
+                            <img th:src="@{science_img/new.jpg}" width="370" height="300">
                         </p>
-                        <p class="newlf_tel">
-                            <a href="#"> 64核AMD EPYC二代处理器创纪录</a>
+                        <p class="newlf_tel" style="font-size: 18px;text-align: center;color: #217af0">
+                            机器到手莫急慌&emsp;正确开光保流畅
                         </p>
                         <p class="newlf_tx">
-                            根据AMD的数据，服务器CPU已经是他们第二大收入来源，市场份额也从之前的不到1%增长到了3.2%，，预计2020年底将达到双位数份额，而这就要依靠他们的EPYC二代处理器了。
+                            &emsp;&emsp;收到新机器后不要直接使用，花费10分钟进行4步处理，完成初步检查的同时清除干扰使用的隐患。
                         </p>
                     </li>
                     <li class="new_cnrf">
                         <div class="newrf_lst">
                             <dl>
-                                <dd>
+                                <dd style="height: 16em">
                                     <p class="new_rq">
-                                        <span>26</span>2018-7
+                                        <span>1</span>
                                     </p>
                                     <p class="newrf_tx">
-                                        <a href="#"> ARM加入CXL开放互连联盟</a>
-                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                        <span style="font-size: 15px;color:#217af0;height: 30px"> 初次开机</span>
+                                        <span style="color: black">&emsp;&emsp;新机器的电池一般有运输保护模式，即第一次需要接电源才可开机。不接电源直接摁开机键无法开机为正常现象，如果可以开机则需要怀疑是否为新机器。</span>
                                     </p>
                                 </dd>
-                                <dd>
+                                <dd style="height: 16em">
                                     <p class="new_rq">
-                                        <span>25</span>2018-7
+                                        <span>2</span>
                                     </p>
                                     <p class="newrf_tx">
-                                        <a href="#"> ARM加入CXL开放互连联盟</a>
-                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                        <span style="font-size: 15px;color:#217af0;height: 30px"> 配置检查</span>
+                                        <span style="color: black">&emsp;&emsp;开机后，可以通过右键下方任务栏，选择“任务管理器”，点击“性能”一栏查看机器的基本硬件信息，并与自己购买时的信息进行比较，检查硬件型号与规格是否有出入。cpu、gpu（显卡）看型号，内存与磁盘看容量。由于计算方式不同，磁盘容量比标称略小为正常现象。</span>
                                     </p>
                                 </dd>
-                                <dd>
+                                <dd style="height: 16em">
                                     <p class="new_rq">
-                                        <span>24</span>2018-7
+                                        <span>3</span>
                                     </p>
                                     <p class="newrf_tx">
-                                        <a href="#"> ARM加入CXL开放互连联盟</a>
-                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                        <span style="font-size: 15px;color:#217af0;height: 30px"> 预装软件</span>
+                                        <span style="color: black">&emsp;&emsp;机器中可能含有预装的软件（如杀毒软件，视频软件等），建议将它们卸载，并根据自身需要到各软件官网下载最新的安装包进行安装，安装路径请选择C盘以外的路径。</span>
                                     </p>
                                 </dd>
-                                <dd>
+                                <dd style="height: 16em">
                                     <p class="new_rq">
-                                        <span>23</span>2018-7
+                                        <span>4</span>
                                     </p>
                                     <p class="newrf_tx">
-                                        <a href="#"> ARM加入CXL开放互连联盟</a>
-                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
-                                    </p>
-                                </dd>
-                                <dd>
-                                    <p class="new_rq">
-                                        <span>19</span>2018-7
-                                    </p>
-                                    <p class="newrf_tx">
-                                        <a href="#"> ARM加入CXL开放互连联盟</a>
-                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
-                                    </p>
-                                </dd>
-                                <dd>
-                                    <p class="new_rq">
-                                        <span>18</span>2018-7
-                                    </p>
-                                    <p class="newrf_tx">
-                                        <a href="#"> ARM加入CXL开放互连联盟</a>
-                                        <span>今年3月，Intel牵头开发了CXL开放互连技术，服务于高性能计算、数据中心</span>
+                                        <span style="font-size: 15px;color:#217af0;height: 30px"> 杀毒软件</span>
+                                        <span style="color: black">&emsp;&emsp;对于普通用户，不建议额外安装任何杀毒软件（包括各种助手、管家），默认使用windows系统自带的windows defender（此组件不属于上述中的预装软件）确保安全的同时可以免受某些流氓行为的困扰。</span>
                                     </p>
                                 </dd>
                             </dl>
@@ -461,312 +189,130 @@
                     </div>
                 </ul>
             </div>
-            <!--案例3-->
-            <div class="new_lst" style="display: none;">
+            <!--案例2-->
+            <div class="new_lst" style="display: none;height: 42em">
                 <ul class="new_lst_cn">
                     <li class="new_cnlf">
-                        <p class="newlf_img">
-                            <img th:src="@{recommend/img/new_img3.jpg}" width="370" height="147">
+                        <p class="newlf_img" style="margin-top: 16px">
+                            <img th:src="@{science_img/trouble.png}" width="370" height="300">
                         </p>
-                        <p class="newlf_tel">
-                            <a href="#"> 内存延迟有多重要？游戏性能测试说明真相 </a>
+                        <p class="newlf_tel" style="font-size: 18px;text-align: center;color: #217af0">
+                            保持良好习惯&emsp;享受持久流畅
                         </p>
                         <p class="newlf_tx">
-                            对于DIY玩家来说，探究技术细节是他们的一大乐趣之一，最让玩家纠结的一个参数大概要属内存延迟这事了，一方面这关系到内存的选择，频率越高的内存当然延迟会更低，只不过价格也会越高。
+                            &emsp;&emsp;电脑总出问题真的全是厂商的锅吗？个人不同的使用习惯会让同一款电脑产生天壤之别的使用体验，保持良好的习惯会让电脑青春常驻。
                         </p>
                     </li>
                     <li class="new_cnrf">
-                        <div class="newrf_lst">
-                            <dl>
-                                <dd>
-                                    <p class="new_rq">
-                                        <span>6</span>2018-7
-                                    </p>
-                                    <p class="newrf_tx">
-                                        <a href="#"> Intel 10nm处理器出货</a>
-                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
-                                    </p>
-                                </dd>
-                                <dd>
-                                    <p class="new_rq">
-                                        <span>6</span>2018-7
-                                    </p>
-                                    <p class="newrf_tx">
-                                        <a href="#"> Intel 10nm处理器出货</a>
-                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
-                                    </p>
-                                </dd>
-                                <dd>
-                                    <p class="new_rq">
-                                        <span>3</span>2018-7
-                                    </p>
-                                    <p class="newrf_tx">
-                                        <a href="#"> Intel 10nm处理器出货</a>
-                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
-                                    </p>
-                                </dd>
-                                <dd>
-                                    <p class="new_rq">
-                                        <span>28</span>2018-6
-                                    </p>
-                                    <p class="newrf_tx">
-                                        <a href="#"> Intel 10nm处理器出货</a>
-                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
-                                    </p>
-                                </dd>
-                                <dd>
-                                    <p class="new_rq">
-                                        <span>27</span>2018-6
-                                    </p>
-                                    <p class="newrf_tx">
-                                        <a href="#"> Intel 10nm处理器出货</a>
-                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
-                                    </p>
-                                </dd>
-                                <dd>
-                                    <p class="new_rq">
-                                        <span>26</span>2018-6
-                                    </p>
-                                    <p class="newrf_tx">
-                                        <a href="#"> Intel 10nm处理器出货</a>
-                                        <span> 英特尔在PC处理器领域一直保有强大的统治力，不过随着今年AMD 7nm工艺三代锐龙处理器的发布。</span>
-                                    </p>
-                                </dd>
-                            </dl>
+                        <div class="lb-box" id="lb-1" style="height:33em">
+                            <!-- 轮播内容 -->
+                            <div class="lb-content">
+                                <div class="lb-item active">
+                                    <a href="#">
+<!--                                        <img src="images/t1.png" alt="picture loss">-->
+                                        <span>Description 1</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 轮播标志 -->
+                            <ol class="lb-sign">
+                                <li class="active" >1</li>
+                            </ol>
+                            <!-- 轮播控件 -->
+                            <div class="lb-ctrl left">＜</div>
+                            <div class="lb-ctrl right">＞</div>
                         </div>
                     </li>
                     <div class="clear"></div>
                 </ul>
             </div>
+            <!--案例3-->
+            <div class="new_lst" style="display: none;height: 42em">
+                <!-- single-blog-area start -->
+                <div id="single-blog" class="single-blog-area" style="padding:0">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12 col-sm-12">
+                                <!-- single-blog-content -->
+                                <div class="single-blog-details">
+<!--                                    <h1 class="post-title">Lorem ipsum dolor sit amet, consectetur adipisicing.</h1>-->
+<!--                                    <p class="post-date">Posted on July 29, 2019</p>-->
+                                    <div class="post-long-desc" style="margin:0">
+
+                                        <blockquote style="margin-top: 0">
+                                            <p>&emsp;&emsp;一般笔记本电脑可以进行硬盘和内存的升级，容量无法满足需求时可以考虑升级。</p>
+                                            <p>&emsp;&emsp;确定升级前请向客服或搜索引擎确认机器有无硬盘、内存插槽，是何种接口的插槽。 如果颗粒直接焊接在主板上而没有插槽则用户无法进行任何升级。有空闲插槽则可直接购买产品后加装， 无空闲插槽则需先拆除对应硬件再替换为大容量产品。</p>
+                                        </blockquote>
+                                        <!-- single-blog-image -->
+                                        <div class="blog-img pb-3">
+                                            <img th:src="@{science_img/inner.png}" alt="blog">
+                                        </div>
+                                        <!-- single-blog-test -->
+
+
+                                    </div>
+                                </div><!-- /.single-blog-details -->
+                            </div>
+                            <!-- sidebar-area start -->
+                            <div class="col-lg-5 col-md-12 col-sm-12">
+                                <div class="sidebar-area" style="margin-top: 0">
+
+                                    <div class="single-sidebar-widget">
+                                        <h6 class="widget-title" style="color: red">拆机提醒</h6>
+                                        <div class="sidebar-content" style="text-align: left">
+                                            <p style="margin-bottom:1em">&emsp;&emsp;如果选择自行更换，请事先了解产品保修政策，少数型号只要拆机便会丧失保修。此种情况请至服务站进行升级。</p>
+                                            <p style="margin-bottom:1em">&emsp;&emsp;拆机前请查询对应型号拆机教程，大多机型只需卸下底盖即可进行更换，如果还涉及到键盘拆卸请不要自行更换。</p>
+                                            <p style="margin-bottom:1em">&emsp;&emsp;确认无误后请使用洗手液洗手，更换不易起静电的衣物，在机器与硬桌面间垫一层缓冲物。</p>
+                                            <p style="margin-bottom:1em">&emsp;&emsp;拆机时请确保已拧下机器底部所有螺丝再将底盖撬下，有时会存在隐藏螺丝，认真阅读对应机型拆机说明。</p>
+                                            <p style="margin-bottom:1em">&emsp;&emsp;拆机后首先请拆卸电池。将电池四周螺丝拧下，断开电池与主板接口即可摘下。否则操作时易导致部件击穿损坏。</p>
+                                        </div><!-- /.sidebar-content -->
+                                    </div><!-- /.single-sidebar-widget -->
+
+                                    <div class="single-sidebar-widget">
+                                        <div class="sidebar-content" style="text-align: left">
+                                            <span>认真阅读拆机提醒后，若对动手能力较为自信，</span><span style="color: red;cursor: pointer">点击此处查看教程</span>
+                                        </div><!-- /.sidebar-content -->
+                                    </div><!-- /.single-sidebar-widget -->
+                                </div><!-- /.sidebar-area -->
+                            </div>
+                            <!-- sidebar-area end -->
+                        </div>
+                    </div>
+                </div>
+                <!-- single-blog-area end -->
+            </div>
         </div>
     </div>
 
 </div>
-<!-- Service List Section -->
-<!--<section class="service-list">-->
+<!-- footer bottom -->
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-md-4">
+                <!-- Copyright -->
+                <div class="social-icon float-left">
+                    <ul>
 
-<!--    <div class="container">-->
-<!--        &lt;!&ndash; Service list heading &ndash;&gt;-->
-
-<!--        <div class="row">-->
-<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
-<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
-<!--                <div class="box">-->
-<!--                    <div class="icon-box">-->
-<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
-<!--                        <img th:src="@{assets/img/services/service-icon/shopify_color.png}" alt="service-icon">-->
-<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
-<!--                        <div class="content py-3 service-content">-->
-<!--                            <a th:href="@{/service-details}"><h1>Shopify development</h1></a>-->
-<!--                            <p class="py-2">-->
-
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
-<!--                                fuga, ipsa ipsum laudantium.-->
-
-<!--                            </p>-->
-
-<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
-<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
-<!--                <div class="box">-->
-<!--                    <div class="icon-box">-->
-<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
-<!--                        <img th:src="@{assets/img/services/service-icon/Drupal_color.png}" alt="service-icon">-->
-<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
-<!--                        <div class="content py-3 service-content">-->
-<!--                            <a th:href="@{/service-details}"><h1>Drupal development</h1></a>-->
-<!--                            <p class="py-2">-->
-
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
-<!--                                fuga, ipsa ipsum laudantium.-->
-
-<!--                            </p>-->
-<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
-<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
-<!--                <div class="box">-->
-<!--                    <div class="icon-box">-->
-<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
-<!--                        <img th:src="@{assets/img/services/service-icon/Joomla_color.png}" alt="service-icon">-->
-<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
-<!--                        <div class="content py-3 service-content">-->
-<!--                            <a th:href="@{/service-details}"><h1>Joomla development</h1></a>-->
-<!--                            <p class="py-2">-->
-
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
-<!--                                fuga, ipsa ipsum laudantium.-->
-
-<!--                            </p>-->
-<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
-<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
-<!--                <div class="box">-->
-<!--                    <div class="icon-box">-->
-<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
-<!--                        <img th:src="@{assets/img/services/service-icon/Laravel_color.png}" alt="service-icon">-->
-<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
-<!--                        <div class="content py-3 service-content">-->
-<!--                            <a th:href="@{/service-details}"><h1>Laravel development</h1></a>-->
-<!--                            <p class="py-2">-->
-
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
-<!--                                fuga, ipsa ipsum laudantium.-->
-
-<!--                            </p>-->
-<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
-<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
-<!--                <div class="box">-->
-<!--                    <div class="icon-box">-->
-<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
-<!--                        <img th:src="@{assets/img/services/service-icon/Magento_color.png}" alt="service-icon">-->
-<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
-<!--                        <div class="content py-3 service-content">-->
-<!--                            <a th:href="@{/service-details}"><h1>Magento development</h1></a>-->
-<!--                            <p class="py-2">-->
-
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
-<!--                                fuga, ipsa ipsum laudantium.-->
-
-<!--                            </p>-->
-<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
-<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
-<!--                <div class="box">-->
-<!--                    <div class="icon-box">-->
-<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
-<!--                        <img th:src="@{assets/img/services/service-icon/shopify_color.png}" alt="service-icon">-->
-<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
-<!--                        <div class="content py-3 service-content">-->
-<!--                            <a th:href="@{/service-details}"><h1>Shopify development</h1></a>-->
-<!--                            <p class="py-2">-->
-
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
-<!--                                fuga, ipsa ipsum laudantium.-->
-
-<!--                            </p>-->
-<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
-<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
-<!--                <div class="box">-->
-<!--                    <div class="icon-box">-->
-<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
-<!--                        <img th:src="@{assets/img/services/service-icon/webdesign_color.png}" alt="service-icon">-->
-<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
-<!--                        <div class="content py-3 service-content">-->
-<!--                            <a th:href="@{/service-details}"><h1>Webdesign</h1></a>-->
-<!--                            <p class="py-2">-->
-
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
-<!--                                fuga, ipsa ipsum laudantium.-->
-
-<!--                            </p>-->
-<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
-<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
-<!--                <div class="box">-->
-<!--                    <div class="icon-box">-->
-<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
-<!--                        <img th:src="@{assets/img/services/service-icon/woo_color.png}" alt="service-icon">-->
-<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
-<!--                        <div class="content py-3 service-content">-->
-<!--                            <a th:href="@{/service-details}"><h1>Woo development</h1></a>-->
-<!--                            <p class="py-2">-->
-
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
-<!--                                fuga, ipsa ipsum laudantium.-->
-
-<!--                            </p>-->
-<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
-<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
-<!--                <div class="box">-->
-<!--                    <div class="icon-box">-->
-<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
-<!--                        <img th:src="@{assets/img/services/service-icon/Yii_color.png}" alt="service-icon">-->
-<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
-<!--                        <div class="content py-3 service-content">-->
-<!--                            <a th:href="@{/service-details}"><h1>Yii development</h1></a>-->
-<!--                            <p class="py-2">-->
-
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
-<!--                                fuga, ipsa ipsum laudantium.-->
-
-<!--                            </p>-->
-<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; single-service-box&ndash;&gt;-->
-<!--            <div class="col-sm-12 col-md-6 col-lg-6 mb-30">-->
-<!--                <div class="box">-->
-<!--                    <div class="icon-box">-->
-<!--                        &lt;!&ndash; single-service-icon&ndash;&gt;-->
-<!--                        <img th:src="@{assets/img/services/service-icon/wordpress_color.png}" alt="service-icon">-->
-<!--                        &lt;!&ndash; single-service-content&ndash;&gt;-->
-<!--                        <div class="content py-3 service-content">-->
-<!--                            <a th:href="@{/service-details}"><h1>Wordpress dev</h1></a>-->
-<!--                            <p class="py-2">-->
-
-<!--                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut debitis ea excepturi-->
-<!--                                fuga, ipsa ipsum laudantium.-->
-
-<!--                            </p>-->
-<!--                            <a th:href="@{/service-details}" class="link">Details</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; Pagination &ndash;&gt;-->
-<!--            <ul class="pagination text-center m-auto">-->
-<!--                <li><span aria-current="page" class="pagination current">1</span></li>-->
-<!--                <li><a class="pagination" href="#">2</a></li>-->
-<!--                <li><a class="next pagination" href="#"><i class="fa fa-angle-right"></i></a></li>-->
-<!--            </ul>-->
+                        <li><a href="#" target="_blank"><i class="fab fa-pinterest"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
 
 
-<!--        </div>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-8 col-md-8">
+                <!-- Copyright -->
+                <div class="copyright float-right float-mob-left">
+                    <p>© 2019 All Right Reserved By <a href="https://www.jq22.com/">jq22</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!--    </div>-->
-
-<!--</section>-->
-
-
-<!-- JS here -->
 
 <script th:src="@{assets/js/jquery-1.10.2.min.js}"></script>
 <script th:src="@{assets/js/popper.min.js}"></script>
@@ -778,14 +324,14 @@
 <script th:src="@{assets/js/jquery.counterup.min.js}"></script>
 <script th:src="@{assets/js/main.js}"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         //设计案例切换
-        $('.new_telst li').mouseover(function(){
+        $('.new_telst li').mouseover(function () {
             var liindex = $('.new_telst li').index(this);
             $(this).addClass('newon').siblings().removeClass('newon');
             $('.new-wrap div.new_lst').eq(liindex).fadeIn(150).siblings('div.new_lst').hide();
             var liWidth = $('.new_telst li').width();
-            $('.newtel .new_telst p').stop(false,true).animate({'left' : liindex * liWidth + 'px'},300);
+            $('.newtel .new_telst p').stop(false, true).animate({'left': liindex * liWidth + 'px'}, 300);
         });
 
     });
