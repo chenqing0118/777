@@ -27,7 +27,19 @@
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" th:href="@{compare_table/css/reset.css}"> <!-- CSS reset -->
     <link rel="stylesheet" th:href="@{compare_table/css/style_2.css}"> <!-- Gem style -->
+    <!--导航选项卡-->
+    <link rel="stylesheet" th:href="@{menubar/js/swiperTab/css/swiper-3.2.7.min.css}"/>
+    <link rel="stylesheet" th:href="@{menubar/css/nav.css}"/>
 
+    <link rel="stylesheet" th:href="@{rangeslider/css/public.css}"/>
+    <link rel="stylesheet" th:href="@{rangeslider/css/ion.rangeSlider.css}"/>
+    <link rel="stylesheet" th:href="@{rangeslider/css/index.css}"/>
+    <style>
+        .visibilityHiden {
+            visibility: hidden;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -130,18 +142,7 @@
                                         <img th:src="@{select_img/images/1.jpg}"/>
                                     </div>
                                     <div class="img_title">
-                                        日常办公，写写WORD
-                                    </div>
-                                    <div class="img_isCheck">
-                                        <i class="iconfont icon-xuanzhong"></i>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img_show">
-                                        <img th:src="@{select_img/images/2.png}"/>
-                                    </div>
-                                    <div class="img_title">
-                                        看视频、追剧、看电影
+                                        文字办公，影音娱乐
                                     </div>
                                     <div class="img_isCheck">
                                         <i class="iconfont icon-xuanzhong"></i>
@@ -152,7 +153,7 @@
                                         <img th:src="@{select_img/images/3.png}"/>
                                     </div>
                                     <div class="img_title">
-                                        玩游戏
+                                        游戏
                                     </div>
                                     <div class="img_isCheck">
                                         <i class="iconfont icon-xuanzhong"></i>
@@ -163,54 +164,46 @@
                                         <img th:src="@{select_img/images/4.png}"/>
                                     </div>
                                     <div class="img_title">
-                                        做直播
+                                        生产力
                                     </div>
                                     <div class="img_isCheck">
                                         <i class="iconfont icon-xuanzhong"></i>
                                     </div>
                                 </div>
-                                <div class="item">
-                                    <div class="img_show">
-                                        <img th:src="@{select_img/images/5.png}"/>
-                                    </div>
-                                    <div class="img_title">
-                                        5.画画
-                                    </div>
-                                    <div class="img_isCheck">
-                                        <i class="iconfont icon-xuanzhong"></i>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img_show">
-                                        <img th:src="@{select_img/images/6.png}"/>
-                                    </div>
-                                    <div class="img_title">
-                                        进行音视频创作
-                                    </div>
-                                    <div class="img_isCheck">
-                                        <i class="iconfont icon-xuanzhong"></i>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img_show">
-                                        <img th:src="@{select_img/images/7.png}"/>
-                                    </div>
-                                    <div class="img_title">
-                                        进行工业设计，3D建模
-                                    </div>
-                                    <div class="img_isCheck">
-                                        <i class="iconfont icon-xuanzhong"></i>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img_show">
-                                        <img th:src="@{select_img/images/7.png}"/>
-                                    </div>
-                                    <div class="img_title">
-                                        其他
-                                    </div>
-                                    <div class="img_isCheck">
-                                        <i class="iconfont icon-xuanzhong"></i>
+                                <div class="navBox clearfix">
+                                    <!-- 月供 -->
+                                    <div class="selecteList_fisrt selectClass selecteList_month">
+                                        <ul class="nmonthlyPayment_ul clearfix">
+                                            <li data-nmonthlyPayment="" class="nmonthlyPayment_noLimit selected"><p>
+                                                不限</p></li>
+                                            <li data-nmonthlyPayment="0_2000"><p>2000以内</p></li>
+                                            <li data-nmonthlyPayment="2000_3000"><p>2000-3000</p></li>
+                                            <li data-nmonthlyPayment="3000_4000"><p>3000-4000</p></li>
+                                            <li data-nmonthlyPayment="4000_5000"><p>4000-5000</p></li>
+                                            <li data-nmonthlyPayment="5000_6000"><p>5000以上</p></li>
+                                        </ul>
+                                        <!-- 左右滑动 -->
+                                        <div class="moveBox">
+                                            <div class="moveTitle clearfix"><p class="fl">自定义月供<span class="wangCss">&nbsp;(元)</span>
+                                            </p>
+                                                <p class="changeNum bxyc fr">不限月供</p></div>
+                                            <div class="moveContent">
+                                                <input type="text" value="1111" class="range_2"/>
+                                                <div class="moveScale">
+                                                    <p>0</p>
+                                                    <p class="nmonthlyPayment_p_1">1000</p>
+                                                    <p class="nmonthlyPayment_p_2">2000</p>
+                                                    <p class="nmonthlyPayment_p_3">3000</p>
+                                                    <p class="nmonthlyPayment_p_4">4000</p>
+                                                    <p class="nmonthlyPayment_p_5">5000</p>
+                                                    <p>不限</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 确定 -->
+                                        <div class="confirmButton confirmButton2">
+                                            <a href="javascript:void(0);">确定</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -224,7 +217,10 @@
                             <span class="icon-location"></span>
                         </div>
                         <div class="wizard-content">
-                            <p>User address details section.</p>
+                            <div class="row">
+                                <!--div 绑定id-->
+                                <div class="swiper-container swiper1" id="swiper"></div>
+                            </div>
                             <button class="btn-green done" type="submit">Continue</button>
                         </div>
                     </li>
@@ -443,6 +439,91 @@
 
 <script th:src="@{compare_table/js/modernizr.js}"></script> <!-- Modernizr -->
 <script th:src="@{compare_table/js/main.js}"></script>
+
+<script th:src="@{menubar/js/swiperTab/js/swiper-3.4.0.jquery.min.js}"></script>
+<script th:src="@{menubar/js/MenuBar.js}"></script>
+<script th:src="@{menubar/js/swiperTab/js/swiper.js}"></script>
+<script type="text/javascript">
+    //引用组件 这里可以ajax接收后台数据
+    var res = {};
+    res.name = "开始";
+    res.href = "";
+    res.children = [{
+        "isDefault": 1,
+        "src": "images/icontype1.png",
+        "children": [{
+            name: "A模块",
+            children: [{name: 'AA模块', children: [{name: "AAA模块"}]}, {
+                name: 'AA模块',
+                children: [{name: "AAc模块"}]
+            }, {name: 'Ab模块', children: [{name: "Abb模块"}]}]
+        }, {name: "B模块", children: [{name: 'BB模块', children: [{name: "BBB模块"}]}]}],
+        "domain": "PB07",
+        "maptype": "CONTAINER",
+        "name": "维修公告",
+        "oid": "com.imecms.container.Container:1001"
+    }, {
+        "path": "用户手册",
+        "src": "images/icontype1.png",
+        "domain": "PB07",
+        "maptype": "ST",
+        "name": "用户手册",
+        "oid": "com.imecms.container.Folder:3837"
+    }, {
+        "path": "保养手册",
+        "src": "images/icontype1.png",
+        "domain": "PB07",
+        "maptype": "ST",
+        "name": "保养手册",
+        "oid": "com.imecms.container.Folder:3838"
+    }, {
+        "path": "下载区",
+        "src": "images/icontype1.png",
+        "domain": "PB07",
+        "maptype": "JS",
+        "name": "下载区",
+        "js": "showDownloadAreaContent();"
+    }];
+    require(
+        ['MenuBar'],
+        function (MenuBar) {
+            var menuBar = new MenuBar("#swiper", {
+                data: res,
+                addMenu: function () {
+                    //动态添加menubar menu 触发该事件
+                    console.log("动态render事件");
+                    if (window.swiper) {
+                        window.swiper.Swiper.update();
+                    }
+                },
+                renderLeaf: function (menuItem) {
+                    //点击叶子节点触发事件，与后台交互等等
+                    console.log('您点击了叶子节点');
+                    var data = menuItem.data;
+                    if (typeof data == "string") {
+                        data = JSON.parse(data);
+                    }
+                    console.log(data);
+                    //支持动态添加menu事件,这里可以动态请求后台render数据 Example
+                    if (data.domain == "PB07") {
+                        var data1 = [{name: "新数据1", children: [{name: "测试数据1"}]}, {
+                            name: "新数据2",
+                            children: [{name: "测试数据2"}]
+                        }];
+                        //动态添加数据
+                        menuItem.addSubItems(data1);
+                    }
+                }
+            });
+        }
+    );
+    //初始化导航条滑动等
+    swiper.dataInit("#swiper");
+
+</script>
+
+<script th:src="@{rangeslider/js/ion.rangeSlider.js}"></script>
+<script th:src="@{rangeslider/js/index.js}"></script>
 
 </body>
 </html>
