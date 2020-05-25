@@ -68,8 +68,14 @@ public class PageController {
     public String recommend(){
         return "advices";
     }
+
     @RequestMapping("/brand")
     public String brand(){
         return "brand";
+    }
+
+    @RequestMapping("/all-goods")
+    public String all_goods(){
+        return "all-goods";
     }
 }
