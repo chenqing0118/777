@@ -19,10 +19,10 @@ public class PageController {
         return "404";
     }
 
-    @RequestMapping("/pick-and-choose")
+    @RequestMapping("/pick")
     public String about(Model model) {
 
-        return "pick-and-choose";
+        return "pick";
     }
 
     @RequestMapping("/blog-details")
