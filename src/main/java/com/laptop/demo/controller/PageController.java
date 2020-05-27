@@ -73,8 +73,14 @@ public class PageController {
         model.addAttribute("installs",adviceService.getInstalls());
         return "advices";
     }
+
     @RequestMapping("/brand")
     public String brand(){
         return "brand";
+    }
+
+    @RequestMapping("/all-goods")
+    public String all_goods(){
+        return "all-goods";
     }
 }
