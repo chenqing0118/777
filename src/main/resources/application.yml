@@ -13,4 +13,4 @@ mybatis:
   type-aliases-package: com.laptop.demo.pojo
   mapper-locations: classpath:mybatis/mapper/*.xml
 server:
-  port: 8014
+  port: 80
