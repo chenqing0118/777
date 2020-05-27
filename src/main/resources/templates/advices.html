@@ -18,24 +18,11 @@
     <link rel="stylesheet" th:href="@{assets/css/meanmenu.css}">
     <link rel="stylesheet" th:href="@{style.css}">
     <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
-<!--轮播-->
+
+    <!--轮播-->
+
     <link rel="stylesheet" th:href="@{lb/lb.css}">
-    <script th:src="@{lb/lb.js}"></script>
-    <script>
-        window.onload = function () {
-            // 轮播选项
-            const options = {
-                id: 'lb-1',              // 轮播盒ID
-                speed: 1000,              // 轮播速度(ms)
-                delay: 10000,             // 轮播延迟(ms)
-                direction: 'left',       // 图片滑动方向
-                // moniterKeyEvent: true,   // 是否监听键盘事件
-                moniterTouchEvent: true  // 是否监听屏幕滑动事件
-            };
-            const lb = new Lb(options);
-            lb.start();
-        }
-    </script>
+    <link th:href="@{assets/css/tabs.css}" rel="stylesheet"/>
 </head>
 <body>
 
@@ -146,40 +133,14 @@
                     <li class="new_cnrf">
                         <div class="newrf_lst">
                             <dl>
-                                <dd style="height: 16em">
+                                <dd style="height: 16em" th:each="first:${firsts}">
                                     <p class="new_rq">
-                                        <span>1</span>
+                                        <span th:text="${firstStat.index+1}"></span>
                                     </p>
                                     <p class="newrf_tx">
-                                        <span style="font-size: 15px;color:#217af0;height: 30px"> 初次开机</span>
-                                        <span style="color: black">&emsp;&emsp;新机器的电池一般有运输保护模式，即第一次需要接电源才可开机。不接电源直接摁开机键无法开机为正常现象，如果可以开机则需要怀疑是否为新机器。</span>
-                                    </p>
-                                </dd>
-                                <dd style="height: 16em">
-                                    <p class="new_rq">
-                                        <span>2</span>
-                                    </p>
-                                    <p class="newrf_tx">
-                                        <span style="font-size: 15px;color:#217af0;height: 30px"> 配置检查</span>
-                                        <span style="color: black">&emsp;&emsp;开机后，可以通过右键下方任务栏，选择“任务管理器”，点击“性能”一栏查看机器的基本硬件信息，并与自己购买时的信息进行比较，检查硬件型号与规格是否有出入。cpu、gpu（显卡）看型号，内存与磁盘看容量。由于计算方式不同，磁盘容量比标称略小为正常现象。</span>
-                                    </p>
-                                </dd>
-                                <dd style="height: 16em">
-                                    <p class="new_rq">
-                                        <span>3</span>
-                                    </p>
-                                    <p class="newrf_tx">
-                                        <span style="font-size: 15px;color:#217af0;height: 30px"> 预装软件</span>
-                                        <span style="color: black">&emsp;&emsp;机器中可能含有预装的软件（如杀毒软件，视频软件等），建议将它们卸载，并根据自身需要到各软件官网下载最新的安装包进行安装，安装路径请选择C盘以外的路径。</span>
-                                    </p>
-                                </dd>
-                                <dd style="height: 16em">
-                                    <p class="new_rq">
-                                        <span>4</span>
-                                    </p>
-                                    <p class="newrf_tx">
-                                        <span style="font-size: 15px;color:#217af0;height: 30px"> 杀毒软件</span>
-                                        <span style="color: black">&emsp;&emsp;对于普通用户，不建议额外安装任何杀毒软件（包括各种助手、管家），默认使用windows系统自带的windows defender（此组件不属于上述中的预装软件）确保安全的同时可以免受某些流氓行为的困扰。</span>
+                                        <span style="font-size: 15px;color:#217af0;height: 30px"
+                                              th:text="${first.key}"></span>
+                                        <span style="color: black" th:utext="${first.value}"></span>
                                     </p>
                                 </dd>
                             </dl>
@@ -204,26 +165,27 @@
                         </p>
                     </li>
                     <li class="new_cnrf">
-                        <div class="lb-box" id="lb-1" style="height:33em">
+                        <div class="lb-box" id="lb-3" style="height:33em">
                             <!-- 轮播内容 -->
                             <div class="lb-content">
-                                <div class="lb-item active">
-                                    <a href="#">
-<!--                                        <img src="images/t1.png" alt="picture loss">-->
-                                        <span>Description 1</span>
-                                    </a>
+                                <div class="lb-item" th:classappend="${adviceStat.index}==0? 'active':''"
+                                     style="margin-top: 100px;" th:each="advice:${advices}">
+                                    <h3 th:text="${advice.key}" style="margin-left: 110px"></h3>
+                                    <div th:utext="${advice.value}" style="margin-left: 80px;margin-right: 100px"></div>
                                 </div>
                             </div>
                             <!-- 轮播标志 -->
                             <ol class="lb-sign">
-                                <li class="active" >1</li>
+                                <li th:classappend="${adviceStat.index}==0? 'active':''" th:each="advice:${advices}"
+                                    th:text="${adviceStat.index+1}"></li>
                             </ol>
                             <!-- 轮播控件 -->
                             <div class="lb-ctrl left">＜</div>
                             <div class="lb-ctrl right">＞</div>
                         </div>
+
                     </li>
-                    <div class="clear"></div>
+
                 </ul>
             </div>
             <!--案例3-->
@@ -235,13 +197,15 @@
                             <div class="col-lg-7 col-md-12 col-sm-12">
                                 <!-- single-blog-content -->
                                 <div class="single-blog-details">
-<!--                                    <h1 class="post-title">Lorem ipsum dolor sit amet, consectetur adipisicing.</h1>-->
-<!--                                    <p class="post-date">Posted on July 29, 2019</p>-->
+                                    <!--                                    <h1 class="post-title">Lorem ipsum dolor sit amet, consectetur adipisicing.</h1>-->
+                                    <!--                                    <p class="post-date">Posted on July 29, 2019</p>-->
                                     <div class="post-long-desc" style="margin:0">
 
                                         <blockquote style="margin-top: 0">
                                             <p>&emsp;&emsp;一般笔记本电脑可以进行硬盘和内存的升级，容量无法满足需求时可以考虑升级。</p>
-                                            <p>&emsp;&emsp;确定升级前请向客服或搜索引擎确认机器有无硬盘、内存插槽，是何种接口的插槽。 如果颗粒直接焊接在主板上而没有插槽则用户无法进行任何升级。有空闲插槽则可直接购买产品后加装， 无空闲插槽则需先拆除对应硬件再替换为大容量产品。</p>
+                                            <p>&emsp;&emsp;确定升级前请向客服或搜索引擎确认机器有无硬盘、内存插槽，是何种接口的插槽。
+                                                如果颗粒直接焊接在主板上而没有插槽则用户无法进行任何升级。有空闲插槽则可直接购买产品后加装，
+                                                无空闲插槽则需先拆除对应硬件再替换为大容量产品。</p>
                                         </blockquote>
                                         <!-- single-blog-image -->
                                         <div class="blog-img pb-3">
@@ -270,7 +234,8 @@
 
                                     <div class="single-sidebar-widget">
                                         <div class="sidebar-content" style="text-align: left">
-                                            <span>认真阅读拆机提醒后，若对动手能力较为自信，</span><span style="color: red;cursor: pointer">点击此处查看教程</span>
+                                            <span>认真阅读拆机提醒后，若对动手能力较为自信，</span><span style="color: red;cursor: pointer"
+                                                                                    onclick="$('#install').modal('show')">点击此处查看教程</span>
                                         </div><!-- /.sidebar-content -->
                                     </div><!-- /.single-sidebar-widget -->
                                 </div><!-- /.sidebar-area -->
@@ -313,8 +278,63 @@
     </div>
 </div>
 
+<div class="modal fade" id="install">
+    <div class="modal-dialog" style="max-width: 70em">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <h3 style="text-align: center;margin-bottom: 2em">安装教程</h3>
+            <!--            <div class="modal-body">-->
+            <!--                <div class="module-banner">-->
+            <div class="module-banner-box">
+                <div class="module-banner-tab clearfix">
+                    <div class="module-banner-tab-list hd" style="margin: 2em 0 0 2em">
+                        <ul class="module-tab-nav" style="text-align: center">
+                            <li th:classappend="${installStat.index}==0? 'on':''" style="width: 12em"
+                                th:each="install:${installs}">
+                                <p style="color: white" th:text="${install.key}"></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="module-banner-tab-list-box bd" style="width: 53em;padding-top: 0;">
+                        <ul class="module-tab-box-ma" style="width: 50em" th:each="install:${installs}">
+                            <li>
+                                <div class="lb-box"  style="height:33em" >
+                                    <!-- 轮播内容 -->
+                                    <div class="lb-content">
+                                        <div class="lb-item" th:classappend="${contentStat.index}==0? 'active':''"
+                                             style="margin-top: 100px;" th:each="content:${install.value}">
+                                            <div th:utext="${content}"
+                                                 style="margin-left: 80px;margin-right: 100px"></div>
+                                        </div>
+                                    </div>
+                                    <!-- 轮播标志 -->
+                                    <ol class="lb-sign">
+                                        <li th:classappend="${contentStat.index}==0? 'active':''"
+                                            th:each="content:${install.getValue()}"
+                                            th:text="${contentStat.index+1}"></li>
+                                    </ol>
+                                    <!-- 轮播控件 -->
+                                    <div class="lb-ctrl left">＜</div>
+                                    <div class="lb-ctrl right">＞</div>
+                                </div>
 
-<script th:src="@{assets/js/jquery-1.10.2.min.js}"></script>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--                </div>-->
+            <!--            </div>-->
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div><!-- /.modal-dialog -->
+</div>
+
+<script th:src="@{assets/js/jquery.min.js}"></script>
 <script th:src="@{assets/js/popper.min.js}"></script>
 <script th:src="@{assets/js/bootstrap.min.js}"></script>
 <script th:src="@{assets/js/owl.carousel.min.js}"></script>
@@ -323,6 +343,8 @@
 <script th:src="@{assets/js/waypoints.min.js}"></script>
 <script th:src="@{assets/js/jquery.counterup.min.js}"></script>
 <script th:src="@{assets/js/main.js}"></script>
+<script th:src="@{lb/lb.js}"></script>
+<script th:src="@{assets/js/jquery.SuperSlide.js}"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         //设计案例切换
@@ -336,8 +358,20 @@
 
     });
 </script>
-
-
+<script>
+       $(".lb-box").each(function () {
+           options = {
+               object: $(this)[0], // 轮播盒
+               speed: 1000,              // 轮播速度(ms)
+               delay: 900000,             // 轮播延迟(ms)
+               direction: 'left',       // 图片滑动方向
+           };
+           new Lb(options).start;
+        });
+</script>
+<script type="text/javascript">
+    $(".module-banner-tab").slide({trigger: "click", delayTime: 1000});
+</script>
 </body>
 </html>
 

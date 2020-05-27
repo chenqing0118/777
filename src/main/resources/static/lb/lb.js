@@ -6,7 +6,8 @@
 
 class Lb {
   constructor(options) {
-    this.lbBox = document.getElementById(options.id);
+    // this.lbBox = document.getElementById(options.id);
+    this.lbBox = options.object;
     this.lbItems = this.lbBox.querySelectorAll('.lb-item');
     this.lbSigns = this.lbBox.querySelectorAll('.lb-sign li');
     this.lbCtrlL = this.lbBox.querySelectorAll('.lb-ctrl')[0];

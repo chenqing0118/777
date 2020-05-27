@@ -1,6 +1,7 @@
 package com.laptop.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.laptop.demo.service.AdviceService;
 import com.laptop.demo.service.ScienceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageController {
     @Autowired
     private ScienceService scienceService;
-
+    @Autowired
+    private AdviceService adviceService;
     @RequestMapping("/404")
     public String html404() {
 
@@ -53,7 +55,7 @@ public class PageController {
     }
 
     @RequestMapping("/test")
-    public String test(Model model) {
+    public String test() {
 
         return "pageController";
     }
@@ -65,7 +67,10 @@ public class PageController {
     }
 
     @RequestMapping("/advices")
-    public String recommend(){
+    public String advice(Model model){
+        model.addAttribute("advices",adviceService.getDetails("advice"));
+        model.addAttribute("firsts",adviceService.getDetails("first"));
+        model.addAttribute("installs",adviceService.getInstalls());
         return "advices";
     }
     @RequestMapping("/brand")
