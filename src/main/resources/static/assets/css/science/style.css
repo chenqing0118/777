@@ -69,7 +69,7 @@ img {
   max-width: 900px;
   grid-column: 1 / -1;
   grid-row: planet;
-  padding: 0;
+  padding: 0 0 40px 0;
   margin: 0 auto;
   position: relative;
 }
@@ -211,7 +211,7 @@ img {
   height: auto;
   min-width: 100%;
   max-width: none;
-  min-height: 100vh;
+  min-height: 150vh;
   margin-bottom: -50%;
 }
 
