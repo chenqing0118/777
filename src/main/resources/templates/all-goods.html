@@ -19,9 +19,11 @@
     <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
 
 
-    <!--滑动列表-->
-    <link rel='stylesheet' th:href="@{all_goods/css/flickity.css}">
-    <link rel="stylesheet" th:href="@{all_goods/css/style.css}">
+    <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/demo.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/component.css}" />
+    <!-- Modernizr is used for flexbox fallback -->
+    <script th:src="@{all_goods/js/modernizr.custom.js}"></script>
 </head>
 <body>
 
@@ -108,83 +110,178 @@
 </section>
 
 <!--产品展示-->
-<div class="card-parent">
-    <div class="card">
-        <div class="card_hero">
-
-<!--                测试图片-->
-                <img src="https://img.pconline.com.cn/images/product/1276/1276107/c_sn8.jpg" alt="">
-
-        </div>
-
-        <div class="card_content">
-            <div class="card_content-inner">
-                <h4 class="prod-title">戴尔 灵越 5593 15(酷睿i7-1065G7/8GB/256GB/MX230)</h4>
-                <div class="prod-info">
-                    <dd>
-                        <i>类型：主流轻薄本</i>
-                        <i>价格：5099</i>
-                        <i>内存：8G</i>
-                        <i>大小：15.6寸</i>
-                    </dd>
-
-                    <p></p>
-                </div>
-            </div>
-
-        </div>
-
-        <button class="shop">
-            Learn More
-        </button>
-    </div>
-
-    <div class="card">
-        <div class="card_hero">
-            <div class="prod-image">
-                <img th:src="@{all_goods/img/2.png}" alt="">
-            </div>
-        </div>
-
-        <div class="card_content">
-            <div class="card_content-inner">
-                <h4 class="prod-title">Epic Bike</h4>
-                <div class="prod-info">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam tenetur odit dolorum deserunt beatae.</p>
-                </div>
-            </div>
-
-        </div>
-
-        <button class="shop">
-            Learn More
-        </button>
-    </div>
-
-    <div class="card">
-        <div class="card_hero">
-            <div class="prod-image">
-                <img th:src="@{all_goods/img/3.png}" alt="">
-            </div>
-        </div>
-
-        <div class="card_content">
-            <div class="card_content-inner">
-                <h4 class="prod-title">Epic Bike</h4>
-                <div class="prod-info">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam tenetur odit dolorum deserunt beatae.</p>
-                </div>
-            </div>
-
-        </div>
-
-        <button class="shop">
-            Learn More
-        </button>
-    </div>
-
-
+<!-- Compare basket -->
+<div class="compare-basket">
+    <button class="action action--button action--compare"><i class="fa fa-check"></i><span class="action__text">Compare</span></button>
 </div>
+<!-- Main view -->
+<div class="view">
+    <!-- Product grid -->
+    <section class="grid">
+        <!-- Products -->
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+        <div class="product">
+            <div class="product__info">
+                <img class="product__image" src="https://img10.360buyimg.com/n1/s450x450_jfs/t1/126836/30/788/114311/5eb7b816Ed2f1f914/61499ec584c0c250.jpg" alt="Product 1" />
+                <h3 class="product__title">笔记本</h3>
+                <span class="product__year extra highlight">2011</span>
+                <span class="product__region extra highlight">8G</span>
+                <span class="product__varietal extra highlight">13.5寸</span>
+                <span class="product__alcohol extra highlight">13%</span>
+                <span class="product__price highlight">4999</span>
+                <button class="action action--button action--buy"><i class="fa fa-shopping-cart"></i><span class="action__text">Add to cart</span></button>
+            </div>
+            <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">Add to compare</span></label>
+        </div>
+    </section>
+</div><!-- /view -->
+<!-- product compare wrapper -->
+<section class="compare">
+    <button class="action action--close"><i class="fa fa-remove"></i><span class="action__text action__text--invisible">Close comparison overlay</span></button>
+</section>
+
 
 
 <!-- footer bottom -->
@@ -228,9 +325,9 @@
 <script th:src="@{assets/js/jquery.counterup.min.js}"></script>
 <script th:src="@{assets/js/main.js}"></script>
 
-<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-<script th:src="@{all_goods/js/flickity.pkgd.min.js}"></script>
-<script th:src="@{all_goods/js/script.js}"></script>
+
+<script th:src="@{all_goods/js/classie.js}"></script>
+<script th:src="@{all_goods/js/main.js}"></script>
 
 
 </body>
