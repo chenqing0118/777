@@ -82,7 +82,7 @@
 .product__image {
 	display: block;
 	margin: 0 auto;
-	max-width: 100%;
+	max-width: 75%;
 	-webkit-transform-origin: 50% 100%;
 	transform-origin: 50% 100%;
 }
@@ -572,7 +572,7 @@
 	}
 
 	.compare__item .product__image {
-		height: 40px;
+		height: 30px;
 		float: left;
 	}
 
