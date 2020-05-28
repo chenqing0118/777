@@ -1,6 +1,6 @@
 package com.laptop.demo.controller;
 
-import com.alibaba.fastjson.JSONObject;
+
 import com.laptop.demo.service.AdviceService;
 import com.laptop.demo.service.ScienceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +8,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 @Controller
 
 public class PageController {
+    private static final Map<String,String> HARDWARE;
+    static {
+        HARDWARE=new LinkedHashMap<>();
+        HARDWARE.put("CPU","CPU");
+        HARDWARE.put("gpu","显卡");
+        HARDWARE.put("memory","内存");
+        HARDWARE.put("storage","硬盘");
+        HARDWARE.put("interface","接口");
+        HARDWARE.put("screen","屏幕");
+    }
     @Autowired
     private ScienceService scienceService;
     @Autowired
@@ -28,17 +42,16 @@ public class PageController {
     }
 
     @RequestMapping("/blog-details")
-    public String blog_post(Model model) {
-
-        String channel_1 = "配置科普";
-        String channel_2 = "CPU";
-
-        if (scienceService.getScience(channel_1, channel_2) != null) {
-            JSONObject science = scienceService.getScience(channel_1, channel_2);
-            model.addAttribute("science",science);
-        } else {
-            System.out.println("查询失败");
+    public String blog_post(Model model, HttpServletRequest request) {
+        String hardware=request.getParameter("hardware");
+        if (hardware==null){
+            hardware="CPU";
         }
+        if(!HARDWARE.containsKey(hardware)){
+            hardware="CPU";
+        }
+        model.addAttribute("hardware",HARDWARE.get(hardware));
+        model.addAttribute("details",scienceService.getScience(hardware));
         return "blog-details";
     }
 
