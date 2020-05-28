@@ -83,4 +83,9 @@ public class PageController {
     public String all_goods(){
         return "all-goods";
     }
+
+    @RequestMapping("/compare_chart")
+    public String compare_chart(){
+        return "compare_chart";
+    }
 }
