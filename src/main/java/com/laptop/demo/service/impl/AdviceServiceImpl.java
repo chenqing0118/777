@@ -1,7 +1,7 @@
 package com.laptop.demo.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.laptop.demo.mapper.AdviceMapper;
 import com.laptop.demo.pojo.Detail;
 import com.laptop.demo.service.AdviceService;
