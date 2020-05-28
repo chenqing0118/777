@@ -10,11 +10,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Detail implements Serializable {
-    private String channel_2;
+//    private String channel_2;
     private String channel_3;
-    private String details;
-    public Detail(String channel_3,String details){
-        this.channel_3 = channel_3;
-        this.details = details;
-    }
+    private String detail;
 }

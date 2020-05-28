@@ -17,7 +17,7 @@
     <link rel="stylesheet" th:href="@{assets/css/meanmenu.css}">
     <link rel="stylesheet" th:href="@{style.css}">
     <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
-
+    <link rel="stylesheet" th:href="@{lb/sfq.css}">
 </head>
 <body>
 
@@ -85,12 +85,7 @@
                     <div class="item">
 
                         <div class="others-page-title text-center">
-                            <h1>Blog Details</h1>
-
-                            <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, aliquam
-                                aliquid aspernatur assumenda beatae delectus,provident quia quod quos reprehenderit
-                                ullam voluptatum.</p>
-
+                            <h1 th:text="${hardware}">Blog Details</h1>
                         </div>
 
                     </div>
@@ -104,173 +99,42 @@
 </section>
 
 <!-- single-blog-area start -->
-<div id="single-blog" class="single-blog-area">
+<div id="single-blog" class="single-blog-area" style="padding:35px 0">
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-12 col-sm-12">
-                <!-- single-blog-content -->
-                <div class="single-blog-details">
-                    <h1 class="post-title">Lorem ipsum dolor sit amet, consectetur adipisicing.</h1>
-                    <p class="post-date">Posted on July 29, 2019</p>
-                    <div class="post-long-desc">
-                        <!-- single-blog-image -->
-                        <div class="blog-img pb-3">
-                            <img th:src="@{assets/img/blog/blog-details.jpg}" alt="blog">
-                        </div>
-                        <!-- single-blog-test -->
-                        <p id="detail"></p><br><br>
-                    </div>
-                    <!-- single-blog-comment -->
-                    <div class="comments-area">
-                        <h6 class="title">选购建议</h6>
-                        <ul class="comments-list">
-                            <li class="single-comment">
-                                <div class="comment-box">
-                                    <div class="comment-info">
-                                        <blockquote id="advice">
-                                            <ul>
-                                                <li th:each="advice : ${science['选购建议']}" >
-                                                    <i class="fa fa-circle"></i>
-                                                    <span th:text="${advice}"></span>
-                                                </li>
-                                            </ul>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                            </li><!-- /.single-comment -->
-                        </ul>
-                    </div>
-                    <div class="about-author fix">
-                        <h6 class="title">作者</h6>
-                        <!-- author-image -->
-                        <div class="author-img">
-                            <img th:src="@{assets/img/testimonial-01.jpg}" alt="Author Image" width="100">
-                        </div>
-                        <div class="author-info">
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                    </div>
-
-                </div><!-- /.single-blog-details -->
-            </div>
-            <!-- sidebar-area start -->
             <div class="col-lg-4 col-md-12 col-sm-12">
-                <div class="sidebar-area">
+                <div class="sidebar-area" style="margin-top: 30px">
 
-                    <div class="single-sidebar-widget">
-                        <h6 class="widget-title">about me</h6>
+                    <div class="single-sidebar-widget" >
+                        <h4 class="widget-title" >选购指南</h4>
                         <div class="sidebar-content">
-                            <div class="my-photo">
-                                <img src="assets/img/testimonial-01.jpg" alt="author" width="96">
-
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto cumque dolores eius
-                                hic laborum natus nisi odit placeat reiciendis.</p>
-                        </div><!-- /.sidebar-content -->
-                    </div><!-- /.single-sidebar-widget -->
-
-
-                    <div class="single-sidebar-widget">
-                        <h6 class="widget-title">categories</h6>
-                        <div class="sidebar-content">
-                            <div class="categories-list">
-                                <ul>
-                                    <li><a href=""><span
-                                            class="category">Design</span><span class="number">5</span></a></li>
-                                    <li><a href=""><span
-                                            class="category">Design</span><span class="number">5</span></a></li>
-                                    <li><a href=""><span
-                                            class="category">Design</span><span class="number">5</span></a></li>
-                                </ul>
-                            </div>
-                        </div><!-- /.sidebar-content -->
-                    </div>
-                    <div class="single-sidebar-widget">
-                        <h6 class="widget-title">Popular Posts</h6>
-                        <div class="sidebar-content">
-                            <!--<div class="right-box-content mt-10 mb-10">-->
-                            <a href="" class="popular-post d-flex align-items-center">
-                                <div class="popular-post-img mr-20">
-                                    <img src="assets/img/blog/blog-1.jpg" alt="blog-1.jpg">
-                                    <div class="full-cover bg-green-op-8 transition-4">
-                                        <i class="fas fa-external-link-alt transform-center"></i>
-                                    </div>
-                                </div>
-                                <div class="popular-post-text">
-                                    <p class="pb-1-">Lorem ipsum dolor sit amet, consecte..</p>
-                                    <span>June 25, 2019</span>
-                                </div>
-                            </a>
-                            <a href="" class="popular-post d-flex align-items-center">
-                                <div class="popular-post-img mr-20">
-                                    <img src="assets/img/blog/blog-1.jpg" alt="blog-1.jpg">
-                                    <div class="full-cover bg-green-op-8 transition-4">
-                                        <i class="fas fa-external-link-alt transform-center"></i>
-                                    </div>
-                                </div>
-                                <div class="popular-post-text">
-                                    <p class="pb-1-">Lorem ipsum dolor sit amet, consecte..</p>
-                                    <span>June 25, 2019</span>
-                                </div>
-                            </a>
-                            <a href="" class="popular-post d-flex align-items-center">
-                                <div class="popular-post-img mr-20">
-                                    <img src="assets/img/blog/blog-1.jpg" alt="blog-1.jpg">
-                                    <div class="full-cover bg-green-op-8 transition-4">
-                                        <i class="fas fa-external-link-alt transform-center"></i>
-                                    </div>
-                                </div>
-                                <div class="popular-post-text">
-                                    <p class="pb-1-">Lorem ipsum dolor sit amet, consecte..</p>
-                                    <span>June 25, 2019</span>
-                                </div>
-                            </a>
-                        </div>
-                        <!--</div>-->
-                        <!-- /.sidebar-content -->
-                    </div>
-                    <!-- /.single-sidebar-widget -->
-                    <div class="single-sidebar-widget">
-                        <h6 class="widget-title">archive</h6>
-                        <div class="sidebar-content">
-                            <div class="archive-list">
-                                <ul>
-                                    <li><a href="#"><span class="month">march</span><span class="number">(98)</span></a>
-                                    </li>
-                                    <li><a href="#"><span class="month">january</span><span
-                                            class="number">(80)</span></a></li>
-                                    <li><a href="#"><span class="month">february</span><span class="number">(60)</span></a>
-                                    </li>
-                                    <li><a href="#"><span class="month">december</span><span class="number">(40)</span></a>
-                                    </li>
-                                    <li><a href="#"><span class="month">october</span><span
-                                            class="number">(10)</span></a></li>
-                                </ul>
-                            </div>
-                        </div><!-- /.sidebar-content -->
-                    </div><!-- /.single-sidebar-widget -->
-                    <div class="single-sidebar-widget">
-                        <h6 class="widget-title">tags cloud</h6>
-                        <div class="sidebar-content">
-                            <div class="tags-list">
-                                <ul>
-                                    <li><a href=""><i class="fas fa-tag"></i>Marketing</a></li>
-                                    <li><a href=""><i class="fas fa-tag"></i>ppc</a></li>
-                                    <li><a href=""><i class="fas fa-tag"></i>Design</a></li>
-                                    <li><a href=""><i class="fas fa-tag"></i>Development</a></li>
-                                    <li><a href=""><i class="fas fa-tag"></i>App Devlopment</a></li>
-                                </ul>
-
-
+                            <div th:utext="${details.get('选购指南')}" style="text-align: left">
                             </div>
                         </div><!-- /.sidebar-content -->
                     </div><!-- /.single-sidebar-widget -->
                 </div><!-- /.sidebar-area -->
             </div>
-            <!-- sidebar-area end -->
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <!-- single-blog-content -->
+
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default" th:if="${detail.key!='选购指南'}" th:each="detail:${details}">
+                        <div class="panel-heading" role="tab" >
+                            <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" th:href="'#collapse'+${detailStat.index}" th:aria-expanded="${detailStat.index==1? 'true':'false'}"
+                                                       th:classappend="${detailStat.index==1? '':'collapsed'}" th:text="${detail.key}"> Section 1 </a></h4>
+                        </div>
+                        <div th:id="'collapse'+${detailStat.index}" class="panel-collapse collapse in" th:classappend="${detailStat.index==1? 'show':''}" role="tabpanel"
+                             aria-labelledby="headingOne">
+                            <div class="panel-body" th:utext="${detail.value}" style="padding: 10px">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.single-blog-details -->
+            </div>
         </div>
     </div>
 </div>
@@ -315,17 +179,6 @@
 <script th:src="@{assets/js/waypoints.min.js}"></script>
 <script th:src="@{assets/js/jquery.counterup.min.js}"></script>
 <script th:src="@{assets/js/main.js}"></script>
-
-<script th:src="@{marked/marked.min.js}"></script>
-<script th:inline="javascript">
-    $(function () {
-        var content = [[${science["介绍"][0]}]];
-        var html = marked(content); //初始化转换器
-        $("#detail").html(html)//添加到 div 中 显示出来
-    })
-
-</script>
-
 </body>
 </html>
 
