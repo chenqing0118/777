@@ -58,7 +58,7 @@
 }
 
 .product--selected {
-	box-shadow: 0 0 0 2px #5C5EDC;
+	box-shadow: 0 0 0 2px #F95961;
 }
 
 .flexbox .product {
@@ -81,7 +81,7 @@
 
 .product__image {
 	display: block;
-	margin: 0 auto;
+	margin: 1cm 1% 1% 1%;
 	max-width: 75%;
 	-webkit-transform-origin: 50% 100%;
 	transform-origin: 50% 100%;
@@ -138,14 +138,14 @@
 }
 
 .product__title {
-	font-size: 150%;
+	font-size: 100%;
 	margin: 1em 0 0;
 	min-height: 3em;
 }
 
 .product__price {
 	font-weight: bold;
-	color: #797BED;
+	color: #FD666E;
 }
 
 .action {
@@ -172,7 +172,7 @@
 }
 
 .action--button:hover {
-	background: #5C5EDC;
+	background: #F95961;
 }
 
 .action__text {
@@ -227,7 +227,7 @@
 
 .action--close:hover,
 .action--close:focus {
-	color: #797BED;
+	color: #FD666E;
 }
 
 .action--compare {
@@ -247,7 +247,7 @@
 
 .compare-basket--active .action--compare:nth-child(3),
 .compare-basket--active .action--compare:nth-child(4) {
-	background-color: #494BC7;
+	background-color: #FD5159;
 	color: #fff;
 	pointer-events: auto;
 	cursor: pointer;
@@ -284,7 +284,7 @@
 
 .action--remove:hover,
 .action--compare-add:hover {
-	color: #5C5EDC;
+	color: #F95961;
 }
 
 .action--compare-add .fa-check,
@@ -294,7 +294,7 @@
 
 .action--compare-add input[type=checkbox]:checked ~ .fa-check {
 	display: block;
-	color: #5C5EDC;
+	color: #F95961;
 }
 
 .check-hidden {
@@ -572,7 +572,7 @@
 	}
 
 	.compare__item .product__image {
-		height: 30px;
+		height: 15px;
 		float: left;
 	}
 
@@ -582,10 +582,10 @@
 		display: block;
 	}
 
-	.compare__item .product__year { border-bottom: 2px solid #2E294E; }
-	.compare__item .product__region { border-bottom: 2px solid #6D6FD2; }
+	.compare__item .product__year { border-bottom: 2px solid #DC3545; }
+	.compare__item .product__region { border-bottom: 2px solid #FE6871; }
 	.compare__item .product__varietal { border-bottom: 2px solid #4B5267; }
-	.compare__item .product__alcohol { border-bottom: 2px solid #3C3474; }
+	.compare__item .product__alcohol { border-bottom: 2px solid #F56970; }
 
 	.action--close {
 		padding: 0.5em 0.75em;
