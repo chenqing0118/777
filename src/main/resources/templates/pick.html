@@ -40,7 +40,7 @@
         }
 
     </style>
-
+    <!--开关-->
     <link rel="stylesheet" th:href="@{turnon/css/normalize.min.css}">
     <link rel="stylesheet" th:href="@{turnon/css/style_turn.css}">
 
@@ -433,10 +433,12 @@
                             <div class="toggle toggle--neon">
                                 <input type="checkbox" id="weight" class="toggle--checkbox">
                                 <label class="toggle--btn" for="weight" data-label-on="极致轻薄"
-                                       data-label-off="无所谓" onclick="if($(this).prev('input').val() ==='on'){$(this).prev('input').val('off');}else {$(this).prev('input').val('on');}"></label>
+                                       data-label-off="无所谓"
+                                       onclick="if($(this).prev('input').val() ==='on'){$(this).prev('input').val('off');}else {$(this).prev('input').val('on');}"></label>
                             </div>
                             <div class="site-btn mb-5">
-                                <a class="skill-btn done" style="float: right;">下一个<i class="fas fa-arrow-right"></i></a>
+                                <a class="skill-btn done" style="float: right;">下一个<i
+                                        class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </li>
@@ -477,10 +479,10 @@
                                             </div>
                                         </div>
                                     </div>
-<!--                                    &lt;!&ndash; 确定 &ndash;&gt;-->
-<!--                                    <div class="confirmButton confirmButton2" style="margin-top: 100px;">-->
-<!--                                        <a href="javascript:void(0);">确定</a>-->
-<!--                                    </div>-->
+                                    <!--                                    &lt;!&ndash; 确定 &ndash;&gt;-->
+                                    <!--                                    <div class="confirmButton confirmButton2" style="margin-top: 100px;">-->
+                                    <!--                                        <a href="javascript:void(0);">确定</a>-->
+                                    <!--                                    </div>-->
                                 </div>
                             </div>
 
@@ -496,7 +498,6 @@
                             <span class="icon-mode"></span>
                         </div>
                         <div class="wizard-content">
-                            <p>Your payment methods detail section.</p>
                             <section id="cd-table">
 
                                 <header class="cd-table-column">
@@ -649,7 +650,46 @@
 
                             </section> <!-- cd-table -->
 
-                            <!--                            <button class="btn-green" type="submit">Done</button>-->
+                            <div class="selectImgDiv" id="" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                    </div>
+                                    <div class="img_title" value=1>超大的容量</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/3.png}"/>
+                                    </div>
+                                    <div class="img_title" value=2>准确的色彩</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title" value=3>丰富的接口</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title" value=4>非常持久的续航(续航时间>= 9小时)</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn-green" type="submit">更多</button>
+
                         </div>
 
                     </li>
