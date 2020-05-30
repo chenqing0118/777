@@ -141,7 +141,7 @@
                             <span></span>
                         </div>
                         <div class="wizard-content">
-                            <div class="selectImgDiv" id="main_scene" style="margin: 0 160px;">
+                            <div class="selectImgDiv" id="main_uses" style="margin: 0 160px;">
                                 <div class="item">
                                     <div class="img_show">
                                         <img th:src="@{select_img/images/1.jpg}"/>
@@ -253,7 +253,7 @@
                             <span></span>
                         </div>
                         <div class="wizard-content">
-                            <div class="selectImgDiv" id="specific_game" style="margin: 0 160px;">
+                            <div class="selectImgDiv" id="game_example" style="margin: 0 160px;">
                                 <div class="item">
                                     <div class="img_show">
                                         <img th:src="@{select_img/images/1.jpg}"/>
@@ -431,8 +431,8 @@
                         </div>
                         <div class="wizard-content">
                             <div class="toggle toggle--neon">
-                                <input type="checkbox" id="weight" class="toggle--checkbox">
-                                <label class="toggle--btn" for="weight" data-label-on="极致轻薄"
+                                <input type="checkbox" id="weight_type" class="toggle--checkbox">
+                                <label class="toggle--btn" for="weight_type" data-label-on="极致轻薄"
                                        data-label-off="无所谓"
                                        onclick="if($(this).prev('input').val() ==='on'){$(this).prev('input').val('off');}else {$(this).prev('input').val('on');}"></label>
                             </div>
@@ -756,7 +756,7 @@
     res.title = "您需要的电脑的主要用途？";
     res.selectimg = true;
     res.multinum = 3;
-    this.id = "main_scene";
+    this.id = "main_uses";
     res.href = "";
     res.children = [
         {
@@ -814,7 +814,7 @@
             }, {
                 name: "客户端游戏",
                 title: "主玩什么游戏",
-                id: "specific_game",
+                id: "game_example",
                 selectimg: true,
                 multinum: 4,
                 children: [{

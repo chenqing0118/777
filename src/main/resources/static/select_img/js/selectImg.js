@@ -2,9 +2,9 @@
  * Created by zxm on 2017/5/20.
  */
 $(function () {
-    selectImgTake.init('main_scene',3);
+    selectImgTake.init('main_uses',3);
     selectImgTake.init('ordinary_trait',4);
-    selectImgTake.init('specific_game',4);
+    selectImgTake.init('game_example',4);
     selectImgTake.init('game_vision',1);
     selectImgTake.init('produce_type',3);
     selectImgTake.init('ordinary_trait_1',3);
