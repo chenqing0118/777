@@ -54,7 +54,7 @@ $(".done").click(function () {
         }
     } else {
         //选图
-        new_value = selectImgTake.submitTileValue(id).toString();
+        new_value = selectImgTake.submitTileIndex(id).toString();
         console.log(new_value);
         if ((id === 'main_uses' || id === 'produce_type') && results[id] !== undefined && new_value !== results[id]) {
             change_info = [results[id], new_value].toString();
@@ -180,9 +180,10 @@ $(".done").click(function () {
         if (results['price'] !== undefined) {
             //得到最后结果
             console.log('最后结果');
+
+
+
             next_li = $("#cd-table").parent().parent("li");
-
-
         }
     }
 

@@ -4,7 +4,7 @@
 $(function () {
     selectImgTake.init('main_uses',3);
     selectImgTake.init('ordinary_trait',4);
-    selectImgTake.init('game_example',4);
+    selectImgTake.init('game_example',8);
     selectImgTake.init('game_vision',1);
     selectImgTake.init('produce_type',3);
     selectImgTake.init('ordinary_trait_1',3);
@@ -41,16 +41,16 @@ var selectImgTake = {
                 $(this).removeAttr("ischecked");
             }
 
-            // selectImgTake.submitTileValue(divId);
+            selectImgTake.submitTileIndex(divId);
         });
     },
     "getSelectImgs":function(divId){
         return $("#"+divId+" .item[ischecked='true']");
     },
-    "submitTileValue":function (divId) {
+    "submitTileIndex":function (divId) {
         var value = [];
         selectImgTake.getSelectImgs(divId).each(function(){
-            value.push($(this).children('.img_title').attr("value"));
+            value.push($(this).index()+1);
         });
         console.log(value);
         return value;

@@ -20,6 +20,7 @@ public class LaptopServiceImpl implements LaptopService {
             laptop.setVideo(JSON.parseArray((String) laptop.getVideo(),String.class));
             laptop.setPictures(JSON.parseArray((String)laptop.getPictures(),String.class));
         }
+        System.out.println(laptops);
         return laptops;
     }
 }
