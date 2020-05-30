@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Laptop {
     private int id;
     private String name;
-    private String brand;
+    private String type;
     private int price;
     private long releaseTime;
     private String cpu;

@@ -12,15 +12,15 @@
 	function CompareBasket() {
 		this.el = document.querySelector('.compare-basket');
 		this.compareCtrl = this.el.querySelector('.action--compare');
-		this.compareWrapper = document.querySelector('.compare'),
-		this.closeCompareCtrl = this.compareWrapper.querySelector('.action--close')
+		this.compareWrapper = document.querySelector('.compare');
+		this.closeCompareCtrl = this.compareWrapper.querySelector('.action--close');
 		
-		this.itemsAllowed = 4;
+		this.itemsAllowed = 2;
 		this.totalItems = 0;
 		this.items = [];
 
 		//增加滚动
-		this.compareWrapper.addEventListener("mousewheel", MouseWheelHandler, false)
+		// this.compareWrapper.addEventListener("mousewheel", MouseWheelHandler, false);
 
 		// compares items in the compare basket: opens the compare products wrapper
 		this.compareCtrl.addEventListener('click', this._compareItems.bind(this));

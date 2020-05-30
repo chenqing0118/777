@@ -13,7 +13,7 @@
 	margin: 0 auto;
 	padding: 4em 1em;
 	max-width: 1200px;
-	text-align: center;
+	/*text-align: center;*/
 	overflow: hidden;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -81,7 +81,7 @@
 
 .product__image {
 	display: block;
-	margin: 1cm 1% 1% 1%;
+	margin: 1% 1% 1% 1%;
 	max-width: 75%;
 	-webkit-transform-origin: 50% 100%;
 	transform-origin: 50% 100%;
@@ -417,9 +417,9 @@
 	height: 100%;
 	width: 50%;
 	background: #24252A;
-	text-align: center;
+	/*text-align: center;*/
 	cursor: default;
-	padding: 2em 0;
+	padding: 2em 0 2em 17em;
 	-webkit-transition: -webkit-transform 0.4s ease-in-out;
 	transition: transform 0.4s ease-in-out;
 }
@@ -524,10 +524,12 @@
 	.flexbox .compare__item .product__image {
 		-webkit-align-self: center;
 		-ms-flex-align: center;
-		align-self: center;
+		/*align-self: center;*/
+		align-self: flex-start;
 		-webkit-flex: none;
 		-ms-flex: none;
 		flex: none;
+		padding-left: 3em;
 	}
 }
 
