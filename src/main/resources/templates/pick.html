@@ -19,7 +19,7 @@
     <link rel="stylesheet" th:href="@{assets/css/responsive.css}">
 
     <!--问卷步骤-->
-    <link rel="stylesheet" th:href="@{step_to_step/css/style_1.css}">
+    <link rel="stylesheet" th:href="@{step_to_step/css/style_step.css}">
     <!--选择图片-->
     <link rel="stylesheet" type="text/css" th:href="@{select_img/css/selectImg.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{select_img/css/iconfont.css}"/>
@@ -30,7 +30,7 @@
     <!--导航选项卡-->
     <link rel="stylesheet" th:href="@{menubar/js/swiperTab/css/swiper-3.2.7.min.css}"/>
     <link rel="stylesheet" th:href="@{menubar/css/nav.css}"/>
-
+    <!--价格选择-->
     <link rel="stylesheet" th:href="@{rangeslider/css/public.css}"/>
     <link rel="stylesheet" th:href="@{rangeslider/css/ion.rangeSlider.css}"/>
     <link rel="stylesheet" th:href="@{rangeslider/css/index.css}"/>
@@ -40,6 +40,10 @@
         }
 
     </style>
+
+    <link rel="stylesheet" th:href="@{turnon/css/normalize.min.css}">
+    <link rel="stylesheet" th:href="@{turnon/css/style_turn.css}">
+
 </head>
 <body>
 
@@ -129,21 +133,20 @@
     <div class="container">
         <div class="row">
             <div style="width: 100%;">
-                <ul class="payment-wizard">
+                <!--                <div class="swiper-container swiper1" id="swiper"></div>-->
+                <ul class="payment-wizard" id="step_ul">
                     <li class="active">
                         <div class="wizard-heading">
-                            1. 您使用笔记本电脑的主要场景？
-                            <span class="icon-user"></span>
+                            您使用笔记本电脑的主要场景？
+                            <span></span>
                         </div>
                         <div class="wizard-content">
-                            <div class="selectImgDiv" id="selectItemDiv" style="margin: 0 160px;">
+                            <div class="selectImgDiv" id="main_scene" style="margin: 0 160px;">
                                 <div class="item">
                                     <div class="img_show">
                                         <img th:src="@{select_img/images/1.jpg}"/>
                                     </div>
-                                    <div class="img_title">
-                                        文字办公，影音娱乐
-                                    </div>
+                                    <div class="img_title" value=1>文字办公，影音娱乐</div>
                                     <div class="img_isCheck">
                                         <i class="iconfont icon-xuanzhong"></i>
                                     </div>
@@ -152,9 +155,7 @@
                                     <div class="img_show">
                                         <img th:src="@{select_img/images/3.png}"/>
                                     </div>
-                                    <div class="img_title">
-                                        游戏
-                                    </div>
+                                    <div class="img_title" value=2>游戏</div>
                                     <div class="img_isCheck">
                                         <i class="iconfont icon-xuanzhong"></i>
                                     </div>
@@ -163,70 +164,335 @@
                                     <div class="img_show">
                                         <img th:src="@{select_img/images/4.png}"/>
                                     </div>
-                                    <div class="img_title">
-                                        生产力
-                                    </div>
+                                    <div class="img_title" value=3>生产力</div>
                                     <div class="img_isCheck">
                                         <i class="iconfont icon-xuanzhong"></i>
                                     </div>
                                 </div>
-                                <div class="navBox clearfix">
-                                    <!-- 月供 -->
-                                    <div class="selecteList_fisrt selectClass selecteList_month">
-                                        <ul class="nmonthlyPayment_ul clearfix">
-                                            <li data-nmonthlyPayment="" class="nmonthlyPayment_noLimit selected"><p>
-                                                不限</p></li>
-                                            <li data-nmonthlyPayment="0_2000"><p>2000以内</p></li>
-                                            <li data-nmonthlyPayment="2000_3000"><p>2000-3000</p></li>
-                                            <li data-nmonthlyPayment="3000_4000"><p>3000-4000</p></li>
-                                            <li data-nmonthlyPayment="4000_5000"><p>4000-5000</p></li>
-                                            <li data-nmonthlyPayment="5000_6000"><p>5000以上</p></li>
-                                        </ul>
-                                        <!-- 左右滑动 -->
-                                        <div class="moveBox">
-                                            <div class="moveTitle clearfix"><p class="fl">自定义月供<span class="wangCss">&nbsp;(元)</span>
-                                            </p>
-                                                <p class="changeNum bxyc fr">不限月供</p></div>
-                                            <div class="moveContent">
-                                                <input type="text" value="1111" class="range_2"/>
-                                                <div class="moveScale">
-                                                    <p>0</p>
-                                                    <p class="nmonthlyPayment_p_1">1000</p>
-                                                    <p class="nmonthlyPayment_p_2">2000</p>
-                                                    <p class="nmonthlyPayment_p_3">3000</p>
-                                                    <p class="nmonthlyPayment_p_4">4000</p>
-                                                    <p class="nmonthlyPayment_p_5">5000</p>
-                                                    <p>不限</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 确定 -->
-                                        <div class="confirmButton confirmButton2">
-                                            <a href="javascript:void(0);">确定</a>
-                                        </div>
+                            </div>
+
+                            <div class="site-btn mb-5">
+                                <a class="skill-btn done" style="float: right;">下一个<i
+                                        class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wizard-heading">
+                            游戏类型
+                            <span></span>
+                        </div>
+                        <div class="wizard-content">
+                            <div class="toggle toggle--neon">
+                                <input type="checkbox" id="game_type" class="toggle--checkbox">
+                                <label class="toggle--btn" for="game_type" data-label-on="网页游戏" data-label-off="客户端游戏"
+                                       onclick="if($(this).prev('input').val() ==='on'){$(this).prev('input').val('off')}else {$(this).prev('input').val('on');}">
+                                </label>
+                            </div>
+                            <div class="site-btn mb-5">
+                                <a class="skill-btn done" style="float: right;">下一个<i
+                                        class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wizard-heading">
+                            期望特质
+                            <span></span>
+                        </div>
+                        <div class="wizard-content">
+                            <div class="selectImgDiv" id="ordinary_trait" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                    </div>
+                                    <div class="img_title" value=1>超大的容量</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/3.png}"/>
+                                    </div>
+                                    <div class="img_title" value=2>准确的色彩</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title" value=3>丰富的接口</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title" value=4>非常持久的续航(续航时间>= 9小时)</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
                                     </div>
                                 </div>
                             </div>
 
-                            <button class="btn-green done" type="submit">Continue</button>
+                            <div class="site-btn mb-5">
+                                <a class="skill-btn done" style="float: right;">下一个<i
+                                        class="fas fa-arrow-right"></i></a>
+                            </div>
+
                         </div>
                     </li>
                     <li>
                         <div class="wizard-heading">
-                            2. 其他特殊需求（机动地显示一些，比如重量，游戏种类，游戏画质之类的）
-                            <span class="icon-location"></span>
+                            主玩什么游戏
+                            <span></span>
                         </div>
                         <div class="wizard-content">
-                            <div class="row">
-                                <!--div 绑定id-->
-                                <div class="swiper-container swiper1" id="swiper"></div>
+                            <div class="selectImgDiv" id="specific_game" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                    </div>
+                                    <div class="img_title" value=1>英雄联盟/cf</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                    </div>
+                                    <div class="img_title" value=2>csgo/dota2</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/3.png}"/>
+                                    </div>
+                                    <div class="img_title" value=3>我的世界，守望先锋，绝地求生</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title" value=4>gta5，使命召唤，刺客信条</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <button class="btn-green done" type="submit">Continue</button>
+                            <div class="site-btn mb-5">
+                                <a class="skill-btn done" style="float: right;">下一个<i
+                                        class="fas fa-arrow-right"></i></a>
+                            </div>
+
                         </div>
                     </li>
                     <li>
                         <div class="wizard-heading">
-                            3. 您的专属推荐产品
+                            游戏画质选择
+                            <span></span>
+                        </div>
+                        <div class="wizard-content">
+                            <div class="selectImgDiv" id="game_vision" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                    </div>
+                                    <div class="img_title" value=1>能玩即可</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/3.png}"/>
+                                    </div>
+                                    <div class="img_title" value=2>中特效</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title" value=3>特效全开</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="site-btn mb-5">
+                                <a class="skill-btn done" style="float: right;">下一个<i
+                                        class="fas fa-arrow-right"></i></a>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wizard-heading">
+                            生产力种类
+                            <span></span>
+                        </div>
+                        <div class="wizard-content">
+                            <div class="selectImgDiv" id="produce_type" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                    </div>
+                                    <div class="img_title" value=1>代码工作/数据处理</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/3.png}"/>
+                                    </div>
+                                    <div class="img_title" value=2>绘图/视频制作</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title" value=3>工业设计</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="site-btn mb-5">
+                                <a class="skill-btn done" style="float: right;">下一个<i
+                                        class="fas fa-arrow-right"></i></a>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wizard-heading">
+                            期望特质
+                            <span></span>
+                        </div>
+                        <div class="wizard-content">
+                            <div class="selectImgDiv" id="ordinary_trait_1" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                    </div>
+                                    <div class="img_title" value=1>准确的色彩</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/3.png}"/>
+                                    </div>
+                                    <div class="img_title" value=2>丰富的接口</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title" value=3>非常持久的续航</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="site-btn mb-5">
+                                <a class="skill-btn done" style="float: right;">下一个<i
+                                        class="fas fa-arrow-right"></i></a>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wizard-heading">
+                            便携需求
+                            <span></span>
+                        </div>
+                        <div class="wizard-content">
+                            <div class="toggle toggle--neon">
+                                <input type="checkbox" id="weight" class="toggle--checkbox">
+                                <label class="toggle--btn" for="weight" data-label-on="极致轻薄"
+                                       data-label-off="无所谓" onclick="if($(this).prev('input').val() ==='on'){$(this).prev('input').val('off');}else {$(this).prev('input').val('on');}"></label>
+                            </div>
+                            <div class="site-btn mb-5">
+                                <a class="skill-btn done" style="float: right;">下一个<i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wizard-heading">
+                            价格需求
+                            <span></span>
+                        </div>
+                        <div class="wizard-content">
+
+                            <div class="navBox clearfix">
+                                <!-- 月供 -->
+                                <div class="selecteList_fisrt selectClass selecteList_month">
+                                    <ul class="nmonthlyPayment_ul clearfix">
+                                        <li data-nmonthlyPayment="" class="nmonthlyPayment_noLimit selected"><p>
+                                            不限</p></li>
+                                        <li data-nmonthlyPayment="0_2000"><p>2000以内</p></li>
+                                        <li data-nmonthlyPayment="2000_3000"><p>2000-3000</p></li>
+                                        <li data-nmonthlyPayment="3000_4000"><p>3000-4000</p></li>
+                                        <li data-nmonthlyPayment="4000_5000"><p>4000-5000</p></li>
+                                        <li data-nmonthlyPayment="5000_6000"><p>5000以上</p></li>
+                                    </ul>
+                                    <!-- 左右滑动 -->
+                                    <div class="moveBox">
+                                        <div class="moveTitle clearfix"><p class="fl">自定义月供<span class="wangCss">&nbsp;(元)</span>
+                                        </p>
+                                            <p class="changeNum bxyc fr">不限月供</p></div>
+                                        <div class="moveContent">
+                                            <input type="text" value="1111" class="range_2"/>
+                                            <div class="moveScale">
+                                                <p>0</p>
+                                                <p class="nmonthlyPayment_p_1">1000</p>
+                                                <p class="nmonthlyPayment_p_2">2000</p>
+                                                <p class="nmonthlyPayment_p_3">3000</p>
+                                                <p class="nmonthlyPayment_p_4">4000</p>
+                                                <p class="nmonthlyPayment_p_5">5000</p>
+                                                <p>不限</p>
+                                            </div>
+                                        </div>
+                                    </div>
+<!--                                    &lt;!&ndash; 确定 &ndash;&gt;-->
+<!--                                    <div class="confirmButton confirmButton2" style="margin-top: 100px;">-->
+<!--                                        <a href="javascript:void(0);">确定</a>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+
+                            <div class="site-btn mb-5">
+                                <a class="skill-btn done" style="float: right;">下一个<i
+                                        class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="wizard-heading">
+                            您的专属推荐产品
                             <span class="icon-mode"></span>
                         </div>
                         <div class="wizard-content">
@@ -446,44 +712,183 @@
 <script type="text/javascript">
     //引用组件 这里可以ajax接收后台数据
     var res = {};
-    res.name = "开始";
+    res.name = "主要用途";
+    res.title = "您需要的电脑的主要用途？";
+    res.selectimg = true;
+    res.multinum = 3;
+    this.id = "main_scene";
     res.href = "";
-    res.children = [{
-        "isDefault": 1,
-        "src": "images/icontype1.png",
-        "children": [{
-            name: "A模块",
-            children: [{name: 'AA模块', children: [{name: "AAA模块"}]}, {
-                name: 'AA模块',
-                children: [{name: "AAc模块"}]
-            }, {name: 'Ab模块', children: [{name: "Abb模块"}]}]
-        }, {name: "B模块", children: [{name: 'BB模块', children: [{name: "BBB模块"}]}]}],
-        "domain": "PB07",
-        "maptype": "CONTAINER",
-        "name": "维修公告",
-        "oid": "com.imecms.container.Container:1001"
-    }, {
-        "path": "用户手册",
-        "src": "images/icontype1.png",
-        "domain": "PB07",
-        "maptype": "ST",
-        "name": "用户手册",
-        "oid": "com.imecms.container.Folder:3837"
-    }, {
-        "path": "保养手册",
-        "src": "images/icontype1.png",
-        "domain": "PB07",
-        "maptype": "ST",
-        "name": "保养手册",
-        "oid": "com.imecms.container.Folder:3838"
-    }, {
-        "path": "下载区",
-        "src": "images/icontype1.png",
-        "domain": "PB07",
-        "maptype": "JS",
-        "name": "下载区",
-        "js": "showDownloadAreaContent();"
-    }];
+    res.children = [
+        {
+            "isDefault": 1,
+            "src": "images/icontype1.png",
+            "domain": "PB01",
+            "id": "ordinary_trait",
+            // "maptype": "CONTAINER",
+            "name": "文字办公，影音娱乐",
+            "title": "您需要的电脑主要特点？",
+            "selectimg": true,
+            "multinum": 4,
+            // "oid": "com.imecms.container.Container:1001",
+            "children": [{
+                name: "超大的容量",
+                src: "images/icontype1.png"
+            }, {
+                name: "准确的色彩",
+                src: "images/icontype1.png"
+            }, {
+                name: "丰富的接口",
+                src: "images/icontype1.png"
+            }, {
+                name: "非常持久的续航",
+                src: "images/icontype1.png"
+            }]
+        }, {
+            "path": "游戏",
+            "title": "游戏类型",
+            "src": "images/icontype1.png",
+            "domain": "PB07",
+            "id": "game_type",
+            "maptype": "ST",
+            "name": "游戏",
+            "oid": "com.imecms.container.Folder:3837",
+            "children": [{
+                name: "网页游戏",
+                title: "期望特质",
+                id: "ordinary_trait",
+                selectimg: true,
+                multinum: 4,
+                children: [{
+                    name: "超大的容量",
+                    src: "images/icontype1.png",
+                }, {
+                    name: "准确的色彩",
+                    src: "images/icontype1.png",
+                }, {
+                    name: "丰富的接口",
+                    src: "images/icontype1.png",
+                }, {
+                    name: "非常持久的续航",
+                    src: "images/icontype1.png",
+                }]
+            }, {
+                name: "客户端游戏",
+                title: "主玩什么游戏",
+                id: "specific_game",
+                selectimg: true,
+                multinum: 4,
+                children: [{
+                    name: '英雄联盟/cf',
+                    src: "images/icontype1.png",
+                    title: "游戏画质选择",
+                    id: "game_vision",
+                    selectimg: true,
+                    children: [
+                        {
+                            name: "能玩即可",
+                            src: "images/icontype1.png"
+                        },
+                        {
+                            name: "中特效",
+                            src: "images/icontype1.png"
+                        }, {
+                            name: "特效全开",
+                            src: "images/icontype1.png"
+                        }]
+                }, {
+                    name: 'csgo/dota2',
+                    src: "images/icontype1.png",
+                    title: "游戏画质选择",
+                    id: "game_vision",
+                    selectimg: true,
+                    children: [
+                        {
+                            name: "能玩即可",
+                            src: "images/icontype1.png"
+                        },
+                        {
+                            name: "中特效",
+                            src: "images/icontype1.png"
+                        }, {
+                            name: "特效全开",
+                            src: "images/icontype1.png"
+                        }]
+                }, {
+                    name: '我的世界，守望先锋，绝地求生',
+                    src: "images/icontype1.png",
+                    title: "游戏画质选择",
+                    id: "game_vision",
+                    selectimg: true,
+                    children: [
+                        {
+                            name: "能玩即可",
+                            src: "images/icontype1.png"
+                        },
+                        {
+                            name: "中特效",
+                            src: "images/icontype1.png"
+                        }, {
+                            name: "特效全开",
+                            src: "images/icontype1.png"
+                        }]
+                }, {
+                    name: "gta5，使命召唤，刺客信条",
+                    src: "images/icontype1.png",
+                    title: "游戏画质选择",
+                    id: "game_vision",
+                    selectimg: true,
+                    children: [
+                        {
+                            name: "能玩即可",
+                            src: "images/icontype1.png"
+                        },
+                        {
+                            name: "中特效",
+                            src: "images/icontype1.png"
+                        }, {
+                            name: "特效全开",
+                            src: "images/icontype1.png"
+                        }]
+                }]
+            }]
+        }, {
+            "path": "生产力",
+            "src": "images/icontype1.png",
+            "domain": "PB07",
+            "id": "produce_type",
+            // "maptype": "ST",
+            "name": "生产力",
+            title: "生产力种类",
+            "selectimg": true,
+            "multinum": 3,
+            // "oid": "com.imecms.container.Folder:3838",
+            "children": [{
+                name: "代码工作/数据处理",
+                src: "images/icontype1.png",
+                title: "期望特质",
+                id: "ordinary_trait_1",
+                selectimg: true,
+                multinum: 3,
+                children: [
+                    {
+                        name: "准确的色彩",
+                        src: "images/icontype1.png",
+                    }, {
+                        name: "丰富的接口",
+                        src: "images/icontype1.png",
+                    }, {
+                        name: "非常持久的续航",
+                        src: "images/icontype1.png",
+                    }]
+            }, {
+                name: "绘图/视频制作",
+                src: "images/icontype1.png"
+            }, {
+                name: "工业设计",
+                src: "images/icontype1.png"
+            }]
+        }];
+
     require(
         ['MenuBar'],
         function (MenuBar) {

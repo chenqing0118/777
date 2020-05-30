@@ -2,7 +2,12 @@
  * Created by zxm on 2017/5/20.
  */
 $(function () {
-    selectImgTake.init('selectItemDiv',1);
+    selectImgTake.init('main_scene',3);
+    selectImgTake.init('ordinary_trait',4);
+    selectImgTake.init('specific_game',4);
+    selectImgTake.init('game_vision',1);
+    selectImgTake.init('produce_type',3);
+    selectImgTake.init('ordinary_trait_1',3);
     // selectImgTake.cancelInit('selectItemDiv');
 });
 
@@ -35,11 +40,28 @@ var selectImgTake = {
                 $(this).find(".img_isCheck i").css("display","none");
                 $(this).removeAttr("ischecked");
             }
+
+            // selectImgTake.submitTileValue(divId);
         });
     },
     "getSelectImgs":function(divId){
-        var selectImgDivs = $("#"+divId+" .item[ischecked='true']");
-        return selectImgDivs;
+        return $("#"+divId+" .item[ischecked='true']");
+    },
+    "submitTileValue":function (divId) {
+        var value = [];
+        selectImgTake.getSelectImgs(divId).each(function(){
+            value.push($(this).children('.img_title').attr("value"));
+        });
+        console.log(value);
+        return value;
+    },
+    "submitTileText":function (divId) {
+        var text = [];
+        selectImgTake.getSelectImgs(divId).each(function(){
+            text.push($(this).children('.img_title').text());
+        });
+        console.log(text);
+        return text;
     },
     "cancelInit":function(divId){
         console.log('c');

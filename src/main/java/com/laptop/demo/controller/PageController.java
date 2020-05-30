@@ -58,12 +58,6 @@ public class PageController {
         return "blog-details";
     }
 
-    @RequestMapping("/contact-us")
-    public String contact(Model model) {
-
-        return "contact-us";
-    }
-
     @RequestMapping("/")
     public String index(Model model) {
 

@@ -1,0 +1,209 @@
+/*@import url(https://fonts.googleapis.com/css?family=Francois+One);*/
+/*@import url(https://fonts.googleapis.com/css?family=PT+Sans);*/
+/*@font-face {*/
+/*  font-family: 'Audiowide';*/
+/*  font-style: normal;*/
+/*  font-weight: 400;*/
+/*  src: local("Audiowide"), local("Audiowide-Regular"), url(http://themes.googleusercontent.com/static/fonts/audiowide/v2/8XtYtNKEyyZh481XVWfVOj8E0i7KZn-EPnyo3HZu7kw.woff) format("woff");*/
+/*}*/
+/*body {*/
+/*  font-size: 62.5%;*/
+/*  background-color: #fff;*/
+/*  margin: 10px;*/
+/*  border: 1px solid #333;*/
+/*}*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+h1, h2, h3 {
+  font-family: 'PT Sans', sans-serif;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 2.4em;
+  background-color: #292929;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  color: #fff;
+}
+h1 a {
+  display: block;
+  margin-top: 10px;
+  text-transform: none;
+  color: #aaa;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.headingOuter {
+  background: #f1f1f1;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0;
+  padding: 10px;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  font-size: 1.6em;
+}
+.headingOuter:first-child {
+  margin-top: 0;
+}
+h1 + .headingOuter {
+  margin-top: 0;
+}*/
+
+/* =====================================================
+   Some defaults across all toggle demos
+   ===================================================== */
+.toggle {
+  display: block;
+  text-align: center;
+  /*margin-top: 40px;*/
+  user-select: none;
+}
+
+.toggle--checkbox {
+  display: none;
+}
+
+.toggle--btn {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.4em;
+  transition: all 350ms ease-in;
+}
+.toggle--btn:hover {
+  cursor: pointer;
+}
+
+.toggle--btn, .toggle--btn:before, .toggle--btn:after,
+.toggle--checkbox,
+.toggle--checkbox:before,
+.toggle--checkbox:after,
+.toggle--feature,
+.toggle--feature:before,
+.toggle--feature:after {
+  transition: all 250ms ease-in;
+}
+.toggle--btn:before, .toggle--btn:after,
+.toggle--checkbox:before,
+.toggle--checkbox:after,
+.toggle--feature:before,
+.toggle--feature:after {
+  content: '';
+  display: block;
+}
+
+/* =====================================================
+   Toggle - knob button style
+   ===================================================== */
+.toggle--knob .toggle--btn {
+  position: relative;
+  width: 140px;
+  height: 30px;
+  font-family: 'PT Sans', Sans Serif;
+  text-transform: uppercase;
+  color: #fff;
+  background: #a4bf4d;
+  box-shadow: inset 0 20px 30px -10px #7b9d25;
+  border-radius: 30px;
+}
+.toggle--knob .toggle--btn:before {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f1f1f1;
+  box-shadow: 0 4px 10px 0 #999, inset 0 10px 10px 8px rgba(241, 241, 241, 0.6), inset 0 0 8px 0px #333, inset 0 0 0 13px #ccc, inset 0 0 0 14px #f1f1f1;
+  text-indent: -100%;
+}
+.toggle--knob .toggle--feature {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 40px;
+  text-shadow: 0 1px 2px #666;
+}
+.toggle--knob .toggle--feature:before, .toggle--knob .toggle--feature:after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.toggle--knob .toggle--feature:before {
+  content: attr(data-label-on);
+  left: 20%;
+}
+.toggle--knob .toggle--feature:after {
+  content: attr(data-label-off);
+  right: -60%;
+}
+.toggle--knob .toggle--checkbox:checked + .toggle--btn {
+  background: #a2a2a2;
+  box-shadow: inset 0 20px 40px -10px #7e7e7e;
+}
+.toggle--knob .toggle--checkbox:checked + .toggle--btn:before {
+  left: 0;
+}
+.toggle--knob .toggle--checkbox:checked + .toggle--btn .toggle--feature:before {
+  left: -60%;
+}
+.toggle--knob .toggle--checkbox:checked + .toggle--btn .toggle--feature:after {
+  right: 20%;
+}
+
+/* ======================================================
+   Neon toggle
+   ====================================================== */
+@keyframes neon {
+  0% {
+    text-shadow: 0 0 10px #fff, 0 0 15px  #fff, 0 0 25px  #fff, 0 0 40px  #FF9900, 0 0 70px  #FF9900, 0 0 90px  #FF9900, 0 0 90px  #FF9900;
+  }
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900;
+  }
+}
+.toggle--neon {
+  background-color: #222;
+  margin-top: 0;
+  padding: 50px 0;
+}
+.toggle--neon .toggle--btn {
+  font-family: Audiowide;
+  text-transform: uppercase;
+  font-size: 6.2em;
+  color: #333;
+  text-shadow: 0 0 10px transparent, 0 0 15px  transparent, 0 0 25px  transparent, 0 0 40px  transparent, 0 0 70px  transparent, 0 0 90px  transparent, 0 0 90px  transparent;
+}
+.toggle--neon .toggle--btn:before, .toggle--neon .toggle--btn:after {
+  display: inline-block;
+  margin: 0 20px;
+  transition: all 220ms ease-in-out;
+}
+.toggle--neon .toggle--btn:before {
+  content: attr(data-label-on);
+  animation: neon 1.5s ease-in-out infinite alternate;
+  animation-delay: 90ms;
+  color: #f1f1f1;
+}
+.toggle--neon .toggle--btn:after {
+  content: attr(data-label-off);
+}
+.toggle--neon .toggle--checkbox:checked + .toggle--btn:before {
+  animation: none;
+  color: #333;
+}
+.toggle--neon .toggle--checkbox:checked + .toggle--btn:after {
+  animation: neon 1.5s ease-in-out infinite alternate;
+  animation-delay: 90ms;
+  color: #f1f1f1;
+}

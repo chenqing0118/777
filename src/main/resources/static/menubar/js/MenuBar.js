@@ -57,7 +57,65 @@ define(
     function (Menu,MenuItem) {
         var MenuBar = function (className,config) {
             this.className = className;
-            this.me = $("<div class='swiper-wrapper '></div>");
+            this.me = $("<ul class='payment-wizard'><li>\n" +
+                "                        <div class=\"wizard-heading\">\n" +
+                "                            便携需求\n" +
+                "                            <span class=\"toggle toggle--knob\">\n" +
+                "                                <input type=\"checkbox\" id=\"weight\" class=\"toggle--checkbox\">\n" +
+                "                                <label class=\"toggle--btn\" for=\"weight\"><span class=\"toggle--feature\"  data-label-on=\"极致轻薄\"  data-label-off=\"无所谓\"></span></label>\n" +
+                "                            </span>\n" +
+                "                            <span class=\"icon-location\"></span>\n" +
+                "                        </div>\n" +
+                "                        <div class=\"wizard-content\">\n" +
+                "                            <button class=\"btn-green done\" onclick=\"console.log($('#weight').val())\" type=\"submit\">Continue</button>\n" +
+                "                        </div>\n" +
+                "                    </li>\n" +
+                "                    <li>\n" +
+                "                        <div class=\"wizard-heading\">\n" +
+                "                            价格需求\n" +
+                "                            <span class=\"icon-location\"></span>\n" +
+                "                        </div>\n" +
+                "                        <div class=\"wizard-content\">\n" +
+                "\n" +
+                "                            <div class=\"navBox clearfix\">\n" +
+                "                                <!-- 月供 -->\n" +
+                "                                <div class=\"selecteList_fisrt selectClass selecteList_month\">\n" +
+                "                                    <ul class=\"nmonthlyPayment_ul clearfix\">\n" +
+                "                                        <li data-nmonthlyPayment=\"\" class=\"nmonthlyPayment_noLimit selected\"><p>\n" +
+                "                                            不限</p></li>\n" +
+                "                                        <li data-nmonthlyPayment=\"0_2000\"><p>2000以内</p></li>\n" +
+                "                                        <li data-nmonthlyPayment=\"2000_3000\"><p>2000-3000</p></li>\n" +
+                "                                        <li data-nmonthlyPayment=\"3000_4000\"><p>3000-4000</p></li>\n" +
+                "                                        <li data-nmonthlyPayment=\"4000_5000\"><p>4000-5000</p></li>\n" +
+                "                                        <li data-nmonthlyPayment=\"5000_6000\"><p>5000以上</p></li>\n" +
+                "                                    </ul>\n" +
+                "                                    <!-- 左右滑动 -->\n" +
+                "                                    <div class=\"moveBox\">\n" +
+                "                                        <div class=\"moveTitle clearfix\"><p class=\"fl\">自定义月供<span class=\"wangCss\">&nbsp;(元)</span>\n" +
+                "                                        </p>\n" +
+                "                                            <p class=\"changeNum bxyc fr\">不限月供</p></div>\n" +
+                "                                        <div class=\"moveContent\">\n" +
+                "                                            <input type=\"text\" value=\"1111\" class=\"range_2\"/>\n" +
+                "                                            <div class=\"moveScale\">\n" +
+                "                                                <p>0</p>\n" +
+                "                                                <p class=\"nmonthlyPayment_p_1\">1000</p>\n" +
+                "                                                <p class=\"nmonthlyPayment_p_2\">2000</p>\n" +
+                "                                                <p class=\"nmonthlyPayment_p_3\">3000</p>\n" +
+                "                                                <p class=\"nmonthlyPayment_p_4\">4000</p>\n" +
+                "                                                <p class=\"nmonthlyPayment_p_5\">5000</p>\n" +
+                "                                                <p>不限</p>\n" +
+                "                                            </div>\n" +
+                "                                        </div>\n" +
+                "                                    </div>\n" +
+                "                                    <!-- 确定 -->\n" +
+                "                                    <div class=\"confirmButton confirmButton2\" style=\"margin-top: 100px;\">\n" +
+                "                                        <a href=\"javascript:void(0);\">确定</a>\n" +
+                "                                    </div>\n" +
+                "                                </div>\n" +
+                "                            </div>\n" +
+                "                            <button class=\"btn-green done\" type=\"submit\" onclick=\"console.log($('.changeNum').text())\" >Continue</button>\n" +
+                "                        </div>\n" +
+                "                    </li></ul>");
             this.menus = [];
             this.jsonData=config.data;
             this.config = config;
@@ -141,13 +199,19 @@ define(
         var MenuItem = function (data,subItems) {
             var href = data.href;
             var name = data.name;
+            var src = data.src;
             this.data = data;
             if(href&&href!==""){
                 this.href = href;
             }else{
                 this.href = "javascript:void(0)";
             }
-            this.me = $("<li><a  data="+JSON.stringify(data)+" href='"+this.href+"' class='ui-link'>"+this.name+"</a></li>");
+            this.me = $("<div class='item'><div class='img_show'>\<img src='"+src+"'/></div>\n" +
+                "                                    <div class='img_title'>"+name+"</div>\n" +
+                "                                    <div class='img_isCheck'>\n" +
+                "                                        <i class='iconfont icon-xuanzhong'></i>\n" +
+                "                                    </div>\n" +
+                "                                </div>");
             this.name = name;
             this.subItems = [];
             this.subItems = subItems;
@@ -195,6 +259,11 @@ define(
         var Menu = function (data) {
             var name = data.name;
             var href = data.href;
+            var title = data.title;
+            var id = data.id;
+            if(title!=undefined){
+                name = title;
+            }
             this.menuBar;
             this.clickState = true;
             this.name = name;
@@ -203,9 +272,9 @@ define(
             }else{
                 this.href = "javascript:void(0)";
             }
-        // <i class='fa fa-star font-grey'></i>
-            this.me = $("<li class='swiper-slide'> <a data="+JSON.stringify(data)+" href='"+this.href+"' class='ui-link'>"+name+"</a></li>");
-            this.container = $("<ul class='swiper-menu'></ul>");
+            // <i class='fa fa-star font-grey'></i>
+            this.me = $("<li class='active'> <div class='wizard-heading'>"+name+"<span class='icon-user'></span></div> </li>");
+            this.container = $("<div class='wizard-content'><div class='selectImgDiv' id='"+id+"' style='margin: 0 160px;'></div><button class='btn-green done' type='submit'>Continue</button></div>");
             this.menuItems = [];
             this.init();
         }

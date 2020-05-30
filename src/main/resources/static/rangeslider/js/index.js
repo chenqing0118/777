@@ -208,6 +208,5 @@ function moveSliderRange2(leftNum, rightNum) {
     }
 }
 
-$('.confirmButton1').on('click', function () {
-
+$('.confirmButton2').on('click', function () {
 });

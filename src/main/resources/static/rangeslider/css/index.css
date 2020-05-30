@@ -375,7 +375,7 @@ html {
 
 .selecteList_fisrt {
   transition: all 0.5s;
-  position: absolute;
+  /*position: absolute;*/
   /* top: 0.97rem; */
   left: 0rem;
   width: 100%;
@@ -393,10 +393,11 @@ html {
   float: left;
   margin-right: 0.3rem;
   margin-bottom: 0.26rem;
-  height: 0.75rem;
-  width: 2rem;
+  height: 2rem;
+  width: 10rem;
   background: #F5F5F5;
   border-radius: 0.14rem;
+  padding: 15px;
 }
 
 .selecteList_fisrt li p {
@@ -406,7 +407,7 @@ html {
   color: #333;
   border-radius: 0.14rem;
   text-align: center;
-  font-size: 0.3rem;
+  font-size: 18px;
 }
 
 .selecteList_fisrt .selected {
@@ -752,5 +753,5 @@ p {
   line-height: 0.4rem !important;
 }
 .selecteList_month{
-  margin-top: 6.5rem;
+  /*margin-top: 6.5rem;*/
 }

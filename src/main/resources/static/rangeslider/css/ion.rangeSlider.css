@@ -126,28 +126,28 @@
 }
 /* 滑动块自定义修改 */
 .moveBox {
-    margin: 0 auto;
-    width: 6.88rem;
+    margin: 0 200px;
+    /*width: 6.88rem;*/
     height: 2.5rem;
     /* border: 1px solid #000; */
     position: relative;
-    margin-top: 0.4rem;
+    /*margin-top: 0.4rem;*/
 }
 .irs-single{
     display: none !important;
 }
 .moveTitle p{
-    font-size: 0.34rem;
+    font-size: 18px;
     color: #333;
     font-weight: 700;
 }
 .moveTitle .wangCss{
-    font-size: 0.26rem;
+    font-size: 15px;
     color: #999;
     font-weight: 400;
 }
 .moveTitle  .changeNum{
-    font-size: 0.3rem;
+    font-size: 18px;
     color: #666;
     font-weight: 400;
 }
@@ -159,7 +159,7 @@
     padding-right: 0.04rem;
 }
 .moveScale p{
-    font-size: 0.26rem;
+    font-size: 18px;
 }
 /* 覆盖官方样式 */
 .irs-bar{
