@@ -2,6 +2,7 @@ package com.laptop.demo.controller;
 
 
 import com.laptop.demo.service.AdviceService;
+import com.laptop.demo.service.LaptopService;
 import com.laptop.demo.service.ScienceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,8 @@ public class PageController {
     private ScienceService scienceService;
     @Autowired
     private AdviceService adviceService;
+    @Autowired
+    private LaptopService laptopService;
     @RequestMapping("/404")
     public String html404() {
 
@@ -93,7 +96,8 @@ public class PageController {
     }
 
     @RequestMapping("/all-goods")
-    public String all_goods(){
+    public String all_goods(Model model){
+        model.addAttribute("laptops",laptopService.getRecommend());
         return "all-goods";
     }
     

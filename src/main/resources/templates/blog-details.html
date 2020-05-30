@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>DMX - Digital Marketing Agency Html5 Template</title>
+    <title>科普详情</title>
     <meta name="description"
           content="Digital Marketer is a modern and beautiful HTML5 multipage agency template for the creative and professional marketer person or company. This template contains 10 different page layout with awesome design.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -106,8 +106,8 @@
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <div class="sidebar-area" style="margin-top: 30px">
 
-                    <div class="single-sidebar-widget" >
-                        <h4 class="widget-title" >选购指南</h4>
+                    <div class="single-sidebar-widget">
+                        <h4 class="widget-title">选购指南</h4>
                         <div class="sidebar-content">
                             <div th:utext="${details.get('选购指南')}" style="text-align: left">
                             </div>
@@ -120,11 +120,17 @@
 
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default" th:if="${detail.key!='选购指南'}" th:each="detail:${details}">
-                        <div class="panel-heading" role="tab" >
-                            <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" th:href="'#collapse'+${detailStat.index}" th:aria-expanded="${detailStat.index==1? 'true':'false'}"
-                                                       th:classappend="${detailStat.index==1? '':'collapsed'}" th:text="${detail.key}"> Section 1 </a></h4>
+                        <div class="panel-heading" role="tab">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                   th:href="'#collapse'+${detailStat.index}"
+                                   th:aria-expanded="${detailStat.index==1? 'true':'false'}"
+                                   th:classappend="${detailStat.index==1? '':'collapsed'}" th:text="${detail.key}">
+                                    Section 1 </a>
+                            </h4>
                         </div>
-                        <div th:id="'collapse'+${detailStat.index}" class="panel-collapse collapse in" th:classappend="${detailStat.index==1? 'show':''}" role="tabpanel"
+                        <div th:id="'collapse'+${detailStat.index}" class="panel-collapse collapse in"
+                             th:classappend="${detailStat.index==1? 'show':''}" role="tabpanel"
                              aria-labelledby="headingOne">
                             <div class="panel-body" th:utext="${detail.value}" style="padding: 10px">
 

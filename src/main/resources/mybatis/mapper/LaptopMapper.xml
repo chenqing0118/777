@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.laptop.demo.mapper.LaptopMapper">
+
+    <select id="getRecommended" resultType="Laptop">
+        select id,name,brand,price,releaseTime,cpu,gpu,memorySize,memoryGen,memoryRate,ssd as storage,screenSize,
+               resolution,refreshRate,gamut,duration,usb,typec,thunderbolt,video,rj45,thickness,weight,pictures
+        from laptop_unify
+        <where>
+            id &lt;=4
+        </where>
+    </select>
+
+</mapper>
