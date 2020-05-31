@@ -1,6 +1,7 @@
 /**
  * main.js
  */
+var tips=[['大大大','小小小']];
 (function() {
 
 	var viewEl = document.querySelector('.view'),
@@ -119,11 +120,26 @@
 			compareItemEffectEl.className = 'compare__effect';
 
 			compareItemEffectEl.innerHTML = this.items[i].getAttribute('data-info');
+            // alert(compareItemEffectEl.querySelector('span.cpu').textContent);
 			compareItemWrapper.appendChild(compareItemEffectEl);
 
 			this.compareWrapper.insertBefore(compareItemWrapper, this.compareWrapper.childNodes[0]);
 		}
-
+        var compareList=document.querySelectorAll('div.compare__item');
+		if(parseInt(compareList[0].querySelector('span.memorySize').textContent)>parseInt(compareList[1].querySelector('span.memorySize').textContent)){
+			compareList[0].querySelector('span.memorySizeTips').textContent=tips[0][0];
+			compareList[1].querySelector('span.memorySizeTips').textContent=tips[0][1];
+		}else{
+			compareList[0].querySelector('span.memorySizeTips').textContent=tips[0][1];
+			compareList[1].querySelector('span.memorySizeTips').textContent=tips[0][0];
+		}
+		if(parseInt(compareList[0].querySelector('span.storage').textContent)>parseInt(compareList[1].querySelector('span.storage').textContent)){
+			compareList[0].querySelector('span.storageTips').textContent=tips[0][0];
+			compareList[1].querySelector('span.storageTips').textContent=tips[0][1];
+		}else{
+			compareList[0].querySelector('span.storageTips').textContent=tips[0][1];
+			compareList[1].querySelector('span.storageTips').textContent=tips[0][0];
+		}
 		setTimeout(function() {
 			// toggle compare basket
 			classie.remove(self.el, 'compare-basket--active');

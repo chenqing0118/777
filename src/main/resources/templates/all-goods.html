@@ -129,17 +129,24 @@
 
                     <span class="product__year highlight" >类型：<span th:text="${laptop.getType()}">主流轻薄本</span></span>
                     <div class="product__year extra highlight" >上市时间：<span th:text="${laptop.getReleaseTime()}">1</span>
+
+                    </div>
+                    <span class="product__year extra highlight">CPU：<span class="cpu" th:text="${laptop.getCpu()}">Intel Core i7 1065G7</span></span>
+                    <span class="product__year extra highlight">显卡：<span th:text="${laptop.getGpu()}">NVIDIA GeForce MX230</span></span>
+                    <div class="product__year extra highlight">内存大小：<span class="memorySize" th:text="${laptop.getMemorySize()}">8</span>G
                         <a target="_blank" href="https://www.baidu.com">
                             <div class="help-tip" >
-                                <span>This is the inline help tip! You can explain to your users what this section of your web app is about.</span>
+                                <span class="memorySizeTips">This is the inline help tip! You can explain to your users what this section of your web app is about.</span>
                             </div>
                         </a>
                     </div>
-                    <span class="product__year extra highlight">CPU：<span th:text="${laptop.getCpu()}">Intel Core i7 1065G7</span></span>
-                    <span class="product__year extra highlight">显卡：<span th:text="${laptop.getGpu()}">NVIDIA GeForce MX230</span></span>
-                    <span class="product__year extra highlight">内存大小：<span th:text="${laptop.getMemorySize()}">8</span>G</span>
                     <span class="product__year extra highlight">内存类型：<span th:text="${laptop.getMemoryGen()}">DDR4</span>&emsp;<span th:text="${laptop.getMemoryRate()}">DDR4</span>MHz</span>
-                    <span class="product__year extra highlight">硬盘大小：<span th:text="${laptop.getStorage()}">500</span>G</span>
+                    <div class="product__year extra highlight">硬盘大小：<span class="storage" th:text="${laptop.getStorage()}">500</span>G
+                        <a target="_blank" href="https://www.baidu.com">
+                            <div class="alert-tip" >
+                                <span class="storageTips">This is the inline help tip! You can explain to your users what this section of your web app is about.</span>
+                            </div>
+                        </a></div>
                     <span class="product__year extra highlight">屏幕尺寸：<span th:text="${laptop.getScreenSize()}">15.6</span>寸</span>
                     <span class="product__year extra highlight">分辨率：<span th:text="${laptop.getResolution()}">1920*1080</span></span>
                     <span class="product__year extra highlight">屏幕色域：<span th:text="${laptop.getGamut()}">45</span>%NTSC</span>
