@@ -1463,7 +1463,7 @@ label {
 }
 
 .about-img img {
-    width: 100%;
+    /*width: 100%;*/
     text-align: right
 }
 
@@ -1598,7 +1598,7 @@ label {
 }
 
 .our-vision-area img {
-    padding: 10px
+    padding: 10px 10px 10px 60px
 }
 
 .our-vision-area .text-content .section-title {

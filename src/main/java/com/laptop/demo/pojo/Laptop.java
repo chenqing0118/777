@@ -31,5 +31,5 @@ public class Laptop {
     private int rj45;
     private float thickness;
     private float weight;
-    private Object pictures;
+    private String pictures;
 }

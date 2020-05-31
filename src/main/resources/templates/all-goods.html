@@ -22,6 +22,8 @@
     <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/demo.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/component.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{tooltip/tooltip.css}" />
+
     <!-- Modernizr is used for flexbox fallback -->
     <script th:src="@{all_goods/js/modernizr.custom.js}"></script>
 </head>
@@ -121,11 +123,18 @@
         <!-- Products -->
         <div class="product" th:each="laptop:${laptops}">
             <div class="product__info">
-                <img class="product__image" th:src="${laptop.getPictures()[0]}" alt="Product" />
+                <img class="product__image" th:src="${laptop.getPictures()}" alt="Product" />
                 <h3 class="product__title" style="color: white" th:text="${laptop.getName()}">戴尔 灵越 5593 15(酷睿i7-1065G7/8GB/256GB/MX230)</h3>
                 <br/>
-                    <span class="product__year highlight">类型：<span th:text="${laptop.getType()}">主流轻薄本</span></span>
-                    <span class="product__year extra highlight">上市时间：<span th:text="${laptop.getReleaseTime()}">1</span></span>
+
+                    <span class="product__year highlight" >类型：<span th:text="${laptop.getType()}">主流轻薄本</span></span>
+                    <div class="product__year extra highlight" >上市时间：<span th:text="${laptop.getReleaseTime()}">1</span>
+                        <a target="_blank" href="https://www.baidu.com">
+                            <div class="help-tip" >
+                                <span>This is the inline help tip! You can explain to your users what this section of your web app is about.</span>
+                            </div>
+                        </a>
+                    </div>
                     <span class="product__year extra highlight">CPU：<span th:text="${laptop.getCpu()}">Intel Core i7 1065G7</span></span>
                     <span class="product__year extra highlight">显卡：<span th:text="${laptop.getGpu()}">NVIDIA GeForce MX230</span></span>
                     <span class="product__year extra highlight">内存大小：<span th:text="${laptop.getMemorySize()}">8</span>G</span>
@@ -200,8 +209,8 @@
 
 <script th:src="@{all_goods/js/classie.js}"></script>
 <script th:src="@{all_goods/js/main.js}"></script>
-
-
+<!--<script th:src="@{tooltip/tooltip.js}"></script>-->
+t>
 </body>
 </html>
 
