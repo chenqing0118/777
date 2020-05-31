@@ -135,32 +135,32 @@ a:hover {
 .module-banner-tab .module-banner-tab-list .module-tab-nav .on {
 	opacity: 1;
 	height: 140px;
-	background-image: -webkit-linear-gradient(left, #01c2e6 0%, #1160ff 100%);
-	background-image: -moz-linear-gradient(left, #01c2e6 0%, #1160ff 100%);
-	background-image: -moz-linear-gradient(to right, #01c2e6 0%, #1160ff 100%);
-	background-image: -o-linear-gradient(to right, #01c2e6 0%, #1160ff 100%);
-	background-image: linear-gradient(to right, #01c2e6 0%, #1160ff 100%);
+	background-image: -webkit-linear-gradient(left, #ffb8b8 0%, #fa3258 100%);
+	background-image: -moz-linear-gradient(left, #ffb8b8 0%, #fa3258 100%);
+	background-image: -moz-linear-gradient(to right, #ffb8b8 0%, #fa3258 100%);
+	background-image: -o-linear-gradient(to right, #ffb8b8 0%, #fa3258 100%);
+	background-image: linear-gradient(to right, #ffb8b8 0%, #fa3258 100%);
 	background-repeat: repeat;
 }
 .module-banner-tab .module-banner-tab-list .module-tab-nav .on .icon {
 	display: inline-block;
 }
 .module-banner-tab .module-banner-tab-list .module-tab-nav li:hover {
-	background-image: -webkit-linear-gradient(left, rgba(1, 194, 230, 0.4) 0%, rgba(17, 96, 255, 0.4) 100%);
-	background-image: -moz-linear-gradient(left, rgba(1, 194, 230, 0.4) 0%, rgba(17, 96, 255, 0.4) 100%);
-	background-image: -moz-linear-gradient(to right, rgba(1, 194, 230, 0.4) 0%, rgba(17, 96, 255, 0.4) 100%);
-	background-image: -o-linear-gradient(to right, rgba(1, 194, 230, 0.4) 0%, rgba(17, 96, 255, 0.4) 100%);
-	background-image: linear-gradient(to right, rgba(1, 194, 230, 0.4) 0%, rgba(17, 96, 255, 0.4) 100%);
+	background-image: -webkit-linear-gradient(left, rgba(255,184,184, 0.4) 0%, rgba(250,50,88, 0.4) 100%);
+	background-image: -moz-linear-gradient(left, rgba(255,184,184, 0.4) 0%, rgba(250,50,88, 0.4) 100%);
+	background-image: -moz-linear-gradient(to right, rgba(255,184,184, 0.4) 0%, rgba(250,50,88, 0.4) 100%);
+	background-image: -o-linear-gradient(to right, rgba(255,184,184, 0.4) 0%, rgba(250,50,88, 0.4) 100%);
+	background-image: linear-gradient(to right, rgba(255,184,184, 0.4) 0%, rgba(250,50,88, 0.4) 100%);
 	background-repeat: repeat;
 }
 .module-banner-tab .module-banner-tab-list .module-tab-nav .on:hover {
 	opacity: 1;
 	height: 140px;
-	background-image: -webkit-linear-gradient(left, #01c2e6 0%, #1160ff 100%);
-	background-image: -moz-linear-gradient(left, #01c2e6 0%, #1160ff 100%);
-	background-image: -moz-linear-gradient(to right, #01c2e6 0%, #1160ff 100%);
-	background-image: -o-linear-gradient(to right, #01c2e6 0%, #1160ff 100%);
-	background-image: linear-gradient(to right, #01c2e6 0%, #1160ff 100%);
+	background-image: -webkit-linear-gradient(left, #ffb8b8 0%, #fa3258 100%);
+	background-image: -moz-linear-gradient(left, #ffb8b8 0%, #fa3258 100%);
+	background-image: -moz-linear-gradient(to right, #ffb8b8 0%, #fa3258 100%);
+	background-image: -o-linear-gradient(to right, #ffb8b8 0%, #fa3258 100%);
+	background-image: linear-gradient(to right, #ffb8b8 0%, #fa3258 100%);
 	background-repeat: repeat;
 }
 .icon-warehouse01 {
