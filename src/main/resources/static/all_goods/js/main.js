@@ -133,13 +133,13 @@ var tips=[['大大大','小小小']];
 			compareList[0].querySelector('span.memorySizeTips').textContent=tips[0][1];
 			compareList[1].querySelector('span.memorySizeTips').textContent=tips[0][0];
 		}
-		if(parseInt(compareList[0].querySelector('span.storage').textContent)>parseInt(compareList[1].querySelector('span.storage').textContent)){
-			compareList[0].querySelector('span.storageTips').textContent=tips[0][0];
-			compareList[1].querySelector('span.storageTips').textContent=tips[0][1];
-		}else{
-			compareList[0].querySelector('span.storageTips').textContent=tips[0][1];
-			compareList[1].querySelector('span.storageTips').textContent=tips[0][0];
-		}
+		// if(parseInt(compareList[0].querySelector('span.storage').textContent)>parseInt(compareList[1].querySelector('span.storage').textContent)){
+		// 	compareList[0].querySelector('span.storageTips').textContent=tips[0][0];
+		// 	compareList[1].querySelector('span.storageTips').textContent=tips[0][1];
+		// }else{
+		// 	compareList[0].querySelector('span.storageTips').textContent=tips[0][1];
+		// 	compareList[1].querySelector('span.storageTips').textContent=tips[0][0];
+		// }
 		setTimeout(function() {
 			// toggle compare basket
 			classie.remove(self.el, 'compare-basket--active');
