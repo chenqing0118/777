@@ -559,7 +559,7 @@
                                     <div class="product hidden" th:each="laptop:${laptops}">
                                         <div class="product__info">
                                             <img class="product__image" th:src="${laptop.getPictures()}" alt="Product" />
-                                            <h3 class="product__title" style="color: white" th:text="${laptop.getName()}">戴尔 灵越 5593 15(酷睿i7-1065G7/8GB/256GB/MX230)</h3>
+                                            <h3 class="product__title" style="color: white;font-weight: bold;font-size: 120%" th:text="${laptop.getName()}">戴尔 灵越 5593 15(酷睿i7-1065G7/8GB/256GB/MX230)</h3>
                                             <br/>
 
                                             <div class="highlight" ><span>类型：</span><span th:text="${laptop.getType()}">主流轻薄本</span></div>
@@ -590,6 +590,7 @@
                                         <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">加入对比</span></label>
                                     </div>
 
+
                                 </section>
                             </div><!-- /view -->
                             <!-- product compare wrapper -->
@@ -598,7 +599,49 @@
                                         class="action__text action__text--invisible">Close comparison overlay</span>
                                 </button>
                             </section>
+                            <div class="selectImgDiv" id="" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                    </div>
+                                    <div class="img_title">超大的容量</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/3.png}"/>
+                                    </div>
+                                    <div class="img_title">准确的色彩</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title">丰富的接口</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title">非常持久的续航</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+
+
+
                     </li>
                 </ul>
             </div>
