@@ -1,5 +1,6 @@
 package com.laptop.demo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.laptop.demo.pojo.Brand;
 import com.laptop.demo.service.LaptopService;
 import com.laptop.demo.service.ScienceService;
@@ -29,7 +30,10 @@ public class FunctionController {
 
     @RequestMapping("/results")
     public void results(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        model.addAttribute("laptops",laptopService.getRecommend());
-        response.getWriter().write(String.valueOf(laptopService.getRecommend()));
+        String main_uses=request.getParameter("main_uses");
+        String ordinary_trait = request.getParameter("ordinary_trait");
+        System.out.println(main_uses);
+        System.out.println(ordinary_trait);
+//        response.getWriter().write(String.valueOf(laptopService.getRecommend()));
     }
 }

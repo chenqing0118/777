@@ -4,6 +4,23 @@ $(function () {
     $(".payment-wizard").children("li").not($(".active")).css("display", "none");
 });
 
+function submit_reaults(data) {
+    $.ajax({
+        url: "function/results",
+        type: "get",
+        data: data,
+        success: function (data) {
+            //根据数据，前端显示
+            console.log("最后结果显示数据")
+
+
+        },
+        error: function () {
+            console.log("error")
+        }
+    })
+}
+
 // $(window).load(function(){
 $(".done").click(function () {
     var id = $(this).parent().prev().attr("id");
@@ -28,15 +45,15 @@ $(".done").click(function () {
             console.log(new_value);
             if (id === 'game_type' && results[id] !== undefined && new_value !== results[id]) {
                 console.log("innd:", weight_li_ind, this_li_ind, newest_li_ind);
-                for (i = this_li_ind+1; i <=newest_li_ind; i++) {
-                    if(i<=Math.min(newest_li_ind, weight_li_ind-1)){
+                for (i = this_li_ind + 1; i <= newest_li_ind; i++) {
+                    if (i <= Math.min(newest_li_ind, weight_li_ind - 1)) {
                         $(".payment-wizard li:eq(" + i + ")").css("display", "none");
                         del_id = $(".payment-wizard li:eq(" + i + ")").children().children(".selectImgDiv").attr("id");
-                        if(del_id === undefined){
+                        if (del_id === undefined) {
                             del_id = "game_type";
                         }
                         delete results[del_id];
-                    }else {
+                    } else {
                         $(".payment-wizard li:eq(" + i + ").active").removeClass("active");
                         $(".payment-wizard li:eq(" + i + ").completed").removeClass("completed");
                     }
@@ -52,8 +69,7 @@ $(".done").click(function () {
                 wizard_heading.text($(this).parent().prev().children("label").data("labelOff"))
             }
         }
-    } else {
-        //选图
+    } else {//选图
         new_value = selectImgTake.submitTileIndex(id).toString();
         console.log(new_value);
         if ((id === 'main_uses' || id === 'produce_type') && results[id] !== undefined && new_value !== results[id]) {
@@ -61,15 +77,15 @@ $(".done").click(function () {
             if (id === 'main_uses') {
                 if (!(change_info === '2,1,2' || change_info === '1,2,2' || change_info === '3,1,3' || change_info === '1,3,3' || change_info === '2,3,1,2,3' || change_info === '1,2,3,2,3')) {
                     console.log("innd:", weight_li_ind, this_li_ind, newest_li_ind);
-                    for (i = this_li_ind+1; i <=newest_li_ind; i++) {
-                        if(i<=Math.min(newest_li_ind, weight_li_ind-1)){
+                    for (i = this_li_ind + 1; i <= newest_li_ind; i++) {
+                        if (i <= Math.min(newest_li_ind, weight_li_ind - 1)) {
                             $(".payment-wizard li:eq(" + i + ")").css("display", "none");
                             del_id = $(".payment-wizard li:eq(" + i + ")").children().children(".selectImgDiv").attr("id");
-                            if(del_id === undefined){
+                            if (del_id === undefined) {
                                 del_id = "game_type";
                             }
                             delete results[del_id];
-                        }else {
+                        } else {
                             $(".payment-wizard li:eq(" + i + ").active").removeClass("active");
                             $(".payment-wizard li:eq(" + i + ").completed").removeClass("completed");
                         }
@@ -179,9 +195,7 @@ $(".done").click(function () {
         console.log('a');
         if (results['price'] !== undefined) {
             //得到最后结果
-            console.log('最后结果');
-
-
+            submit_reaults(results);
 
             next_li = $("#cd-table").parent().parent("li");
         }

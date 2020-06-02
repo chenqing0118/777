@@ -22,9 +22,9 @@ var selectImgTake = {
     "initSelectEvent":function(divId,maxSelectNumber){
         $("#"+divId+" .item").on("click",function(){
             var i_display = $(this).find(".img_isCheck i").css("display");
+            var selectImgDivs = selectImgTake.getSelectImgs(divId);
             if(i_display==="none"){
                 if(maxSelectNumber!==-1 && maxSelectNumber!==1){
-                    var selectImgDivs = selectImgTake.getSelectImgs(divId);
                     if(selectImgDivs.length>=maxSelectNumber){
                         alert("最多只能选择"+maxSelectNumber+"张图片");
                         return;
@@ -37,11 +37,13 @@ var selectImgTake = {
                 $(this).find(".img_isCheck i").css("display","block");
                 $(this).attr("ischecked","true");
             }else{
-                $(this).find(".img_isCheck i").css("display","none");
-                $(this).removeAttr("ischecked");
+                if(selectImgDivs.length !== 1){
+                    $(this).find(".img_isCheck i").css("display","none");
+                    $(this).removeAttr("ischecked");
+                }
             }
 
-            selectImgTake.submitTileIndex(divId);
+            // selectImgTake.submitTileIndex(divId);
         });
     },
     "getSelectImgs":function(divId){
@@ -64,7 +66,6 @@ var selectImgTake = {
         return text;
     },
     "cancelInit":function(divId){
-        console.log('c');
         $("#"+divId+" .item").off("click");
         $(".img_isCheck i").css("display","none");
         $("#"+divId+" .item").removeAttr("ischecked");
