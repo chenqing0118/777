@@ -49,11 +49,12 @@ function change_step(this_li_ind) {
             li.css("display", "none");
             del_id = li.children().children(".selectImgDiv").attr("id");
             delete results[del_id];
+
+            $(".payment-wizard li:eq(" + i + ").completed").removeClass("completed");
         } else {
             var li_active = $(".payment-wizard li:eq(" + i + ").active");
             li_active.removeClass("active");
             li_active.children(".wizard-content").slideUp();
-            // $(".payment-wizard li:eq(" + i + ").completed").removeClass("completed");
             $(".payment-wizard li:eq(" + i + ").completed").children(".wizard-content").slideUp();
 
             $("#cd-table").parent().prev('wizard-heading').slideUp();
