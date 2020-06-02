@@ -31,9 +31,6 @@ var refreshRate=['一般刷新率，满足多数需求。','高刷新率，竞�
 		this.totalItems = 0;
 		this.items = [];
 
-		//增加滚动
-		// this.compareWrapper.addEventListener("mousewheel", MouseWheelHandler, false);
-
 		// compares items in the compare basket: opens the compare products wrapper
 		this.compareCtrl.addEventListener('click', this._compareItems.bind(this));
 		// close the compare products wrapper
@@ -136,6 +133,16 @@ var refreshRate=['一般刷新率，满足多数需求。','高刷新率，竞�
 
 			this.compareWrapper.insertBefore(compareItemWrapper, this.compareWrapper.childNodes[0]);
 		}
+
+		//高亮字段
+		var columnList = document.getElementsByClassName('column');
+		for (var i = 0; i < columnList.length;i++){
+
+			columnList[i].style.fontWeight='bold';
+			columnList[i].style.fontsize='120%';
+		}
+
+
         var compareList=document.querySelectorAll('div.compare__item');
 		if(parseInt(compareList[0].querySelector('span.memorySize').textContent)>parseInt(compareList[1].querySelector('span.memorySize').textContent)){
 			compareList[0].querySelector('span.memorySizeTips').textContent=tips[0][0];
