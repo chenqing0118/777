@@ -32,8 +32,8 @@ public class FunctionController {
     public void results(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String main_uses=request.getParameter("main_uses");
         String ordinary_trait = request.getParameter("ordinary_trait");
-        System.out.println(main_uses);
-        System.out.println(ordinary_trait);
+//        System.out.println(main_uses);
+//        System.out.println(ordinary_trait);
 //        response.getWriter().write(String.valueOf(laptopService.getRecommend()));
     }
 }

@@ -46,87 +46,13 @@
 
     <!-- 产品对比-->
     <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/demo.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/component.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{tooltip/tooltip.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/demo.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/component.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{tooltip/tooltip.css}" />
     <!-- Modernizr is used for flexbox fallback -->
     <script th:src="@{all_goods/js/modernizr.custom.js}"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        body {
-            background: #333;
-            font-size: 14px;
-            font-family: "微软雅黑"
-        }
-
-        a {
-            color: #333;
-            text-decoration: none;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .pro_more {
-            width: 800px;
-            height: auto;
-            margin: 0 auto;
-            overflow: hidden;
-            text-align: left;
-            background: #fff;
-            padding: 5px;
-        }
-
-        .pro_more ul.list {
-            overflow: hidden;
-        }
-
-        .pro_more ul.list li {
-            width: 150px;
-            height: 150px;
-            margin: 5px;
-            float: left;
-            overflow: hidden;
-        }
-
-        .pro_more ul.list li img {
-            width: 100%;
-            height: 100%;
-        }
-
-        .pro_more ul.list p {
-            text-align: center;
-            padding: 10px;
-        }
-
-        .pro_more .more {
-            overflow: hidden;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .pro_more .more a {
-            display: block;
-            width: 80px;
-            padding: 8px 0;
-            color: #fff;
-            margin: 0 auto;
-            background: #333;
-            text-align: center;
-            border-radius: 3px;
-        }
-
-        .pro_more .more a:hover {
-            text-decoration: none;
-            background: white;
-            color: black;
-        }
+        .hidden{ display: none;}
     </style>
 
 </head>
@@ -658,69 +584,38 @@
                                 <!-- Product grid -->
                                 <section class="grid">
                                     <!-- Products -->
-                                    <div class="hidden">
-                                        <div class="product" th:each="laptop:${laptops}">
-                                            <div class="product__info">
-                                                <img class="product__image" th:src="${laptop.getPictures()}"
-                                                     alt="Product"/>
-                                                <h3 class="product__title" style="color: white"
-                                                    th:text="${laptop.getName()}">戴尔 灵越 5593
-                                                    15(酷睿i7-1065G7/8GB/256GB/MX230)</h3>
-                                                <br/>
+                                    <div class="product hidden" th:each="laptop:${laptops}">
+                                        <div class="product__info">
+                                            <img class="product__image" th:src="${laptop.getPictures()}" alt="Product" />
+                                            <h3 class="product__title" style="color: white;font-weight: bold;font-size: 120%" th:text="${laptop.getName()}">戴尔 灵越 5593 15(酷睿i7-1065G7/8GB/256GB/MX230)</h3>
+                                            <br/>
 
-                                                <span class=" highlight">类型：<span
-                                                        th:text="${laptop.getType()}">主流轻薄本</span></span>
-                                                <div class=" extra highlight">上市时间：<span
-                                                        th:text="${laptop.getReleaseTime()}">1</span>
-
-                                                </div>
-                                                <span class="parameter extra highlight">CPU：<span class="cpu"
-                                                                                                  th:text="${laptop.getCpu()}">Intel Core i7 1065G7</span></span>
-                                                <span class="parameter extra highlight">显卡：<span
-                                                        th:text="${laptop.getGpu()}">NVIDIA GeForce MX230</span></span>
-                                                <div class="parameter extra highlight"><span>内存大小：</span><span
-                                                        class="memorySize"
-                                                        th:text="${laptop.getMemorySize()}">8</span><span>G</span>
-                                                    <a target="_blank" href="https://www.baidu.com">
-                                                        <div class="help-tip">
-                                                            <span class="memorySizeTips">This is the inline help tip! You can explain to your users what this section of your web app is about.</span>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <span class="parameter extra highlight">内存类型：<span
-                                                        th:text="${laptop.getMemoryGen()}">DDR4</span>&emsp;<span
-                                                        th:text="${laptop.getMemoryRate()}">DDR4</span>MHz</span>
-                                                <div class="parameter extra highlight">硬盘大小：<span class="storage"
-                                                                                                  th:text="${laptop.getStorage()}">500</span>G
-                                                </div>
-                                                <span class=" extra highlight">屏幕尺寸：<span
-                                                        th:text="${laptop.getScreenSize()}">15.6</span>寸</span>
-                                                <span class=" extra highlight">分辨率：<span
-                                                        th:text="${laptop.getResolution()}">1920*1080</span></span>
-                                                <span class=" extra highlight">屏幕色域：<span
-                                                        th:text="${laptop.getGamut()}">45</span>%NTSC</span>
-                                                <span class=" extra highlight">屏幕刷新率：<span
-                                                        th:text="${laptop.getRefreshRate()}">15.6</span>Hz</span>
-                                                <span class=" extra highlight">接口情况：USB*<span
-                                                        th:text="${laptop.getUsb()}">1</span>&emsp;Type-c*<span
-                                                        th:text="${laptop.getTypec()}">1</span>
-                &emsp;雷电*<span th:text="${laptop.getThunderbolt()}">1</span>&emsp;显示接口：<span
-                                                            th:text="${laptop.getVideo()}">1</span>&emsp;网线接口：<span
-                                                            th:text="${laptop.getRj45()}">1</span></span>
-                                                <span class=" extra highlight">重量：<span th:text="${laptop.getWeight()}">1.83</span>KG</span>
-                                                <span class=" extra highlight">厚度：<span
-                                                        th:text="${laptop.getThickness()}">19</span>mm</span>
-                                                <span class=" extra highlight">续航时间：<span
-                                                        th:text="${laptop.getDuration()}">9</span>h</span>
-                                                <span class="product__price highlight">价格：<span
-                                                        th:text="${laptop.getPrice()}">4999</span></span>
+                                            <div class="highlight" ><span>类型：</span><span th:text="${laptop.getType()}">主流轻薄本</span></div>
+                                            <div class="parameter extra highlight" ><span>上市时间：</span><span th:text="${laptop.getReleaseMonth()}">1</span></div>
+                                            <div class="parameter extra highlight"><span>CPU：</span><span class="cpu" th:text="${laptop.getCpu()}">Intel Core i7 1065G7</span></div>
+                                            <div class="parameter extra highlight"><span>显卡：</span><span th:text="${laptop.getGpu()}">NVIDIA GeForce MX230</span></div>
+                                            <div class="parameter extra highlight" ><span>内存大小：</span><span class="memorySize" th:text="${laptop.getMemorySize()}">8</span><span>G</span>
+                                                <a target="_blank" href="/blog-details?hardware=memory">
+                                                    <div class="help-tip">
+                                                        <span class="memorySizeTips">This is the inline help tip! You can explain to your users what this section of your web app is about.</span>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <!--            <button class="action action&#45;&#45;button action&#45;&#45;buy"><i class="fa fa-shopping-cart"></i><span class="action__text"><a src="https://product.pconline.com.cn/notebook/dell/1276107.html">购买通道</a></span></button>-->
-                                            <label class="action action--compare-add"><input class="check-hidden"
-                                                                                             type="checkbox"/><i
-                                                    class="fa fa-plus"></i><i class="fa fa-check"></i><span
-                                                    class="action__text action__text--invisible">加入对比</span></label>
+                                            <div class="parameter extra highlight"><span>内存类型：</span><span th:text="${laptop.getMemoryGen()}">DDR4</span><span>&emsp;</span><span th:text="${laptop.getMemoryRate()}">DDR4</span><span>MHz</span></div>
+                                            <div class="parameter extra highlight"><span>硬盘大小：</span><span class="storage" th:text="${laptop.getStorage()}">500</span><span>G</span></div>
+                                            <div class="parameter extra highlight"><span>屏幕尺寸：</span><span th:text="${laptop.getScreenSize()}">15.6</span><span>寸</span></div>
+                                            <div class="parameter extra highlight"><span>分辨率：</span><span th:text="${laptop.getResolution()}">1920*1080</span></div>
+                                            <div class="parameter extra highlight"><span>屏幕色域：</span><span th:text="${laptop.getGamut()}">45</span><span>%NTSC</span></div>
+                                            <div class="parameter extra highlight"><span>屏幕刷新率：</span><span th:text="${laptop.getRefreshRate()}">15.6</span><span>Hz</span></div>
+                                            <div class="parameter extra highlight"><span>接口情况：USB*</span><span th:text="${laptop.getUsb()}">1</span><span>&emsp;Type-c*</span><span th:text="${laptop.getTypec()}">1</span>
+                                                &emsp;<span>&emsp;雷电*</span><span th:text="${laptop.getThunderbolt()}">1</span><span>&emsp;显示接口：</span><span th:text="${laptop.getVideo()}">1</span><span>&emsp;网线接口：</span><span th:text="${laptop.getRj45()}">1</span></div>
+                                            <div class="parameter extra highlight"><span>重量：</span><span th:text="${laptop.getWeight()}">1.83</span><span>KG</span></div>
+                                            <div class="parameter extra highlight"><span>厚度：</span><span th:text="${laptop.getThickness()}">19</span><span>mm</span></div>
+                                            <div class="parameter extra highlight"><span>续航时间：</span><span th:text="${laptop.getDuration()}">9</span><span>h</span></div>
+                                            <div class="parameter product__price highlight"><span>价格：</span><span th:text="${laptop.getPrice()}">4999</span></div>
                                         </div>
+                                        <!--            <button class="action action&#45;&#45;button action&#45;&#45;buy"><i class="fa fa-shopping-cart"></i><span class="action__text"><a src="https://product.pconline.com.cn/notebook/dell/1276107.html">购买通道</a></span></button>-->
+                                        <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">加入对比</span></label>
                                     </div>
 
 
@@ -732,12 +627,47 @@
                                         class="action__text action__text--invisible">Close comparison overlay</span>
                                 </button>
                             </section>
-
-                            <div class="site-btn mb-5">
-                                <a class="skill-btn"><a href="javascript:;" onClick="pro_more.loadMore();">加载更多</a><i
-                                        class="fas fa-arrow-right"></i></a>
+                            <div class="selectImgDiv" id="" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                    </div>
+                                    <div class="img_title">超大的容量</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/3.png}"/>
+                                    </div>
+                                    <div class="img_title">准确的色彩</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title">丰富的接口</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{select_img/images/4.png}"/>
+                                    </div>
+                                    <div class="img_title">非常持久的续航</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
+
 
 
                     </li>
@@ -1021,43 +951,68 @@
 <script th:src="@{all_goods/js/main.js}"></script>
 
 <!--加载产品-->
-<script src="http://www.pro_more.com/jquery/jquery-1.10.2.js"></script>
 <script>
-    var _content = []; //临时存储div.products循环内容
-    var pro_more = {
-        _default: 12, //默认显示产品个数
-        _loading: 4,  //每次点击按钮后加载的个数
-        init: function () {
-            var lis = $(".pro_more .hidden .product");
-            $(".pro_more ul.list").html("");
-            for (var n = 0; n < pro_more._default; n++) {
-                lis.eq(n).appendTo(".pro_more ul.list");
-            }
-            $(".pro_more ul.list img").each(function () {
-                $(this).attr('src', $(this).attr('realSrc'));
-            })
-            for (var i = pro_more._default; i < lis.length; i++) {
-                _content.push(lis.eq(i));
-            }
-            $(".pro_more .hidden").html("");
-        },
-        loadMore: function () {
-            var mLis = $(".pro_more ul.list li").length;
-            for (var i = 0; i < pro_more._loading; i++) {
-                var target = _content.shift();
-                if (!target) {
-                    $('.pro_more .more').html("<p>全部加载完毕...</p>");
-                    break;
-                }
-                $(".pro_more ul.list").append(target);
-                $(".pro_more ul.list img").eq(mLis + i).each(function () {
-                    $(this).attr('src', $(this).attr('realSrc'));
-                });
-            }
+    $(function () {
+
+        /*初始化*/
+        var counter = 0; /*计数器*/
+        var itemStart = 0; /*offset*/
+        var itemSize = 4; /*size*/
+
+        /*首次加载*/
+        getData(itemStart, itemSize);
+
+        /*监听加载更多*/
+        $(document).on('click', '#more', function () {
+            counter++;
+            itemStart = counter * itemSize;
+
+            getData(itemStart, itemSize);
+        });
+    });
+
+    function getData(offset, size) {
+        var products = document.getElementsByClassName("product");
+        var sum = products.length;
+        console.log('hello')
+        console.log(products);
+        console.log(sum);
+
+        if(offset!=0){
+            var elem=document.getElementById('more');
+            elem.parentNode.removeChild(elem);
         }
+        /****业务逻辑块：实现拼接html内容并append到页面*********/
+
+        //console.log(offset , size, sum);
+
+        /*如果剩下的记录数不够一行，就让一行取剩下的记录数
+        * 例如一行是5，只剩2条，则只取2条
+        *
+
+        */
+        if (sum - offset < size) {
+            size = sum - offset;
+        }
+
+        /*使用for循环模拟SQL里的limit(offset,size)*/
+        for (var i = offset; i < (offset + size); i++) {
+            products[i].setAttribute('id',i);
+            products[i].classList.remove("hidden");
+        }
+        last_id = offset+size-1;
+        $('#'+last_id).after(' <div class="site-btn mb-5" id="more"><a class="skill-btn" id="more-a">加载更多</a></div>');
+
+        /*隐藏more按钮*/
+
+        if ((offset + size) >= sum) {
+
+            $("#more-a").text('推荐完毕');
+        }
+
     }
-    pro_more.init();
 </script>
+
 </body>
 </html>
 

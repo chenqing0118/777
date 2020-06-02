@@ -2,6 +2,17 @@
  * main.js
  */
 var tips=[['大大大','小小小']];
+var Level=[['性能相对较弱，','性能相对较强，'],['容量相对小，','容量相对大，'],['低色域屏幕，','高色域屏幕，']];
+var cpu=[['满足办公影音需求。','可以胜任更繁重的工作。'],['可以满足多数游戏。','游戏更加流畅。'],['基本满足生产工具需求。','作为生产工具可节约更多时间。']];
+var gpu=[['满足办公影音需求。','可以满足一些国民游戏。'],['可以满足一些国民游戏。<1650maxq','多数游戏中低特效。<=1660ti','游戏基本无限制。>=2060maxq'],['不会有严重影响。','支持显卡加速的计算（人工智能，渲染）节约部分时间']];
+var storageLevel=['容量相对小，','容量相对大，'];
+var memorySize=[['满足办公影音需求','可以同时开启更多软件。'],['可以满足多数游戏。=16','游戏无压力。'],['作为生产工具必备容量。=16','作为生产工具多多益善。']];
+var memoryRate=['频率相对低，可以满足需求。','频率相对高，对少部分游戏有提升效果。'];
+var storage=[['不适合存放大量资料。<=256','存放更多资料和软件。'],['游戏玩家基础容量=512','可存放多款大型游戏。'],['生产工具基础容量=512','安装更多软件，保存更多项目文件，多多益善。']];
+var gamutLevel=['低色域屏幕，','高色域屏幕，'];
+var gamut=[['不会影响文字办公和网页浏览。','更好的观影体验。'],['游戏画面展现一般。','更真实的游戏画面体验。'],['不会影响代码工作。','图像工作者必备。']];
+var refreshRate=['一般刷新率，满足多数需求。=60','高刷新率，竞技游戏更加连贯。>100'];
+
 (function() {
 
 	var viewEl = document.querySelector('.view'),
@@ -19,9 +30,6 @@ var tips=[['大大大','小小小']];
 		this.itemsAllowed = 2;
 		this.totalItems = 0;
 		this.items = [];
-
-		//增加滚动
-		// this.compareWrapper.addEventListener("mousewheel", MouseWheelHandler, false);
 
 		// compares items in the compare basket: opens the compare products wrapper
 		this.compareCtrl.addEventListener('click', this._compareItems.bind(this));
@@ -125,6 +133,16 @@ var tips=[['大大大','小小小']];
 
 			this.compareWrapper.insertBefore(compareItemWrapper, this.compareWrapper.childNodes[0]);
 		}
+
+		//高亮字段
+		var columnList = document.getElementsByClassName('column');
+		for (var i = 0; i < columnList.length;i++){
+
+			columnList[i].style.fontWeight='bold';
+			columnList[i].style.fontsize='120%';
+		}
+
+
         var compareList=document.querySelectorAll('div.compare__item');
 		if(parseInt(compareList[0].querySelector('span.memorySize').textContent)>parseInt(compareList[1].querySelector('span.memorySize').textContent)){
 			compareList[0].querySelector('span.memorySizeTips').textContent=tips[0][0];
