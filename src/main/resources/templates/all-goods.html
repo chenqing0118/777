@@ -127,31 +127,29 @@
                 <h3 class="product__title" style="color: white" th:text="${laptop.getName()}">戴尔 灵越 5593 15(酷睿i7-1065G7/8GB/256GB/MX230)</h3>
                 <br/>
 
-                    <span class=" highlight" >类型：<span th:text="${laptop.getType()}">主流轻薄本</span></span>
-                    <div class=" extra highlight" >上市时间：<span th:text="${laptop.getReleaseTime()}">1</span>
-
-                    </div>
-                    <span class="parameter extra highlight">CPU：<span class="cpu" th:text="${laptop.getCpu()}">Intel Core i7 1065G7</span></span>
-                    <span class="parameter extra highlight">显卡：<span th:text="${laptop.getGpu()}">NVIDIA GeForce MX230</span></span>
+                    <div class="highlight" ><span>类型：</span><span th:text="${laptop.getType()}">主流轻薄本</span></div>
+                    <div class="parameter extra highlight" ><span>上市时间：</span><span th:text="${laptop.getReleaseTime()}">1</span></div>
+                    <div class="parameter extra highlight"><span>CPU：</span><span class="cpu" th:text="${laptop.getCpu()}">Intel Core i7 1065G7</span></div>
+                    <div class="parameter extra highlight"><span>显卡：</span><span th:text="${laptop.getGpu()}">NVIDIA GeForce MX230</span></div>
                     <div class="parameter extra highlight" ><span>内存大小：</span><span class="memorySize" th:text="${laptop.getMemorySize()}">8</span><span>G</span>
-                        <a target="_blank" href="https://www.baidu.com">
+                        <a target="_blank" href="/blog-details?hardware=memory">
                             <div class="help-tip">
                                 <span class="memorySizeTips">This is the inline help tip! You can explain to your users what this section of your web app is about.</span>
                             </div>
                         </a>
                     </div>
-                    <span class="parameter extra highlight">内存类型：<span th:text="${laptop.getMemoryGen()}">DDR4</span>&emsp;<span th:text="${laptop.getMemoryRate()}">DDR4</span>MHz</span>
-                    <div class="parameter extra highlight">硬盘大小：<span class="storage" th:text="${laptop.getStorage()}">500</span>G</div>
-                    <span class=" extra highlight">屏幕尺寸：<span th:text="${laptop.getScreenSize()}">15.6</span>寸</span>
-                    <span class=" extra highlight">分辨率：<span th:text="${laptop.getResolution()}">1920*1080</span></span>
-                    <span class=" extra highlight">屏幕色域：<span th:text="${laptop.getGamut()}">45</span>%NTSC</span>
-                    <span class=" extra highlight">屏幕刷新率：<span th:text="${laptop.getRefreshRate()}">15.6</span>Hz</span>
-                    <span class=" extra highlight">接口情况：USB*<span th:text="${laptop.getUsb()}">1</span>&emsp;Type-c*<span th:text="${laptop.getTypec()}">1</span>
-                &emsp;雷电*<span th:text="${laptop.getThunderbolt()}">1</span>&emsp;显示接口：<span th:text="${laptop.getVideo()}">1</span>&emsp;网线接口：<span th:text="${laptop.getRj45()}">1</span></span>
-                    <span class=" extra highlight">重量：<span th:text="${laptop.getWeight()}">1.83</span>KG</span>
-                    <span class=" extra highlight">厚度：<span th:text="${laptop.getThickness()}">19</span>mm</span>
-                    <span class=" extra highlight">续航时间：<span th:text="${laptop.getDuration()}">9</span>h</span>
-                    <span class="product__price highlight">价格：<span th:text="${laptop.getPrice()}">4999</span></span>
+                <div class="parameter extra highlight"><span>内存类型：</span><span th:text="${laptop.getMemoryGen()}">DDR4</span><span>&emsp;</span><span th:text="${laptop.getMemoryRate()}">DDR4</span><span>MHz</span></div>
+                    <div class="parameter extra highlight"><span>硬盘大小：</span><span class="storage" th:text="${laptop.getStorage()}">500</span><span>G</span></div>
+                    <div class="parameter extra highlight"><span>屏幕尺寸：</span><span th:text="${laptop.getScreenSize()}">15.6</span><span>寸</span></div>
+                    <div class="parameter extra highlight"><span>分辨率：</span><span th:text="${laptop.getResolution()}">1920*1080</span></div>
+                <div class="parameter extra highlight"><span>屏幕色域：</span><span th:text="${laptop.getGamut()}">45</span><span>%NTSC</span></div>
+                    <div class="parameter extra highlight"><span>屏幕刷新率：</span><span th:text="${laptop.getRefreshRate()}">15.6</span><span>Hz</span></div>
+                    <div class="parameter extra highlight"><span>接口情况：USB*</span><span th:text="${laptop.getUsb()}">1</span><span>&emsp;Type-c*</span><span th:text="${laptop.getTypec()}">1</span>
+                &emsp;<span>&emsp;雷电*</span><span th:text="${laptop.getThunderbolt()}">1</span><span>&emsp;显示接口：</span><span th:text="${laptop.getVideo()}">1</span><span>&emsp;网线接口：</span><span th:text="${laptop.getRj45()}">1</span></div>
+                    <div class="parameter extra highlight"><span>重量：</span><span th:text="${laptop.getWeight()}">1.83</span><span>KG</span></div>
+                    <div class="parameter extra highlight"><span>厚度：</span><span th:text="${laptop.getThickness()}">19</span><span>mm</span></div>
+                    <div class="parameter extra highlight"><span>续航时间：</span><span th:text="${laptop.getDuration()}">9</span><span>h</span></div>
+                    <div class="parameter product__price highlight"><span>价格：</span><span th:text="${laptop.getPrice()}">4999</span></div>
             </div>
 <!--            <button class="action action&#45;&#45;button action&#45;&#45;buy"><i class="fa fa-shopping-cart"></i><span class="action__text"><a src="https://product.pconline.com.cn/notebook/dell/1276107.html">购买通道</a></span></button>-->
             <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">加入对比</span></label>
