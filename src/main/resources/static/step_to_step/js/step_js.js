@@ -27,52 +27,20 @@ $(".done").click(function () {
 
     var new_value;
     var change_info;
-    var weight_li_ind = $("#weight_type").parent().parent().parent("li").index();
+    var weight_li_ind = $("#weight_type").parent().parent("li").index();
     var this_li_ind = $(this).parent().parent().parent("li").index();
     var newest_li_ind = $('.payment-wizard li.jump-here').index();
     var i;
     var del_id;
     var wizard_heading = $(this).parent().parent().prev().children('span');
     if (id === undefined) {
-        id = $(this).parent().prev().children("input").attr("id");
-        if (id === undefined) {
-            //价格
-            results['price'] = [$('.bxyc').attr('data-leftNum'), $('.bxyc').attr('data-rightNum')].toString();
-            wizard_heading.text($('.bxyc').text())
-        } else {
-            //开关
-            new_value = $("#" + id).val();
-            console.log(new_value);
-            if (id === 'game_type' && results[id] !== undefined && new_value !== results[id]) {
-                console.log("innd:", weight_li_ind, this_li_ind, newest_li_ind);
-                for (i = this_li_ind + 1; i <= newest_li_ind; i++) {
-                    if (i <= Math.min(newest_li_ind, weight_li_ind - 1)) {
-                        $(".payment-wizard li:eq(" + i + ")").css("display", "none");
-                        del_id = $(".payment-wizard li:eq(" + i + ")").children().children(".selectImgDiv").attr("id");
-                        if (del_id === undefined) {
-                            del_id = "game_type";
-                        }
-                        delete results[del_id];
-                    } else {
-                        $(".payment-wizard li:eq(" + i + ").active").removeClass("active");
-                        $(".payment-wizard li:eq(" + i + ").completed").removeClass("completed");
-                    }
-                }
-                $('.payment-wizard li.jump-here').removeClass("jump-here");
-            }
-            results[id] = $("#" + id).val();
-
-            if ($("#" + id).val() === 'on') {
-                wizard_heading.text($(this).parent().prev().children("label").data("labelOn"))
-            }
-            if ($("#" + id).val() === 'off') {
-                wizard_heading.text($(this).parent().prev().children("label").data("labelOff"))
-            }
-        }
+        // 价格
+        results['price'] = [$('.bxyc').attr('data-leftNum'), $('.bxyc').attr('data-rightNum')].toString();
+        wizard_heading.text($('.bxyc').text())
     } else {//选图
         new_value = selectImgTake.submitTileIndex(id).toString();
         console.log(new_value);
-        if ((id === 'main_uses' || id === 'produce_type') && results[id] !== undefined && new_value !== results[id]) {
+        if ((id === 'main_uses' || id === 'produce_type' || id === 'game_type') && results[id] !== undefined && new_value !== results[id]) {
             change_info = [results[id], new_value].toString();
             if (id === 'main_uses') {
                 if (!(change_info === '2,1,2' || change_info === '1,2,2' || change_info === '3,1,3' || change_info === '1,3,3' || change_info === '2,3,1,2,3' || change_info === '1,2,3,2,3')) {
@@ -81,9 +49,6 @@ $(".done").click(function () {
                         if (i <= Math.min(newest_li_ind, weight_li_ind - 1)) {
                             $(".payment-wizard li:eq(" + i + ")").css("display", "none");
                             del_id = $(".payment-wizard li:eq(" + i + ")").children().children(".selectImgDiv").attr("id");
-                            if (del_id === undefined) {
-                                del_id = "game_type";
-                            }
                             delete results[del_id];
                         } else {
                             $(".payment-wizard li:eq(" + i + ").active").removeClass("active");
@@ -93,6 +58,25 @@ $(".done").click(function () {
                     $('.payment-wizard li.jump-here').removeClass("jump-here");
                 }
                 results[id] = new_value;
+            }
+            if (id==='game_type'){
+                console.log("innd:", weight_li_ind, this_li_ind, newest_li_ind);
+                for (i = this_li_ind + 1; i <= newest_li_ind; i++) {
+                    if (i <= Math.min(newest_li_ind, weight_li_ind - 1)) {
+                        $(".payment-wizard li:eq(" + i + ")").css("display", "none");
+                        del_id = $(".payment-wizard li:eq(" + i + ")").children().children(".selectImgDiv").attr("id");
+                        delete results[del_id];
+                    } else {
+                        $(".payment-wizard li:eq(" + i + ").active").removeClass("active");
+                        $(".payment-wizard li:eq(" + i + ").completed").removeClass("completed");
+                    }
+                }
+                $('.payment-wizard li.jump-here').removeClass("jump-here");
+            }
+            if (id=== 'produce_type'){
+                if(new_value === '1'){
+                    console.log("更新生产方式")
+                }
             }
         } else {
             results[id] = new_value;
@@ -109,22 +93,22 @@ $(".done").click(function () {
         next_li = $("#ordinary_trait").parent().parent("li");
         if (results['ordinary_trait'] !== undefined) {
             // step_ul.append(step_ul['weight_type']);
-            next_li = $("#weight_type").parent().parent().parent("li");
+            next_li = $("#weight_type").parent().parent("li");
         }
     }
     if (results['main_uses'] === '2' || results['main_uses'] === '1,2') {
         // step_ul.append(step_ul['game_type']);
-        next_li = $("#game_type").parent().parent().parent("li");
+        next_li = $("#game_type").parent().parent("li");
         if (results['game_type'] !== undefined) {
-            if (results['game_type'] === 'on') {
+            if (results['game_type'] === '1') {
                 // step_ul.append(step_ul['ordinary_trait']);
                 next_li = $("#ordinary_trait").parent().parent("li");
                 if (results['ordinary_trait'] !== undefined) {
                     // step_ul.append(step_ul['weight_type']);
-                    next_li = $("#weight_type").parent().parent().parent("li");
+                    next_li = $("#weight_type").parent().parent("li");
                 }
             }
-            if (results['game_type'] === 'off') {
+            if (results['game_type'] === '2') {
                 // step_ul.append(step_ul['game_example']);
                 next_li = $("#game_example").parent().parent("li");
                 if (results['game_example'] !== undefined) {
@@ -132,7 +116,7 @@ $(".done").click(function () {
                     next_li = $("#game_vision").parent().parent("li");
                     if (results['game_vision'] !== undefined) {
                         // step_ul.append(step_ul['weight_type']);
-                        next_li = $("#weight_type").parent().parent().parent("li");
+                        next_li = $("#weight_type").parent().parent("li");
                     }
                 }
             }
@@ -146,30 +130,30 @@ $(".done").click(function () {
                 // step_ul.append(step_ul['produce_type']);
                 next_li = $("#ordinary_trait_1").parent().parent("li");
                 if (results['ordinary_trait_1'] !== undefined) {
-                    next_li = $("#weight_type").parent().parent().parent("li");
+                    next_li = $("#weight_type").parent().parent("li");
                 }
             } else {
-                next_li = $("#weight_type").parent().parent().parent("li");
+                next_li = $("#weight_type").parent().parent("li");
             }
         }
     }
     if (results['main_uses'] === '2,3' || results['main_uses'] === '1,2,3') {
-        next_li = $("#game_type").parent().parent().parent("li");
+        next_li = $("#game_type").parent().parent("li");
         if (results['game_type'] !== undefined) {
-            if (results['game_type'] === 'on') {
+            if (results['game_type'] === '1') {
                 next_li = $("#produce_type").parent().parent("li");
                 if (results['produce_type'] !== undefined) {
                     if (results['produce_type'] === '1') {
                         next_li = $("#ordinary_trait_1").parent().parent("li");
                         if (results['ordinary_trait_1'] !== undefined) {
-                            next_li = $("#weight_type").parent().parent().parent("li");
+                            next_li = $("#weight_type").parent().parent("li");
                         }
                     } else {
-                        next_li = $("#weight_type").parent().parent().parent("li");
+                        next_li = $("#weight_type").parent().parent("li");
                     }
                 }
             }
-            if (results['game_type'] === 'off') {
+            if (results['game_type'] === '2') {
                 next_li = $("#game_example").parent().parent("li");
                 if (results['game_example'] !== undefined) {
                     next_li = $("#game_vision").parent().parent("li");
@@ -179,10 +163,10 @@ $(".done").click(function () {
                             if (results['produce_type'] === '1') {
                                 next_li = $("#ordinary_trait_1").parent().parent("li");
                                 if (results['ordinary_trait_1'] !== undefined) {
-                                    next_li = $("#weight_type").parent().parent().parent("li");
+                                    next_li = $("#weight_type").parent().parent("li");
                                 }
                             } else {
-                                next_li = $("#weight_type").parent().parent().parent("li");
+                                next_li = $("#weight_type").parent().parent("li");
                             }
                         }
                     }
