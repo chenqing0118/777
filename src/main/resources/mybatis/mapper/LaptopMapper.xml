@@ -14,7 +14,7 @@
                releaseTime &gt;=1551369600
                and
                id &gt;=((select max(id) from laptop_unify)-(select min(id) from laptop_unify))*RAND()+(select min(id) from laptop_unify)
-        </where> limit 4
+        </where> limit 12
     </select>
 
 </mapper>
