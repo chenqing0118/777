@@ -120,7 +120,7 @@ var refreshRate=['一般刷新率，满足多数需求。=60','高刷新率，�
 			self.compareWrapper.removeChild(item);
 		});
 
-		for(var i = 0; i < this.totalItems; ++i) {
+		for( i = 0; i < this.totalItems; ++i) {
 			var compareItemWrapper = document.createElement('div');
 			compareItemWrapper.className = 'compare__item';
 
@@ -136,7 +136,7 @@ var refreshRate=['一般刷新率，满足多数需求。=60','高刷新率，�
 
 		//高亮字段
 		var columnList = document.getElementsByClassName('column');
-		for (var i = 0; i < columnList.length;i++){
+		for ( i = 0; i < columnList.length;i++){
 
 			columnList[i].style.fontWeight='bold';
 			columnList[i].style.fontsize='120%';

@@ -17,8 +17,8 @@ public class Laptop {
     private String cpu;
     private int cores;
     private int threads;
-    private int cpuClock;
-    private int cpuTurbo;
+    private float cpuClock;
+    private float cpuTurbo;
     private int singleMark;
     private int multiMark;
     private int cpuOutdated;

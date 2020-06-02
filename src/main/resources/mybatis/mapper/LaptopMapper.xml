@@ -6,13 +6,13 @@
 <mapper namespace="com.laptop.demo.mapper.LaptopMapper">
 
     <select id="getRecommended" resultType="Laptop">
-        select id,name,type,price,releaseTime,cpu,gpu,memorySize,memoryGen,memoryRate,ssd as storage,screenSize,
+        select id,name,type,price,releaseTime,cpu,cores,threads,cpuClock,cpuTurbo,singleMark,multiMark,cpuOutdated,gpu,gpuMark,gpuOutdated,memorySize,memoryGen,memoryRate,storage,screenSize,
                resolution,refreshRate,gamut,duration,usb,typec,thunderbolt,video,rj45,thickness,weight,pictures
-        from laptop_unify
+        from laptop_view
         <where>
                releaseTime &gt;=1551369600
                and
-               id &gt;=((select max(id) from laptop_unify)-(select min(id) from laptop_unify))*RAND()+(select min(id) from laptop_unify)
+               id &gt;=((select max(id) from laptop_view)-(select min(id) from laptop_view))*RAND()+(select min(id) from laptop_view)
         </where> limit 12
     </select>
 
