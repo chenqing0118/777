@@ -16,9 +16,7 @@ public class LaptopServiceImpl implements LaptopService {
     @Override
     public List<Laptop> getRecommend(){
         List<Laptop> laptops =laptopMapper.getRecommended();
-        for (Laptop laptop:laptops){
-            laptop.setVideo(JSON.parseArray((String) laptop.getVideo(),String.class));
-        }
+        System.out.println(JSON.toJSONString(laptops));
 //        System.out.println(laptops);
         return laptops;
     }

@@ -566,7 +566,7 @@
                                 <!-- Product grid -->
                                 <section class="grid">
                                     <!-- Products -->
-                                    <div class="hidden">
+<!--                                    <div class="hidden">-->
                                     <div class="product" th:each="laptop:${laptops}">
                                         <div class="product__info">
                                             <img class="product__image" th:src="${laptop.getPictures()}" alt="Product" />
@@ -602,7 +602,7 @@
                                         <!--            <button class="action action&#45;&#45;button action&#45;&#45;buy"><i class="fa fa-shopping-cart"></i><span class="action__text"><a src="https://product.pconline.com.cn/notebook/dell/1276107.html">购买通道</a></span></button>-->
                                         <label class="action action--compare-add"><input class="check-hidden" type="checkbox" /><i class="fa fa-plus"></i><i class="fa fa-check"></i><span class="action__text action__text--invisible">加入对比</span></label>
                                     </div>
-                                    </div>
+<!--                                    </div>-->
 
 
                                 </section>
@@ -937,8 +937,8 @@
 <script th:src="@{all_goods/js/main.js}"></script>
 
 <!--加载产品-->
-<script src="http://www.pro_more.com/jquery/jquery-1.10.2.js"></script>
 <script>
+
     var _content = []; //临时存储div.products循环内容
     var pro_more = {
         _default:12, //默认显示产品个数

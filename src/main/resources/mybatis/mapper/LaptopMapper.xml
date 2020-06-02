@@ -10,7 +10,6 @@
                resolution,refreshRate,gamut,duration,usb,typec,thunderbolt,video,rj45,thickness,weight,pictures
         from laptop_unify
         <where>
---             id &lt;=4
                releaseTime &gt;=1551369600
                and
                id &gt;=((select max(id) from laptop_unify)-(select min(id) from laptop_unify))*RAND()+(select min(id) from laptop_unify)

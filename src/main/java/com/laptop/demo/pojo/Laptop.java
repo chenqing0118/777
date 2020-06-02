@@ -27,7 +27,7 @@ public class Laptop {
     private int usb;
     private int typec;
     private int thunderbolt;
-    private Object video;
+    private String video;
     private int rj45;
     private float thickness;
     private float weight;
