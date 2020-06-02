@@ -13,8 +13,18 @@ public class Laptop {
     private String type;
     private int price;
     private long releaseTime;
+    private String releaseMonth;
     private String cpu;
+    private int cores;
+    private int threads;
+    private int cpuClock;
+    private int cpuTurbo;
+    private int singleMark;
+    private int multiMark;
+    private int cpuOutdated;
     private String gpu;
+    private int gpuMark;
+    private int gpuOutdated;
     private int memorySize;
     private String memoryGen;
     private int memoryRate;
