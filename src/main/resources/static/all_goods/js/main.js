@@ -22,6 +22,7 @@ var refreshRate=['一般刷新率，满足多数需求。=60','高刷新率，�
 
 	// the compare basket
 	function CompareBasket() {
+		console.log('compare');
 		this.el = document.querySelector('.compare-basket');
 		this.compareCtrl = this.el.querySelector('.action--compare');
 		this.compareWrapper = document.querySelector('.compare');

@@ -645,71 +645,9 @@
 
 <script th:src="@{rangeslider/js/ion.rangeSlider.js}"></script>
 <script th:src="@{rangeslider/js/index.js}"></script>
+
 <script th:src="@{all_goods/js/classie.js}"></script>
 <script th:src="@{all_goods/js/main.js}"></script>
-
-<!--加载产品-->
-<script>
-    $(function () {
-
-        /*初始化*/
-        var counter = 0; /*计数器*/
-        var itemStart = 0; /*offset*/
-        var itemSize = 4; /*size*/
-
-        /*首次加载*/
-        getData(itemStart, itemSize);
-
-        /*监听加载更多*/
-        $(document).on('click', '#more', function () {
-            counter++;
-            itemStart = counter * itemSize;
-
-            getData(itemStart, itemSize);
-        });
-    });
-
-    function getData(offset, size) {
-        var products = document.getElementsByClassName("product");
-        var sum = products.length;
-        console.log('hello')
-        console.log(products);
-        console.log(sum);
-
-        if(offset!=0){
-            var elem=document.getElementById('more');
-            elem.parentNode.removeChild(elem);
-        }
-        /****业务逻辑块：实现拼接html内容并append到页面*********/
-
-        //console.log(offset , size, sum);
-
-        /*如果剩下的记录数不够一行，就让一行取剩下的记录数
-        * 例如一行是5，只剩2条，则只取2条
-        *
-
-        */
-        if (sum - offset < size) {
-            size = sum - offset;
-        }
-
-        /*使用for循环模拟SQL里的limit(offset,size)*/
-        for (var i = offset; i < (offset + size); i++) {
-            products[i].setAttribute('id',i);
-            products[i].classList.remove("hidden");
-        }
-        last_id = offset+size-1;
-        $('#'+last_id).after(' <div class="site-btn mb-5" id="more"><a class="skill-btn" id="more-a">加载更多</a></div>');
-
-        /*隐藏more按钮*/
-
-        if ((offset + size) >= sum) {
-
-            $("#more-a").text('推荐完毕');
-        }
-
-    }
-</script>
 
 </body>
 </html>
