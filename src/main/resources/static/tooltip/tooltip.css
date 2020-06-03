@@ -82,7 +82,7 @@
 	line-height: 26px;
 	cursor:pointer;
 	float: left;
-	margin-right: 1em;
+	margin-left: 1em;
 }
 
 .alert-tip:before{

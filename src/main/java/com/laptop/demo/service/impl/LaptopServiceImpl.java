@@ -7,6 +7,8 @@ import com.laptop.demo.service.LaptopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service("LaptopService")
@@ -73,12 +75,14 @@ public class LaptopServiceImpl implements LaptopService {
 
 
         List<Laptop> laptops = laptopMapper.getRecommended(params);
-        for (Laptop laptop : laptops) {
-            String a = (String) laptop.getVideo();
-            if (a.startsWith("[")) {
-                laptop.setVideo(JSON.parseArray((String) laptop.getVideo(), String.class));
-            }
-        }
+
+        SimpleDateFormat format =  new SimpleDateFormat("yyyy年MM月");
+//        System.out.println(JSON.toJSONString(laptops));
+       for (Laptop laptop :laptops){
+//           System.out.println(laptop.getReleaseTime());
+//           System.out.println(format.format(new Date(laptop.getReleaseTime()*1000)));
+           laptop.setReleaseMonth(format.format(laptop.getReleaseTime()*1000));
+       }
         System.out.println(laptops);
         return laptops;
     }

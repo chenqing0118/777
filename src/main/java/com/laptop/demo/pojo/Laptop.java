@@ -13,8 +13,18 @@ public class Laptop {
     private String type;
     private int price;
     private long releaseTime;
+    private String releaseMonth;
     private String cpu;
+    private int cores;
+    private int threads;
+    private float cpuClock;
+    private float cpuTurbo;
+    private int singleMark;
+    private int multiMark;
+    private int cpuOutdated;
     private String gpu;
+    private int gpuMark;
+    private int gpuOutdated;
     private int memorySize;
     private String memoryGen;
     private int memoryRate;
@@ -27,7 +37,7 @@ public class Laptop {
     private int usb;
     private int typec;
     private int thunderbolt;
-    private Object video;
+    private String video;
     private int rj45;
     private float thickness;
     private float weight;

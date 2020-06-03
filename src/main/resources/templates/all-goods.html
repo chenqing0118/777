@@ -128,9 +128,36 @@
                 <br/>
 
                     <div class="highlight" ><span>类型：</span><span th:text="${laptop.getType()}">主流轻薄本</span></div>
-                    <div class="parameter extra highlight" ><span>上市时间：</span><span th:text="${laptop.getReleaseTime()}">1</span></div>
-                    <div class="parameter extra highlight"><span>CPU：</span><span class="cpu" th:text="${laptop.getCpu()}">Intel Core i7 1065G7</span></div>
-                    <div class="parameter extra highlight"><span>显卡：</span><span th:text="${laptop.getGpu()}">NVIDIA GeForce MX230</span></div>
+                    <div class="parameter extra highlight" ><span>上市时间：</span><span th:text="${laptop.getReleaseMonth()}">1</span></div>
+                    <div class="parameter extra highlight"><span>CPU：</span><span class="cpu" th:text="${laptop.getCpu()}">Intel Core i7 1065G7</span>
+                        <span>&emsp;</span><span class="cores" th:text="${laptop.getCores()}"></span><span>核</span><span class="threads" th:text="${laptop.getThreads()}"></span><span>线程</span><span>&emsp;</span>
+                        <span class="clock" th:text="${laptop.getCpuClock()}"></span><span>-</span><span class="turbo" th:text="${laptop.getCpuTurbo()}"></span><span>GHz</span>
+                        <span class="singleMark" style="display: none" th:text="${laptop.getSingleMark()}"></span><span class="multiMark" style="display: none" th:text="${laptop.getMultiMark()}"></span>
+                        <span class="cpuOutdated" style="display: none" th:text="${laptop.getCpuOutdated()}"></span>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="help-tip">
+                                <span class="cpuTips"></span>
+                            </div>
+                        </a>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="alert-tip">
+                                <span class="cpuAlerts"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="parameter extra highlight"><span>显卡：</span><span th:text="${laptop.getGpu()}">NVIDIA GeForce MX230</span>
+                        <span class="gpuMark" style="display: none" th:text="${laptop.getGpuMark()}"></span><span class="gpuOutdated" style="display: none" th:text="${laptop.getGpuOutdated()}"></span>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="help-tip">
+                                <span class="gpuTips"></span>
+                            </div>
+                        </a>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="alert-tip">
+                                <span class="gpuAlerts"></span>
+                            </div>
+                        </a>
+                    </div>
                     <div class="parameter extra highlight" ><span>内存大小：</span><span class="memorySize" th:text="${laptop.getMemorySize()}">8</span><span>G</span>
                         <a target="_blank" href="/blog-details?hardware=memory">
                             <div class="help-tip">
@@ -138,16 +165,71 @@
                             </div>
                         </a>
                     </div>
-                <div class="parameter extra highlight"><span>内存类型：</span><span th:text="${laptop.getMemoryGen()}">DDR4</span><span>&emsp;</span><span th:text="${laptop.getMemoryRate()}">DDR4</span><span>MHz</span></div>
-                    <div class="parameter extra highlight"><span>硬盘大小：</span><span class="storage" th:text="${laptop.getStorage()}">500</span><span>G</span></div>
-                    <div class="parameter extra highlight"><span>屏幕尺寸：</span><span th:text="${laptop.getScreenSize()}">15.6</span><span>寸</span></div>
-                    <div class="parameter extra highlight"><span>分辨率：</span><span th:text="${laptop.getResolution()}">1920*1080</span></div>
-                <div class="parameter extra highlight"><span>屏幕色域：</span><span th:text="${laptop.getGamut()}">45</span><span>%NTSC</span></div>
-                    <div class="parameter extra highlight"><span>屏幕刷新率：</span><span th:text="${laptop.getRefreshRate()}">15.6</span><span>Hz</span></div>
+                    <div class="parameter extra highlight"><span>内存类型：</span><span class="memoryType" th:text="${laptop.getMemoryGen()}">DDR4</span><span>&emsp;</span>
+                        <span class="memoryRate" th:text="${laptop.getMemoryRate()}">2666</span><span>MHz</span>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="help-tip">
+                                <span class="memoryTypeTips"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="parameter extra highlight"><span>硬盘大小：</span><span class="storage" th:text="${laptop.getStorage()}">500</span><span>G</span>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="help-tip">
+                                <span class="storageTips"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="parameter extra highlight"><span>屏幕尺寸：</span><span class="screenSize" th:text="${laptop.getScreenSize()}">15.6</span><span>寸</span>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="alert-tip">
+                                <span class="screenSizeAlerts"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="parameter extra highlight"><span>分辨率：</span><span class="resolution" th:text="${laptop.getResolution()}">1920*1080</span>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="help-tip">
+                                <span class="resolutionTips"></span>
+                            </div>
+                        </a>
+                    </div>
+                <div class="parameter extra highlight"><span>屏幕色域：</span><span class="gamut" th:text="${laptop.getGamut()}">45</span><span>%NTSC</span>
+                    <a target="_blank" href="/blog-details?hardware=memory">
+                        <div class="help-tip">
+                            <span class="gamutTips"></span>
+                        </div>
+                    </a>
+                </div>
+                    <div class="parameter extra highlight"><span>屏幕刷新率：</span><span class="refreshRate" th:text="${laptop.getRefreshRate()}">60</span><span>Hz</span>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="help-tip">
+                                <span class="refreshRateTips"></span>
+                            </div>
+                        </a>
+                    </div>
                     <div class="parameter extra highlight"><span>接口情况：USB*</span><span th:text="${laptop.getUsb()}">1</span><span>&emsp;Type-c*</span><span th:text="${laptop.getTypec()}">1</span>
-                &emsp;<span>&emsp;雷电*</span><span th:text="${laptop.getThunderbolt()}">1</span><span>&emsp;显示接口：</span><span th:text="${laptop.getVideo()}">1</span><span>&emsp;网线接口：</span><span th:text="${laptop.getRj45()}">1</span></div>
-                    <div class="parameter extra highlight"><span>重量：</span><span th:text="${laptop.getWeight()}">1.83</span><span>KG</span></div>
-                    <div class="parameter extra highlight"><span>厚度：</span><span th:text="${laptop.getThickness()}">19</span><span>mm</span></div>
+                &emsp;<span>&emsp;雷电*</span><span th:text="${laptop.getThunderbolt()}">1</span><span>&emsp;显示接口：</span><span th:text="${laptop.getVideo()}">1</span><span>&emsp;网线接口：</span><span th:text="${laptop.getRj45()}">1</span>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="help-tip">
+                                <span class="interfaceTips"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="parameter extra highlight"><span>重量：</span><span class="weight" th:text="${laptop.getWeight()}">1.83</span><span>KG</span>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="alert-tip">
+                                <span class="weightAlerts"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="parameter extra highlight"><span>厚度：</span><span class="thickness" th:text="${laptop.getThickness()}">19</span><span>mm</span>
+                        <a target="_blank" href="/blog-details?hardware=memory">
+                            <div class="alert-tip">
+                                <span class="thicknessAlerts"></span>
+                            </div>
+                        </a>
+                    </div>
                     <div class="parameter extra highlight"><span>续航时间：</span><span th:text="${laptop.getDuration()}">9</span><span>h</span></div>
                     <div class="parameter product__price highlight"><span>价格：</span><span th:text="${laptop.getPrice()}">4999</span></div>
             </div>
