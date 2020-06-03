@@ -46,9 +46,9 @@
 
     <!-- 产品对比-->
     <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/demo.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/component.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{tooltip/tooltip.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/demo.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/component.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{tooltip/tooltip.css}" />
     <!-- Modernizr is used for flexbox fallback -->
     <script th:src="@{all_goods/js/modernizr.custom.js}"></script>
     <style>
@@ -155,7 +155,7 @@
                             <div class="selectImgDiv" id="main_uses" style="margin: 0 160px;">
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                        <img th:src="@{step_img/Q1/文字办公.png}"/>
                                     </div>
                                     <div class="img_title">文字办公/影音娱乐</div>
                                     <div class="img_isCheck">
@@ -164,7 +164,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/3.png}"/>
+                                        <img th:src="@{step_img/Q1/游戏.png}"/>
                                     </div>
                                     <div class="img_title">游戏</div>
                                     <div class="img_isCheck">
@@ -173,7 +173,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/4.png}"/>
+                                        <img th:src="@{step_img/Q1/生产力.png}"/>
                                     </div>
                                     <div class="img_title">生产力</div>
                                     <div class="img_isCheck">
@@ -183,7 +183,7 @@
                             </div>
 
                             <div class="site-btn mb-5">
-                                <a class="skill-btn done" style="float: right;">下一个<i
+                                <a class="skill-btn done" style="float: right;" href="#game_type">下一个<i
                                         class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
@@ -194,14 +194,28 @@
                             <span></span>
                         </div>
                         <div class="wizard-content">
-                            <div class="toggle toggle--neon">
-                                <input type="checkbox" id="game_type" class="toggle--checkbox">
-                                <label class="toggle--btn" for="game_type" data-label-on="网页游戏" data-label-off="客户端游戏"
-                                       onclick="if($(this).prev('input').val() ==='on'){$(this).prev('input').val('off')}else {$(this).prev('input').val('on');}">
-                                </label>
+                            <div class="selectImgDiv" id="game_type" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{step_img/游戏类型/网页游戏.png}"/>
+                                    </div>
+                                    <div class="img_title">网页游戏</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{step_img/游戏类型/客户端游戏.png}"/>
+                                    </div>
+                                    <div class="img_title">客户端游戏</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
                             </div>
                             <div class="site-btn mb-5">
-                                <a class="skill-btn done" style="float: right;">下一个<i
+                                <a class="skill-btn done" style="float: right;" href="#ordinary_trait">下一个<i
                                         class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
@@ -215,7 +229,7 @@
                             <div class="selectImgDiv" id="ordinary_trait" style="margin: 0 160px;">
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                        <img th:src="@{step_img/期望特质/大容量.png}"/>
                                     </div>
                                     <div class="img_title">超大的容量</div>
                                     <div class="img_isCheck">
@@ -224,7 +238,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/3.png}"/>
+                                        <img th:src="@{step_img/期望特质/准确的色彩.png}"/>
                                     </div>
                                     <div class="img_title">准确的色彩</div>
                                     <div class="img_isCheck">
@@ -233,7 +247,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/4.png}"/>
+                                        <img th:src="@{step_img/期望特质/丰富接口.png}"/>
                                     </div>
                                     <div class="img_title">丰富的接口</div>
                                     <div class="img_isCheck">
@@ -242,7 +256,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/4.png}"/>
+                                        <img th:src="@{step_img/期望特质/长续航.png}"/>
                                     </div>
                                     <div class="img_title">非常持久的续航</div>
                                     <div class="img_isCheck">
@@ -252,7 +266,7 @@
                             </div>
 
                             <div class="site-btn mb-5">
-                                <a class="skill-btn done" style="float: right;">下一个<i
+                                <a class="skill-btn done" style="float: right;" href="#weight_type">下一个<i
                                         class="fas fa-arrow-right"></i></a>
                             </div>
 
@@ -267,25 +281,25 @@
                             <div class="selectImgDiv" id="game_example" style="margin: 0 160px;">
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                        <img th:src="@{step_img/主玩游戏/lol&dota.png}"/>
                                     </div>
-                                    <div class="img_title">英雄联盟/cf</div>
+                                    <div class="img_title">lol/data</div>
                                     <div class="img_isCheck">
                                         <i class="iconfont icon-xuanzhong"></i>
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                        <img th:src="@{step_img/主玩游戏/cf&csgo.png}"/>
                                     </div>
-                                    <div class="img_title">csgo/dota2</div>
+                                    <div class="img_title">cf/csgo</div>
                                     <div class="img_isCheck">
                                         <i class="iconfont icon-xuanzhong"></i>
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/3.png}"/>
+                                        <img th:src="@{step_img/主玩游戏/我的世界.png}"/>
                                     </div>
                                     <div class="img_title">我的世界</div>
                                     <div class="img_isCheck">
@@ -294,7 +308,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/3.png}"/>
+                                        <img th:src="@{step_img/主玩游戏/守望先锋.png}"/>
                                     </div>
                                     <div class="img_title">守望先锋</div>
                                     <div class="img_isCheck">
@@ -303,7 +317,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/3.png}"/>
+                                        <img th:src="@{step_img/主玩游戏/绝地求生.png}"/>
                                     </div>
                                     <div class="img_title">绝地求生</div>
                                     <div class="img_isCheck">
@@ -312,7 +326,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/4.png}"/>
+                                        <img th:src="@{step_img/主玩游戏/gta5.png}"/>
                                     </div>
                                     <div class="img_title">gta5</div>
                                     <div class="img_isCheck">
@@ -321,7 +335,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/4.png}"/>
+                                        <img th:src="@{step_img/主玩游戏/使命召唤.png}"/>
                                     </div>
                                     <div class="img_title">使命召唤</div>
                                     <div class="img_isCheck">
@@ -330,7 +344,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/4.png}"/>
+                                        <img th:src="@{step_img/主玩游戏/刺客信条.png}"/>
                                     </div>
                                     <div class="img_title">刺客信条</div>
                                     <div class="img_isCheck">
@@ -339,7 +353,7 @@
                                 </div>
                             </div>
                             <div class="site-btn mb-5">
-                                <a class="skill-btn done" style="float: right;">下一个<i
+                                <a class="skill-btn done" style="float: right;" href="#game_vision">下一个<i
                                         class="fas fa-arrow-right"></i></a>
                             </div>
 
@@ -354,7 +368,7 @@
                             <div class="selectImgDiv" id="game_vision" style="margin: 0 160px;">
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                        <img th:src="@{step_img/游戏画面/能玩即可.png}"/>
                                     </div>
                                     <div class="img_title">能玩即可</div>
                                     <div class="img_isCheck">
@@ -363,7 +377,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/3.png}"/>
+                                        <img th:src="@{step_img/游戏画面/中特效.png}"/>
                                     </div>
                                     <div class="img_title">中特效</div>
                                     <div class="img_isCheck">
@@ -372,7 +386,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/4.png}"/>
+                                        <img th:src="@{step_img/游戏画面/特效全开.png}"/>
                                     </div>
                                     <div class="img_title">特效全开</div>
                                     <div class="img_isCheck">
@@ -381,7 +395,7 @@
                                 </div>
                             </div>
                             <div class="site-btn mb-5">
-                                <a class="skill-btn done" style="float: right;">下一个<i
+                                <a class="skill-btn done" style="float: right;" href="#weight_type">下一个<i
                                         class="fas fa-arrow-right"></i></a>
                             </div>
 
@@ -396,7 +410,7 @@
                             <div class="selectImgDiv" id="produce_type" style="margin: 0 160px;">
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                        <img th:src="@{step_img/生产力种类/代码工作.png}"/>
                                     </div>
                                     <div class="img_title">代码工作/数据处理</div>
                                     <div class="img_isCheck">
@@ -405,7 +419,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/3.png}"/>
+                                        <img th:src="@{step_img/生产力种类/视频制作.png}"/>
                                     </div>
                                     <div class="img_title">绘图/视频制作</div>
                                     <div class="img_isCheck">
@@ -414,7 +428,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/4.png}"/>
+                                        <img th:src="@{step_img/生产力种类/工业设计.png}"/>
                                     </div>
                                     <div class="img_title">工业设计</div>
                                     <div class="img_isCheck">
@@ -423,7 +437,7 @@
                                 </div>
                             </div>
                             <div class="site-btn mb-5">
-                                <a class="skill-btn done" style="float: right;">下一个<i
+                                <a class="skill-btn done" style="float: right;" href="#ordinary_trait_1">下一个<i
                                         class="fas fa-arrow-right"></i></a>
                             </div>
 
@@ -438,7 +452,7 @@
                             <div class="selectImgDiv" id="ordinary_trait_1" style="margin: 0 160px;">
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/1.jpg}"/>
+                                        <img th:src="@{step_img/期望特质/准确的色彩.png}"/>
                                     </div>
                                     <div class="img_title">准确的色彩</div>
                                     <div class="img_isCheck">
@@ -447,7 +461,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/3.png}"/>
+                                        <img th:src="@{step_img/期望特质/丰富接口.png}"/>
                                     </div>
                                     <div class="img_title">丰富的接口</div>
                                     <div class="img_isCheck">
@@ -456,7 +470,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{select_img/images/4.png}"/>
+                                        <img th:src="@{step_img/期望特质/长续航.png}"/>
                                     </div>
                                     <div class="img_title">非常持久的续航</div>
                                     <div class="img_isCheck">
@@ -465,7 +479,7 @@
                                 </div>
                             </div>
                             <div class="site-btn mb-5">
-                                <a class="skill-btn done" style="float: right;">下一个<i
+                                <a class="skill-btn done" style="float: right;" href="#weight_type">下一个<i
                                         class="fas fa-arrow-right"></i></a>
                             </div>
 
@@ -477,14 +491,28 @@
                             <span></span>
                         </div>
                         <div class="wizard-content">
-                            <div class="toggle toggle--neon">
-                                <input type="checkbox" id="weight_type" class="toggle--checkbox">
-                                <label class="toggle--btn" for="weight_type" data-label-on="极致轻薄"
-                                       data-label-off="无所谓"
-                                       onclick="if($(this).prev('input').val() ==='on'){$(this).prev('input').val('off');}else {$(this).prev('input').val('on');}"></label>
+                            <div class="selectImgDiv" id="weight_type" style="margin: 0 160px;">
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{step_img/便携需求/无所谓.png}"/>
+                                    </div>
+                                    <div class="img_title">无所谓</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_show">
+                                        <img th:src="@{step_img/便携需求/极致轻薄.png}"/>
+                                    </div>
+                                    <div class="img_title">极致轻薄</div>
+                                    <div class="img_isCheck">
+                                        <i class="iconfont icon-xuanzhong"></i>
+                                    </div>
+                                </div>
                             </div>
                             <div class="site-btn mb-5">
-                                <a class="skill-btn done" style="float: right;">下一个<i
+                                <a class="skill-btn done" style="float: right;" href="#price">下一个<i
                                         class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
@@ -496,7 +524,7 @@
                         </div>
                         <div class="wizard-content">
 
-                            <div class="navBox clearfix">
+                            <div class="navBox clearfix" id="price">
                                 <!-- 月供 -->
                                 <div class="selecteList_fisrt selectClass selecteList_month">
                                     <ul class="nmonthlyPayment_ul clearfix">
@@ -534,13 +562,13 @@
                             </div>
 
                             <div class="site-btn mb-5">
-                                <a class="skill-btn done" style="float: right;">下一个<i
+                                <a class="skill-btn done" style="float: right;" href="#final">下一个<i
                                         class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <div class="wizard-heading">
+                        <div class="wizard-heading" id="final">
                             您的专属推荐产品
                             <span class="icon-mode"></span>
                         </div>
@@ -647,44 +675,6 @@
                                         class="action__text action__text--invisible">Close comparison overlay</span>
                                 </button>
                             </section>
-                            <div class="selectImgDiv" id="" style="margin: 0 160px;">
-                                <div class="item">
-                                    <div class="img_show">
-                                        <img th:src="@{select_img/images/1.jpg}"/>
-                                    </div>
-                                    <div class="img_title">超大的容量</div>
-                                    <div class="img_isCheck">
-                                        <i class="iconfont icon-xuanzhong"></i>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img_show">
-                                        <img th:src="@{select_img/images/3.png}"/>
-                                    </div>
-                                    <div class="img_title">准确的色彩</div>
-                                    <div class="img_isCheck">
-                                        <i class="iconfont icon-xuanzhong"></i>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img_show">
-                                        <img th:src="@{select_img/images/4.png}"/>
-                                    </div>
-                                    <div class="img_title">丰富的接口</div>
-                                    <div class="img_isCheck">
-                                        <i class="iconfont icon-xuanzhong"></i>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="img_show">
-                                        <img th:src="@{select_img/images/4.png}"/>
-                                    </div>
-                                    <div class="img_title">非常持久的续航</div>
-                                    <div class="img_isCheck">
-                                        <i class="iconfont icon-xuanzhong"></i>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
 
