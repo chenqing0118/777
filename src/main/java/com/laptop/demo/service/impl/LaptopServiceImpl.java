@@ -17,7 +17,7 @@ public class LaptopServiceImpl implements LaptopService {
     private LaptopMapper laptopMapper;
 
     @Override
-    public String getRecommend(int storage, int mem, int cpu, int gpu, boolean duration, boolean weight, boolean socket, boolean color, int min, int max) {
+    public JSON getRecommend(int storage, int mem, int cpu, int gpu, boolean duration, boolean weight, boolean socket, boolean color, int min, int max) {
         Laptop params = new Laptop();
         params.setStorage(storage);
         params.setMemorySize(mem);
@@ -83,7 +83,8 @@ public class LaptopServiceImpl implements LaptopService {
 //           System.out.println(format.format(new Date(laptop.getReleaseTime()*1000)));
             laptop.setReleaseMonth(format.format(laptop.getReleaseTime() * 1000));
         }
-        String result = JSON.toJSONString(laptops);
+
+        JSON result = (JSON) JSON.parse(JSON.toJSONString(laptops));
         System.out.println(result);
         return result;
     }
