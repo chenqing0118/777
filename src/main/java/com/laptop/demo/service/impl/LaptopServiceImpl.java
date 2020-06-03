@@ -88,4 +88,15 @@ public class LaptopServiceImpl implements LaptopService {
         System.out.println(result);
         return result;
     }
+    @Override
+    public List<Laptop> getRecommend2(){
+        List<Laptop> laptops = laptopMapper.getRecommended2();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月");
+        for (Laptop laptop : laptops) {
+//           System.out.println(laptop.getReleaseTime());
+//           System.out.println(format.format(new Date(laptop.getReleaseTime()*1000)));
+            laptop.setReleaseMonth(format.format(laptop.getReleaseTime() * 1000));
+        }
+        return laptops;
+    }
 }

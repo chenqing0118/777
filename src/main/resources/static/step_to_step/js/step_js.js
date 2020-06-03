@@ -112,7 +112,7 @@ function check_submit() {
         next_li = $(".navBox").parent().parent("li");
         if (results['price'] !== undefined) {
             //得到最后结果
-            submit_reaults(results);
+            // submit_reaults(results);
 
             next_li = $("#cd-table").parent().parent("li");
         }

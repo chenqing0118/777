@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface LaptopMapper {
     List<Laptop> getRecommended(Laptop params);
+    List<Laptop> getRecommended2();
 }

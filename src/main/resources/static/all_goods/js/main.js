@@ -1,202 +1,493 @@
 /**
  * main.js
  */
-var tips=[['大大大','小小小']];
-var Level=[['性能相对较弱，','性能相对较强，'],['容量相对小，','容量相对大，'],['低色域屏幕，','高色域屏幕，']];
-var cpu=[['满足办公影音需求。','可以胜任更繁重的工作。'],['可以满足多数游戏。','游戏更加流畅。'],['基本满足生产工具需求。','作为生产工具可节约更多时间。']];
-var gpu=[['满足办公影音需求。','可以满足一些国民游戏。'],['可以满足一些国民游戏。<1650maxq','多数游戏中低特效。<=1660ti','游戏基本无限制。>=2060maxq'],['不会有严重影响。','支持显卡加速的计算（人工智能，渲染）节约部分时间']];
-var storageLevel=['容量相对小，','容量相对大，'];
-var memorySize=[['满足办公影音需求','可以同时开启更多软件。'],['可以满足多数游戏。=16','游戏无压力。'],['作为生产工具必备容量。=16','作为生产工具多多益善。']];
-var memoryRate=['频率相对低，可以满足需求。','频率相对高，对少部分游戏有提升效果。'];
-var storage=[['不适合存放大量资料。<=256','存放更多资料和软件。'],['游戏玩家基础容量=512','可存放多款大型游戏。'],['生产工具基础容量=512','安装更多软件，保存更多项目文件，多多益善。']];
-var gamutLevel=['低色域屏幕，','高色域屏幕，'];
-var gamut=[['不会影响文字办公和网页浏览。','更好的观影体验。'],['游戏画面展现一般。','更真实的游戏画面体验。'],['不会影响代码工作。','图像工作者必备。']];
-var refreshRate=['一般刷新率，满足多数需求。=60','高刷新率，竞技游戏更加连贯。>100'];
 
-(function() {
+Level = [['综合性能相对较低，', '综合性能相对较高，'], ['性能相对较弱，', '性能相对较强，'], ['容量相对小，', '容量相对大，'], ['低色域屏幕，', '高色域屏幕，']];
+cpu = [['可以满足文字办公影音需求。', '可以胜任更繁重的工作。'], ['可以满足多数游戏。', '单核性能强，游戏更加流畅。'], ['基本满足生产工具需求。', '作为生产工具可节约更多时间。']];
+gpu = [['无压力满足文字办公影音需求。'], ['可以满足一些国民游戏。', '多数游戏中低特效。', '游戏基本无限制。'], ['不会有严重影响。', '支持显卡加速的计算（人工智能，渲染）节约部分时间']];
+storageLevel = ['容量相对小，', '容量相对大，'];
+memorySize = [['满足文字办公影音需求。', '可以同时开启更多软件。'], ['可以满足多数游戏。', '游戏无压力。'], ['作为生产工具必备容量。', '作为生产工具多多益善。']];
+memoryRate = ['频率相对低，可以满足需求。', '频率相对高，对少部分游戏有提升效果。'];
+storage = [['不适合存放大量资料。', '存放较多资料和软件。'], ['游戏玩家基础容量。', '可存放多款大型游戏。'], ['生产工具基础容量。', '可安装许多软件，保存大量项目文件。']];
+gamut = [['不会影响文字办公和网页浏览。', '更好的观影体验。'], ['游戏画面展现一般。', '更真实的游戏画面体验。'], ['不会影响代码类的工作。', '图像工作者必备。']];
+refreshRate = ['普通刷新率，满足多数需求。', '高刷新率，竞技游戏更加连贯。'];
+interfaces=['USB接口数较多。','雷电接口外接设备能力强。','可使用网线连网','接口类型较少，可能需要配合转接头或拓展坞。'];
+(function () {
 
-	var viewEl = document.querySelector('.view'),
-		gridEl = viewEl.querySelector('.grid'),
-		items = [].slice.call(gridEl.querySelectorAll('.product')),
-		basket;
+    var viewEl = document.querySelector('.view'),
+        gridEl = viewEl.querySelector('.grid'),
+        items = [].slice.call(gridEl.querySelectorAll('.product')),
+        basket;
 
-	// the compare basket
-	function CompareBasket() {
-		this.el = document.querySelector('.compare-basket');
-		this.compareCtrl = this.el.querySelector('.action--compare');
-		this.compareWrapper = document.querySelector('.compare');
-		this.closeCompareCtrl = this.compareWrapper.querySelector('.action--close');
-		
-		this.itemsAllowed = 2;
-		this.totalItems = 0;
-		this.items = [];
+    // the compare basket
+    function CompareBasket() {
+        this.el = document.querySelector('.compare-basket');
+        this.compareCtrl = this.el.querySelector('.action--compare');
+        this.compareWrapper = document.querySelector('.compare');
+        this.closeCompareCtrl = this.compareWrapper.querySelector('.action--close');
 
-		// compares items in the compare basket: opens the compare products wrapper
-		this.compareCtrl.addEventListener('click', this._compareItems.bind(this));
-		// close the compare products wrapper
-		var self = this;
-		this.closeCompareCtrl.addEventListener('click', function() {
-			// toggle compare basket
-			classie.add(self.el, 'compare-basket--active');
-			// animate..
-			classie.remove(viewEl, 'view--compare');
-		});
-	}
+        this.itemsAllowed = 2;
+        this.totalItems = 0;
+        this.items = [];
 
-	CompareBasket.prototype.add = function(item) {
-		// check limit
-		if( this.isFull() ) {
-			return false;
-		}
+        // compares items in the compare basket: opens the compare products wrapper
+        this.compareCtrl.addEventListener('click', this._compareItems.bind(this));
+        // close the compare products wrapper
+        var self = this;
+        this.closeCompareCtrl.addEventListener('click', function () {
+            // toggle compare basket
+            classie.add(self.el, 'compare-basket--active');
+            // animate..
+            classie.remove(viewEl, 'view--compare');
+        });
+    }
 
-		classie.add(item, 'product--selected');
+    CompareBasket.prototype.add = function (item) {
+        // check limit
+        if (this.isFull()) {
+            return false;
+        }
 
-		// create item preview element
-		var preview = this._createItemPreview(item);
-		// prepend it to the basket
-		this.el.insertBefore(preview, this.el.childNodes[0]);
-		// insert item
-		this.items.push(preview);
+        classie.add(item, 'product--selected');
 
-		this.totalItems++;
-		if( this.isFull() ) {
-			classie.add(this.el, 'compare-basket--full');
-		}
+        // create item preview element
+        var preview = this._createItemPreview(item);
+        // prepend it to the basket
+        this.el.insertBefore(preview, this.el.childNodes[0]);
+        // insert item
+        this.items.push(preview);
 
-		classie.add(this.el, 'compare-basket--active');
-	};
+        this.totalItems++;
+        if (this.isFull()) {
+            classie.add(this.el, 'compare-basket--full');
+        }
 
-	CompareBasket.prototype._createItemPreview = function(item) {
-		var self = this;
+        classie.add(this.el, 'compare-basket--active');
+    };
 
-		var preview = document.createElement('div');
-		preview.className = 'product-icon';
-		preview.setAttribute('data-idx', items.indexOf(item));
-		
-		var removeCtrl = document.createElement('button');
-		removeCtrl.className = 'action action--remove';
-		removeCtrl.innerHTML = '<i class="fa fa-remove"></i><span class="action__text action__text--invisible">Remove product</span>';
-		removeCtrl.addEventListener('click', function() {
-			self.remove(item);
-		});
-		
-		var productImageEl = item.querySelector('img.product__image').cloneNode(true);
+    CompareBasket.prototype._createItemPreview = function (item) {
+        var self = this;
 
-		preview.appendChild(productImageEl);
-		preview.appendChild(removeCtrl);
+        var preview = document.createElement('div');
+        preview.className = 'product-icon';
+        preview.setAttribute('data-idx', items.indexOf(item));
 
-		var productInfo = item.querySelector('.product__info').innerHTML;
-		preview.setAttribute('data-info', productInfo);
+        var removeCtrl = document.createElement('button');
+        removeCtrl.className = 'action action--remove';
+        removeCtrl.innerHTML = '<i class="fa fa-remove"></i><span class="action__text action__text--invisible">Remove product</span>';
+        removeCtrl.addEventListener('click', function () {
+            self.remove(item);
+        });
 
-		return preview;
-	};
+        var productImageEl = item.querySelector('img.product__image').cloneNode(true);
 
-	CompareBasket.prototype.remove = function(item) {
-		classie.remove(this.el, 'compare-basket--full');
-		classie.remove(item, 'product--selected');
-		var preview = this.el.querySelector('[data-idx = "' + items.indexOf(item) + '"]');
-		this.el.removeChild(preview);
-		this.totalItems--;
+        preview.appendChild(productImageEl);
+        preview.appendChild(removeCtrl);
 
-		var indexRemove = this.items.indexOf(preview);
-		this.items.splice(indexRemove, 1);
+        var productInfo = item.querySelector('.product__info').innerHTML;
+        preview.setAttribute('data-info', productInfo);
 
-		if( this.totalItems === 0 ) {
-			classie.remove(this.el, 'compare-basket--active');
-		}
+        return preview;
+    };
 
-		// checkbox
-		var checkbox = item.querySelector('.action--compare-add > input[type = "checkbox"]');
-		if( checkbox.checked ) {
-			checkbox.checked = false;
-		}
-	};
+    CompareBasket.prototype.remove = function (item) {
+        classie.remove(this.el, 'compare-basket--full');
+        classie.remove(item, 'product--selected');
+        var preview = this.el.querySelector('[data-idx = "' + items.indexOf(item) + '"]');
+        this.el.removeChild(preview);
+        this.totalItems--;
 
-	CompareBasket.prototype._compareItems = function() {
-		var self = this;
+        var indexRemove = this.items.indexOf(preview);
+        this.items.splice(indexRemove, 1);
 
-		// remove all previous items inside the compareWrapper element
-		[].slice.call(this.compareWrapper.querySelectorAll('div.compare__item')).forEach(function(item) {
-			self.compareWrapper.removeChild(item);
-		});
+        if (this.totalItems === 0) {
+            classie.remove(this.el, 'compare-basket--active');
+        }
 
-		for( i = 0; i < this.totalItems; ++i) {
-			var compareItemWrapper = document.createElement('div');
-			compareItemWrapper.className = 'compare__item';
+        // checkbox
+        var checkbox = item.querySelector('.action--compare-add > input[type = "checkbox"]');
+        if (checkbox.checked) {
+            checkbox.checked = false;
+        }
+    };
 
-			var compareItemEffectEl = document.createElement('div');
-			compareItemEffectEl.className = 'compare__effect';
+    CompareBasket.prototype._compareItems = function () {
+        var self = this;
 
-			compareItemEffectEl.innerHTML = this.items[i].getAttribute('data-info');
+        // remove all previous items inside the compareWrapper element
+        [].slice.call(this.compareWrapper.querySelectorAll('div.compare__item')).forEach(function (item) {
+            self.compareWrapper.removeChild(item);
+        });
+
+        for (i = 0; i < this.totalItems; ++i) {
+            var compareItemWrapper = document.createElement('div');
+            compareItemWrapper.className = 'compare__item';
+
+            var compareItemEffectEl = document.createElement('div');
+            compareItemEffectEl.className = 'compare__effect';
+
+            compareItemEffectEl.innerHTML = this.items[i].getAttribute('data-info');
             // alert(compareItemEffectEl.querySelector('span.cpu').textContent);
-			compareItemWrapper.appendChild(compareItemEffectEl);
+            compareItemWrapper.appendChild(compareItemEffectEl);
 
-			this.compareWrapper.insertBefore(compareItemWrapper, this.compareWrapper.childNodes[0]);
-		}
+            this.compareWrapper.insertBefore(compareItemWrapper, this.compareWrapper.childNodes[0]);
+        }
 
-		//高亮字段
-		var columnList = document.getElementsByClassName('column');
-		for ( i = 0; i < columnList.length;i++){
+        //高亮字段
+        var columnList = document.getElementsByClassName('column');
+        for (i = 0; i < columnList.length; i++) {
 
-			columnList[i].style.fontWeight='bold';
-			columnList[i].style.fontsize='120%';
-		}
+            columnList[i].style.fontWeight = 'bold';
+            columnList[i].style.fontsize = '120%';
+        }
 
 
-        var compareList=document.querySelectorAll('div.compare__item');
-		if(parseInt(compareList[0].querySelector('span.memorySize').textContent)>parseInt(compareList[1].querySelector('span.memorySize').textContent)){
-			compareList[0].querySelector('span.memorySizeTips').textContent=tips[0][0];
-			compareList[1].querySelector('span.memorySizeTips').textContent=tips[0][1];
-		}else{
-			compareList[0].querySelector('span.memorySizeTips').textContent=tips[0][1];
-			compareList[1].querySelector('span.memorySizeTips').textContent=tips[0][0];
-		}
-		// if(parseInt(compareList[0].querySelector('span.storage').textContent)>parseInt(compareList[1].querySelector('span.storage').textContent)){
-		// 	compareList[0].querySelector('span.storageTips').textContent=tips[0][0];
-		// 	compareList[1].querySelector('span.storageTips').textContent=tips[0][1];
-		// }else{
-		// 	compareList[0].querySelector('span.storageTips').textContent=tips[0][1];
-		// 	compareList[1].querySelector('span.storageTips').textContent=tips[0][0];
-		// }
-		setTimeout(function() {
-			// toggle compare basket
-			classie.remove(self.el, 'compare-basket--active');
-			// animate..
-			classie.add(viewEl, 'view--compare');
-		}, 25);
-	};
+        var compareList = document.querySelectorAll('div.compare__item');
+        useArray = results['main_uses'].split(',');
+        cpu0 = compareList[0].querySelector('span.cpu').textContent;
+        cpu1 = compareList[1].querySelector('span.cpu').textContent;
+        singleMark0=parseInt(compareList[0].querySelector('span.singleMark').textContent);
+        singleMark1=parseInt(compareList[1].querySelector('span.singleMark').textContent);
+        multiMark0=parseInt(compareList[0].querySelector('span.multiMark').textContent);
+        multiMark1=parseInt(compareList[1].querySelector('span.multiMark').textContent);
+        for (i=0;i<2;i++){
+            if ( compareList[i].querySelector('span.cpuOutdated').textContent==='0')
+                compareList[i].querySelectorAll('div.parameter')[1].querySelectorAll('a')[1].remove();
+        }
+        if (cpu0 === cpu1) {
+            compareList[0].querySelectorAll('div.parameter')[1].querySelectorAll('a')[0].remove();
+            compareList[1].querySelectorAll('div.parameter')[1].querySelectorAll('a')[0].remove();
+        }
+        else {
+            index0=(multiMark0>multiMark1 ? 1:0);
+            index1=(multiMark0>multiMark1 ? 0:1);
+            compareList[0].querySelector('span.cpuTips').textContent += Level[0][index0];
+            compareList[1].querySelector('span.cpuTips').textContent += Level[0][index1];
+            for (i = 0; i < useArray.length; i++) {
+                switch (useArray[i]){
+                    case '1':
+                        compareList[0].querySelector('span.cpuTips').textContent += cpu[0][index0];
+                        compareList[1].querySelector('span.cpuTips').textContent += cpu[0][index1];
+                        break;
+                    case '2':
+                        if(singleMark0>singleMark1){
+                            compareList[0].querySelector('span.cpuTips').textContent += cpu[1][1];
+                            compareList[1].querySelector('span.cpuTips').textContent += cpu[1][0];
+                        }else{
+                            compareList[0].querySelector('span.cpuTips').textContent += cpu[1][0];
+                            compareList[1].querySelector('span.cpuTips').textContent += cpu[1][1];
+                        }
+                        break;
+                    case '3':
+                        compareList[0].querySelector('span.cpuTips').textContent += cpu[2][index0];
+                        compareList[1].querySelector('span.cpuTips').textContent += cpu[2][index1];
+                        break;
+                }
+            }
+            if (singleMark0>singleMark1 && useArray.indexOf('2')>-1){
 
-	CompareBasket.prototype.isFull = function() {
-		return this.totalItems === this.itemsAllowed;
-	};
+            }
 
-	function init() {
-		// initialize an empty basket
-		basket = new CompareBasket();
-		initEvents();
-	}
+        }
 
-	function initEvents() {
-		items.forEach(function(item) {
-			var checkbox = item.querySelector('.action--compare-add > input[type = "checkbox"]');
-			checkbox.checked = false;
+        gpuMark0 = parseInt(compareList[0].querySelector('span.gpuMark').textContent);
+        gpuMark1 = parseInt(compareList[1].querySelector('span.gpuMark').textContent);
+        for (i=0;i<2;i++){
+            if (compareList[i].querySelector('span.gpuOutdated').textContent==='0')
+                compareList[i].querySelectorAll('div.parameter')[2].querySelectorAll('a')[1].remove();
+        }
+        if (gpuMark0 === gpuMark1) {
+            compareList[0].querySelectorAll('div.parameter')[2].querySelectorAll('a')[0].remove();
+            compareList[1].querySelectorAll('div.parameter')[2].querySelectorAll('a')[0].remove();
+        }
+        else {
+            index0 = (gpuMark0 > gpuMark1 ? 1 : 0);
+            index1 = (gpuMark0 > gpuMark1 ? 0 : 1);
+            compareList[0].querySelector('span.gpuTips').textContent += Level[1][index0];
+            compareList[1].querySelector('span.gpuTips').textContent += Level[1][index1];
+            for (i = 0; i < useArray.length; i++) {
+                switch (useArray[i]) {
+                    case '1':
+                        compareList[0].querySelector('span.gpuTips').textContent += gpu[0][0];
+                        compareList[1].querySelector('span.gpuTips').textContent += gpu[0][0];
+                        break;
+                    case '2':
+                        if (gpuMark0<2946 && gpuMark0>0){
+                            compareList[0].querySelector('span.gpuTips').textContent += gpu[1][0];
+                        }else if (gpuMark0<=5647){
+                            compareList[0].querySelector('span.gpuTips').textContent += gpu[1][1];
+                        }else {
+                            compareList[0].querySelector('span.gpuTips').textContent += gpu[1][2];
+                        }
+                        if (gpuMark1<2946 && gpuMark1>0){
+                            compareList[1].querySelector('span.gpuTips').textContent += gpu[1][0];
+                        }else if (gpuMark1<=5647){
+                            compareList[1].querySelector('span.gpuTips').textContent += gpu[1][1];
+                        }else {
+                            compareList[1].querySelector('span.gpuTips').textContent += gpu[1][2];
+                        }
+                        break;
+                    case '3':
+                        compareList[0].querySelector('span.gpuTips').textContent += gpu[2][index0];
+                        compareList[1].querySelector('span.gpuTips').textContent += gpu[2][index1];
+                        break;
+                }
 
-			// ctrl to add to the "compare basket"
-			checkbox.addEventListener('click', function(ev) {
-				if( ev.target.checked ) {
-					if( basket.isFull() ) {
-						ev.preventDefault();
-						return false;
-					}
-					basket.add(item);
+            }
+
+
+        }
+
+        memorySize0 = parseInt(compareList[0].querySelector('span.memorySize').textContent);
+        memorySize1 = parseInt(compareList[1].querySelector('span.memorySize').textContent);
+        if (memorySize0 === memorySize1) {
+            compareList[0].querySelectorAll('div.parameter')[3].querySelector('a').remove();
+            compareList[1].querySelectorAll('div.parameter')[3].querySelector('a').remove();
+        }
+        else {
+            index0 = (memorySize0 > memorySize1 ? 1 : 0);
+            index1 = (memorySize0 > memorySize1 ? 0 : 1);
+            compareList[0].querySelector('span.memorySizeTips').textContent += Level[2][index0];
+            compareList[1].querySelector('span.memorySizeTips').textContent += Level[2][index1];
+            for (i = 0; i < useArray.length; i++) {
+				switch (useArray[i]) {
+					case '1':
+						compareList[0].querySelector('span.memorySizeTips').textContent += memorySize[0][index0];
+						compareList[1].querySelector('span.memorySizeTips').textContent += memorySize[0][index1];
+						break;
+					case '2':
+						if (Math.min(memorySize0,memorySize1)>16){
+							compareList[0].querySelector('span.memorySizeTips').textContent += memorySize[1][1];
+							compareList[1].querySelector('span.memorySizeTips').textContent += memorySize[1][1];
+						}else{
+							compareList[0].querySelector('span.memorySizeTips').textContent += memorySize[1][index0];
+							compareList[1].querySelector('span.memorySizeTips').textContent += memorySize[1][index1];
+						}
+						break;
+					case '3':
+						if (Math.min(memorySize0,memorySize1)>16){
+							compareList[0].querySelector('span.memorySizeTips').textContent += memorySize[2][1];
+							compareList[1].querySelector('span.memorySizeTips').textContent += memorySize[2][1];
+						}else{
+							compareList[0].querySelector('span.memorySizeTips').textContent += memorySize[2][index0];
+							compareList[1].querySelector('span.memorySizeTips').textContent += memorySize[2][index1];
+						}
+						break;
 				}
-				else {
-					basket.remove(item);
-				}
-			});
-		});
-	}
 
-	init();
+            }
+
+
+        }
+
+        memoryRate0 = parseInt(compareList[0].querySelector('span.memoryRate').textContent);
+        memoryRate1 = parseInt(compareList[1].querySelector('span.memoryRate').textContent);
+        if (memoryRate0 === memoryRate1 || useArray.indexOf('2')===-1) {
+            compareList[0].querySelectorAll('div.parameter')[4].querySelector('a').remove();
+            compareList[1].querySelectorAll('div.parameter')[4].querySelector('a').remove();
+        }
+        else {
+            index0 = (memoryRate0 > memoryRate1 ? 1 : 0);
+            index1 = (memoryRate0 > memoryRate1 ? 0 : 1);
+            compareList[0].querySelector('span.memoryTypeTips').textContent += memoryRate[index0];
+            compareList[1].querySelector('span.memoryTypeTips').textContent += memoryRate[index1];
+        }
+
+        storage0 = parseInt(compareList[0].querySelector('span.storage').textContent);
+        storage1 = parseInt(compareList[1].querySelector('span.storage').textContent);
+        if (storage0 === storage1) {
+            compareList[0].querySelectorAll('div.parameter')[5].querySelector('a').remove();
+            compareList[1].querySelectorAll('div.parameter')[5].querySelector('a').remove();
+        }
+        else {
+            index0 = (storage0 > storage1 ? 1 : 0);
+            index1 = (storage0 > storage1 ? 0 : 1);
+            compareList[0].querySelector('span.storageTips').textContent += Level[2][index0];
+            compareList[1].querySelector('span.storageTips').textContent += Level[2][index1];
+            for (i = 0; i < useArray.length; i++) {
+                switch (useArray[i]) {
+                    case '1':
+                        if (Math.max(storage0,storage1)<=256){
+                            compareList[0].querySelector('span.storageTips').textContent += storage[0][0];
+                            compareList[1].querySelector('span.storageTips').textContent += storage[0][0];
+                        }else if (Math.min(storage0,storage1)>300){
+                            compareList[0].querySelector('span.storageTips').textContent += storage[0][1];
+                            compareList[1].querySelector('span.storageTips').textContent += storage[0][1];
+                        } else{
+                            compareList[0].querySelector('span.storageTips').textContent += storage[0][index0];
+                            compareList[1].querySelector('span.storageTips').textContent += storage[0][index1];
+                        }
+                        break;
+                    case '2':
+                        if (Math.max(storage0,storage1)<=512){
+                            compareList[0].querySelector('span.storageTips').textContent += storage[1][0];
+                            compareList[1].querySelector('span.storageTips').textContent += storage[1][0];
+                        }else if (Math.min(storage0,storage1)>=600){
+                            compareList[0].querySelector('span.storageTips').textContent += storage[1][1];
+                            compareList[1].querySelector('span.storageTips').textContent += storage[1][1];
+                        }else{
+                            compareList[0].querySelector('span.storageTips').textContent += storage[1][index0];
+                            compareList[1].querySelector('span.storageTips').textContent += storage[1][index1];
+                        }
+                        break;
+                    case '3':
+                        if (Math.max(storage0,storage1)<=512){
+                            compareList[0].querySelector('span.storageTips').textContent += storage[2][0];
+                            compareList[1].querySelector('span.storageTips').textContent += storage[2][0];
+                        }else if (Math.min(storage0,storage1)>=600){
+                            compareList[0].querySelector('span.storageTips').textContent += storage[2][1];
+                            compareList[1].querySelector('span.storageTips').textContent += storage[2][1];
+                        }else{
+                            compareList[0].querySelector('span.storageTips').textContent += storage[2][index0];
+                            compareList[1].querySelector('span.storageTips').textContent += storage[2][index1];
+                        }
+                        break;
+                }
+
+            }
+
+
+        }
+
+        for (i=0;i<2;i++){
+            if (parseFloat(compareList[i].querySelector('span.screenSize').textContent)>=16.5)
+            {
+                compareList[i].querySelector('span.screenSizeAlerts').textContent += "尺寸较大，不易放入普通双肩包。";
+            }else{
+                compareList[i].querySelectorAll('div.parameter')[6].querySelector('a').remove();
+            }
+        }
+
+        for(i=0;i<2;i++){
+            index=(parseInt(compareList[i].querySelector('span.memorySize').textContent) <70) ?0:1;
+            compareList[i].querySelector('span.gamutTips').textContent += Level[3][index];
+            for (j = 0; j < useArray.length; j++){
+                switch (useArray[i]) {
+                    case '1':
+                        compareList[i].querySelector('span.gamutTips').textContent += gamut[0][index];
+                        break;
+                    case '2':
+                        compareList[i].querySelector('span.gamutTips').textContent += gamut[1][index];
+                        break;
+                    case '3':
+                        compareList[i].querySelector('span.gamutTips').textContent += gamut[2][index];
+                        break;
+                }
+            }
+        }
+
+        for(i=0;i<2;i++){
+            switch(compareList[i].querySelector('span.resolution').textContent){
+                case '1366×768' :
+                    compareList[i].querySelector('span.resolutionTips').textContent += '低分辨率，观感较差。';
+                    break;
+                case '1680×1050':
+                    compareList[i].querySelector('span.resolutionTips').textContent += '略低于市场主流分辨率。';
+                    break;
+                case '1920×1080':
+                    compareList[i].querySelector('span.resolutionTips').textContent += '市场主流分辨率。';
+                    break;
+                default:
+                    compareList[i].querySelector('span.resolutionTips').textContent += '高分辨率，画面细节更丰富。';
+                    break;
+            }
+            for (j = 0; j < useArray.length; j++){
+                switch (useArray[i]) {
+                    case '1':
+                        compareList[i].querySelector('span.gamutTips').textContent += gamut[0][index];
+                        break;
+                    case '2':
+                        compareList[i].querySelector('span.gamutTips').textContent += gamut[1][index];
+                        break;
+                    case '3':
+                        compareList[i].querySelector('span.gamutTips').textContent += gamut[2][index];
+                        break;
+                }
+            }
+        }
+
+        for(i=0;i<2;i++){
+            if (parseInt(compareList[i].querySelector('span.refreshRate').textContent)<100){
+                compareList[i].querySelector('span.refreshRateTips').textContent += refreshRate[0];
+            }else{
+                compareList[i].querySelector('span.refreshRateTips').textContent += refreshRate[1];
+            }
+        }
+
+
+        for (i=0;i<2;i++){
+            if ( parseFloat(compareList[i].querySelector('span.weight').textContent)>2.6)
+            {
+                compareList[i].querySelector('span.weightAlerts').textContent += "此机器较为沉重。";
+            }else{
+                compareList[i].querySelectorAll('div.parameter')[11].querySelector('a').remove();
+            }
+        }
+
+        for (i=0;i<2;i++){
+            if (parseFloat(compareList[i].querySelector('span.thickness').textContent)>=25.0)
+            {
+                compareList[i].querySelector('span.thicknessAlerts').textContent += "此机器较厚。";
+            }else{
+                compareList[i].querySelectorAll('div.parameter')[12].querySelector('a').remove();
+            }
+        }
+
+        for(i=0;i<2;i++){
+            if (parseInt(compareList[i].querySelector('span.usb').textContent)>0)
+            {
+                compareList[i].querySelector('span.interfaceTips').textContent += interfaces[0];
+            }else{
+                compareList[i].querySelector('span.interfaceTips').textContent += interfaces[3];
+            }
+            if (parseInt(compareList[i].querySelector('span.thunderbolt').textContent)>0)
+            {
+                compareList[i].querySelector('span.interfaceTips').textContent += interfaces[1];
+            }
+            if (parseInt(compareList[i].querySelector('span.rj45').textContent)>0)
+            {
+                compareList[i].querySelector('span.interfaceTips').textContent += interfaces[2];
+            }
+        }
+
+        setTimeout(function () {
+            // toggle compare basket
+            classie.remove(self.el, 'compare-basket--active');
+            // animate..
+            classie.add(viewEl, 'view--compare');
+        }, 25);
+    };
+
+    CompareBasket.prototype.isFull = function () {
+        return this.totalItems === this.itemsAllowed;
+    };
+
+    function init() {
+        // initialize an empty basket
+        basket = new CompareBasket();
+        initEvents();
+    }
+
+    function initEvents() {
+        items.forEach(function (item) {
+            var checkbox = item.querySelector('.action--compare-add > input[type = "checkbox"]');
+            checkbox.checked = false;
+
+            // ctrl to add to the "compare basket"
+            checkbox.addEventListener('click', function (ev) {
+                if (ev.target.checked) {
+                    if (basket.isFull()) {
+                        ev.preventDefault();
+                        return false;
+                    }
+                    basket.add(item);
+                } else {
+                    basket.remove(item);
+                }
+            });
+        });
+    }
+
+    init();
 
 })();
