@@ -9,5 +9,5 @@ import java.util.List;
 @Mapper
 @Repository
 public interface LaptopMapper {
-    List<Laptop> getRecommended();
+    List<Laptop> getRecommended(Laptop params);
 }
