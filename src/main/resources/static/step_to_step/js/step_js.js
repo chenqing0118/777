@@ -13,6 +13,7 @@ function submit_reaults(data) {
             //根据数据，前端显示
             console.log("最后结果显示数据");
             var laptops = JSON.parse(data);
+            $("section.grid").html("");
             laptops.forEach(function(laptop,index,laptops){
                 $("section.grid").append("<div class='product hidden'>\n" +
                     "                                        <div class='product__info'>\n" +
