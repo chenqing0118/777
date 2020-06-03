@@ -43,7 +43,7 @@ public class PageController {
 
     @RequestMapping("/pick")
     public String about(Model model) {
-        model.addAttribute("laptops", laptopService.getRecommend(0, 0, 0, 0, false, false, false, false, 0, 999999));
+//        model.addAttribute("laptops", laptopService.getRecommend(0, 0, 0, 0, false, false, false, false, 0, 999999));
         return "pick";
     }
 
