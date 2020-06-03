@@ -6,5 +6,5 @@ import java.util.Dictionary;
 import java.util.List;
 
 public interface LaptopService {
-    List<Laptop> getRecommend(int stroage, int mem, int cpu, int gpu, boolean duration, boolean weight, boolean socket, boolean color, int min, int max);
+    String getRecommend(int stroage, int mem, int cpu, int gpu, boolean duration, boolean weight, boolean socket, boolean color, int min, int max);
 }
