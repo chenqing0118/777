@@ -5,16 +5,61 @@
 
 <mapper namespace="com.laptop.demo.mapper.LaptopMapper">
 
-    <select id="getRecommended" resultType="Laptop">
-        select id,name,type,price,releaseTime,cpu,gpu,memorySize,memoryGen,memoryRate,ssd as storage,screenSize,
-               resolution,refreshRate,gamut,duration,usb,typec,thunderbolt,video,rj45,thickness,weight,pictures
+    <select id="getRecommended" resultType="Laptop" parameterType="Laptop">
+        select *
+        from laptop_view
+        <where>
+            storage >= #{storage} and memorySize >= #{memorySize} and duration >= #{duration}
+            <if test="gpu = '1'">
+                and gpuMark > 1100
+            </if>
+            <if test="gpu = '2'">
+                and gpuMark > 2900
+            </if>
+            <if test="gpu ='3'">
+                and gpuMark > 3400
+            </if>
+            <if test="gpu = '4'">
+                and gpuMark > 5000
+            </if>
+            <if test="gpu = '5'">
+                and gpuMark > 7000
+            </if>
+            <if test="cpu = '1'">
+                and multiMark > 1180
+            </if>
+            <if test="weight &gt; 0 and weight &lt; 2">
+                and weight &lt; 1.6 and thickness &lt; 19
+            </if>
+            <if test="weight &gt; 2">
+                and weight &lt; 2.4 and thickness &lt; 24
+            </if>
+            <if test="usb &gt; 0">
+                and usb &gt;= 3 and typec &gt;= 1
+            </if>
+            <if test="gamut &gt; 0">
+                and gamut &gt; 70
+            </if>
+            and price &gt; #{memoryRate} and price &lt; #{price}
+            and releaseTime &gt;=1551369600 and
+            id &gt;=((select max(id) from laptop_unify)-(select min(id) from laptop_unify))*RAND()+(select min(id) from
+            laptop_unify)
+        </where>
+        limit 12
+    </select>
+
+    <select id="getRecommended2" resultType="Laptop">
+        select id,name,type,price,releaseTime,cpu,gpu,memorySize,memoryGen,memoryRate,ssd,hdd,storage,screenSize,
+        resolution,refreshRate,gamut,duration,usb,typec,thunderbolt,video,rj45,thickness,weight,pictures
         from laptop_unify
         <where>
---             id &lt;=4
-               releaseTime &gt;=1551369600
-               and
-               id &gt;=((select max(id) from laptop_unify)-(select min(id) from laptop_unify))*RAND()+(select min(id) from laptop_unify)
-        </where> limit 12
+            -- id &lt;=4
+            releaseTime &gt;=1551369600
+            and
+            id &gt;=((select max(id) from laptop_unify)-(select min(id) from laptop_unify))*RAND()+(select min(id) from
+            laptop_unify)
+        </where>
+        limit 12
     </select>
 
 </mapper>
