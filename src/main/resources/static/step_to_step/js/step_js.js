@@ -81,7 +81,7 @@ $(".done").click(function () {
     } else {
         //选图
         new_value = selectImgTake.submitTileIndex(id).toString();
-        console.log(new_value);
+        // console.log(new_value);
         if ((id === 'main_uses' || id === 'produce_type' || id === 'game_type') && results[id] !== undefined && new_value !== results[id]) {
             change_info = [results[id], new_value].toString();
             if (id === 'main_uses') {

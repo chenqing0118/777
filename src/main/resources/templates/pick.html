@@ -23,13 +23,6 @@
     <!--选择图片-->
     <link rel="stylesheet" type="text/css" th:href="@{select_img/css/selectImg.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{select_img/css/iconfont.css}"/>
-    <!-- 产品比较表-->
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" th:href="@{compare_table/css/reset.css}"> <!-- CSS reset -->
-    <link rel="stylesheet" th:href="@{compare_table/css/style_2.css}"> <!-- Gem style -->
-    <!--导航选项卡-->
-    <link rel="stylesheet" th:href="@{menubar/js/swiperTab/css/swiper-3.2.7.min.css}"/>
-    <link rel="stylesheet" th:href="@{menubar/css/nav.css}"/>
     <!--价格选择-->
     <link rel="stylesheet" th:href="@{rangeslider/css/public.css}"/>
     <link rel="stylesheet" th:href="@{rangeslider/css/ion.rangeSlider.css}"/>
@@ -40,10 +33,6 @@
         }
 
     </style>
-    <!--开关-->
-    <link rel="stylesheet" th:href="@{turnon/css/normalize.min.css}">
-    <link rel="stylesheet" th:href="@{turnon/css/style_turn.css}">
-
     <!-- 产品对比-->
     <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{all_goods/css/demo.css}" />
@@ -530,17 +519,21 @@
                                     <ul class="nmonthlyPayment_ul clearfix">
                                         <li data-nmonthlyPayment="" class="nmonthlyPayment_noLimit selected"><p>
                                             不限</p></li>
-                                        <li data-nmonthlyPayment="0_2000"><p>2000以内</p></li>
-                                        <li data-nmonthlyPayment="2000_3000"><p>2000-3000</p></li>
+                                        <li data-nmonthlyPayment="0_3000"><p>3000以内</p></li>
                                         <li data-nmonthlyPayment="3000_4000"><p>3000-4000</p></li>
                                         <li data-nmonthlyPayment="4000_5000"><p>4000-5000</p></li>
-                                        <li data-nmonthlyPayment="5000_6000"><p>5000以上</p></li>
+                                        <li data-nmonthlyPayment="5000_6000"><p>5000-6000</p></li>
+                                        <li data-nmonthlyPayment="6000_7000"><p>6000-7000</p></li>
+                                        <li data-nmonthlyPayment="7000_8000"><p>7000-8000</p></li>
+                                        <li data-nmonthlyPayment="8000_9000"><p>8000-9000</p></li>
+                                        <li data-nmonthlyPayment="9000_10000"><p>9000-10000</p></li>
+                                        <li data-nmonthlyPayment="10000_11000"><p>10000以上</p></li>
                                     </ul>
                                     <!-- 左右滑动 -->
                                     <div class="moveBox">
-                                        <div class="moveTitle clearfix"><p class="fl">自定义月供<span class="wangCss">&nbsp;(元)</span>
+                                        <div class="moveTitle clearfix"><p class="fl">自定义价格范围<span class="wangCss">&nbsp;(元)</span>
                                         </p>
-                                            <p class="changeNum bxyc fr">不限月供</p></div>
+                                            <p class="changeNum bxyc fr">不限</p></div>
                                         <div class="moveContent">
                                             <input type="text" value="1111" class="range_2"/>
                                             <div class="moveScale">
@@ -550,6 +543,11 @@
                                                 <p class="nmonthlyPayment_p_3">3000</p>
                                                 <p class="nmonthlyPayment_p_4">4000</p>
                                                 <p class="nmonthlyPayment_p_5">5000</p>
+                                                <p class="nmonthlyPayment_p_5">6000</p>
+                                                <p class="nmonthlyPayment_p_5">7000</p>
+                                                <p class="nmonthlyPayment_p_5">8000</p>
+                                                <p class="nmonthlyPayment_p_5">9000</p>
+                                                <p class="nmonthlyPayment_p_5">10000</p>
                                                 <p>不限</p>
                                             </div>
                                         </div>
@@ -730,230 +728,6 @@
 
 <script th:src="@{step_to_step/js/step_js.js}"></script>
 <script th:src="@{select_img/js/selectImg.js}"></script>
-
-<script th:src="@{compare_table/js/modernizr.js}"></script> <!-- Modernizr -->
-<script th:src="@{compare_table/js/main.js}"></script>
-
-<script th:src="@{menubar/js/swiperTab/js/swiper-3.4.0.jquery.min.js}"></script>
-<script th:src="@{menubar/js/MenuBar.js}"></script>
-<script th:src="@{menubar/js/swiperTab/js/swiper.js}"></script>
-<script type="text/javascript">
-    //引用组件 这里可以ajax接收后台数据
-    var res = {};
-    res.name = "主要用途";
-    res.title = "您需要的电脑的主要用途？";
-    res.selectimg = true;
-    res.multinum = 3;
-    this.id = "main_uses";
-    res.href = "";
-    res.children = [
-        {
-            "isDefault": 1,
-            "src": "images/icontype1.png",
-            "domain": "PB01",
-            "id": "ordinary_trait",
-            // "maptype": "CONTAINER",
-            "name": "文字办公，影音娱乐",
-            "title": "您需要的电脑主要特点？",
-            "selectimg": true,
-            "multinum": 4,
-            // "oid": "com.imecms.container.Container:1001",
-            "children": [{
-                name: "超大的容量",
-                src: "images/icontype1.png"
-            }, {
-                name: "准确的色彩",
-                src: "images/icontype1.png"
-            }, {
-                name: "丰富的接口",
-                src: "images/icontype1.png"
-            }, {
-                name: "非常持久的续航",
-                src: "images/icontype1.png"
-            }]
-        }, {
-            "path": "游戏",
-            "title": "游戏类型",
-            "src": "images/icontype1.png",
-            "domain": "PB07",
-            "id": "game_type",
-            "maptype": "ST",
-            "name": "游戏",
-            "oid": "com.imecms.container.Folder:3837",
-            "children": [{
-                name: "网页游戏",
-                title: "期望特质",
-                id: "ordinary_trait",
-                selectimg: true,
-                multinum: 4,
-                children: [{
-                    name: "超大的容量",
-                    src: "images/icontype1.png",
-                }, {
-                    name: "准确的色彩",
-                    src: "images/icontype1.png",
-                }, {
-                    name: "丰富的接口",
-                    src: "images/icontype1.png",
-                }, {
-                    name: "非常持久的续航",
-                    src: "images/icontype1.png",
-                }]
-            }, {
-                name: "客户端游戏",
-                title: "主玩什么游戏",
-                id: "game_example",
-                selectimg: true,
-                multinum: 4,
-                children: [{
-                    name: '英雄联盟/cf',
-                    src: "images/icontype1.png",
-                    title: "游戏画质选择",
-                    id: "game_vision",
-                    selectimg: true,
-                    children: [
-                        {
-                            name: "能玩即可",
-                            src: "images/icontype1.png"
-                        },
-                        {
-                            name: "中特效",
-                            src: "images/icontype1.png"
-                        }, {
-                            name: "特效全开",
-                            src: "images/icontype1.png"
-                        }]
-                }, {
-                    name: 'csgo/dota2',
-                    src: "images/icontype1.png",
-                    title: "游戏画质选择",
-                    id: "game_vision",
-                    selectimg: true,
-                    children: [
-                        {
-                            name: "能玩即可",
-                            src: "images/icontype1.png"
-                        },
-                        {
-                            name: "中特效",
-                            src: "images/icontype1.png"
-                        }, {
-                            name: "特效全开",
-                            src: "images/icontype1.png"
-                        }]
-                }, {
-                    name: '我的世界，守望先锋，绝地求生',
-                    src: "images/icontype1.png",
-                    title: "游戏画质选择",
-                    id: "game_vision",
-                    selectimg: true,
-                    children: [
-                        {
-                            name: "能玩即可",
-                            src: "images/icontype1.png"
-                        },
-                        {
-                            name: "中特效",
-                            src: "images/icontype1.png"
-                        }, {
-                            name: "特效全开",
-                            src: "images/icontype1.png"
-                        }]
-                }, {
-                    name: "gta5，使命召唤，刺客信条",
-                    src: "images/icontype1.png",
-                    title: "游戏画质选择",
-                    id: "game_vision",
-                    selectimg: true,
-                    children: [
-                        {
-                            name: "能玩即可",
-                            src: "images/icontype1.png"
-                        },
-                        {
-                            name: "中特效",
-                            src: "images/icontype1.png"
-                        }, {
-                            name: "特效全开",
-                            src: "images/icontype1.png"
-                        }]
-                }]
-            }]
-        }, {
-            "path": "生产力",
-            "src": "images/icontype1.png",
-            "domain": "PB07",
-            "id": "produce_type",
-            // "maptype": "ST",
-            "name": "生产力",
-            title: "生产力种类",
-            "selectimg": true,
-            "multinum": 3,
-            // "oid": "com.imecms.container.Folder:3838",
-            "children": [{
-                name: "代码工作/数据处理",
-                src: "images/icontype1.png",
-                title: "期望特质",
-                id: "ordinary_trait_1",
-                selectimg: true,
-                multinum: 3,
-                children: [
-                    {
-                        name: "准确的色彩",
-                        src: "images/icontype1.png",
-                    }, {
-                        name: "丰富的接口",
-                        src: "images/icontype1.png",
-                    }, {
-                        name: "非常持久的续航",
-                        src: "images/icontype1.png",
-                    }]
-            }, {
-                name: "绘图/视频制作",
-                src: "images/icontype1.png"
-            }, {
-                name: "工业设计",
-                src: "images/icontype1.png"
-            }]
-        }];
-
-    require(
-        ['MenuBar'],
-        function (MenuBar) {
-            var menuBar = new MenuBar("#swiper", {
-                data: res,
-                addMenu: function () {
-                    //动态添加menubar menu 触发该事件
-                    console.log("动态render事件");
-                    if (window.swiper) {
-                        window.swiper.Swiper.update();
-                    }
-                },
-                renderLeaf: function (menuItem) {
-                    //点击叶子节点触发事件，与后台交互等等
-                    console.log('您点击了叶子节点');
-                    var data = menuItem.data;
-                    if (typeof data == "string") {
-                        data = JSON.parse(data);
-                    }
-                    console.log(data);
-                    //支持动态添加menu事件,这里可以动态请求后台render数据 Example
-                    if (data.domain == "PB07") {
-                        var data1 = [{name: "新数据1", children: [{name: "测试数据1"}]}, {
-                            name: "新数据2",
-                            children: [{name: "测试数据2"}]
-                        }];
-                        //动态添加数据
-                        menuItem.addSubItems(data1);
-                    }
-                }
-            });
-        }
-    );
-    //初始化导航条滑动等
-    swiper.dataInit("#swiper");
-
-</script>
 
 <script th:src="@{rangeslider/js/ion.rangeSlider.js}"></script>
 <script th:src="@{rangeslider/js/index.js}"></script>

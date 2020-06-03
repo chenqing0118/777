@@ -10,8 +10,6 @@ $(function () {
     selectImgTake.init('produce_type',3,true);
     selectImgTake.init('ordinary_trait_1',3);
     selectImgTake.init('weight_type',1,true);
-
-
     // selectImgTake.cancelInit('selectItemDiv');
 });
 
@@ -73,7 +71,7 @@ var selectImgTake = {
         selectImgTake.getSelectImgs(divId).each(function(){
             value.push($(this).index()+1);
         });
-        console.log(value);
+        // console.log(value);
         return value;
     },
     "submitTileText":function (divId) {
@@ -81,7 +79,7 @@ var selectImgTake = {
         selectImgTake.getSelectImgs(divId).each(function(){
             text.push($(this).children('.img_title').text());
         });
-        console.log(text);
+        // console.log(text);
         return text;
     },
     "cancelInit":function(divId){
