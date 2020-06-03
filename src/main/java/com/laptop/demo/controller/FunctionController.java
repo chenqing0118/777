@@ -67,39 +67,38 @@ public class FunctionController {
             storage_constraint = Math.max(500, storage_constraint);
             if (game_type.contains("2")) {
                 int max_game = 0;
-                String[] choices = game_examples.split(",");
-                for (String e : choices
-                ) {
-                    max_game = Math.max(Integer.parseInt(e), max_game);
+                if (game_examples != "") {
+                    String[] choices = game_examples.split(",");
+                    for (String e : choices
+                    ) {
+                        max_game = Math.max(Integer.parseInt(e), max_game);
+                    }
+                    //确定gpu需求等级
+                    switch (max_game) {
+                        case 8:
+                        case 7:
+                        case 6:
+                            gpu_level = Math.max(5, gpu_level);
+                            break;
+                        case 5:
+                        case 4:
+                        case 3:
+                            gpu_level = Math.max(4, gpu_level);
+                            break;
+                        case 2:
+                            gpu_level = Math.max(3, gpu_level);
+                            break;
+                        case 1:
+                        default:
+                            gpu_level = 1;
+                    }
+                    if (game_video.contains("3")) {
+                        gpu_level += 1;
+                    } else if (game_video.contains("1")) {
+                        gpu_level -= 1;
+                    }
                 }
-                //确定gpu需求等级
-                switch (max_game) {
-                    case 8:
-                    case 7:
-                    case 6:
-                        gpu_level = Math.max(5, gpu_level);
-                        break;
-                    case 5:
-                    case 4:
-                    case 3:
-                        gpu_level = Math.max(4, gpu_level);
-                        break;
-                    case 2:
-                        gpu_level = Math.max(3, gpu_level);
-                        break;
-                    case 1:
-                    default:
-                        gpu_level = 1;
-                }
-                if (game_video.contains("3")) {
-                    gpu_level += 1;
-                } else if (game_video.contains("1")) {
-                    gpu_level -= 1;
-                }
-            } else {
-
             }
-
         }
 
         if (ordinary_trait != null) {
