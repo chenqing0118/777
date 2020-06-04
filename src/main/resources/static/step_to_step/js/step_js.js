@@ -18,84 +18,117 @@ function submit_reaults(data) {
                 $("section.grid").append("<div class='product hidden'>\n" +
                     "                                        <div class='product__info'>\n" +
                     "                                            <img class='product__image' src='"+laptop.pictures+"' alt='Product' />\n" +
-                    "                                            <h3 class='product__title' style='color: white;font-weight: bold;font-size: 120%' text='"+laptop.name+"}'>戴尔 灵越 5593 15(酷睿i7-1065G7/8GB/256GB/MX230)</h3>\n" +
+                    "                                            <h3 class='product__title' style='color: white' >"+laptop.name+"</h3>\n" +
                     "                                            <br/>\n" +
                     "\n" +
-                    "                                            <div class='highlight' ><span>类型：</span><span text='"+laptop.type+"'>主流轻薄本</span></div>\n" +
-                    "                                            <div class='parameter extra highlight' ><span>上市时间：</span><span text='"+laptop.releaseMonth+"'>1</span></div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>CPU：</span><span class='cpu' text='"+laptop.cpu+"'>Intel Core i7 1065G7</span>\n" +
+                    "                                            <div class='highlight' ><span>类型：</span><span >"+laptop.type+"</span></div>\n" +
+                    "                                            <div class='parameter extra highlight' ><span>上市时间：</span><span>"+laptop.releaseMonth+"</span></div>\n" +
+                    "                                            <div class='parameter extra highlight'><span>CPU：</span><span class='cpu' >"+laptop.cpu+"</span>\n" +
+                    "                                                <span>&emsp;</span><span class='cores' >"+laptop.cores+"</span><span>核</span><span class='threads'>"+laptop.threads+"</span><span>线程</span><span>&emsp;</span>\n" +
+                    "                                                <span class='clock' >"+laptop.cpuClock+"</span><span>-</span><span class='turbo'>"+laptop.cpuTurbo+"</span><span>GHz</span>\n" +
+                    "                                                <span class='singleMark' style='display: none'>"+laptop.singleMark+"</span><span class='multiMark' style='display: none'>"+laptop.multiMark+"</span>\n" +
+                    "                                                <span class='cpuOutdated' style='display: none'>"+laptop.cpuOutdated+"</span>\n" +
+                    "                                                <a target='_blank' href='/blog-details?hardware=cpu'>\n" +
+                    "                                                    <div class='help-tip'>\n" +
+                    "                                                        <span class='cpuTips'></span>\n" +
+                    "                                                    </div>\n" +
+                    "                                                </a>\n" +
+                    "                                                <a target='_blank' href='/blog-details?hardware=cpu'>\n" +
+                    "                                                    <div class='alert-tip'>\n" +
+                    "                                                        <span class='cpuAlerts'>该型号已较为老旧。</span>\n" +
+                    "                                                    </div>\n" +
+                    "                                                </a>\n" +
+                    "                                            </div>\n" +
+                    "                                            <div class='parameter extra highlight'><span>显卡：</span><span>"+laptop.gpu+"</span>\n" +
+                    "                                                <span class='gpuMark' style='display: none'>"+laptop.gpuMark+"</span><span class='gpuOutdated' style='display: none'>"+laptop.gpuOutdated+"</span>\n" +
+                    "                                                <a target='_blank' href='/blog-details?hardware=gpu'>\n" +
+                    "                                                    <div class='help-tip'>\n" +
+                    "                                                        <span class='gpuTips'></span>\n" +
+                    "                                                    </div>\n" +
+                    "                                                </a>\n" +
+                    "                                                <a target='_blank' href='/blog-details?hardware=gpu'>\n" +
+                    "                                                    <div class='alert-tip'>\n" +
+                    "                                                        <span class='gpuAlerts'>该型号已较为老旧。</span>\n" +
+                    "                                                    </div>\n" +
+                    "                                                </a>\n" +
+                    "                                            </div>\n" +
+                    "                                            <div class='parameter extra highlight' ><span>内存大小：</span><span class='memorySize'>"+laptop.memorySize+"</span><span>G</span>\n" +
                     "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
                     "                                                    <div class='help-tip'>\n" +
                     "                                                        <span class='memorySizeTips'></span>\n" +
                     "                                                    </div>\n" +
                     "                                                </a>\n" +
                     "                                            </div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>显卡：</span><span text='"+laptop.gpu+"'>NVIDIA GeForce MX230</span>\n" +
+                    "                                            <div class='parameter extra highlight'><span>内存类型：</span><span class='memoryType'>"+laptop.memoryType+"</span><span>&emsp;</span>\n" +
+                    "                                                <span class='memoryRate'>"+laptop.memoryRate+"</span><span>MHz</span>\n" +
                     "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
                     "                                                    <div class='help-tip'>\n" +
-                    "                                                        <span class='memorySizeTips'></span>\n" +
+                    "                                                        <span class='memoryTypeTips'></span>\n" +
                     "                                                    </div>\n" +
                     "                                                </a>\n" +
                     "                                            </div>\n" +
-                    "                                            <div class='parameter extra highlight' ><span>内存大小：</span><span class='memorySize' text='"+laptop.memorySize+"'>8</span><span>G</span>\n" +
-                    "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
+                    "                                            <div class='parameter extra highlight'><span>硬盘大小：</span><span class='storage'>"+laptop.storage+"</span><span>G</span>\n" +
+                    "                                                <a target='_blank' href='/blog-details?hardware=storage'>\n" +
                     "                                                    <div class='help-tip'>\n" +
-                    "                                                        <span class='memorySizeTips'></span>\n" +
+                    "                                                        <span class='storageTips'></span>\n" +
                     "                                                    </div>\n" +
                     "                                                </a>\n" +
                     "                                            </div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>内存类型：</span><span text='"+laptop.memoryGen+"'>DDR4</span><span>&emsp;</span><span text='"+laptop.memoryRate+"'>DDR4</span><span>MHz</span>\n" +
-                    "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
-                    "                                                    <div class='help-tip'>\n" +
-                    "                                                        <span class='memorySizeTips'></span>\n" +
+                    "                                            <div class='parameter extra highlight'><span>屏幕尺寸：</span><span class='screenSize'>"+laptop.screenSize+"</span><span>寸</span>\n" +
+                    "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
+                    "                                                    <div class='alert-tip'>\n" +
+                    "                                                        <span class='screenSizeAlerts'></span>\n" +
                     "                                                    </div>\n" +
                     "                                                </a>\n" +
                     "                                            </div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>硬盘大小：</span><span class='storage' text='"+laptop.storage+"'>500</span><span>G</span>\n" +
-                    "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
+                    "                                            <div class='parameter extra highlight'><span>分辨率：</span><span class='resolution'>"+laptop.resolution+"</span>\n" +
+                    "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
                     "                                                    <div class='help-tip'>\n" +
-                    "                                                        <span class='memorySizeTips'></span>\n" +
+                    "                                                        <span class='resolutionTips'></span>\n" +
                     "                                                    </div>\n" +
                     "                                                </a>\n" +
                     "                                            </div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>屏幕尺寸：</span><span text='"+laptop.screenSize+"'>15.6</span><span>寸</span></div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>分辨率：</span><span text='"+laptop.resolution+"'>1920*1080</span>\n" +
-                    "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
+                    "                                            <div class='parameter extra highlight'><span>屏幕色域：</span><span class='gamut'>"+laptop.gamut+"</span><span>%NTSC</span>\n" +
+                    "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
                     "                                                    <div class='help-tip'>\n" +
-                    "                                                        <span class='memorySizeTips'></span>\n" +
+                    "                                                        <span class='gamutTips'></span>\n" +
                     "                                                    </div>\n" +
                     "                                                </a>\n" +
                     "                                            </div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>屏幕色域：</span><span text='"+laptop.gamut+"'>45</span><span>%NTSC</span>\n" +
-                    "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
+                    "                                            <div class='parameter extra highlight'><span>屏幕刷新率：</span><span class='refreshRate'>"+laptop.refreshRate+"</span><span>Hz</span>\n" +
+                    "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
                     "                                                    <div class='help-tip'>\n" +
-                    "                                                        <span class='memorySizeTips'></span>\n" +
+                    "                                                        <span class='refreshRateTips'></span>\n" +
                     "                                                    </div>\n" +
                     "                                                </a>\n" +
                     "                                            </div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>屏幕刷新率：</span><span text='"+laptop.refreshRate+"'>15.6</span><span>Hz</span>\n" +
-                    "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
+                    "                                            <div class='parameter extra highlight'><span>接口情况：USB*</span><span class='usb'>"+laptop.usb+"</span><span>&emsp;Type-c*</span><span>"+laptop.typec+"</span>\n" +
+                    "                                                &emsp;<span>&emsp;雷电*</span><span class='thunderbolt'>"+laptop.thunderbolt+"</span><span>&emsp;显示接口：</span><span>"+laptop.video+"</span><span>&emsp;网线接口：</span><span class='rj45'>"+laptop.rj45+"</span>\n" +
+                    "                                                <a target='_blank' href='/blog-details?hardware=interface'>\n" +
                     "                                                    <div class='help-tip'>\n" +
-                    "                                                        <span class='memorySizeTips'></span>\n" +
+                    "                                                        <span class='interfaceTips'></span>\n" +
                     "                                                    </div>\n" +
                     "                                                </a>\n" +
                     "                                            </div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>接口情况：USB*</span><span text='"+laptop.usb+"'>1</span><span>&emsp;Type-c*</span><span text='"+laptop.typec+"'>1</span>\n" +
-                    "                                                &emsp;<span>&emsp;雷电*</span><span text='"+laptop.thunderbolt+"'>1</span><span>&emsp;显示接口：</span><span text='"+laptop.video+"'>1</span><span>&emsp;网线接口：</span><span text='"+laptop.rj45+"'>1</span>\n" +
-                    "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
-                    "                                                    <div class='help-tip'>\n" +
-                    "                                                        <span class='memorySizeTips'></span>\n" +
+                    "                                            <div class='parameter extra highlight'><span>重量：</span><span class='weight'>"+laptop.weight+"</span><span>KG</span>\n" +
+                    "                                                <a target='_blank'>\n" +
+                    "                                                    <div class='alert-tip'>\n" +
+                    "                                                        <span class='weightAlerts'></span>\n" +
                     "                                                    </div>\n" +
                     "                                                </a>\n" +
                     "                                            </div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>重量：</span><span text='"+laptop.weight+"'>1.83</span><span>KG</span></div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>厚度：</span><span text='"+laptop.thickness+"'>19</span><span>mm</span></div>\n" +
-                    "                                            <div class='parameter extra highlight'><span>续航时间：</span><span text='"+laptop.duration+"'>9</span><span>h</span></div>\n" +
-                    "                                            <div class='parameter product__price highlight'><span>价格：</span><span text='"+laptop.price+"'>4999</span></div>\n" +
+                    "                                            <div class='parameter extra highlight'><span>厚度：</span><span class='thickness'>"+laptop.thickness+"</span><span>mm</span>\n" +
+                    "                                                <a target='_blank'>\n" +
+                    "                                                    <div class='alert-tip'>\n" +
+                    "                                                        <span class='thicknessAlerts'></span>\n" +
+                    "                                                    </div>\n" +
+                    "                                                </a>\n" +
+                    "                                            </div>\n" +
+                    "                                            <div class='parameter extra highlight'><span>续航时间：</span><span>"+laptop.duration+"</span><span>h</span></div>\n" +
+                    "                                            <div class='parameter product__price highlight'><span>价格：</span><span>"+laptop.price+"</span></div>\n" +
                     "                                        </div>\n" +
-                    "                                        <!--            <button class='action action&#45;&#45;button action&#45;&#45;buy'><i class='fa fa-shopping-cart'></i><span class='action__text'><a src='https://product.pconline.com.cn/notebook/dell/1276107.html'>购买通道</a></span></button>-->\n" +
                     "                                        <label class='action action--compare-add'><input class='check-hidden' type='checkbox' /><i class='fa fa-plus'></i><i class='fa fa-check'></i><span class='action__text action__text--invisible'>加入对比</span></label>\n" +
-                    "                                    </div>\n")
+                    "                                    </div>")
                 }
             );
 
@@ -117,7 +150,7 @@ function check_submit() {
         next_li = $(".navBox").parent().parent("li");
         if (results['price'] !== undefined) {
             //得到最后结果
-            // submit_reaults(results);
+            submit_reaults(results);
 
             next_li = $("#cd-table").parent().parent("li");
         }
