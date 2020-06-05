@@ -49,21 +49,21 @@ public class LaptopServiceImpl implements LaptopService {
 
 
         List<Laptop> laptops = laptopMapper.getRecommended(params);
-        JSONObject optput = new JSONObject();
+        JSONObject output = new JSONObject();
         if (laptops.size() < 11) {
-            optput.put("loosen", 1);
+            output.put("loosen", 1);
             params.setPricemax((max * 3) / 2 + 1000);
             laptops = laptopMapper.getRecommended(params);
             if (laptops.size() >= 6) {
-                optput.put("error", 0);
+                output.put("error", 0);
             } else {
-                optput.put("error", 1);
+                output.put("error", 1);
             }
         } else {
-            optput.put("error", 0);
-            optput.put("loosen", 0);
+            output.put("error", 0);
+            output.put("loosen", 0);
         }
-        optput.put("content", (JSON) JSON.parse(JSON.toJSONString(laptops)));
+        output.put("content", (JSON) JSON.parse(JSON.toJSONString(laptops)));
         SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月");
 //        System.out.println(JSON.toJSONString(laptops));
         for (Laptop laptop : laptops) {
@@ -72,9 +72,8 @@ public class LaptopServiceImpl implements LaptopService {
             laptop.setReleaseMonth(format.format(laptop.getReleaseTime() * 1000));
         }
 
-
-        System.out.println(optput);
-        return (JSON) output;
+        System.out.println(output);
+        return output;
     }
 
     @Override
