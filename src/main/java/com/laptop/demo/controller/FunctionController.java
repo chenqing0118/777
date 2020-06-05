@@ -52,15 +52,18 @@ public class FunctionController {
         int price_min = 0;
         int price_max = 9999999;
         if (main_uses.contains("3")) {
-            MemSize_constraint = 12;
+            MemSize_constraint = 16;
             storage_constraint = Math.max(500, storage_constraint);
-            if (produce_type.contains("3")) {
-                gpu_level = Math.max(4, gpu_level);
-                cpu_level = Math.max(4, cpu_level);
-            } else if (produce_type.contains("2")) {
-                gpu_level = Math.max(2, gpu_level);
-                color_filter_on = true;
+            if (produce_type != null) {
+                if (produce_type.contains("3")) {
+                    gpu_level = Math.max(4, gpu_level);
+                    cpu_level = Math.max(4, cpu_level);
+                } else if (produce_type.contains("2")) {
+                    gpu_level = Math.max(2, gpu_level);
+                    color_filter_on = true;
+                }
             }
+
         }
         if (main_uses.contains("2")) {
             MemSize_constraint = 8;
@@ -113,15 +116,17 @@ public class FunctionController {
         }
 
         if (ordinary_trait_1 != null) {
-            if (ordinary_trait_1.contains("1"))
-                color_filter_on = true;
-            if (ordinary_trait_1.contains("2"))
-                socket_filter_on = true;
-            if (ordinary_trait_1.contains("3"))
-                duration_filter_on = true;
-        }
+            if (!ordinary_trait_1.equals("")) {
+                if (ordinary_trait_1.contains("1"))
+                    color_filter_on = true;
+                if (ordinary_trait_1.contains("2"))
+                    socket_filter_on = true;
+                if (ordinary_trait_1.contains("3"))
+                    duration_filter_on = true;
+            }
 
-        if (weight_type.contains("1")) {
+        }
+        if (weight_type != null && weight_type.contains("1")) {
             weight_filter_on = true;
         }
 

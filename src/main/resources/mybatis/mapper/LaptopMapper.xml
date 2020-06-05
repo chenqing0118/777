@@ -5,46 +5,46 @@
 
 <mapper namespace="com.laptop.demo.mapper.LaptopMapper">
 
-    <select id="getRecommended" resultType="Laptop" parameterType="Laptop">
+    <select id="getRecommended" resultType="Laptop" parameterType="ChooseParam">
         select *
         from laptop_view
         <where>
-            storage >= #{storage} and memorySize >= #{memorySize} and duration >= #{duration}
-            <if test="gpu = '1'">
+            storage >= #{storage} and memorySize >= #{mem} and duration >= #{durationOn}
+            <if test="gpulevel == 1">
                 and gpuMark &gt; 1100
             </if>
-            <if test="gpu = '2'">
+            <if test="gpulevel == 2">
                 and gpuMark &gt; 2900
             </if>
-            <if test="gpu ='3'">
+            <if test="gpulevel == 3">
                 and gpuMark &gt; 3400
             </if>
-            <if test="gpu = '4'">
+            <if test="gpulevel == 4">
                 and gpuMark &gt; 5000
             </if>
-            <if test="gpu = '5'">
+            <if test="gpulevel == 5">
                 and gpuMark &gt; 7000
             </if>
-            <if test="cpu = '1'">
+            <if test="gpulevel &gt; 1">
                 and multiMark &gt; 1180
             </if>
-            <if test="weight &gt; 0 and weight &lt; 2">
+            <if test="weightOn == 1">
                 and weight &lt; 1.6 and thickness &lt; 19
             </if>
-            <if test="weight &gt; 2">
+            <if test="weightOn == 2">
                 and weight &lt; 2.4 and thickness &lt; 24
             </if>
-            <if test="usb &gt; 0">
+            <if test="portOn == 1">
                 and usb &gt;= 3 and typec &gt;= 1
             </if>
-            <if test="gamut &gt; 0">
+            <if test="colorOn == 1">
                 and gamut &gt; 70
             </if>
-            and price &gt; #{memoryRate} and price &lt; #{price}
+            and price &gt;= #{pricemin} and price &lt;= #{pricemax}
             and releaseTime &gt;=1551369600
-
-            -- and id &gt;=((select max(id) from laptop_unify)-(select min(id) from laptop_unify))*RAND()+(select
-            -- min(id) from laptop_unify)
+            and
+            id &gt;=((select max(id) from laptop_view)-(select min(id) from laptop_view))*RAND()+(select min(id) from
+            laptop_view)
         </where>
         limit 12
     </select>

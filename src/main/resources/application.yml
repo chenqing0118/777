@@ -12,5 +12,6 @@ spring:
 mybatis:
   type-aliases-package: com.laptop.demo.pojo
   mapper-locations: classpath:mybatis/mapper/*.xml
+  config-location: classpath:mybatis/mybatis-config.xml
 server:
   port: 80

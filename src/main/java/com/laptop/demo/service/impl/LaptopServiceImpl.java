@@ -2,6 +2,7 @@ package com.laptop.demo.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.laptop.demo.mapper.LaptopMapper;
+import com.laptop.demo.pojo.ChooseParam;
 import com.laptop.demo.pojo.Laptop;
 import com.laptop.demo.service.LaptopService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,60 +19,32 @@ public class LaptopServiceImpl implements LaptopService {
 
     @Override
     public JSON getRecommend(int storage, int mem, int cpu, int gpu, boolean duration, boolean weight, boolean socket, boolean color, int min, int max) {
-        Laptop params = new Laptop();
+        ChooseParam params = new ChooseParam();
         params.setStorage(storage);
-        params.setMemorySize(mem);
-        switch (gpu) {
-            case 0:
-            default:
-                params.setGpu("0");
-                break;
-            case 1:
-                params.setGpu("1");
-                break;
-            case 2:
-                params.setGpu("2");
-                break;
-            case 3:
-                params.setGpu("3");
-                break;
-            case 4:
-                params.setGpu("4");
-                break;
-            case 5:
-            case 6:
-                params.setGpu("5");
-                break;
-        }
-        if (cpu > 0) {
-            params.setCpu("1");
-        } else {
-            params.setCpu("0");
-        }
-        if (duration)
-            params.setDuration(9);
-        else
-            params.setDuration(0);
+        params.setMem(mem);
+        params.setCpulevel(cpu);
+        params.setGpulevel(gpu);
+        params.setPricemin(min - 500);
+        params.setPricemax(max + 1000);
         if (weight) {
-            if (gpu > 1) {
-                params.setWeight(5);
-            } else {
-                params.setWeight(1);
-            }
+            if (gpu > 1)
+                params.setWeightOn(2);
+            else
+                params.setWeightOn(1);
         } else
-            params.setWeight(0);
+            params.setWeightOn(0);
+        if (duration)
+            params.setDurationOn(8);
+        else
+            params.setDurationOn(0);
         if (socket)
-            params.setUsb(1);
+            params.setPortOn(1);
         else
-            params.setUsb(0);
+            params.setPortOn(0);
         if (color)
-            params.setGamut(1);
+            params.setColorOn(1);
         else
-            params.setGamut(0);
-
-        params.setPrice(max);
-
-        params.setMemoryRate(min);
+            params.setColorOn(0);
 
 
         List<Laptop> laptops = laptopMapper.getRecommended(params);
@@ -88,8 +61,9 @@ public class LaptopServiceImpl implements LaptopService {
         System.out.println(result);
         return result;
     }
+
     @Override
-    public List<Laptop> getRecommend2(){
+    public List<Laptop> getRecommend2() {
         List<Laptop> laptops = laptopMapper.getRecommended2();
         SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月");
         for (Laptop laptop : laptops) {
