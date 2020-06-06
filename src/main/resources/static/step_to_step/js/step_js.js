@@ -29,6 +29,7 @@ function submit_reaults(data) {
                     $("section.grid").append("<blockquote> 您的价格范围太苛刻了，没有适合您的产品。以下是放宽价格限制后的推荐结果。</blockquote>");
                 }
                 laptops.forEach(function (laptop, index, laptops) {
+                    console.log('update');
                     $("section.grid").append("<div class='product' style='display: none'>\n" +
                         "                                        <div class='product__info'>\n" +
                         "                                            <img class='product__image' src='" + laptop.pictures + "' alt='Product' />\n" +
@@ -468,6 +469,7 @@ function product_compare() {
         // prepend it to the basket
         this.el.insertBefore(preview, this.el.childNodes[0]);
         // insert item
+
         this.items.push(preview);
         console.log(this.items);
 
@@ -484,6 +486,7 @@ function product_compare() {
         var self = this;
 
         var preview = document.createElement('div');
+        console.log('preview')
         preview.className = 'product-icon';
         preview.setAttribute('data-idx', items.indexOf(item));
 
@@ -876,6 +879,7 @@ function product_compare() {
 
     function initEvents() {
         console.log(items);
+        $('.product-icon').remove();
         items.forEach(function (item) {
             var checkbox = item.querySelector('.action--compare-add > input[type = "checkbox"]');
             checkbox.checked = false;
