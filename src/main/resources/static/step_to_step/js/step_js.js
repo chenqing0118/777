@@ -398,7 +398,7 @@ function getData(offset, size) {
         products[i].style.display = "block";
     }
     last_id = offset + size - 1;
-    $('#' + last_id).after(' <div class="site-btn mb-5" id="more"><a class="skill-btn" id="more-a">加载更多</a></div>');
+    $('#' + last_id).after(' <div class="site-btn mb-5" id="more"><a href="#" class="skill-btn" id="more-a">加载更多</a></div>');
 
     /*隐藏more按钮*/
 
