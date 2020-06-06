@@ -13,7 +13,7 @@ function submit_reaults(data) {
             //根据数据，前端显示
             console.log("最后结果显示数据");
             $("section.grid").html("");
-
+            $(".tips").html("");
             var j_data = JSON.parse(data);
             // 'error'：1表示筛选过严无数据，0正常
             // 'loosen'：1表示放宽过金额限制（即把金额上限x1.5再查一次），0正常
@@ -23,10 +23,10 @@ function submit_reaults(data) {
             var laptops = j_data.content;
 
             if (error === 1) {
-                $("section.grid").append("<blockquote>您的条件太苛刻啦(＃°Д°)，没有适合您的产品，您可以选择适当放宽条件。</blockquote>");
+                $(".tips").append("<blockquote>您的条件太苛刻啦(＃°Д°)，没有适合您的产品，您可以选择适当放宽条件。</blockquote>");
             } else {
                 if (loosen === 1) {
-                    $("section.grid").append("<blockquote> 您的价格范围太苛刻了，没有适合您的产品。以下是放宽价格限制后的推荐结果。</blockquote>");
+                    $(".tips").append("<div><blockquote> 您的价格范围太苛刻了，没有适合您的产品。以下是放宽价格限制后的推荐结果。</blockquote></div>");
                 }
                 laptops.forEach(function (laptop, index, laptops) {
                     $("section.grid").append("<div class='product' style='display: none'>\n" +
