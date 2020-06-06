@@ -31,10 +31,8 @@ function submit_reaults(data) {
                 laptops.forEach(function (laptop, index, laptops) {
                     $("section.grid").append("<div class='product' style='display: none'>\n" +
                         "                                        <div class='product__info'>\n" +
-                        "                                            <img class='product__image' src='" + laptop.pictures + "' alt='Product' />\n" +
+                        "                                            <img class='product__image' src='" + laptop.pictures + "' alt='Product' style='cursor: pointer' />\n" +
                         "                                            <h3 class='product__title' style='color: white' >" + laptop.name + "</h3>\n" +
-                        "                                            <br/>\n" +
-                        "\n" +
                         "                                            <div class='highlight' ><span>类型：</span><span >" + laptop.type + "</span></div>\n" +
                         "                                            <div class='parameter extra highlight' ><span>上市时间：</span><span>" + laptop.releaseMonth + "</span></div>\n" +
                         "                                            <div class='parameter extra highlight'><span>CPU：</span><span class='cpu' >" + laptop.cpu + "</span>\n" +
@@ -91,7 +89,7 @@ function submit_reaults(data) {
                         "                                            <div class='parameter extra highlight'><span>屏幕尺寸：</span><span class='screenSize'>" + laptop.screenSize + "</span><span>寸</span>\n" +
                         "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
                         "                                                    <div class='alert-tip'>\n" +
-                        "                                                        <span class='screenSizeAlerts'></span>\n" +
+                        "                                                        <span class='screenSizeAlerts'>尺寸较大，不易放入普通双肩包。</span>\n" +
                         "                                                    </div>\n" +
                         "                                                </a>\n" +
                         "                                            </div>\n" +
@@ -127,18 +125,18 @@ function submit_reaults(data) {
                         "                                            <div class='parameter extra highlight'><span>重量：</span><span class='weight'>" + laptop.weight + "</span><span>KG</span>\n" +
                         "                                                <a target='_blank'>\n" +
                         "                                                    <div class='alert-tip'>\n" +
-                        "                                                        <span class='weightAlerts'></span>\n" +
+                        "                                                        <span class='weightAlerts'>此机器较为沉重。</span>\n" +
                         "                                                    </div>\n" +
                         "                                                </a>\n" +
                         "                                            </div>\n" +
                         "                                            <div class='parameter extra highlight'><span>厚度：</span><span class='thickness'>" + laptop.thickness + "</span><span>mm</span>\n" +
                         "                                                <a target='_blank'>\n" +
                         "                                                    <div class='alert-tip'>\n" +
-                        "                                                        <span class='thicknessAlerts'></span>\n" +
+                        "                                                        <span class='thicknessAlerts'>此机器较厚。</span>\n" +
                         "                                                    </div>\n" +
                         "                                                </a>\n" +
                         "                                            </div>\n" +
-                        "                                            <div class='parameter extra highlight'><span>续航时间：</span><span>" + laptop.duration + "</span><span>h</span></div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>续航时间：</span><span>" + laptop.duration + "</span><span>h</span></div>" +
                         "                                            <div class='parameter product__price highlight'><span>价格：</span><span>" + laptop.price + "</span></div>\n" +
                         "                                        </div>\n" +
                         "                                        <label class='action action--compare-add'><input class='check-hidden' type='checkbox' /><i class='fa fa-plus'></i><i class='fa fa-check'></i><span class='action__text action__text--invisible'>加入对比</span></label>\n" +
@@ -149,6 +147,12 @@ function submit_reaults(data) {
 
             first_ini();
             product_compare();
+            $('.product__image').click(function () {
+                productHtml=$(this).parent().html();
+                $('#product_browse .compare__effect').html(productHtml);
+                $('#product_browse').modal('show');
+
+            });
         },
         error: function () {
             console.log("error")
@@ -420,21 +424,21 @@ function product_compare() {
     storage = [['不适合存放大量资料。', '存放较多资料和软件。'], ['游戏玩家基础容量。', '可存放多款大型游戏。'], ['生产工具基础容量。', '可安装许多软件，保存大量项目文件。']];
     gamut = [['不会影响文字办公和网页浏览。', '更好的观影体验。'], ['游戏画面展现一般。', '更真实的游戏画面体验。'], ['不会影响代码类的工作。', '图像工作者必备。']];
     refreshRate = ['普通刷新率，满足多数需求。', '高刷新率，竞技游戏更加连贯。'];
-    interfaces = ['USB接口数较多。', '雷电接口外接设备能力强。', '可使用网线连网', '接口类型较少，可能需要配合转接头或拓展坞。'];
+    interfaces = ['USB接口数较多。', '雷电接口外接设备能力强。', '可使用网线连网。', '接口类型较少，可能需要配合转接头或拓展坞。'];
 
     var viewEl = document.querySelector('.view'),
         gridEl = viewEl.querySelector('.grid'),
         items = [].slice.call(gridEl.querySelectorAll('.product')),
         basket;
-    console.log('view');
-    console.log(viewEl);
-    console.log(gridEl.querySelectorAll('.product'));
+    // console.log('view');
+    // console.log(viewEl);
+    // console.log(gridEl.querySelectorAll('.product'));
 
 // the compare basket
     function CompareBasket() {
         this.el = document.querySelector('.compare-basket');
         console.log(this.el);
-        console.log('el')
+        console.log('el');
         this.compareCtrl = this.el.querySelector('.action--compare');
         this.compareWrapper = document.querySelector('.compare');
         this.closeCompareCtrl = this.compareWrapper.querySelector('.action--close');
@@ -761,18 +765,17 @@ function product_compare() {
         }
 
         for (i = 0; i < 2; i++) {
-            if (parseFloat(compareList[i].querySelector('span.screenSize').textContent) >= 16.5) {
-                compareList[i].querySelector('span.screenSizeAlerts').textContent += "尺寸较大，不易放入普通双肩包。";
-            } else {
-                compareList[i].querySelectorAll('div.parameter')[6].querySelector('a').remove();
+            if (parseFloat(compareList[i].querySelector('span.screenSize').textContent)<16.5) {
+                compareList[i].querySelectorAll('div.parameter')[6].querySelector('a').remove();            
             }
+
         }
 
         for (i = 0; i < 2; i++) {
-            index = (parseInt(compareList[i].querySelector('span.memorySize').textContent) < 70) ? 0 : 1;
+            index = (parseInt(compareList[i].querySelector('span.gamut').textContent) < 70) ? 0 : 1;
             compareList[i].querySelector('span.gamutTips').textContent += Level[3][index];
             for (j = 0; j < useArray.length; j++) {
-                switch (useArray[i]) {
+                switch (useArray[j]) {
                     case '1':
                         compareList[i].querySelector('span.gamutTips').textContent += gamut[0][index];
                         break;
@@ -801,19 +804,6 @@ function product_compare() {
                     compareList[i].querySelector('span.resolutionTips').textContent += '高分辨率，画面细节更丰富。';
                     break;
             }
-            for (j = 0; j < useArray.length; j++) {
-                switch (useArray[i]) {
-                    case '1':
-                        compareList[i].querySelector('span.gamutTips').textContent += gamut[0][index];
-                        break;
-                    case '2':
-                        compareList[i].querySelector('span.gamutTips').textContent += gamut[1][index];
-                        break;
-                    case '3':
-                        compareList[i].querySelector('span.gamutTips').textContent += gamut[2][index];
-                        break;
-                }
-            }
         }
 
         for (i = 0; i < 2; i++) {
@@ -826,17 +816,13 @@ function product_compare() {
 
 
         for (i = 0; i < 2; i++) {
-            if (parseFloat(compareList[i].querySelector('span.weight').textContent) > 2.6) {
-                compareList[i].querySelector('span.weightAlerts').textContent += "此机器较为沉重。";
-            } else {
+            if (parseFloat(compareList[i].querySelector('span.weight').textContent) < 2.6) {
                 compareList[i].querySelectorAll('div.parameter')[11].querySelector('a').remove();
             }
         }
 
         for (i = 0; i < 2; i++) {
-            if (parseFloat(compareList[i].querySelector('span.thickness').textContent) >= 25.0) {
-                compareList[i].querySelector('span.thicknessAlerts').textContent += "此机器较厚。";
-            } else {
+            if (parseFloat(compareList[i].querySelector('span.thickness').textContent)<25.0) {
                 compareList[i].querySelectorAll('div.parameter')[12].querySelector('a').remove();
             }
         }
