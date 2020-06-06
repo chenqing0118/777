@@ -1,6 +1,7 @@
 package com.laptop.demo.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.laptop.demo.mapper.LaptopMapper;
 import com.laptop.demo.pojo.ChooseParam;
@@ -10,8 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service("LaptopService")
 public class LaptopServiceImpl implements LaptopService {
@@ -49,8 +49,9 @@ public class LaptopServiceImpl implements LaptopService {
 
 
         List<Laptop> laptops = laptopMapper.getRecommended(params);
+        Collections.shuffle(laptops);
         JSONObject output = new JSONObject();
-        if (laptops.size() < 11) {
+        if (laptops.size() < 18) {
             output.put("loosen", 1);
             params.setPricemax((max * 3) / 2 + 1000);
             laptops = laptopMapper.getRecommended(params);
@@ -64,14 +65,30 @@ public class LaptopServiceImpl implements LaptopService {
             output.put("loosen", 0);
         }
 
+        Random random = new Random();
+        int length = laptops.size();
+        int step = length / 6;
+        List<Laptop> choose = new ArrayList<>();
         SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月");
-//        System.out.println(JSON.toJSONString(laptops));
-        for (Laptop laptop : laptops) {
+        if (length <= 18) {
+            for (int i = 0; i < Math.min(length, 12); i++) {
+                choose.add(laptops.get(i));
+            }
+        } else {
+            for (int i = 0; i < 6; i++) {
+                int rand = random.nextInt(step - 2);
+                choose.add(laptops.get(i * step + rand));
+                choose.add(laptops.get(i * step + rand + 1));
+            }
+        }
+        Collections.shuffle(choose);
+        for (Laptop laptop : choose) {
 //           System.out.println(laptop.getReleaseTime());
 //           System.out.println(format.format(new Date(laptop.getReleaseTime()*1000)));
             laptop.setReleaseMonth(format.format(laptop.getReleaseTime() * 1000));
         }
-        output.put("content", (JSON) JSON.parse(JSON.toJSONString(laptops)));
+        output.put("content", (JSON) JSON.parse(JSON.toJSONString(choose)));
+//        System.out.println(JSON.toJSONString(laptops));
         System.out.println(output);
         return output;
     }

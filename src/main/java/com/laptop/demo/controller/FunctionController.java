@@ -81,19 +81,18 @@ public class FunctionController {
                         case 8:
                         case 7:
                         case 6:
-                            gpu_level = Math.max(5, gpu_level);
+                            gpu_level = Math.max(4, gpu_level);
                             break;
                         case 5:
                         case 4:
                         case 3:
-                            gpu_level = Math.max(4, gpu_level);
-                            break;
-                        case 2:
                             gpu_level = Math.max(3, gpu_level);
                             break;
+                        case 2:
                         case 1:
                         default:
-                            gpu_level = 1;
+                            gpu_level = Math.max(1, gpu_level);
+                            ;
                     }
                     if (game_video.contains("3")) {
                         gpu_level += 1;
