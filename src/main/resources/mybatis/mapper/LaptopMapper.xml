@@ -42,9 +42,7 @@
             </if>
             and price &gt;= #{pricemin} and price &lt;= #{pricemax}
             and releaseTime &gt;=1551369600
-            and
-            id &gt;=((select max(id) from laptop_view)-(select min(id) from laptop_view))*RAND()+(select min(id) from
-            laptop_view)
+
         </where>
         order by releaseTime desc
         limit 48
