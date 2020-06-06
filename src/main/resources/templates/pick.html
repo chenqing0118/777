@@ -270,7 +270,7 @@
                             <div class="selectImgDiv" id="game_example" style="margin: 0 160px;">
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{step_img/主玩游戏/lol&dota.png}"/>
+                                        <img th:src="@{step_img/主玩游戏/loldota.png}"/>
                                     </div>
                                     <div class="img_title">lol/data</div>
                                     <div class="img_isCheck">
@@ -279,7 +279,7 @@
                                 </div>
                                 <div class="item">
                                     <div class="img_show">
-                                        <img th:src="@{step_img/主玩游戏/cf&csgo.png}"/>
+                                        <img th:src="@{step_img/主玩游戏/cfcsgo.png}"/>
                                     </div>
                                     <div class="img_title">cf/csgo</div>
                                     <div class="img_isCheck">
@@ -573,6 +573,7 @@
                                 <button class="action action--button action--compare"><i class="fa fa-check"></i><span
                                         class="action__text">对比</span></button>
                             </div>
+                            <div class="tips"></div>
                             <!-- Main view -->
                             <div class="view" id="cd-table">
                                 <!-- Product grid -->
@@ -628,7 +629,24 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="product_browse">
+    <div class="modal-dialog" style="max-width: 490px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="compare__effect" style="opacity: 1;padding: 1em 2em;background: #24252A">
+<!--                <div class="product__info">-->
 
+<!--                </div>-->
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <!-- JS here -->
 
 <script th:src="@{assets/js/jquery-1.10.2.min.js}"></script>

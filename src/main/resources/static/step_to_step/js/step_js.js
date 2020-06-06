@@ -13,7 +13,7 @@ function submit_reaults(data) {
             //根据数据，前端显示
             console.log("最后结果显示数据");
             $("section.grid").html("");
-
+            $(".tips").html("");
             var j_data = JSON.parse(data);
             // 'error'：1表示筛选过严无数据，0正常
             // 'loosen'：1表示放宽过金额限制（即把金额上限x1.5再查一次），0正常
@@ -23,132 +23,136 @@ function submit_reaults(data) {
             var laptops = j_data.content;
 
             if (error === 1) {
-                $("section.grid").append("<blockquote>您的条件太苛刻啦(＃°Д°)，没有找到满足全部要求的产品。您可以选择适当放宽条件。</blockquote>");
+                $(".tips").append("<blockquote>您的条件太苛刻啦(＃°Д°)，没有适合您的产品，您可以选择适当放宽条件。</blockquote>");
             } else {
                 if (loosen === 1) {
-                    $("section.grid").append("<blockquote> 没有找到满足全部要求的产品。以下推荐结果放宽了价格限制。</blockquote>");
+                    $(".tips").append("<div><blockquote> 您的价格范围太苛刻了，没有适合您的产品。以下是放宽价格限制后的推荐结果。</blockquote></div>");
                 }
                 laptops.forEach(function (laptop, index, laptops) {
-                        $("section.grid").append("<div class='product' style='display: none'>\n" +
-                            "                                        <div class='product__info'>\n" +
-                            "                                            <img class='product__image' src='" + laptop.pictures + "' alt='Product' />\n" +
-                            "                                            <h3 class='product__title' style='color: white' >" + laptop.name + "</h3>\n" +
-                            "                                            <br/>\n" +
-                            "\n" +
-                            "                                            <div class='highlight' ><span>类型：</span><span >" + laptop.type + "</span></div>\n" +
-                            "                                            <div class='parameter extra highlight' ><span>上市时间：</span><span>" + laptop.releaseMonth + "</span></div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>CPU：</span><span class='cpu' >" + laptop.cpu + "</span>\n" +
-                            "                                                <span>&emsp;</span><span class='cores' >" + laptop.cores + "</span><span>核</span><span class='threads'>" + laptop.threads + "</span><span>线程</span><span>&emsp;</span>\n" +
-                            "                                                <span class='clock' >" + laptop.cpuClock + "</span><span>-</span><span class='turbo'>" + laptop.cpuTurbo + "</span><span>GHz</span>\n" +
-                            "                                                <span class='singleMark' style='display: none'>" + laptop.singleMark + "</span><span class='multiMark' style='display: none'>" + laptop.multiMark + "</span>\n" +
-                            "                                                <span class='cpuOutdated' style='display: none'>" + laptop.cpuOutdated + "</span>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=cpu'>\n" +
-                            "                                                    <div class='help-tip'>\n" +
-                            "                                                        <span class='cpuTips'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=cpu'>\n" +
-                            "                                                    <div class='alert-tip'>\n" +
-                            "                                                        <span class='cpuAlerts'>该型号已较为老旧。</span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>显卡：</span><span>" + laptop.gpu + "</span>\n" +
-                            "                                                <span class='gpuMark' style='display: none'>" + laptop.gpuMark + "</span><span class='gpuOutdated' style='display: none'>" + laptop.gpuOutdated + "</span>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=gpu'>\n" +
-                            "                                                    <div class='help-tip'>\n" +
-                            "                                                        <span class='gpuTips'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=gpu'>\n" +
-                            "                                                    <div class='alert-tip'>\n" +
-                            "                                                        <span class='gpuAlerts'>该型号已较为老旧。</span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight' ><span>内存大小：</span><span class='memorySize'>" + laptop.memorySize + "</span><span>G</span>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
-                            "                                                    <div class='help-tip'>\n" +
-                            "                                                        <span class='memorySizeTips'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>内存类型：</span><span class='memoryType'>" + laptop.memoryGen + "</span><span>&emsp;</span>\n" +
-                            "                                                <span class='memoryRate'>" + laptop.memoryRate + "</span><span>MHz</span>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
-                            "                                                    <div class='help-tip'>\n" +
-                            "                                                        <span class='memoryTypeTips'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>硬盘大小：</span><span class='storage'>" + laptop.storage + "</span><span>G</span>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=storage'>\n" +
-                            "                                                    <div class='help-tip'>\n" +
-                            "                                                        <span class='storageTips'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>屏幕尺寸：</span><span class='screenSize'>" + laptop.screenSize + "</span><span>寸</span>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
-                            "                                                    <div class='alert-tip'>\n" +
-                            "                                                        <span class='screenSizeAlerts'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>分辨率：</span><span class='resolution'>" + laptop.resolution + "</span>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
-                            "                                                    <div class='help-tip'>\n" +
-                            "                                                        <span class='resolutionTips'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>屏幕色域：</span><span class='gamut'>" + laptop.gamut + "</span><span>%NTSC</span>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
-                            "                                                    <div class='help-tip'>\n" +
-                            "                                                        <span class='gamutTips'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>屏幕刷新率：</span><span class='refreshRate'>" + laptop.refreshRate + "</span><span>Hz</span>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
-                            "                                                    <div class='help-tip'>\n" +
-                            "                                                        <span class='refreshRateTips'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>接口情况：USB*</span><span class='usb'>" + laptop.usb + "</span><span>&emsp;Type-c*</span><span>" + laptop.typec + "</span>\n" +
-                            "                                                &emsp;<span>&emsp;雷电*</span><span class='thunderbolt'>" + laptop.thunderbolt + "</span><span>&emsp;显示接口：</span><span>" + laptop.video + "</span><span>&emsp;网线接口：</span><span class='rj45'>" + laptop.rj45 + "</span>\n" +
-                            "                                                <a target='_blank' href='/blog-details?hardware=interface'>\n" +
-                            "                                                    <div class='help-tip'>\n" +
-                            "                                                        <span class='interfaceTips'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>重量：</span><span class='weight'>" + laptop.weight + "</span><span>KG</span>\n" +
-                            "                                                <a target='_blank'>\n" +
-                            "                                                    <div class='alert-tip'>\n" +
-                            "                                                        <span class='weightAlerts'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>厚度：</span><span class='thickness'>" + laptop.thickness + "</span><span>mm</span>\n" +
-                            "                                                <a target='_blank'>\n" +
-                            "                                                    <div class='alert-tip'>\n" +
-                            "                                                        <span class='thicknessAlerts'></span>\n" +
-                            "                                                    </div>\n" +
-                            "                                                </a>\n" +
-                            "                                            </div>\n" +
-                            "                                            <div class='parameter extra highlight'><span>续航时间：</span><span>" + laptop.duration + "</span><span>h</span></div>\n" +
-                            "                                            <div class='parameter product__price highlight'><span>参考价：</span><span>" + laptop.price + "</span></div>\n" +
-                            "                                        </div>\n" +
-                            "                                        <label class='action action--compare-add'><input class='check-hidden' type='checkbox' /><i class='fa fa-plus'></i><i class='fa fa-check'></i><span class='action__text action__text--invisible'>加入对比</span></label>\n" +
-                            "                                    </div>")
+                    $("section.grid").append("<div class='product' style='display: none'>\n" +
+                        "                                        <div class='product__info'>\n" +
+                        "                                            <img class='product__image' src='" + laptop.pictures + "' alt='Product' style='cursor: pointer' />\n" +
+                        "                                            <h3 class='product__title' style='color: white' >" + laptop.name + "</h3>\n" +
+                        "                                            <div class='highlight' ><span>类型：</span><span >" + laptop.type + "</span></div>\n" +
+                        "                                            <div class='parameter extra highlight' ><span>上市时间：</span><span>" + laptop.releaseMonth + "</span></div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>CPU：</span><span class='cpu' >" + laptop.cpu + "</span>\n" +
+                        "                                                <span>&emsp;</span><span class='cores' >" + laptop.cores + "</span><span>核</span><span class='threads'>" + laptop.threads + "</span><span>线程</span><span>&emsp;</span>\n" +
+                        "                                                <span class='clock' >" + laptop.cpuClock + "</span><span>-</span><span class='turbo'>" + laptop.cpuTurbo + "</span><span>GHz</span>\n" +
+                        "                                                <span class='singleMark' style='display: none'>" + laptop.singleMark + "</span><span class='multiMark' style='display: none'>" + laptop.multiMark + "</span>\n" +
+                        "                                                <span class='cpuOutdated' style='display: none'>" + laptop.cpuOutdated + "</span>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=cpu'>\n" +
+                        "                                                    <div class='help-tip'>\n" +
+                        "                                                        <span class='cpuTips'></span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=cpu'>\n" +
+                        "                                                    <div class='alert-tip'>\n" +
+                        "                                                        <span class='cpuAlerts'>该型号已较为老旧。</span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>显卡：</span><span>" + laptop.gpu + "</span>\n" +
+                        "                                                <span class='gpuMark' style='display: none'>" + laptop.gpuMark + "</span><span class='gpuOutdated' style='display: none'>" + laptop.gpuOutdated + "</span>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=gpu'>\n" +
+                        "                                                    <div class='help-tip'>\n" +
+                        "                                                        <span class='gpuTips'></span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=gpu'>\n" +
+                        "                                                    <div class='alert-tip'>\n" +
+                        "                                                        <span class='gpuAlerts'>该型号已较为老旧。</span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight' ><span>内存大小：</span><span class='memorySize'>" + laptop.memorySize + "</span><span>G</span>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
+                        "                                                    <div class='help-tip'>\n" +
+                        "                                                        <span class='memorySizeTips'></span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>内存类型：</span><span class='memoryType'>" + laptop.memoryGen + "</span><span>&emsp;</span>\n" +
+                        "                                                <span class='memoryRate'>" + laptop.memoryRate + "</span><span>MHz</span>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=memory'>\n" +
+                        "                                                    <div class='help-tip'>\n" +
+                        "                                                        <span class='memoryTypeTips'></span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>硬盘大小：</span><span class='storage'>" + laptop.storage + "</span><span>G</span>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=storage'>\n" +
+                        "                                                    <div class='help-tip'>\n" +
+                        "                                                        <span class='storageTips'></span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>屏幕尺寸：</span><span class='screenSize'>" + laptop.screenSize + "</span><span>寸</span>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
+                        "                                                    <div class='alert-tip'>\n" +
+                        "                                                        <span class='screenSizeAlerts'>尺寸较大，不易放入普通双肩包。</span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>分辨率：</span><span class='resolution'>" + laptop.resolution + "</span>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
+                        "                                                    <div class='help-tip'>\n" +
+                        "                                                        <span class='resolutionTips'></span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>屏幕色域：</span><span class='gamut'>" + laptop.gamut + "</span><span>%NTSC</span>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
+                        "                                                    <div class='help-tip'>\n" +
+                        "                                                        <span class='gamutTips'></span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>屏幕刷新率：</span><span class='refreshRate'>" + laptop.refreshRate + "</span><span>Hz</span>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
+                        "                                                    <div class='help-tip'>\n" +
+                        "                                                        <span class='refreshRateTips'></span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>接口情况：USB*</span><span class='usb'>" + laptop.usb + "</span><span>&emsp;Type-c*</span><span>" + laptop.typec + "</span>\n" +
+                        "                                                &emsp;<span>&emsp;雷电*</span><span class='thunderbolt'>" + laptop.thunderbolt + "</span><span>&emsp;显示接口：</span><span>" + laptop.video + "</span><span>&emsp;网线接口：</span><span class='rj45'>" + laptop.rj45 + "</span>\n" +
+                        "                                                <a target='_blank' href='/blog-details?hardware=interface'>\n" +
+                        "                                                    <div class='help-tip'>\n" +
+                        "                                                        <span class='interfaceTips'></span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>重量：</span><span class='weight'>" + laptop.weight + "</span><span>KG</span>\n" +
+                        "                                                <a target='_blank'>\n" +
+                        "                                                    <div class='alert-tip'>\n" +
+                        "                                                        <span class='weightAlerts'>此机器较为沉重。</span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>厚度：</span><span class='thickness'>" + laptop.thickness + "</span><span>mm</span>\n" +
+                        "                                                <a target='_blank'>\n" +
+                        "                                                    <div class='alert-tip'>\n" +
+                        "                                                        <span class='thicknessAlerts'>此机器较厚。</span>\n" +
+                        "                                                    </div>\n" +
+                        "                                                </a>\n" +
+                        "                                            </div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>续航时间：</span><span>" + laptop.duration + "</span><span>h</span></div>" +
+                        "                                            <div class='parameter product__price highlight'><span>参考价：</span><span>" + laptop.price + "</span></div>\n" +
+                        "                                        </div>\n" +
+                        "                                        <label class='action action--compare-add'><input class='check-hidden' type='checkbox' /><i class='fa fa-plus'></i><i class='fa fa-check'></i><span class='action__text action__text--invisible'>加入对比</span></label>\n" +
+                        "                                    </div>")
                     }
                 );
             }
 
             first_ini();
             product_compare();
+            $('.product__image').click(function () {
+                productHtml=$(this).parent().html();
+                $('#product_browse .compare__effect').html(productHtml);
+                $('#product_browse').modal('show');
+
+            });
         },
         error: function () {
             console.log("error")
