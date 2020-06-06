@@ -360,10 +360,11 @@ function products_main() {
         }
 
         for(i=0;i<2;i++){
-            index=(parseInt(compareList[i].querySelector('span.memorySize').textContent) <70) ?0:1;
+            index=(parseInt(compareList[i].querySelector('span.gamut').textContent) <70?0:1);
+            console.log('index');
             compareList[i].querySelector('span.gamutTips').textContent += Level[3][index];
             for (j = 0; j < useArray.length; j++){
-                switch (useArray[i]) {
+                switch (useArray[j]) {
                     case '1':
                         compareList[i].querySelector('span.gamutTips').textContent += gamut[0][index];
                         break;
@@ -389,22 +390,22 @@ function products_main() {
                     compareList[i].querySelector('span.resolutionTips').textContent += '市场主流分辨率。';
                     break;
                 default:
-                    compareList[i].querySelector('span.resolutionTips').textContent += '高分辨率，画面细节更丰富。';
+                    compareList[i].querySelector('span.resolutionTips').textContent += '更高分辨率，画面细节更丰富。';
                     break;
             }
-            for (j = 0; j < useArray.length; j++){
-                switch (useArray[i]) {
-                    case '1':
-                        compareList[i].querySelector('span.gamutTips').textContent += gamut[0][index];
-                        break;
-                    case '2':
-                        compareList[i].querySelector('span.gamutTips').textContent += gamut[1][index];
-                        break;
-                    case '3':
-                        compareList[i].querySelector('span.gamutTips').textContent += gamut[2][index];
-                        break;
-                }
-            }
+            // for (j = 0; j < useArray.length; j++){
+            //     switch (useArray[i]) {
+            //         case '1':
+            //             compareList[i].querySelector('span.gamutTips').textContent += gamut[0][index];
+            //             break;
+            //         case '2':
+            //             compareList[i].querySelector('span.gamutTips').textContent += gamut[1][index];
+            //             break;
+            //         case '3':
+            //             compareList[i].querySelector('span.gamutTips').textContent += gamut[2][index];
+            //             break;
+            //     }
+            // }
         }
 
         for(i=0;i<2;i++){
