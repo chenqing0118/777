@@ -63,7 +63,7 @@ public class LaptopServiceImpl implements LaptopService {
             output.put("error", 0);
             output.put("loosen", 0);
         }
-        output.put("content", (JSON) JSON.parse(JSON.toJSONString(laptops)));
+
         SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月");
 //        System.out.println(JSON.toJSONString(laptops));
         for (Laptop laptop : laptops) {
@@ -71,7 +71,7 @@ public class LaptopServiceImpl implements LaptopService {
 //           System.out.println(format.format(new Date(laptop.getReleaseTime()*1000)));
             laptop.setReleaseMonth(format.format(laptop.getReleaseTime() * 1000));
         }
-
+        output.put("content", (JSON) JSON.parse(JSON.toJSONString(laptops)));
         System.out.println(output);
         return output;
     }
