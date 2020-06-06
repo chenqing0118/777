@@ -197,7 +197,7 @@ li:first-child .wizard-content {
     padding: 4px 0;
     background-color: #0d141c;
     /*background-color: #447294;*/
-    z-index: 99;
+    z-index: auto;
 }
 
 .completed .wizard-heading:after {
