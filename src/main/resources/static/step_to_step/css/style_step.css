@@ -46,7 +46,7 @@ h1 {
 
 .payment-wizard li.active {
     position: relative;
-    z-index: 1;
+    z-index: auto;
 }
 
 .wizard-heading {
