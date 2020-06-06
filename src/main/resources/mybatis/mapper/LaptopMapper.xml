@@ -22,7 +22,7 @@
             <if test="gpulevel == 4">
                 and gpuMark &gt; 5000
             </if>
-            <if test="gpulevel == 5">
+            <if test="gpulevel &gt;= 5">
                 and gpuMark &gt; 7000
             </if>
             <if test="gpulevel &gt; 1">
@@ -46,7 +46,8 @@
             id &gt;=((select max(id) from laptop_view)-(select min(id) from laptop_view))*RAND()+(select min(id) from
             laptop_view)
         </where>
-        limit 12
+        order by releaseTime desc
+        limit 48
     </select>
 
     <select id="getRecommended2" resultType="Laptop">
