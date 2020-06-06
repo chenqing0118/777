@@ -31,10 +31,8 @@ function submit_reaults(data) {
                 laptops.forEach(function (laptop, index, laptops) {
                     $("section.grid").append("<div class='product' style='display: none'>\n" +
                         "                                        <div class='product__info'>\n" +
-                        "                                            <img class='product__image' src='" + laptop.pictures + "' alt='Product' />\n" +
+                        "                                            <img class='product__image' src='" + laptop.pictures + "' alt='Product' style='cursor: pointer' />\n" +
                         "                                            <h3 class='product__title' style='color: white' >" + laptop.name + "</h3>\n" +
-                        "                                            <br/>\n" +
-                        "\n" +
                         "                                            <div class='highlight' ><span>类型：</span><span >" + laptop.type + "</span></div>\n" +
                         "                                            <div class='parameter extra highlight' ><span>上市时间：</span><span>" + laptop.releaseMonth + "</span></div>\n" +
                         "                                            <div class='parameter extra highlight'><span>CPU：</span><span class='cpu' >" + laptop.cpu + "</span>\n" +
@@ -91,7 +89,7 @@ function submit_reaults(data) {
                         "                                            <div class='parameter extra highlight'><span>屏幕尺寸：</span><span class='screenSize'>" + laptop.screenSize + "</span><span>寸</span>\n" +
                         "                                                <a target='_blank' href='/blog-details?hardware=screen'>\n" +
                         "                                                    <div class='alert-tip'>\n" +
-                        "                                                        <span class='screenSizeAlerts'></span>\n" +
+                        "                                                        <span class='screenSizeAlerts'>尺寸较大，不易放入普通双肩包。</span>\n" +
                         "                                                    </div>\n" +
                         "                                                </a>\n" +
                         "                                            </div>\n" +
@@ -127,19 +125,19 @@ function submit_reaults(data) {
                         "                                            <div class='parameter extra highlight'><span>重量：</span><span class='weight'>" + laptop.weight + "</span><span>KG</span>\n" +
                         "                                                <a target='_blank'>\n" +
                         "                                                    <div class='alert-tip'>\n" +
-                        "                                                        <span class='weightAlerts'></span>\n" +
+                        "                                                        <span class='weightAlerts'>此机器较为沉重。</span>\n" +
                         "                                                    </div>\n" +
                         "                                                </a>\n" +
                         "                                            </div>\n" +
                         "                                            <div class='parameter extra highlight'><span>厚度：</span><span class='thickness'>" + laptop.thickness + "</span><span>mm</span>\n" +
                         "                                                <a target='_blank'>\n" +
                         "                                                    <div class='alert-tip'>\n" +
-                        "                                                        <span class='thicknessAlerts'></span>\n" +
+                        "                                                        <span class='thicknessAlerts'>此机器较厚。</span>\n" +
                         "                                                    </div>\n" +
                         "                                                </a>\n" +
                         "                                            </div>\n" +
-                        "                                            <div class='parameter extra highlight'><span>续航时间：</span><span>" + laptop.duration + "</span><span>h</span></div>\n" +
-                        "                                            <div class='parameter product__price highlight'><span>价格：</span><span>" + laptop.price + "</span></div>\n" +
+                        "                                            <div class='parameter extra highlight'><span>续航时间：</span><span>" + laptop.duration + "</span><span>h</span></div>" +
+                        "                                            <div class='parameter product__price highlight'><span>参考价：</span><span>" + laptop.price + "</span></div>\n" +
                         "                                        </div>\n" +
                         "                                        <label class='action action--compare-add'><input class='check-hidden' type='checkbox' /><i class='fa fa-plus'></i><i class='fa fa-check'></i><span class='action__text action__text--invisible'>加入对比</span></label>\n" +
                         "                                    </div>")
@@ -149,6 +147,12 @@ function submit_reaults(data) {
 
             first_ini();
             product_compare();
+            $('.product__image').click(function () {
+                productHtml=$(this).parent().html();
+                $('#product_browse .compare__effect').html(productHtml);
+                $('#product_browse').modal('show');
+
+            });
         },
         error: function () {
             console.log("error")
