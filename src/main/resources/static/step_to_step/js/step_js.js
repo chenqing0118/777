@@ -157,99 +157,128 @@ function submit_reaults(data) {
 }
 
 function click_img(){
-    cpu=['文字办公，影音娱乐，部分腾讯游戏。','中端级别，满足多数使用场景。<10750','发烧级别，基本没有限制。'];
-    gpu=['文字办公，影音娱乐。','入门级别，适合腾讯游戏全家桶。','中端级别，满足多数使用场景。','发烧级别，基本没有限制。'];
-    memorySize = ['容量小，仅文字办公，影音娱乐。','主流容量，满足多数使用场景。','大容量，一般不是瓶颈。'];
-    memoryRate = ['主流频率，满足多数使用场景。','高频率，部分游戏有提升效果。'];
-    storage = ['容量小，不适合放较多软件和资料。','主流容量，满足多数使用场景。','大容量，可劲儿存。'];
-    gamut = ['低色域屏幕，总体观感一般。','高色域屏幕，色彩更丰富、准确。'];
-    refreshRate = ['普通刷新率，适合多数用户。','高刷新率，射击类游戏体验更好。'];
-    interfaces = [];
+    cpuDetail=['文字办公，影音娱乐，部分腾讯游戏。','中端级别，满足多数使用场景。','发烧级别，基本没有限制。'];
+    gpuDetail=['文字办公，影音娱乐。','入门级别，适合腾讯游戏全家桶。','中端级别，满足多数使用场景。','发烧级别，基本没有限制。'];
+    memorySizeDetail = ['容量小，仅文字办公，影音娱乐。','主流容量，满足多数使用场景。','大容量，一般不是瓶颈。'];
+    memoryRateDetail = ['主流频率，满足多数使用场景。','高频率，部分游戏有提升效果。'];
+    storageDetail = ['容量小，不适合放较多软件和资料。','主流容量，满足多数使用场景。','大容量，可劲儿存。'];
+    gamutDetail = ['低色域屏幕，总体观感一般。','高色域屏幕，色彩更丰富、准确。'];
+    refreshRateDetail = ['普通刷新率，适合多数用户。','高刷新率，射击类游戏体验更好。'];
+    interfacesDetail = ['USB接口数较多。', '雷电接口外接设备能力强。', '可使用网线连网。', '接口较少，可能需要配合转接头或拓展坞。'];
     $(document).ready(function () {
         $('.product__image').click(function () {
             productHtml=$(this).parent().html();
             $('#product_browse .compare__effect').html(productHtml);
             // alerts
             if (parseFloat($('#product_browse span.weight').text()) < 2.6) {
-                $('.weightAlerts').parent().parent().remove();
+                $('#product_browse span.weightAlerts').parent().parent().remove();
             }
             if (parseFloat($('#product_browse span.thickness').text()) < 25.0) {
-                $('.thicknessAlerts').parent().parent().remove();
+                $('#product_browse span.thicknessAlerts').parent().parent().remove();
             }
             if (parseFloat($('#product_browse span.screenSize').text()) < 16.5) {
-                $('.screenSizeAlerts').parent().parent().remove();
+                $('#product_browse span.screenSizeAlerts').parent().parent().remove();
             }
             if (parseInt($('#product_browse span.cpuOutdated').text()) ===0) {
-                $('.cpuAlerts').parent().parent().remove();
+                $('#product_browse span.cpuAlerts').parent().parent().remove();
             }
             if (parseInt($('#product_browse span.gpuOutdated').text()) ===0) {
-                $('.gpuAlerts').parent().parent().remove();
+                $('#product_browse span.gpuAlerts').parent().parent().remove();
             }
             // tips
             cpuMark=parseInt($('#product_browse span.multiMark').text());
             cpuTips=$('#product_browse span.cpuTips');
             if (cpuMark<805){
-                cpuTips.text(cpu[0]);
+                cpuTips.text(cpuDetail[0]);
             }else if(cpuMark<1346){
-                cpuTips.text(cpu[1]);
+                cpuTips.text(cpuDetail[1]);
             }else {
-                cpuTips.text(cpu[2]);
+                cpuTips.text(cpuDetail[2]);
             }
 
             gpuMark=parseInt($('#product_browse span.gpuMark').text());
             gpuTips=$('#product_browse span.gpuTips');
             if (gpuMark<1){
-                gpuTips.text(gpu[0]);
+                gpuTips.text(gpuDetail[0]);
             }else if(gpuMark<2947){
-                gpuTips.text(gpu[1]);
+                gpuTips.text(gpuDetail[1]);
             }else if (gpuMark<5929){
-                gpuTips.text(gpu[2]);
+                gpuTips.text(gpuDetail[2]);
             }else{
-                gpuTips.text(gpu[3]);
+                gpuTips.text(gpuDetail[3]);
             }
 
             Size=parseInt($('#product_browse span.memorySize').text());
             memorySizeTips=$('#product_browse span.memorySizeTips');
             if (Size<=8){
-                memorySizeTips.text(memorySize[0]);
+                memorySizeTips.text(memorySizeDetail[0]);
             }else if(Size<=16){
-                memorySizeTips.text(memorySize[1]);
+                memorySizeTips.text(memorySizeDetail[1]);
             }else {
-                memorySizeTips.text(memorySize[2]);
+                memorySizeTips.text(memorySizeDetail[2]);
             }
 
             Rate=parseInt($('#product_browse span.memoryRate').text());
             memoryTypeTips=$('#product_browse span.memoryTypeTips');
             if (Rate<=2666){
-                memoryTypeTips.text(memoryRate[0]);
+                memoryTypeTips.text(memoryRateDetail[0]);
             }else {
-                memoryTypeTips.text(memoryRate[1]);
+                memoryTypeTips.text(memoryRateDetail[1]);
             }
 
             Size=parseInt($('#product_browse span.storage').text());
             storageTips=$('#product_browse span.storageTips');
             if (Size<=256){
-                storageTips.text(storage[0]);
+                storageTips.text(storageDetail[0]);
             }else if(Size<=512){
-                storageTips.text(storage[1]);
+                storageTips.text(storageDetail[1]);
             }else {
-                storageTips.text(storage[2]);
+                storageTips.text(storageDetail[2]);
             }
 
             proGamut=parseInt($('#product_browse span.gamut').text());
             gamutTips=$('#product_browse span.gamutTips');
             if (proGamut<70){
-                gamutTips.text(gamut[0]);
+                gamutTips.text(gamutDetail[0]);
             }else {
-                gamutTips.text(gamut[1]);
+                gamutTips.text(gamutDetail[1]);
             }
 
             proRefresh=parseInt($('#product_browse span.refreshRate').text());
             refreshRateTips=$('#product_browse span.refreshRateTips');
             if (proRefresh<70){
-                refreshRateTips.text(refreshRate[0]);
+                refreshRateTips.text(refreshRateDetail[0]);
             }else {
-                refreshRateTips.text(refreshRate[1]);
+                refreshRateTips.text(refreshRateDetail[1]);
+            }
+
+            resolutionTips=$('#product_browse span.resolutionTips');
+            switch ($('#product_browse span.resolution').text()) {
+                case '1366×768' :
+                    resolutionTips.text('低分辨率，观感较差。');
+                    break;
+                case '1680×1050':
+                    resolutionTips.text('略低于市场主流分辨率。');
+                    break;
+                case '1920×1080':
+                    resolutionTips.text('市场主流分辨率。');
+                    break;
+                default:
+                    resolutionTips.text('高分辨率，画面细节更丰富,更适合图像工作者。');
+                    break;
+            }
+
+            interfaceTips=$('#product_browse span.interfaceTips');
+            if (parseInt($('#product_browse span.usb').text()) > 1) {
+                interfaceTips.append(interfacesDetail[0]);
+            } else {
+                interfaceTips.append(interfacesDetail[3]);
+            }
+            if (parseInt($('#product_browse span.thunderbolt').text()) > 0) {
+                interfaceTips.append(interfacesDetail[1]);
+            }
+            if (parseInt($('#product_browse span.rj45').text()) > 0) {
+                interfaceTips.append(interfacesDetail[2]);
             }
             $('#product_browse').modal('show');
         });
@@ -517,21 +546,21 @@ function product_compare() {
     storage = [['不适合存放大量资料。', '存放较多资料和软件。'], ['游戏玩家基础容量。', '可存放多款大型游戏。'], ['生产工具基础容量。', '可安装许多软件，保存大量项目文件。']];
     gamut = [['不会影响文字办公和网页浏览。', '更好的观影体验。'], ['游戏画面展现一般。', '更真实的游戏画面体验。'], ['不会影响代码类的工作。', '图像工作者必备。']];
     refreshRate = ['普通刷新率，满足多数需求。', '高刷新率，竞技游戏更加连贯。'];
-    interfaces = ['USB接口数较多。', '雷电接口外接设备能力强。', '可使用网线连网', '接口类型较少，可能需要配合转接头或拓展坞。'];
+    interfaces = ['USB接口数较多。', '雷电接口外接设备能力强。', '可使用网线连网。', '接口类型较少，可能需要配合转接头或拓展坞。'];
 
     var viewEl = document.querySelector('.view'),
         gridEl = viewEl.querySelector('.grid'),
         items = [].slice.call(gridEl.querySelectorAll('.product')),
         basket;
-    console.log('view');
-    console.log(viewEl);
-    console.log(gridEl.querySelectorAll('.product'));
+    // console.log('view');
+    // console.log(viewEl);
+    // console.log(gridEl.querySelectorAll('.product'));
 
 // the compare basket
     function CompareBasket() {
         this.el = document.querySelector('.compare-basket');
-        console.log(this.el);
-        console.log('el')
+        // console.log(this.el);
+        // console.log('el');
         this.compareCtrl = this.el.querySelector('.action--compare');
         this.compareWrapper = document.querySelector('.compare');
         this.closeCompareCtrl = this.compareWrapper.querySelector('.action--close');
@@ -578,11 +607,11 @@ function product_compare() {
     };
 
     CompareBasket.prototype._createItemPreview = function (item) {
-        console.log('itempreview');
+        // console.log('itempreview');
         var self = this;
 
         var preview = document.createElement('div');
-        console.log('preview')
+        // console.log('preview');
         preview.className = 'product-icon';
         preview.setAttribute('data-idx', items.indexOf(item));
 
@@ -895,7 +924,7 @@ function product_compare() {
                     compareList[i].querySelector('span.resolutionTips').textContent += '市场主流分辨率。';
                     break;
                 default:
-                    compareList[i].querySelector('span.resolutionTips').textContent += '高分辨率，画面细节更丰富。';
+                    compareList[i].querySelector('span.resolutionTips').textContent += '高分辨率，画面细节更丰富，更适合图像工作者。';
                     break;
             }
         }
@@ -922,7 +951,7 @@ function product_compare() {
         }
 
         for (i = 0; i < 2; i++) {
-            if (parseInt(compareList[i].querySelector('span.usb').textContent) > 0) {
+            if (parseInt(compareList[i].querySelector('span.usb').textContent) > 1) {
                 compareList[i].querySelector('span.interfaceTips').textContent += interfaces[0];
             } else {
                 compareList[i].querySelector('span.interfaceTips').textContent += interfaces[3];
