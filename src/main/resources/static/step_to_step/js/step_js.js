@@ -351,33 +351,38 @@ $('.payment-wizard li .wizard-heading').click(function () {
 });
 
 // })
-
+counter = 0; /*计数器*/
 function first_ini() {
+    console.log('first_ini');
     /*初始化*/
-    var counter = 0; /*计数器*/
-    var itemStart = 0; /*offset*/
-    var itemSize = 4; /*size*/
+    counter = 0;
+
+
+    $("#more-a").text('加载更多');
 
     /*首次加载*/
-    getData(itemStart, itemSize);
+    getData(0, 4);
     /*监听加载更多*/
-    $(document).on('click', '#more', function () {
-        counter++;
-        itemStart = counter * itemSize;
-
-        getData(itemStart, itemSize);
-    });
 
 }
 
+$(document).on('click', '#more', function () {
+    var itemStart = 0; /*offset*/
+    var itemSize = 4; /*size*/
+    console.log(counter);
+    counter++;
+    itemStart = counter * itemSize;
+    getData(itemStart, itemSize);
+});
+
 function getData(offset, size) {
     var products = document.getElementsByClassName("product");
-    var sum = products.length;
+    var sum = 12;
 
-    if (offset != 0) {
-        var elem = document.getElementById('more');
-        elem.parentNode.removeChild(elem);
-    }
+    // if (offset != 0) {
+    //     var elem = document.getElementById('more');
+    //     elem.parentNode.removeChild(elem);
+    // }
     /****业务逻辑块：实现拼接html内容并append到页面*********/
 
     //console.log(offset , size, sum);
@@ -397,13 +402,12 @@ function getData(offset, size) {
         // products[i].classList.remove("hidden");
         products[i].style.display = "block";
     }
-    last_id = offset + size - 1;
-    $('#' + last_id).after(' <div class="site-btn mb-5" id="more"><a href="#" class="skill-btn" id="more-a">加载更多</a></div>');
+    // last_id = offset + size - 1;
+    // $('#' + last_id).after(' ');
 
     /*隐藏more按钮*/
 
     if ((offset + size) >= sum) {
-
         $("#more-a").text('推荐完毕');
     }
 
