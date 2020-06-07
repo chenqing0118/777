@@ -5,7 +5,7 @@ $(function () {
     selectImgTake.init('main_uses',3,true);
     selectImgTake.init('game_type',1,true);
     selectImgTake.init('ordinary_trait',4);
-    selectImgTake.init('game_example',8);
+    selectImgTake.init('game_example',8,true);
     selectImgTake.init('game_vision',1,true);
     selectImgTake.init('produce_type',3,true);
     selectImgTake.init('ordinary_trait_1',3);
