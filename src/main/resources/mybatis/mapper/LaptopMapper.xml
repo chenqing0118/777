@@ -14,16 +14,16 @@
                 and gpuMark &gt; 1100
             </if>
             <if test="gpulevel == 2">
-                and gpuMark &gt; 2900
+                and gpuMark &gt; 2800
             </if>
             <if test="gpulevel == 3">
                 and gpuMark &gt; 3400
             </if>
             <if test="gpulevel == 4">
-                and gpuMark &gt; 5000
+                and gpuMark &gt; 4800
             </if>
             <if test="gpulevel &gt;= 5">
-                and gpuMark &gt; 7000
+                and gpuMark &gt; 6000
             </if>
             <if test="gpulevel &gt; 1">
                 and multiMark &gt; 1180
@@ -49,7 +49,8 @@
     </select>
 
     <select id="getRecommended2" resultType="Laptop">
-        select id,name,type,price,releaseTime,cpu,cores,threads,cpuClock,cpuTurbo,singleMark,multiMark,cpuOutdated,gpu,gpuMark,gpuOutdated,
+        select
+        id,name,type,price,releaseTime,cpu,cores,threads,cpuClock,cpuTurbo,singleMark,multiMark,cpuOutdated,gpu,gpuMark,gpuOutdated,
         memorySize,memoryGen,memoryRate,storage,screenSize,
         resolution,refreshRate,gamut,duration,usb,typec,thunderbolt,video,rj45,thickness,weight,pictures
         from laptop_view

@@ -125,7 +125,7 @@ public class FunctionController {
             }
 
         }
-        if (weight_type != null && weight_type.contains("1")) {
+        if (weight_type.contains("2")) {
             weight_filter_on = true;
         }
 
